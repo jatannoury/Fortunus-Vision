@@ -22,7 +22,16 @@ export default function App() {
           <Text style={styles.title}>Register</Text>
         </View>
         <View style={styles.form}>
-          <TextInput placeholder="E-mail" style={styles.input} />
+          <TextInput
+            placeholderTextColor="#5B2E0F"
+            placeholder="E-mail"
+            style={styles.input}
+          />
+          <TextInput
+            placeholderTextColor="#5B2E0F"
+            placeholder="Username"
+            style={styles.input}
+          />
         </View>
       </ImageBackground>
     </View>
@@ -46,12 +55,16 @@ const styles = StyleSheet.create({
   form: {
     justifyContent: "center",
     marginHorizontal: 30,
+    marginTop: 80,
   },
   input: {
     borderBottomColor: "#5B2E0F",
     borderBottomWidth: 3,
     textAlign: "center",
-    color: "#5B2E0F",
+    paddingBottom: 10,
+    marginTop: 50,
     fontWeight: "bold",
+    fontSize: 20,
+    color: "#5B2E0F",
   },
 });
