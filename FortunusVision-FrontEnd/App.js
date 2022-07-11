@@ -12,6 +12,7 @@ import { Feather } from "@expo/vector-icons";
 import Title from "./components/Title";
 import SignIn from "./screens/SignIn";
 import Input from "./components/Input";
+import Button from "./components/Button";
 
 export default function App() {
   return (
@@ -29,21 +30,12 @@ export default function App() {
           <Input label={"Password"} />
           <Input label={"Confirm Password"} />
         </View>
-        <View style={styles.buttonOuter}>
-          <Pressable
-            style={styles.buttonInner}
-            android_ripple={{ color: Colors.primary600 }}
-          >
-            <Text style={styles.text}>
-              Register{"  "}
-              <Feather
-                name="arrow-right-circle"
-                size={20}
-                style={styles.icon}
-              />
-            </Text>
-          </Pressable>
-        </View>
+        <Button
+          label={"Register"}
+          icon={
+            <Feather name="arrow-right-circle" size={20} style={styles.icon} />
+          }
+        />
       </ImageBackground>
     </View>
   );
@@ -63,26 +55,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
 
-  buttonOuter: {
-    marginHorizontal: 30,
-    marginTop: 80,
-    borderRadius: 30,
-    overflow: "hidden",
-  },
-  buttonInner: {
-    borderRadius: 30,
-    backgroundColor: Colors.primary500,
-    height: 56,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    overflow: "hidden",
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#201B26",
-    textAlign: "center",
-  },
   icon: {
     color: "#ccc",
     marginTop: 50,
