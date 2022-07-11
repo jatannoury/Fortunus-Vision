@@ -13,6 +13,7 @@ import Title from "./components/Title";
 import SignIn from "./screens/SignIn";
 import Input from "./components/Input";
 import Button from "./components/Button";
+import SignUpForm from "./components/SignUpForm";
 
 export default function App() {
   return (
@@ -24,12 +25,7 @@ export default function App() {
       >
         <StatusBar backgroundColor={Colors.primary500} />
         <Title label="Register" />
-        <View style={styles.form}>
-          <Input label={"E-mail"} />
-          <Input label={"Username"} />
-          <Input label={"Password"} />
-          <Input label={"Confirm Password"} />
-        </View>
+        <SignUpForm />
         <Button
           label={"Register"}
           icon={
@@ -48,13 +44,6 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
   },
-
-  form: {
-    justifyContent: "center",
-    marginHorizontal: 30,
-    marginTop: 30,
-  },
-
   icon: {
     color: "#ccc",
     marginTop: 50,
