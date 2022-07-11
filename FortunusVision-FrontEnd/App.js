@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Colors from "./constants/colors";
 import { Feather } from "@expo/vector-icons";
+import Title from "./components/Title";
 import SignIn from "./screens/SignIn";
 
 export default function App() {
@@ -20,9 +21,7 @@ export default function App() {
         style={styles.image}
       >
         <StatusBar backgroundColor={Colors.primary500} />
-        <View>
-          <Text style={styles.title}>Register</Text>
-        </View>
+        <Title label="Register" />
         <View style={styles.form}>
           <Text style={styles.name}>E-mail</Text>
           <TextInput
@@ -85,13 +84,7 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
   },
-  title: {
-    fontSize: 30,
-    fontWeight: "bold",
-    textAlign: "center",
-    paddingTop: 100,
-    color: Colors.primary500,
-  },
+
   form: {
     justifyContent: "center",
     marginHorizontal: 30,
