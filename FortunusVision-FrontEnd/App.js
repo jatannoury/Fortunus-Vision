@@ -11,6 +11,7 @@ import Colors from "./constants/colors";
 import { Feather } from "@expo/vector-icons";
 import Title from "./components/Title";
 import SignIn from "./screens/SignIn";
+import Input from "./components/Input";
 
 export default function App() {
   return (
@@ -23,34 +24,10 @@ export default function App() {
         <StatusBar backgroundColor={Colors.primary500} />
         <Title label="Register" />
         <View style={styles.form}>
-          <Text style={styles.name}>E-mail</Text>
-          <TextInput
-            placeholderTextColor={Colors.primary600}
-            placeholder="E-mail"
-            style={styles.input}
-          />
-          <Text style={styles.name}>Username</Text>
-          <TextInput
-            placeholderTextColor={Colors.primary600}
-            placeholder="Username"
-            style={styles.input}
-          />
-          <Text style={styles.name}>Password</Text>
-          <TextInput
-            placeholderTextColor={Colors.primary600}
-            placeholder="Password"
-            style={styles.input}
-            textContentType="password"
-            secureTextEntry={true}
-          />
-          <Text style={styles.name}>Confirm Password</Text>
-          <TextInput
-            placeholderTextColor={Colors.primary600}
-            placeholder="Confirm Password"
-            style={styles.input}
-            textContentType="password"
-            secureTextEntry={true}
-          />
+          <Input label={"E-mail"} />
+          <Input label={"Username"} />
+          <Input label={"Password"} />
+          <Input label={"Confirm Password"} />
         </View>
         <View style={styles.buttonOuter}>
           <Pressable
@@ -73,11 +50,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  name: {
-    marginTop: 50,
-    fontSize: 20,
-    color: Colors.primary500,
-  },
   container: {
     flex: 1,
   },
@@ -90,11 +62,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     marginTop: 30,
   },
-  input: {
-    borderBottomColor: Colors.primary500,
-    borderBottomWidth: 3,
-    color: Colors.primary600,
-  },
+
   buttonOuter: {
     marginHorizontal: 30,
     marginTop: 80,
