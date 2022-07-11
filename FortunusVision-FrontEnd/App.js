@@ -23,25 +23,29 @@ export default function App() {
           <Text style={styles.title}>Register</Text>
         </View>
         <View style={styles.form}>
+          <Text style={styles.name}>E-mail</Text>
           <TextInput
-            placeholderTextColor="#5B2E0F"
+            placeholderTextColor="#ba7f56"
             placeholder="E-mail"
             style={styles.input}
           />
+          <Text style={styles.name}>Username</Text>
           <TextInput
-            placeholderTextColor="#5B2E0F"
+            placeholderTextColor="#ba7f56"
             placeholder="Username"
             style={styles.input}
           />
+          <Text style={styles.name}>Password</Text>
           <TextInput
-            placeholderTextColor="#5B2E0F"
+            placeholderTextColor="#ba7f56"
             placeholder="Password"
             style={styles.input}
             textContentType="password"
             secureTextEntry={true}
           />
+          <Text style={styles.name}>Confirm Password</Text>
           <TextInput
-            placeholderTextColor="#5B2E0F"
+            placeholderTextColor="#ba7f56"
             placeholder="Confirm Password"
             style={styles.input}
             textContentType="password"
@@ -69,6 +73,11 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  name: {
+    marginTop: 50,
+    fontSize: 20,
+    color: "#5B2E0F",
+  },
   container: {
     flex: 1,
   },
@@ -90,16 +99,11 @@ const styles = StyleSheet.create({
   input: {
     borderBottomColor: "#5B2E0F",
     borderBottomWidth: 3,
-    textAlign: "center",
-    paddingBottom: 10,
-    marginTop: 50,
-    fontWeight: "bold",
-    fontSize: 20,
     color: "#5B2E0F",
   },
   buttonOuter: {
     marginHorizontal: 30,
-    marginTop: 100,
+    marginTop: 80,
     borderRadius: 30,
     overflow: "hidden",
   },
@@ -115,7 +119,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     color: "#201B26",
-
     textAlign: "center",
   },
   icon: {
