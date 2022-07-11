@@ -32,6 +32,11 @@ export default function App() {
             placeholder="Username"
             style={styles.input}
           />
+          <TextInput
+            placeholderTextColor="#5B2E0F"
+            placeholder="Password"
+            style={styles.input}
+          />
         </View>
       </ImageBackground>
     </View>
