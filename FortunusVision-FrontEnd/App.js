@@ -5,8 +5,9 @@ import {
   View,
   ImageBackground,
   TextInput,
+  Pressable,
 } from "react-native";
-
+import { Feather } from "@expo/vector-icons";
 import SignIn from "./screens/SignIn";
 
 export default function App() {
@@ -36,12 +37,31 @@ export default function App() {
             placeholderTextColor="#5B2E0F"
             placeholder="Password"
             style={styles.input}
+            textContentType="password"
+            secureTextEntry={true}
           />
           <TextInput
             placeholderTextColor="#5B2E0F"
             placeholder="Confirm Password"
             style={styles.input}
+            textContentType="password"
+            secureTextEntry={true}
           />
+        </View>
+        <View style={styles.buttonOuter}>
+          <Pressable
+            style={styles.buttonInner}
+            android_ripple={{ color: "#ba7f56" }}
+          >
+            <Text style={styles.text}>
+              Register{" "}
+              <Feather
+                name="arrow-right-circle"
+                size={20}
+                style={styles.icon}
+              />
+            </Text>
+          </Pressable>
         </View>
       </ImageBackground>
     </View>
@@ -65,7 +85,7 @@ const styles = StyleSheet.create({
   form: {
     justifyContent: "center",
     marginHorizontal: 30,
-    marginTop: 80,
+    marginTop: 30,
   },
   input: {
     borderBottomColor: "#5B2E0F",
@@ -76,5 +96,30 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     color: "#5B2E0F",
+  },
+  buttonOuter: {
+    marginHorizontal: 30,
+    marginTop: 100,
+    borderRadius: 30,
+    overflow: "hidden",
+  },
+  buttonInner: {
+    borderRadius: 30,
+    backgroundColor: "#5B2E0F",
+    height: 56,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    overflow: "hidden",
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#201B26",
+
+    textAlign: "center",
+  },
+  icon: {
+    color: "white",
+    marginTop: 50,
   },
 });
