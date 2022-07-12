@@ -11,7 +11,7 @@ import Title from "../components/Title";
 import SignInForm from "../components/SignInForm";
 import Button from "../components/Button";
 import { Feather } from "@expo/vector-icons";
-
+import { Zocial } from "@expo/vector-icons";
 const SignInScreen = () => {
   return (
     <View style={styles.container}>
@@ -30,6 +30,11 @@ const SignInScreen = () => {
           }
           // onPress={submitHandler}
         />
+        <Button
+          label={"Facebook"}
+          facebook={styles.facebook}
+          FbIcon={<Zocial name="facebook" size={22} />}
+        />
       </ImageBackground>
     </View>
   );
@@ -46,5 +51,13 @@ const styles = StyleSheet.create({
   icon: {
     color: "#ccc",
     marginTop: 50,
+  },
+  facebook: {
+    backgroundColor: "#3C4EB2",
+    width: "50%",
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 0,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 0,
   },
 });
