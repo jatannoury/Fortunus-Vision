@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import { View, Text, ImageBackground, StyleSheet, Image } from "react-native";
 import Colors from "../constants/colors";
 const LandingScreen = () => {
   return (
@@ -15,14 +15,23 @@ const LandingScreen = () => {
             source={require("../assets/testing3.png")}
             style={styles.card}
           >
-            <View style={styles.textContainer}>
-              <Text style={styles.text}>Jamil</Text>
+            <View>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>Jamil</Text>
+              </View>
+              <Text style={styles.infoContainer}>10 years of experience</Text>
+              <Text style={styles.infoContainerOne}>85 Years Old</Text>
+              <Text style={styles.infoContainerTwo}>
+                4.5 <Ionicons name="star" />
+              </Text>
             </View>
-            <Text style={styles.infoContainer}>10 years of experience</Text>
-            <Text style={styles.infoContainerOne}>85 Years Old</Text>
-            <Text style={styles.infoContainerTwo}>
-              4.5 <Ionicons name="star" />
-            </Text>
+            <View>
+              <Image
+                source={require("../assets/Container.jpg")}
+                style={styles.priceContainer}
+              ></Image>
+              <Text style={[styles.price]}>100$</Text>
+            </View>
           </ImageBackground>
         </View>
       </ImageBackground>
@@ -87,6 +96,20 @@ const styles = StyleSheet.create({
     top: 175,
     left: 435,
     fontSize: 15,
+    color: "white",
+  },
+  priceContainer: {
+    position: "absolute",
+    top: 60,
+    left: 640,
+    flex: 1,
+  },
+  price: {
+    position: "absolute",
+    top: 70,
+    left: 650,
+    fontSize: 25,
+    fontWeight: "bold",
     color: "white",
   },
 });
