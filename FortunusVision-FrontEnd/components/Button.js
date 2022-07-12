@@ -2,9 +2,15 @@ import React from "react";
 import { View, Pressable, Text, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 import { Feather } from "@expo/vector-icons";
-const Button = ({ label, icon, onPress, facebook, FbIcon }) => {
+const Button = ({ label, icon, onPress, facebook, FbIcon, style }) => {
   return (
-    <View style={styles.buttonOuter}>
+    <View
+      style={[
+        styles.buttonOuter,
+        facebook && { width: "50%", marginTop: 20 },
+        style,
+      ]}
+    >
       <Pressable
         style={[styles.buttonInner, facebook]}
         android_ripple={{ color: Colors.primary600 }}
@@ -25,9 +31,8 @@ const Button = ({ label, icon, onPress, facebook, FbIcon }) => {
 export default Button;
 const styles = StyleSheet.create({
   buttonOuter: {
-    marginHorizontal: 30,
     marginTop: 80,
-    borderRadius: 30,
+    // borderRadius: 20,
     overflow: "hidden",
   },
   buttonInner: {

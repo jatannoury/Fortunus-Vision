@@ -12,6 +12,7 @@ import SignInForm from "../components/SignInForm";
 import Button from "../components/Button";
 import { Feather } from "@expo/vector-icons";
 import { Zocial } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 const SignInScreen = () => {
   return (
     <View style={styles.container}>
@@ -28,13 +29,23 @@ const SignInScreen = () => {
           icon={
             <Feather name="arrow-right-circle" size={20} style={styles.icon} />
           }
-          // onPress={submitHandler}
+          style={{ marginHorizontal: 20, marginTop: 150 }}
         />
-        <Button
-          label={"Facebook"}
-          facebook={styles.facebook}
-          FbIcon={<Zocial name="facebook" size={22} />}
-        />
+        <View style={styles.socialMedia}>
+          <Button
+            label={"Facebook"}
+            facebook={styles.facebook}
+            FbIcon={<Zocial name="facebook" size={22} />}
+            style={{ borderBottomLeftRadius: 30, borderTopLeftRadius: 30 }}
+          />
+
+          <Button
+            label={"Google+"}
+            facebook={styles.google}
+            FbIcon={<FontAwesome5 name="google" size={22} />}
+            style={{ borderTopRightRadius: 30, borderBottomRightRadius: 30 }}
+          />
+        </View>
       </ImageBackground>
     </View>
   );
@@ -54,10 +65,20 @@ const styles = StyleSheet.create({
   },
   facebook: {
     backgroundColor: "#3C4EB2",
-    width: "50%",
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 0,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 0,
+  },
+  google: {
+    backgroundColor: "#E2412C",
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 30,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 30,
+  },
+  socialMedia: {
+    flexDirection: "row",
+    marginHorizontal: 20,
   },
 });
