@@ -65,6 +65,13 @@ const ExpertScreen = ({ navigation, route }) => {
             name={"chatbox-outline"}
           />
         </View>
+        <ActionButton
+          icon={
+            <Ionicons name="calendar-outline" size={80} style={styles.book} />
+          }
+          style={styles.box}
+          coins={"Book An Appointment"}
+        />
       </View>
     </ImageBackground>
   );
@@ -72,6 +79,13 @@ const ExpertScreen = ({ navigation, route }) => {
 
 export default ExpertScreen;
 const styles = StyleSheet.create({
+  box: {
+    width: 280,
+    height: 122,
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   image: {
     flex: 1,
   },

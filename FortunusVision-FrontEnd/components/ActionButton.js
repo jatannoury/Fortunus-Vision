@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     marginTop: 10,
-    color: "white",
+    color: Colors.primary600,
+    fontWeight: "bold",
     fontSize: 20,
   },
   imgContainer: {
