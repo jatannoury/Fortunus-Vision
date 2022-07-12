@@ -7,7 +7,7 @@ import LandingScreen from "./screens/LandingScreen";
 import Colors from "./constants/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ExpertScreen from "./screens/ExpertScreen";
-
+import AppointmentScreen from "./screens/AppointmentScreen";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
@@ -31,6 +31,20 @@ export default function App() {
             drawerIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="crystal-ball"
+                color={color}
+                size={30}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Appointment"
+          component={AppointmentScreen}
+          options={{
+            title: "Booked Appointments",
+            drawerIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="book-clock"
                 color={color}
                 size={30}
               />
@@ -70,6 +84,14 @@ export default function App() {
           component={DrawerNavigator}
           options={{
             title: "Landing Page",
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Appointments"
+          component={DrawerNavigator}
+          options={{
+            title: "Appointments",
             headerShown: false,
           }}
         />
