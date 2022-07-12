@@ -49,6 +49,14 @@ const ExpertScreen = ({ navigation, route }) => {
           coins={phonePrice}
           name={"phone-outline"}
         />
+        <ActionButton
+          icon={
+            <Ionicons name="chatbox-outline" size={80} style={styles.message} />
+          }
+          style={styles.rightContainer}
+          coins={price}
+          name={"chatbox-outline"}
+        />
       </View>
     </ImageBackground>
   );
@@ -93,6 +101,11 @@ const styles = StyleSheet.create({
   },
   leftContainer: {
     marginRight: 34,
+    paddingLeft: 10,
+    paddingTop: 5,
+  },
+  rightContainer: {
+    marginLeft: 34,
     paddingLeft: 10,
     paddingTop: 5,
   },
