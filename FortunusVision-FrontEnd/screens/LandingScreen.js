@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
@@ -18,6 +19,7 @@ const LandingScreen = () => {
               <Text style={styles.text}>Jamil</Text>
             </View>
             <Text style={styles.infoContainer}>10 years of experience</Text>
+            <Text style={styles.infoContainerOne}>85 Years Old</Text>
           </ImageBackground>
         </View>
       </ImageBackground>
@@ -66,6 +68,13 @@ const styles = StyleSheet.create({
   infoContainer: {
     position: "absolute",
     top: 135,
+    left: 435,
+    fontSize: 15,
+    color: "white",
+  },
+  infoContainerOne: {
+    position: "absolute",
+    top: 155,
     left: 435,
     fontSize: 15,
     color: "white",
