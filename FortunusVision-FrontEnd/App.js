@@ -23,7 +23,7 @@ export default function App() {
         resizeMode="cover"
         style={styles.image}
       >
-        <StatusBar backgroundColor={Colors.primary500} />
+        <StatusBar style="light" backgroundColor={Colors.primary500} />
         <Title label="Register" />
         <SignUpForm />
         <Button
