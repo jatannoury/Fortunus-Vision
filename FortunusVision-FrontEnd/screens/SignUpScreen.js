@@ -12,7 +12,8 @@ import SignUpForm from "../components/SignUpForm";
 import Button from "../components/Button";
 import Colors from "../constants/colors";
 import { Feather } from "@expo/vector-icons";
-const SignUpScreen = () => {
+
+const SignUpScreen = ({ navigation }) => {
   const [switchScreen, setSwitch] = useState(false);
 
   const [inputVals, setInputVals] = useState({
