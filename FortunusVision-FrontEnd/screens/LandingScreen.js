@@ -23,6 +23,8 @@ const LandingScreen = ({ navigation }) => {
       age: "35",
       rating: "4.5",
       phonePrice: "50",
+      quote:
+        "She doesn't think it's a good idea to know the future, because you can hardly ever change it, so why suffer twice?",
     },
     {
       name: "Toni",
@@ -31,6 +33,8 @@ const LandingScreen = ({ navigation }) => {
       age: "22",
       rating: "3.5",
       phonePrice: "8",
+      quote:
+        "She doesn't think it's a good idea to know the future, because you can hardly ever change it, so why suffer twice?",
     },
     {
       name: "Joseph",
@@ -39,6 +43,8 @@ const LandingScreen = ({ navigation }) => {
       age: "22",
       rating: "5.0",
       phonePrice: "7",
+      quote:
+        "Fear is dangerous, not the tarot. The tarot represents the spectrum of the human condition, the good, the evil, the light, and the dark. Do not fear the darker aspects of the human condition. Understand them. ",
     },
     {
       name: "Stephanelle",
@@ -47,6 +53,8 @@ const LandingScreen = ({ navigation }) => {
       age: "25",
       rating: "2.5",
       phonePrice: "23",
+      quote:
+        "Fear is dangerous, not the tarot. The tarot represents the spectrum of the human condition, the good, the evil, the light, and the dark. Do not fear the darker aspects of the human condition. Understand them. ",
     },
     {
       name: "Hamz",
@@ -55,6 +63,8 @@ const LandingScreen = ({ navigation }) => {
       age: "32",
       rating: "4.5",
       phonePrice: "120",
+      quote:
+        "The distance between an honest Christian mystic and a fortune-teller is sometimes less than half a whisper. Less than a pot of tea or the space between two book covers.",
     },
     {
       name: "Mo Tahan",
@@ -63,6 +73,8 @@ const LandingScreen = ({ navigation }) => {
       age: "35",
       rating: "4.5",
       phonePrice: "50",
+      quote:
+        "I have always believed, and I still believe, that whatever good or bad fortune may come our way we can always give it meaning and transform it into something of value.",
     },
   ];
   function renderCardItem(itemData) {
@@ -74,6 +86,8 @@ const LandingScreen = ({ navigation }) => {
       rating: itemData.rating,
       phonePrice: itemData.phonePrice,
       price: itemData.price,
+      quote:
+        "I have always believed, and I still believe, that whatever good or bad fortune may come our way we can always give it meaning and transform it into something of value.",
     };
     return (
       <View style={styles.buttonOuter}>
