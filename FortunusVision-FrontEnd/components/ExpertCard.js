@@ -3,7 +3,7 @@ import React from "react";
 import { View, Text, ImageBackground, StyleSheet, Image } from "react-native";
 import EmptyCard from "../components/EmptyCard";
 import Colors from "../constants/colors";
-const ExpertCard = ({ name, years, age, rating, price }) => {
+const ExpertCard = ({ name, years, age, rating, price, phonePrice }) => {
   return (
     <EmptyCard>
       <View>
@@ -21,7 +21,28 @@ const ExpertCard = ({ name, years, age, rating, price }) => {
           source={require("../assets/Container.jpg")}
           style={styles.priceContainer}
         ></Image>
-        <Text style={[styles.price]}>{price}$</Text>
+        <Text
+          style={[
+            styles.price,
+            price.length == 2 && { left: 665 },
+            price.length == 1 && { left: 670 },
+          ]}
+        >
+          {price}$
+        </Text>
+        <Image
+          source={require("../assets/Container.jpg")}
+          style={styles.PhonepriceContainer}
+        ></Image>
+        <Text
+          style={[
+            styles.phonePrice,
+            phonePrice.length == 2 && { left: 660 },
+            phonePrice.length == 1 && { left: 670 },
+          ]}
+        >
+          {phonePrice}$
+        </Text>
       </View>
     </EmptyCard>
   );
@@ -73,6 +94,20 @@ const styles = StyleSheet.create({
   price: {
     position: "absolute",
     top: 72,
+    left: 652,
+    fontSize: 23,
+    fontWeight: "bold",
+    color: "white",
+  },
+  PhonepriceContainer: {
+    position: "absolute",
+    top: 120,
+    left: 640,
+    flex: 1,
+  },
+  phonePrice: {
+    position: "absolute",
+    top: 135,
     left: 652,
     fontSize: 23,
     fontWeight: "bold",
