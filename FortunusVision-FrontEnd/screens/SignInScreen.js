@@ -7,7 +7,7 @@ import {
   StatusBar,
 } from "react-native";
 import Colors from "../constants/colors";
-
+import Title from "../components/Title";
 const SignInScreen = () => {
   return (
     <View style={styles.container}>
@@ -17,6 +17,7 @@ const SignInScreen = () => {
         style={styles.image}
       >
         <StatusBar style="light" backgroundColor={Colors.primary500} />
+        <Title label="Fortunus Vision" style={{ fontSize: 50 }} />
       </ImageBackground>
     </View>
   );
