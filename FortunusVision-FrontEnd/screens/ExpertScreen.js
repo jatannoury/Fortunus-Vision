@@ -43,20 +43,28 @@ const ExpertScreen = ({ navigation, route }) => {
           icon={<Ionicons name="star" size={22} />}
         />
         <Title label={quote} style={styles.quote} />
-        <ActionButton
-          icon={<Ionicons name="call-outline" size={80} style={styles.phone} />}
-          style={styles.leftContainer}
-          coins={phonePrice}
-          name={"phone-outline"}
-        />
-        <ActionButton
-          icon={
-            <Ionicons name="chatbox-outline" size={80} style={styles.message} />
-          }
-          style={styles.rightContainer}
-          coins={price}
-          name={"chatbox-outline"}
-        />
+        <View style={styles.contain}>
+          <ActionButton
+            icon={
+              <Ionicons name="call-outline" size={80} style={styles.phone} />
+            }
+            style={styles.leftContainer}
+            coins={phonePrice}
+            name={"phone-outline"}
+          />
+          <ActionButton
+            icon={
+              <Ionicons
+                name="chatbox-outline"
+                size={80}
+                style={styles.message}
+              />
+            }
+            style={styles.rightContainer}
+            coins={price}
+            name={"chatbox-outline"}
+          />
+        </View>
       </View>
     </ImageBackground>
   );
@@ -100,13 +108,19 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   leftContainer: {
-    marginRight: 34,
+    marginRight: 20,
     paddingLeft: 10,
     paddingTop: 5,
   },
   rightContainer: {
-    marginLeft: 34,
+    marginLeft: 20,
     paddingLeft: 10,
     paddingTop: 5,
+  },
+  contain: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 10,
   },
 });
