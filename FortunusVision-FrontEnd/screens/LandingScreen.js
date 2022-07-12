@@ -20,6 +20,9 @@ const LandingScreen = () => {
             </View>
             <Text style={styles.infoContainer}>10 years of experience</Text>
             <Text style={styles.infoContainerOne}>85 Years Old</Text>
+            <Text style={styles.infoContainerTwo}>
+              4.5 <Ionicons name="star" />
+            </Text>
           </ImageBackground>
         </View>
       </ImageBackground>
@@ -75,6 +78,13 @@ const styles = StyleSheet.create({
   infoContainerOne: {
     position: "absolute",
     top: 155,
+    left: 435,
+    fontSize: 15,
+    color: "white",
+  },
+  infoContainerTwo: {
+    position: "absolute",
+    top: 175,
     left: 435,
     fontSize: 15,
     color: "white",
