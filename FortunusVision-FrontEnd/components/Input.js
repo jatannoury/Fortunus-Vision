@@ -1,14 +1,15 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import Colors from "../constants/colors";
-const Input = ({ label }) => {
+const Input = ({ label, onChangeText, invalid }) => {
   return (
     <View>
-      <Text style={styles.name}>{label}</Text>
+      <Text style={[styles.name, invalid && styles.invalidLabel]}>{label}</Text>
       <TextInput
         placeholderTextColor={Colors.primary600}
         placeholder={`${label}`}
         style={styles.input}
+        onChangeText={onChangeText}
       />
     </View>
   );

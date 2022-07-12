@@ -2,12 +2,13 @@ import React from "react";
 import { View, Pressable, Text, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 import { Feather } from "@expo/vector-icons";
-const Button = ({ label, icon }) => {
+const Button = ({ label, icon, onPress }) => {
   return (
     <View style={styles.buttonOuter}>
       <Pressable
         style={styles.buttonInner}
         android_ripple={{ color: Colors.primary600 }}
+        onPress={onPress}
       >
         <Text style={styles.text}>
           {label}
