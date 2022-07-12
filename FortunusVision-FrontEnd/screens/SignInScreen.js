@@ -9,6 +9,9 @@ import {
 import Colors from "../constants/colors";
 import Title from "../components/Title";
 import SignInForm from "../components/SignInForm";
+import Button from "../components/Button";
+import { Feather } from "@expo/vector-icons";
+
 const SignInScreen = () => {
   return (
     <View style={styles.container}>
@@ -20,6 +23,13 @@ const SignInScreen = () => {
         <StatusBar style="light" backgroundColor={Colors.primary500} />
         <Title label="Fortunus Vision" style={{ fontSize: 50 }} />
         <SignInForm />
+        <Button
+          label={"Login Now"}
+          icon={
+            <Feather name="arrow-right-circle" size={20} style={styles.icon} />
+          }
+          // onPress={submitHandler}
+        />
       </ImageBackground>
     </View>
   );
@@ -32,5 +42,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+  },
+  icon: {
+    color: "#ccc",
+    marginTop: 50,
   },
 });
