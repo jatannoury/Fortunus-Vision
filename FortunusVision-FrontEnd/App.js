@@ -1,5 +1,27 @@
 import SignUpScreen from "./screens/SignUpScreen";
-
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Colors from "./constants/colors";
+const Stack = createNativeStackNavigator();
 export default function App() {
-  return <SignUpScreen />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: Colors.primary500 },
+          headerTintColor: Colors.primary500,
+          contentStyle: { backgroundColor: "#300536" },
+        }}
+      >
+        <Stack.Screen
+          name="SignUP"
+          component={SignUpScreen}
+          options={{
+            title: "Sign Up",
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
