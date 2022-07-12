@@ -43,6 +43,12 @@ const ExpertScreen = ({ navigation, route }) => {
           icon={<Ionicons name="star" size={22} />}
         />
         <Title label={quote} style={styles.quote} />
+        <ActionButton
+          icon={<Ionicons name="call-outline" size={80} style={styles.phone} />}
+          style={styles.leftContainer}
+          coins={phonePrice}
+          name={"phone-outline"}
+        />
       </View>
     </ImageBackground>
   );
@@ -84,5 +90,10 @@ const styles = StyleSheet.create({
     color: Colors.primary600,
     marginHorizontal: 20,
     paddingTop: 15,
+  },
+  leftContainer: {
+    marginRight: 34,
+    paddingLeft: 10,
+    paddingTop: 5,
   },
 });

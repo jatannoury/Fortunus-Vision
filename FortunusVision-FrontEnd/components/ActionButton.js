@@ -23,7 +23,7 @@ const ActionButton = ({ icon, style, coins, name }) => {
         ]}
       >
         <Pressable
-          android_ripple={{ color: "#640233" }}
+          android_ripple={{ color: Colors.primary600 }}
           style={[styles.img, style]}
         >
           {icon}
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginTop: 30,
     overflow: "hidden",
-    borderRadius: 100,
+    // borderRadius: 300,
   },
   img: {
     width: 105,
@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: "grey",
     overflow: "hidden",
-    backgroundColor: Colors.accent500,
+    backgroundColor: Colors.primary500,
   },
 });
