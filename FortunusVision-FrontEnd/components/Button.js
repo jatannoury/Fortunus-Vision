@@ -16,7 +16,7 @@ const Button = ({ label, icon, onPress, facebook, FbIcon, style }) => {
         android_ripple={{ color: Colors.primary600 }}
         onPress={onPress}
       >
-        <Text style={[styles.text, facebook && { color: "white" }]}>
+        <Text style={[styles.text]}>
           {FbIcon && FbIcon}
           {"  "}
           {label}
@@ -48,5 +48,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#201B26",
     textAlign: "center",
+    color: "white",
   },
 });

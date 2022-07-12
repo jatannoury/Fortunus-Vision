@@ -115,6 +115,7 @@ const SignUpScreen = ({ navigation }) => {
             <Feather name="arrow-right-circle" size={20} style={styles.icon} />
           }
           onPress={submitHandler}
+          style={{ marginHorizontal: 20 }}
         />
         <View>
           <Text style={styles.description}>

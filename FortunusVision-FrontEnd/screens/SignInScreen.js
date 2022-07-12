@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
   ImageBackground,
   StyleSheet,
   StatusBar,
+  Pressable,
 } from "react-native";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
@@ -13,7 +14,19 @@ import Button from "../components/Button";
 import { Feather } from "@expo/vector-icons";
 import { Zocial } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
-const SignInScreen = () => {
+import SignUpLink from "../components/SignUpLink";
+const SignInScreen = ({ navigation }) => {
+  function switchCurrent() {
+    navigation.navigate("SignUP");
+  }
+  const [switchScreen, setSwitch] = useState(false);
+  function switchScreenHandler(screen) {
+    setSwitch(true);
+    setTimeout(() => {
+      setSwitch(false);
+      navigation.navigate(screen);
+    }, 200);
+  }
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -30,6 +43,7 @@ const SignInScreen = () => {
             <Feather name="arrow-right-circle" size={20} style={styles.icon} />
           }
           style={{ marginHorizontal: 20, marginTop: 150 }}
+          onPress={switchScreenHandler.bind(this, "LandingPage")}
         />
         <View style={styles.socialMedia}>
           <Button
@@ -46,6 +60,10 @@ const SignInScreen = () => {
             style={{ borderTopRightRadius: 30, borderBottomRightRadius: 30 }}
           />
         </View>
+        <SignUpLink
+          onPress={switchScreenHandler.bind(this, "SignUP")}
+          switchScreen={switchScreen}
+        />
       </ImageBackground>
     </View>
   );
