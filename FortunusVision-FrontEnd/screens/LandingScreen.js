@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
+import Colors from "../constants/colors";
 import {
   View,
   Text,
@@ -10,8 +11,10 @@ import {
   Pressable,
 } from "react-native";
 import ExpertCard from "../components/ExpertCard";
-import Colors from "../constants/colors";
 const LandingScreen = ({ navigation }) => {
+  function navigate(props) {
+    navigation.navigate("ExpertPage", { props });
+  }
   let item = [
     {
       name: "Jamil",
@@ -73,9 +76,15 @@ const LandingScreen = ({ navigation }) => {
       price: itemData.price,
     };
     return (
-      <Pressable>
-        <ExpertCard navigation={navigation} {...CardItemProps} />
-      </Pressable>
+      <View style={styles.buttonOuter}>
+        <Pressable
+          android_ripple={{ color: "red" }}
+          style={styles.buttonInner}
+          onPress={navigate.bind(this, CardItemProps)}
+        >
+          <ExpertCard navigation={navigation} {...CardItemProps} />
+        </Pressable>
+      </View>
     );
   }
   return (
@@ -86,3 +95,11 @@ const LandingScreen = ({ navigation }) => {
 };
 
 export default LandingScreen;
+const styles = StyleSheet.create({
+  buttonInner: {
+    overflow: "hidden",
+  },
+  buttonOuter: {
+    overflow: "hidden",
+  },
+});

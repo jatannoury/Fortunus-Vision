@@ -5,6 +5,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import LandingScreen from "./screens/LandingScreen";
 import Colors from "./constants/colors";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import ExpertScreen from "./screens/ExpertScreen";
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
@@ -25,9 +28,13 @@ export default function App() {
           component={LandingScreen}
           options={{
             title: "Pick Your Expert",
-            // drawerIcon: ({ color, size }) => (
-            //   <MaterialCommunityIcons name="crystal-ball" color={color} size={30} />
-            // ),
+            drawerIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="crystal-ball"
+                color={color}
+                size={30}
+              />
+            ),
           }}
         />
       </Drawer.Navigator>
@@ -64,6 +71,13 @@ export default function App() {
           options={{
             title: "Landing Page",
             headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ExpertPage"
+          component={ExpertScreen}
+          options={{
+            title: "Expert Page",
           }}
         />
       </Stack.Navigator>
