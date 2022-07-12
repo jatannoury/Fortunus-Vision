@@ -7,7 +7,7 @@ const Button = ({ label, icon, onPress, facebook, FbIcon, style }) => {
     <View
       style={[
         styles.buttonOuter,
-        facebook && { width: "50%", marginTop: 20 },
+        facebook ? { width: "50%", marginTop: 20 } : { borderRadius: 30 },
         style,
       ]}
     >
@@ -32,7 +32,7 @@ export default Button;
 const styles = StyleSheet.create({
   buttonOuter: {
     marginTop: 80,
-    // borderRadius: 20,
+
     overflow: "hidden",
   },
   buttonInner: {
