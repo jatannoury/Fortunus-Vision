@@ -32,6 +32,12 @@ export default function App() {
             <Feather name="arrow-right-circle" size={20} style={styles.icon} />
           }
         />
+        <View>
+          <Text style={styles.description}>
+            By clicking register, I agree to your{" "}
+            <Text style={styles.word}>Terms</Text>
+          </Text>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -47,5 +53,16 @@ const styles = StyleSheet.create({
   icon: {
     color: "#ccc",
     marginTop: 50,
+  },
+  word: {
+    fontWeight: "900",
+    color: Colors.primary500,
+    textDecorationLine: "underline",
+    lineHeight: 50,
+  },
+  description: {
+    textAlign: "center",
+    fontWeight: "500",
+    color: Colors.primary500,
   },
 });
