@@ -1,12 +1,19 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, ImageBackground, StyleSheet } from "react-native";
 
 const ExpertScreen = () => {
   return (
-    <View>
-      <Text>YO YOOOOOOOO</Text>
-    </View>
+    <ImageBackground
+      source={require("../assets/backgroundImage.jpg")}
+      resizeMode="cover"
+      style={styles.image}
+    ></ImageBackground>
   );
 };
 
 export default ExpertScreen;
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+  },
+});
