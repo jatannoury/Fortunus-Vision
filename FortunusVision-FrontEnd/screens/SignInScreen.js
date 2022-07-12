@@ -24,6 +24,10 @@ const SignInScreen = () => {
             label={"E-mail"}
             // onChangeText={InputChangedHandlers.bind(this, "email")}
           />
+          <Input
+            label={"Password"}
+            // onChangeText={InputChangedHandlers.bind(this, "email")}
+          />
         </View>
       </ImageBackground>
     </View>
