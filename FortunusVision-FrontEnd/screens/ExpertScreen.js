@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Text, View, ImageBackground, StyleSheet } from "react-native";
-
+import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
+import Colors from "../constants/colors";
 const ExpertScreen = ({ navigation, route }) => {
   const params = route.params.props;
   const name = params.name;
@@ -19,13 +19,41 @@ const ExpertScreen = ({ navigation, route }) => {
       source={require("../assets/backgroundImage.jpg")}
       resizeMode="cover"
       style={styles.image}
-    ></ImageBackground>
+    >
+      <View style={styles.container}>
+        <View style={styles.imgContainer}>
+          <Image
+            style={styles.profileImage}
+            source={require("../assets/PERSONAL_PROFILE_PIC.jpg")}
+          />
+        </View>
+      </View>
+    </ImageBackground>
   );
 };
 
 export default ExpertScreen;
 const styles = StyleSheet.create({
   image: {
+    flex: 1,
+  },
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  imgContainer: {
+    width: 105,
+    height: 105,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: Colors.accent500,
+    overflow: "hidden",
+    marginRight: 20,
+    marginTop: 30,
+  },
+  profileImage: {
+    width: "100%",
+    height: "100%",
     flex: 1,
   },
 });
