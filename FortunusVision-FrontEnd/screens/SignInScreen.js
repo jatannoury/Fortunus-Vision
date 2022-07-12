@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
+import Input from "../components/Input";
 const SignInScreen = () => {
   return (
     <View style={styles.container}>
@@ -18,6 +19,12 @@ const SignInScreen = () => {
       >
         <StatusBar style="light" backgroundColor={Colors.primary500} />
         <Title label="Fortunus Vision" style={{ fontSize: 50 }} />
+        <View style={styles.form}>
+          <Input
+            label={"E-mail"}
+            // onChangeText={InputChangedHandlers.bind(this, "email")}
+          />
+        </View>
       </ImageBackground>
     </View>
   );
@@ -30,5 +37,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+  },
+  form: {
+    justifyContent: "center",
+    marginHorizontal: 30,
+    marginTop: 30,
   },
 });
