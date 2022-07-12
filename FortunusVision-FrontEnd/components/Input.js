@@ -8,7 +8,7 @@ const Input = ({ label, onChangeText, invalid }) => {
       <TextInput
         placeholderTextColor={Colors.primary600}
         placeholder={`${label}`}
-        style={styles.input}
+        style={[styles.input, invalid && styles.invalidInput]}
         onChangeText={onChangeText}
       />
     </View>
@@ -26,5 +26,16 @@ const styles = StyleSheet.create({
     marginTop: 50,
     fontSize: 20,
     color: Colors.primary500,
+  },
+  invalidLabel: {
+    color: "red",
+  },
+  invalidInput: {
+    borderBottomWidth: 1,
+    borderBottomColor: "red",
+
+    color: "red",
+    fontSize: 20,
+    marginTop: 10,
   },
 });

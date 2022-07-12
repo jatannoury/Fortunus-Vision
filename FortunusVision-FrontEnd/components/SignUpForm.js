@@ -11,17 +11,17 @@ const SignUpForm = ({ inputVals, InputChangedHandlers }) => {
       />
       <Input
         label={"Username"}
-        invalid={!inputVals.email.isValid}
+        invalid={!inputVals.username.isValid}
         onChangeText={InputChangedHandlers.bind(this, "username")}
       />
       <Input
         label={"Password"}
-        invalid={!inputVals.email.isValid}
+        invalid={!inputVals.password.isValid}
         onChangeText={InputChangedHandlers.bind(this, "password")}
       />
       <Input
         label={"Confirm Password"}
-        invalid={!inputVals.email.isValid}
+        invalid={!inputVals.password_confirmation.isValid}
         onChangeText={InputChangedHandlers.bind(this, "password_confirmation")}
       />
     </View>

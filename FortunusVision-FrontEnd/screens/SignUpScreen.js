@@ -157,4 +157,9 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: Colors.primary500,
   },
+  attention: {
+    color: "red",
+    textAlign: "center",
+    marginTop: 10,
+  },
 });
