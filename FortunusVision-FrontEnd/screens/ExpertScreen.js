@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
+import { Ionicons } from "@expo/vector-icons";
 const ExpertScreen = ({ navigation, route }) => {
   const params = route.params.props;
   const name = params.name;
@@ -33,7 +34,12 @@ const ExpertScreen = ({ navigation, route }) => {
           label={`${years} ${
             years < 2 ? `Year Of Experience` : `Years Of Experience`
           }`}
-          style={{ fontSize: 30, paddingTop: 10 }}
+          style={{ fontSize: 30, paddingTop: 10, paddingRight: 20 }}
+        />
+        <Title
+          label={rating}
+          style={{ fontSize: 25, paddingTop: 10, paddingRight: 20 }}
+          icon={<Ionicons name="star" size={22} />}
         />
       </View>
     </ImageBackground>
@@ -57,7 +63,7 @@ const styles = StyleSheet.create({
     borderColor: Colors.primary500,
     overflow: "hidden",
     marginRight: 20,
-    marginTop: 30,
+    marginTop: 20,
   },
   profileImage: {
     width: "100%",
@@ -67,6 +73,6 @@ const styles = StyleSheet.create({
   title: {
     paddingRight: 20,
     fontSize: 40,
-    paddingTop: 20,
+    paddingTop: 10,
   },
 });
