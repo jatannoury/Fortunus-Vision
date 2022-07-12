@@ -41,6 +41,7 @@ const ExpertScreen = ({ navigation, route }) => {
           style={{ fontSize: 25, paddingTop: 10, paddingRight: 20 }}
           icon={<Ionicons name="star" size={22} />}
         />
+        <Title label={quote} style={styles.quote} />
       </View>
     </ImageBackground>
   );
@@ -74,5 +75,13 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     fontSize: 40,
     paddingTop: 10,
+  },
+  quote: {
+    fontSize: 15,
+    fontStyle: "italic",
+    fontWeight: "normal",
+    color: Colors.primary600,
+    marginHorizontal: 20,
+    paddingTop: 15,
   },
 });
