@@ -29,6 +29,12 @@ const ExpertScreen = ({ navigation, route }) => {
           />
         </View>
         <Title label={name} style={styles.title} />
+        <Title
+          label={`${years} ${
+            years < 2 ? `Year Of Experience` : `Years Of Experience`
+          }`}
+          style={{ fontSize: 30, paddingTop: 10 }}
+        />
       </View>
     </ImageBackground>
   );
