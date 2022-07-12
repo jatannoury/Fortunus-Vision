@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 import Colors from "../constants/colors";
+import Title from "../components/Title";
 const ExpertScreen = ({ navigation, route }) => {
   const params = route.params.props;
   const name = params.name;
@@ -27,6 +28,7 @@ const ExpertScreen = ({ navigation, route }) => {
             source={require("../assets/PERSONAL_PROFILE_PIC.jpg")}
           />
         </View>
+        <Title label={name} style={styles.title} />
       </View>
     </ImageBackground>
   );
@@ -45,8 +47,8 @@ const styles = StyleSheet.create({
     width: 105,
     height: 105,
     borderRadius: 50,
-    borderWidth: 1,
-    borderColor: Colors.accent500,
+    borderWidth: 6,
+    borderColor: Colors.primary500,
     overflow: "hidden",
     marginRight: 20,
     marginTop: 30,
@@ -55,5 +57,10 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     flex: 1,
+  },
+  title: {
+    paddingRight: 20,
+    fontSize: 40,
+    paddingTop: 20,
   },
 });
