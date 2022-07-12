@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  ImageBackground,
+  StyleSheet,
+  StatusBar,
+} from "react-native";
+import Colors from "../constants/colors";
 
 const SignInScreen = () => {
   return (
@@ -9,7 +16,7 @@ const SignInScreen = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <Text>YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO</Text>
+        <StatusBar style="light" backgroundColor={Colors.primary500} />
       </ImageBackground>
     </View>
   );
