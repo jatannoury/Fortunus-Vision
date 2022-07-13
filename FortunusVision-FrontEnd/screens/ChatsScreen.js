@@ -9,7 +9,11 @@ const ChatsScreen = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <EmptyCard />
+        <EmptyCard>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>John Doe</Text>
+          </View>
+        </EmptyCard>
       </ImageBackground>
     </View>
   );
@@ -19,5 +23,19 @@ export default ChatsScreen;
 const styles = StyleSheet.create({
   image: {
     flex: 1,
+  },
+  text: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "white",
+    paddingBottom: 10,
+  },
+  textContainer: {
+    position: "absolute",
+    top: 80,
+    left: 435,
+    borderBottomColor: "white",
+    borderBottomWidth: 1,
+    width: 200,
   },
 });
