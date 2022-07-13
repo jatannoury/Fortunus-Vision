@@ -10,6 +10,7 @@ const RechargeCoinsScreen = () => {
     >
       <View style={styles.container}>
         <Text style={styles.coinsQuantity}>100 coins</Text>
+        <Text style={styles.coinsPrice}>10 $</Text>
       </View>
     </ImageBackground>
   );
@@ -29,5 +30,10 @@ const styles = StyleSheet.create({
   coinsQuantity: {
     color: "white",
     fontSize: 20,
+  },
+  coinsPrice: {
+    fontSize: 70,
+    fontWeight: "900",
+    color: "white",
   },
 });
