@@ -3,10 +3,17 @@ import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
 
 const RechargeCoinsScreen = () => {
   return (
-    <View>
-      <Text>LKJNCOPJNCPO</Text>
-    </View>
+    <ImageBackground
+      source={require("../assets/backgroundImage.jpg")}
+      resizeMode="cover"
+      style={styles.image}
+    ></ImageBackground>
   );
 };
 
 export default RechargeCoinsScreen;
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+  },
+});
