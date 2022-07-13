@@ -102,9 +102,15 @@ const LandingScreen = ({ navigation }) => {
     );
   }
   return (
-    <View>
-      <FlatList renderItem={renderCardItem} data={item} />
-    </View>
+    <ImageBackground
+      source={require("../assets/backgroundImage.jpg")}
+      resizeMode="cover"
+      style={styles.image}
+    >
+      <View>
+        <FlatList renderItem={renderCardItem} data={item} />
+      </View>
+    </ImageBackground>
   );
 };
 

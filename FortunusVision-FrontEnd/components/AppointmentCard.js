@@ -4,11 +4,7 @@ import EmptyCard from "../components/EmptyCard";
 import { MaterialIcons } from "@expo/vector-icons";
 const AppointmentCard = ({ name, price, waiting }) => {
   return (
-    <ImageBackground
-      source={require("../assets/backgroundImage.jpg")}
-      resizeMode="cover"
-      style={styles.image}
-    >
+    <View>
       <EmptyCard>
         <View style={styles.textContainer}>
           <Text style={styles.text}>{name}</Text>
@@ -20,14 +16,14 @@ const AppointmentCard = ({ name, price, waiting }) => {
           style={styles.icon}
         />
         <Text style={styles.phoneInfo}>10min Call</Text>
-        <Text style={styles.time}>Approx Waiting Time: {waiting} Minutes</Text>
+        <Text style={styles.time}>Approx Waiting Time:{waiting} Minutes</Text>
         <Image
           source={require("../assets/Container.jpg")}
           style={styles.priceContainer}
         ></Image>
         <Text
           style={[
-            styles.price,
+            styles.prices,
             price.length == 2 && { left: 665 },
             price.length == 1 && { left: 670 },
           ]}
@@ -35,7 +31,7 @@ const AppointmentCard = ({ name, price, waiting }) => {
           {price}$
         </Text>
       </EmptyCard>
-    </ImageBackground>
+    </View>
   );
 };
 
@@ -84,7 +80,7 @@ const styles = StyleSheet.create({
     left: 640,
     flex: 1,
   },
-  price: {
+  prices: {
     position: "absolute",
     top: 72,
     left: 652,

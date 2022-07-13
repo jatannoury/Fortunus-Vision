@@ -1,9 +1,17 @@
 import React from "react";
-import { ImageBackground, StyleSheet, View, Text, Image } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+  FlatList,
+} from "react-native";
 import EmptyCard from "../components/EmptyCard";
 import AppointmentCard from "../components/AppointmentCard";
 import { MaterialIcons } from "@expo/vector-icons";
-const AppointmentScreen = () => {
+import ExpertCard from "../components/ExpertCard";
+const AppointmentScreen = ({ navigation }) => {
   let item = [
     {
       name: "Jamil",
@@ -12,8 +20,7 @@ const AppointmentScreen = () => {
       age: "35",
       rating: "4.5",
       phonePrice: "50",
-      quote:
-        "She doesn't think it's a good idea to know the future, because you can hardly ever change it, so why suffer twice?",
+      waiting: "6",
     },
     {
       name: "Toni",
@@ -22,8 +29,7 @@ const AppointmentScreen = () => {
       age: "22",
       rating: "3.5",
       phonePrice: "8",
-      quote:
-        "She doesn't think it's a good idea to know the future, because you can hardly ever change it, so why suffer twice?",
+      waiting: "14",
     },
     {
       name: "Joseph",
@@ -32,8 +38,7 @@ const AppointmentScreen = () => {
       age: "22",
       rating: "5.0",
       phonePrice: "7",
-      quote:
-        "Fear is dangerous, not the tarot. The tarot represents the spectrum of the human condition, the good, the evil, the light, and the dark. Do not fear the darker aspects of the human condition. Understand them. ",
+      waiting: "24",
     },
     {
       name: "Stephanelle",
@@ -42,8 +47,7 @@ const AppointmentScreen = () => {
       age: "25",
       rating: "2.5",
       phonePrice: "23",
-      quote:
-        "Fear is dangerous, not the tarot. The tarot represents the spectrum of the human condition, the good, the evil, the light, and the dark. Do not fear the darker aspects of the human condition. Understand them. ",
+      waiting: "55",
     },
     {
       name: "Hamz",
@@ -52,8 +56,7 @@ const AppointmentScreen = () => {
       age: "32",
       rating: "4.5",
       phonePrice: "120",
-      quote:
-        "The distance between an honest Christian mystic and a fortune-teller is sometimes less than half a whisper. Less than a pot of tea or the space between two book covers.",
+      waiting: "10",
     },
     {
       name: "Mo Tahan",
@@ -62,11 +65,54 @@ const AppointmentScreen = () => {
       age: "35",
       rating: "4.5",
       phonePrice: "50",
-      quote:
-        "I have always believed, and I still believe, that whatever good or bad fortune may come our way we can always give it meaning and transform it into something of value.",
+      waiting: "100",
     },
   ];
-  return <AppointmentCard name="Joseph" price="50" waiting="99" />;
+  function renderCardItem(itemData) {
+    itemData = itemData.item;
+    const CardItemProps = {
+      waiting: itemData.waiting,
+      name: itemData.name,
+      age: itemData.age,
+      years: itemData.years,
+      rating: itemData.rating,
+      phonePrice: itemData.phonePrice,
+      price: itemData.price,
+      quote:
+        "I have always believed, and I still believe, that whatever good or bad fortune may come our way we can always give it meaning and transform it into something of value.",
+    };
+    console.log(CardItemProps);
+    return (
+      <View style={styles.buttonOuter}>
+        <Pressable
+          android_ripple={{ color: "red" }}
+          style={styles.buttonInner}
+          // onPress={navigate.bind(this, CardItemProps)}
+        >
+          <AppointmentCard navigation={navigation} {...CardItemProps} />
+        </Pressable>
+      </View>
+    );
+  }
+  return (
+    <ImageBackground
+      source={require("../assets/backgroundImage.jpg")}
+      resizeMode="cover"
+      style={styles.image}
+    >
+      <View>
+        <FlatList renderItem={renderCardItem} data={item} />
+      </View>
+    </ImageBackground>
+  );
 };
 
 export default AppointmentScreen;
+const styles = StyleSheet.create({
+  buttonInner: {
+    overflow: "hidden",
+  },
+  buttonOuter: {
+    overflow: "hidden",
+  },
+});

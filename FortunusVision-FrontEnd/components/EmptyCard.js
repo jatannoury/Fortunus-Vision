@@ -6,11 +6,7 @@ import Colors from "../constants/colors";
 const EmptyCard = ({ children }) => {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require("../assets/backgroundImage.jpg")}
-        resizeMode="cover"
-        style={styles.image}
-      >
+      
         <View style={styles.contain}>
           <ImageBackground
             source={require("../assets/testing3.png")}
@@ -19,7 +15,7 @@ const EmptyCard = ({ children }) => {
             {children}
           </ImageBackground>
         </View>
-      </ImageBackground>
+   
     </View>
   );
 };
