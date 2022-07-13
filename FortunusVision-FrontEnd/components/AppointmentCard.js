@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   time: {
     position: "absolute",
     top: 190,
-    left: 565,
+    left: 560,
     color: "white",
     fontSize: 10,
   },
