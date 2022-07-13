@@ -1,8 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Pressable,
+  FlatList,
+} from "react-native";
 import ChatsCard from "../components/ChatsCard";
 
-const ChatsScreen = () => {
+const ChatsScreen = ({ navigation }) => {
   let item = [
     {
       name: "Jamil",
@@ -59,16 +66,35 @@ const ChatsScreen = () => {
       waiting: "100",
     },
   ];
+  function renderCardItem(itemData) {
+    itemData = itemData.item;
+    const CardItemProps = {
+      name: itemData.name,
+      price: itemData.price,
+      icon: "check",
+    };
+    console.log(CardItemProps);
+    return (
+      <View style={styles.buttonOuter}>
+        <Pressable
+          style={styles.buttonInner}
+          // onPress={navigate.bind(this, CardItemProps)}
+        >
+          <ChatsCard navigation={navigation} {...CardItemProps} />
+        </Pressable>
+      </View>
+    );
+  }
   return (
-    <View style={styles.image}>
-      <ImageBackground
-        source={require("../assets/backgroundImage.jpg")}
-        resizeMode="cover"
-        style={styles.image}
-      >
-        <ChatsCard name="John Doe" price="55" />
-      </ImageBackground>
-    </View>
+    <ImageBackground
+      source={require("../assets/backgroundImage.jpg")}
+      resizeMode="cover"
+      style={styles.image}
+    >
+      <View>
+        <FlatList renderItem={renderCardItem} data={item} />
+      </View>
+    </ImageBackground>
   );
 };
 
