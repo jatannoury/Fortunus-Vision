@@ -11,6 +11,7 @@ import AppointmentScreen from "./screens/AppointmentScreen";
 import HistoryScreen from "./screens/HistoryScreen";
 import ChatsScreen from "./screens/ChatsScreen";
 import { FontAwesome } from "@expo/vector-icons";
+import BookingScreen from "./screens/BookingScreen";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
@@ -141,6 +142,14 @@ export default function App() {
           component={DrawerNavigator}
           options={{
             title: "Chats",
+          }}
+        />
+        <Stack.Screen
+          name="Booking"
+          component={BookingScreen}
+          options={{
+            title: "Book Your Appointment",
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

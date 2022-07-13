@@ -9,22 +9,22 @@ import {
   TouchableNativeFeedback,
 } from "react-native";
 import Colors from "../constants/colors";
-const ActionButton = ({ icon, style, coins, name }) => {
+const ActionButton = ({ icon, style, coins, name, screenName, navigation }) => {
+  console.log(name);
+  function switchScreen(name) {
+    if (screenName !== "Booking") {
+      return;
+    }
+    console.log(screenName, "INNNNNN");
+    navigation.navigate(screenName);
+  }
   return (
     <View>
-      <View
-        style={[
-          styles.imgContainer,
-          (name !== "phone-outline") & (name !== "chatbox-outline")
-            ? {
-                borderRadius: 8,
-              }
-            : {},
-        ]}
-      >
+      <View style={[styles.imgContainer]}>
         <Pressable
           android_ripple={{ color: Colors.primary600 }}
           style={[styles.img, style]}
+          onPress={switchScreen}
         >
           {icon}
         </Pressable>

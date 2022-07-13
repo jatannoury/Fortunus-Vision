@@ -71,6 +71,8 @@ const ExpertScreen = ({ navigation, route }) => {
           }
           style={styles.box}
           coins={"Book An Appointment"}
+          navigation={navigation}
+          screenName={"Booking"}
         />
       </View>
     </ImageBackground>
