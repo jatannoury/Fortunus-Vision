@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { ImageBackground } from "react-native";
+import EmptyCard from "../components/EmptyCard";
+import ExpertCard from "../components/ExpertCard";
 const HistoryScreen = () => {
   return (
     <View style={styles.image}>
@@ -8,7 +10,9 @@ const HistoryScreen = () => {
         source={require("../assets/backgroundImage.jpg")}
         resizeMode="cover"
         style={styles.image}
-      ></ImageBackground>
+      >
+        <EmptyCard />
+      </ImageBackground>
     </View>
   );
 };
