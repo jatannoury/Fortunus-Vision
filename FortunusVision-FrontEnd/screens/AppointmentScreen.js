@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageBackground, StyleSheet, View, Text } from "react-native";
+import { ImageBackground, StyleSheet, View, Text, Image } from "react-native";
 import EmptyCard from "../components/EmptyCard";
 import { MaterialIcons } from "@expo/vector-icons";
 const AppointmentScreen = () => {
@@ -21,6 +21,19 @@ const AppointmentScreen = () => {
         />
         <Text style={styles.phoneInfo}>10min Call</Text>
         <Text style={styles.time}>Approx Waiting Time: 12 Minutes</Text>
+        <Image
+          source={require("../assets/Container.jpg")}
+          style={styles.priceContainer}
+        ></Image>
+        <Text
+          style={[
+            styles.price,
+            // price.length == 2 && { left: 665 },
+            // price.length == 1 && { left: 670 },
+          ]}
+        >
+          100$
+        </Text>
       </EmptyCard>
     </ImageBackground>
   );
@@ -64,5 +77,19 @@ const styles = StyleSheet.create({
     left: 565,
     color: "white",
     fontSize: 10,
+  },
+  priceContainer: {
+    position: "absolute",
+    top: 60,
+    left: 640,
+    flex: 1,
+  },
+  price: {
+    position: "absolute",
+    top: 72,
+    left: 652,
+    fontSize: 23,
+    fontWeight: "bold",
+    color: "white",
   },
 });
