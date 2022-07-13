@@ -1,6 +1,7 @@
 import React from "react";
 import { ImageBackground, StyleSheet, View, Text } from "react-native";
 import EmptyCard from "../components/EmptyCard";
+import { MaterialIcons } from "@expo/vector-icons";
 const AppointmentScreen = () => {
   return (
     <ImageBackground
@@ -12,6 +13,12 @@ const AppointmentScreen = () => {
         <View style={styles.textContainer}>
           <Text style={styles.text}>john doe</Text>
         </View>
+        <MaterialIcons
+          name="phone-in-talk"
+          size={35}
+          color="white"
+          style={styles.icon}
+        />
       </EmptyCard>
     </ImageBackground>
   );
@@ -35,5 +42,10 @@ const styles = StyleSheet.create({
     borderBottomColor: "white",
     borderBottomWidth: 1,
     width: 200,
+  },
+  icon: {
+    position: "absolute",
+    top: 140,
+    left: 435,
   },
 });
