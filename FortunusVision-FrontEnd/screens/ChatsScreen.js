@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import EmptyCard from "../components/EmptyCard";
 const ChatsScreen = () => {
   return (
     <View style={styles.image}>
@@ -7,7 +8,9 @@ const ChatsScreen = () => {
         source={require("../assets/backgroundImage.jpg")}
         resizeMode="cover"
         style={styles.image}
-      ></ImageBackground>
+      >
+        <EmptyCard />
+      </ImageBackground>
     </View>
   );
 };
