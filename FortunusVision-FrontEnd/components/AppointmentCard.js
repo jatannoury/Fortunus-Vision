@@ -2,7 +2,7 @@ import React from "react";
 import { ImageBackground, StyleSheet, View, Text, Image } from "react-native";
 import EmptyCard from "../components/EmptyCard";
 import { MaterialIcons } from "@expo/vector-icons";
-const AppointmentCard = () => {
+const AppointmentCard = ({ name, price, waiting }) => {
   return (
     <ImageBackground
       source={require("../assets/backgroundImage.jpg")}
@@ -11,7 +11,7 @@ const AppointmentCard = () => {
     >
       <EmptyCard>
         <View style={styles.textContainer}>
-          <Text style={styles.text}>john doe</Text>
+          <Text style={styles.text}>{name}</Text>
         </View>
         <MaterialIcons
           name="phone-in-talk"
@@ -20,7 +20,7 @@ const AppointmentCard = () => {
           style={styles.icon}
         />
         <Text style={styles.phoneInfo}>10min Call</Text>
-        <Text style={styles.time}>Approx Waiting Time: 12 Minutes</Text>
+        <Text style={styles.time}>Approx Waiting Time: {waiting} Minutes</Text>
         <Image
           source={require("../assets/Container.jpg")}
           style={styles.priceContainer}
@@ -28,11 +28,11 @@ const AppointmentCard = () => {
         <Text
           style={[
             styles.price,
-            // price.length == 2 && { left: 665 },
-            // price.length == 1 && { left: 670 },
+            price.length == 2 && { left: 665 },
+            price.length == 1 && { left: 670 },
           ]}
         >
-          100$
+          {price}$
         </Text>
       </EmptyCard>
     </ImageBackground>

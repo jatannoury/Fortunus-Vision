@@ -4,7 +4,7 @@ import EmptyCard from "../components/EmptyCard";
 import AppointmentCard from "../components/AppointmentCard";
 import { MaterialIcons } from "@expo/vector-icons";
 const AppointmentScreen = () => {
-  return <AppointmentCard />;
+  return <AppointmentCard name="Joseph" price="50" waiting="99" />;
 };
 
 export default AppointmentScreen;
