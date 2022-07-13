@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
+import RechargeCoinsScreen from "../screens/RechargeCoinsScreen";
 import {
   StyleSheet,
   Text,
@@ -16,7 +17,7 @@ const ActionButton = ({ icon, style, coins, name, screenName, navigation }) => {
       return;
     }
     console.log(screenName, "INNNNNN");
-    navigation.navigate(screenName);
+    navigation.navigate("Recharge");
   }
   return (
     <View>
