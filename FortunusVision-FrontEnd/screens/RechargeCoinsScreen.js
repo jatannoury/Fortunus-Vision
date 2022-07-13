@@ -8,7 +8,9 @@ const RechargeCoinsScreen = () => {
       resizeMode="cover"
       style={styles.image}
     >
-      <View style={styles.container}></View>
+      <View style={styles.container}>
+        <Text style={styles.coinsQuantity}>100 coins</Text>
+      </View>
     </ImageBackground>
   );
 };
@@ -23,5 +25,9 @@ const styles = StyleSheet.create({
     height: 263,
     width: 170,
     alignItems: "center",
+  },
+  coinsQuantity: {
+    color: "white",
+    fontSize: 20,
   },
 });
