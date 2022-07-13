@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import EmptyCard from "../components/EmptyCard";
+import { FontAwesome } from "@expo/vector-icons";
+
 const ChatsScreen = () => {
   return (
     <View style={styles.image}>
@@ -13,6 +15,12 @@ const ChatsScreen = () => {
           <View style={styles.textContainer}>
             <Text style={styles.text}>John Doe</Text>
           </View>
+          <FontAwesome
+            name="microphone"
+            size={35}
+            color="white"
+            style={styles.icon}
+          />
         </EmptyCard>
       </ImageBackground>
     </View>
@@ -37,5 +45,10 @@ const styles = StyleSheet.create({
     borderBottomColor: "white",
     borderBottomWidth: 1,
     width: 200,
+  },
+  icon: {
+    position: "absolute",
+    top: 140,
+    left: 435,
   },
 });
