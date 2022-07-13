@@ -11,7 +11,7 @@ const HistoryScreen = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <AppointmentCard price="" />
+        <AppointmentCard price="" icon="check" />
       </ImageBackground>
     </View>
   );

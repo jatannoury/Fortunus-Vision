@@ -6,16 +6,14 @@ import Colors from "../constants/colors";
 const EmptyCard = ({ children }) => {
   return (
     <View style={styles.container}>
-      
-        <View style={styles.contain}>
-          <ImageBackground
-            source={require("../assets/testing3.png")}
-            style={styles.card}
-          >
-            {children}
-          </ImageBackground>
-        </View>
-   
+      <View style={styles.contain}>
+        <ImageBackground
+          source={require("../assets/testing3.png")}
+          style={styles.card}
+        >
+          {children}
+        </ImageBackground>
+      </View>
     </View>
   );
 };
@@ -27,6 +25,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    zIndex: 0,
   },
   card: {
     minHeight: 200,

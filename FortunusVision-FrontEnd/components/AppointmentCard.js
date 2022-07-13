@@ -2,9 +2,11 @@ import React from "react";
 import { ImageBackground, StyleSheet, View, Text, Image } from "react-native";
 import EmptyCard from "../components/EmptyCard";
 import { MaterialIcons } from "@expo/vector-icons";
-const AppointmentCard = ({ name, price, waiting }) => {
+import { Feather } from "@expo/vector-icons";
+
+const AppointmentCard = ({ name, price, waiting, icon }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <EmptyCard>
         <View style={styles.textContainer}>
           <Text style={styles.text}>{name}</Text>
@@ -17,7 +19,7 @@ const AppointmentCard = ({ name, price, waiting }) => {
         />
         <Text style={styles.phoneInfo}>10min Call</Text>
         <Text style={styles.time}>
-          {waiting && "Approx Waiting Time:{waiting} Minutes"}
+          {waiting && `Approx Waiting Time:${waiting} Minutes`}
         </Text>
         <Image
           source={require("../assets/Container.jpg")}
@@ -32,6 +34,21 @@ const AppointmentCard = ({ name, price, waiting }) => {
         >
           {price}$
         </Text>
+        {icon ? (
+          <Feather
+            name="check-circle"
+            size={24}
+            color="green"
+            style={styles.done}
+          />
+        ) : (
+          <MaterialIcons
+            name="pending-actions"
+            size={24}
+            color="orange"
+            style={styles.done}
+          />
+        )}
       </EmptyCard>
     </View>
   );
@@ -89,5 +106,14 @@ const styles = StyleSheet.create({
     fontSize: 23,
     fontWeight: "bold",
     color: "white",
+  },
+  done: {
+    position: "absolute",
+    top: 182,
+    left: 350,
+  },
+
+  container: {
+    position: "relative",
   },
 });
