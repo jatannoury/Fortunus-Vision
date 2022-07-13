@@ -19,6 +19,8 @@ const AppointmentScreen = () => {
           color="white"
           style={styles.icon}
         />
+        <Text style={styles.phoneInfo}>10min Call</Text>
+        <Text style={styles.time}>Approx Waiting Time: 12 Minutes</Text>
       </EmptyCard>
     </ImageBackground>
   );
@@ -47,5 +49,20 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 140,
     left: 435,
+  },
+  phoneInfo: {
+    position: "absolute",
+    top: 152,
+    left: 480,
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "white",
+  },
+  time: {
+    position: "absolute",
+    top: 190,
+    left: 565,
+    color: "white",
+    fontSize: 10,
   },
 });
