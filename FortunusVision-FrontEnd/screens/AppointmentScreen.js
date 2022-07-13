@@ -85,7 +85,6 @@ const AppointmentScreen = ({ navigation }) => {
     return (
       <View style={styles.buttonOuter}>
         <Pressable
-          android_ripple={{ color: "red" }}
           style={styles.buttonInner}
           // onPress={navigate.bind(this, CardItemProps)}
         >

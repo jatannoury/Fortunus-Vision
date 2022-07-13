@@ -9,6 +9,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ExpertScreen from "./screens/ExpertScreen";
 import AppointmentScreen from "./screens/AppointmentScreen";
 import HistoryScreen from "./screens/HistoryScreen";
+import ChatsScreen from "./screens/ChatsScreen";
+import { FontAwesome } from "@expo/vector-icons";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
@@ -63,6 +65,16 @@ export default function App() {
                 color={color}
                 size={30}
               />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Chats History"
+          component={ChatsScreen}
+          options={{
+            title: "Chats",
+            drawerIcon: ({ color, size }) => (
+              <FontAwesome name="wechat" color={color} size={30} />
             ),
           }}
         />
@@ -122,6 +134,13 @@ export default function App() {
           component={DrawerNavigator}
           options={{
             title: "History",
+          }}
+        />
+        <Stack.Screen
+          name="Chats"
+          component={DrawerNavigator}
+          options={{
+            title: "Chats",
           }}
         />
       </Stack.Navigator>
