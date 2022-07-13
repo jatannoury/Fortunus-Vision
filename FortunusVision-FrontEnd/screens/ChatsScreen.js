@@ -10,7 +10,7 @@ const ChatsScreen = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <ChatsCard />
+        <ChatsCard name="John Doe" price="55" />
       </ImageBackground>
     </View>
   );

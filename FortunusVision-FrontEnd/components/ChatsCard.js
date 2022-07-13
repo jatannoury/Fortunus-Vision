@@ -3,11 +3,11 @@ import EmptyCard from "../components/EmptyCard";
 import { FontAwesome } from "@expo/vector-icons";
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 
-const ChatsCard = () => {
+const ChatsCard = ({ name, price }) => {
   return (
     <EmptyCard>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>John Doe</Text>
+        <Text style={styles.text}>{name}</Text>
       </View>
       <FontAwesome
         name="microphone"
@@ -23,11 +23,11 @@ const ChatsCard = () => {
       <Text
         style={[
           styles.prices,
-          // price.length == 2 && { left: 665 },
-          // price.length == 1 && { left: 670 },
+          price.length == 2 && { left: 660 },
+          price.length == 1 && { left: 670 },
         ]}
       >
-        100$
+        {price}$
       </Text>
     </EmptyCard>
   );
