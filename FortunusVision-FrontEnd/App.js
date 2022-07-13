@@ -8,6 +8,7 @@ import Colors from "./constants/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ExpertScreen from "./screens/ExpertScreen";
 import AppointmentScreen from "./screens/AppointmentScreen";
+import HistoryScreen from "./screens/HistoryScreen";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
@@ -45,6 +46,20 @@ export default function App() {
             drawerIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="book-clock"
+                color={color}
+                size={30}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="History"
+          component={HistoryScreen}
+          options={{
+            title: "History",
+            drawerIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="book-check-outline"
                 color={color}
                 size={30}
               />
@@ -100,6 +115,13 @@ export default function App() {
           component={ExpertScreen}
           options={{
             title: "Expert Page",
+          }}
+        />
+        <Stack.Screen
+          name="HistoryScreen"
+          component={DrawerNavigator}
+          options={{
+            title: "History",
           }}
         />
       </Stack.Navigator>
