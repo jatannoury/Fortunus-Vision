@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { ImageBackground } from "react-native";
+import AppointmentCard from "../components/AppointmentCard";
 import EmptyCard from "../components/EmptyCard";
 import ExpertCard from "../components/ExpertCard";
+import AppointmentScreen from "./AppointmentScreen";
 const HistoryScreen = () => {
   return (
     <View style={styles.image}>
@@ -11,7 +13,7 @@ const HistoryScreen = () => {
         resizeMode="cover"
         style={styles.image}
       >
-        <EmptyCard />
+        <AppointmentCard price="" />
       </ImageBackground>
     </View>
   );
