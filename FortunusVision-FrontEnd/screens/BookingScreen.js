@@ -1,11 +1,18 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ImageBackground, StyleSheet } from "react-native";
 const BookingScreen = () => {
   return (
-    <View>
-      <Text>YOOOOOOOOO</Text>
-    </View>
+    <ImageBackground
+      source={require("../assets/backgroundImage.jpg")}
+      resizeMode="cover"
+      style={styles.image}
+    ></ImageBackground>
   );
 };
 
 export default BookingScreen;
+const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+  },
+});
