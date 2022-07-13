@@ -16,7 +16,9 @@ const AppointmentCard = ({ name, price, waiting }) => {
           style={styles.icon}
         />
         <Text style={styles.phoneInfo}>10min Call</Text>
-        <Text style={styles.time}>Approx Waiting Time:{waiting} Minutes</Text>
+        <Text style={styles.time}>
+          {waiting && "Approx Waiting Time:{waiting} Minutes"}
+        </Text>
         <Image
           source={require("../assets/Container.jpg")}
           style={styles.priceContainer}
