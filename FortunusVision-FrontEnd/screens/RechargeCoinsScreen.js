@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   coinsQuantity: {
+    marginTop: 33,
     color: "white",
     fontSize: 20,
   },
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 70,
     fontWeight: "900",
     color: "white",
+    marginVertical: 20,
   },
   button: {
     width: 40,
