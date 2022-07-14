@@ -16,7 +16,7 @@ import RechargeCoinsScreen from "./screens/RechargeCoinsScreen";
 import ChatScreen from "./screens/ChatScreen";
 import ProfilePicture from "./screens/ProfilePicture";
 import { Button } from "react-native";
-import ChatPhoto from "./screens/ChatPhoto";
+import ChatPhoto from "./components/ChatPhoto";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {

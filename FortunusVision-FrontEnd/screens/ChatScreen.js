@@ -1,12 +1,14 @@
 import { TabRouter } from "@react-navigation/native";
 import React, { useEffect } from "react";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import Colors from "../constants/colors";
 import ProfilePicture from "./ProfilePicture";
 const ChatScreen = ({ navigation, route }) => {
-  useEffect(() => {
+  const props = route.params.props;
+  let expertName = useEffect(() => {
     console.log(route.params.props.name);
     navigation.setOptions({
-      title: route.params.props.name,
+      title: props.name,
     });
   }, []);
   return (
@@ -14,7 +16,9 @@ const ChatScreen = ({ navigation, route }) => {
       source={require("../assets/backgroundImage.jpg")}
       resizeMode="cover"
       style={styles.image}
-    ></ImageBackground>
+    >
+      <Text style={styles.name}>{props.name}</Text>
+    </ImageBackground>
   );
 };
 
@@ -22,5 +26,9 @@ export default ChatScreen;
 const styles = StyleSheet.create({
   image: {
     flex: 1,
+  },
+  name: {
+    fontSize: 15,
+    color: Colors.primary500,
   },
 });

@@ -3,10 +3,10 @@ import { View, Text, ImageBackground, StyleSheet, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "../constants/colors";
 
-const EmptyCard = ({ children }) => {
+const EmptyCard = ({ children, chats }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.contain}>
+      <View style={[styles.contain, chats && { height: 81, marginTop: 30 }]}>
         <ImageBackground
           source={require("../assets/testing3.png")}
           style={styles.card}

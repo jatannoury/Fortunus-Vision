@@ -1,5 +1,5 @@
 import React from "react";
-import ProfilePicture from "./ProfilePicture";
+import ProfilePicture from "../screens/ProfilePicture";
 import { StyleSheet, View, Button } from "react-native";
 import Colors from "../constants/colors";
 import IconButton from "./IconButton";
