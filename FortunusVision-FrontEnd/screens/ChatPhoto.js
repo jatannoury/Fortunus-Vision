@@ -1,10 +1,12 @@
 import React from "react";
 import ProfilePicture from "./ProfilePicture";
 import { StyleSheet, View, Button } from "react-native";
-const ChatPhoto = () => {
+import Colors from "../constants/colors";
+import IconButton from "./IconButton";
+const ChatPhoto = ({ navigation }) => {
   return (
     <View style={styles.image}>
-      <Button title="Look Here" />
+      <IconButton navigation={navigation} />
       <ProfilePicture head={true} />
     </View>
   );

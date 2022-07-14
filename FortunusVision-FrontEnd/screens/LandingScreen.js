@@ -9,6 +9,7 @@ import {
   Image,
   FlatList,
   Pressable,
+  TouchableOpacity,
 } from "react-native";
 import ExpertCard from "../components/ExpertCard";
 const LandingScreen = ({ navigation }) => {
@@ -91,13 +92,9 @@ const LandingScreen = ({ navigation }) => {
     };
     return (
       <View style={styles.buttonOuter}>
-        <Pressable
-          android_ripple={{ color: "red" }}
-          style={styles.buttonInner}
-          onPress={navigate.bind(this, CardItemProps)}
-        >
+        <TouchableOpacity onPress={navigate.bind(this, CardItemProps)}>
           <ExpertCard navigation={navigation} {...CardItemProps} />
-        </Pressable>
+        </TouchableOpacity>
       </View>
     );
   }

@@ -169,7 +169,9 @@ export default function App() {
           options={{
             title: "",
             headerBackTitleVisible: true,
-            headerLeft: () => <ChatPhoto />,
+            headerLeft: ({ navigation }) => (
+              <ChatPhoto navigation={navigation} />
+            ),
           }}
         />
       </Stack.Navigator>
