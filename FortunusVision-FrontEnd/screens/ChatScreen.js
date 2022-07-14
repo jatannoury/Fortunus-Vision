@@ -14,9 +14,7 @@ const ChatScreen = ({ navigation, route }) => {
       source={require("../assets/backgroundImage.jpg")}
       resizeMode="cover"
       style={styles.image}
-    >
-      <ProfilePicture path={"../assets/PERSONAL_PROFILE_PIC.jpg"} />
-    </ImageBackground>
+    ></ImageBackground>
   );
 };
 

@@ -16,6 +16,7 @@ import RechargeCoinsScreen from "./screens/RechargeCoinsScreen";
 import ChatScreen from "./screens/ChatScreen";
 import ProfilePicture from "./screens/ProfilePicture";
 import { Button } from "react-native";
+import ChatPhoto from "./screens/ChatPhoto";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
@@ -168,13 +169,7 @@ export default function App() {
           options={{
             title: "",
             headerBackTitleVisible: true,
-            headerLeft: () => (
-              <ProfilePicture
-                path={require("../FortunusVision-FrontEnd/assets/PERSONAL_PROFILE_PIC.jpg")}
-                size={24}
-                head={true}
-              />
-            ),
+            headerLeft: () => <ChatPhoto />,
           }}
         />
       </Stack.Navigator>
