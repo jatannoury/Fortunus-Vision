@@ -1,6 +1,7 @@
 import { TabRouter } from "@react-navigation/native";
 import React, { useEffect } from "react";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import ProfilePicture from "./ProfilePicture";
 const ChatScreen = ({ navigation, route }) => {
   useEffect(() => {
     console.log(route.params.props.name);
@@ -13,7 +14,9 @@ const ChatScreen = ({ navigation, route }) => {
       source={require("../assets/backgroundImage.jpg")}
       resizeMode="cover"
       style={styles.image}
-    ></ImageBackground>
+    >
+      <ProfilePicture path={"../assets/PERSONAL_PROFILE_PIC.jpg"} />
+    </ImageBackground>
   );
 };
 

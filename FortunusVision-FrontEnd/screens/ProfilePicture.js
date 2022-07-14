@@ -1,11 +1,12 @@
 import React from "react";
-
-const ProfilePicture = ({ path }) => {
+import { Image, StyleSheet, View } from "react-native";
+const ProfilePicture = ({ path, containerStyle, imgStyle }) => {
   return (
-    <View style={styles.imgContainer}>
-      <Image style={styles.profileImage} source={require(path)} />
+    <View style={containerStyle}>
+      <Image style={imgStyle} source={path} />
     </View>
   );
 };
 
 export default ProfilePicture;
+const styles = StyleSheet.create({});

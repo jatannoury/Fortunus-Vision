@@ -14,6 +14,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import BookingScreen from "./screens/BookingScreen";
 import RechargeCoinsScreen from "./screens/RechargeCoinsScreen";
 import ChatScreen from "./screens/ChatScreen";
+import ProfilePicture from "./screens/ProfilePicture";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
@@ -165,6 +166,12 @@ export default function App() {
           component={ChatScreen}
           options={{
             title: "",
+            // headerRight: () => (
+            //   <ProfilePicture
+            //     path={"../assets/PERSONAL_PROFILE_PIC.jpg"}
+            //     size={24}
+            //   />
+            // ),
           }}
         />
       </Stack.Navigator>
