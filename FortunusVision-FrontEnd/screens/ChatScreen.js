@@ -18,6 +18,7 @@ const ChatScreen = ({ navigation, route }) => {
       style={styles.image}
     >
       <Text style={styles.name}>{props.name}</Text>
+      <Text style={styles.date}>10:22 am, Today</Text>
     </ImageBackground>
   );
 };
@@ -30,5 +31,9 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 15,
     color: Colors.primary500,
+  },
+  date: {
+    fontSize: 10,
+    color: "white",
   },
 });
