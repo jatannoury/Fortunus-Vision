@@ -11,8 +11,8 @@ import {
 import ChatsCard from "../components/ChatsCard";
 
 const ChatsScreen = ({ navigation }) => {
-  function switchScreen() {
-    navigation.navigate("Chat");
+  function switchScreen(props) {
+    navigation.navigate("Chat", { props });
   }
 
   let item = [
