@@ -14,6 +14,7 @@ const RechargeCoinsScreen = () => {
       resizeMode="cover"
       style={styles.image}
     >
+      <Text style={styles.title}>Don't have enough coins?</Text>
       <View style={styles.flexContainer}>
         <View style={styles.container}>
           <Text style={styles.coinsQuantity}>100 coins</Text>
@@ -52,6 +53,13 @@ const RechargeCoinsScreen = () => {
 
 export default RechargeCoinsScreen;
 const styles = StyleSheet.create({
+  title: {
+    textAlign: "center",
+    fontSize: 30,
+    marginTop: 30,
+    fontWeight: "500",
+    color: Colors.primary500,
+  },
   image: {
     flex: 1,
   },
