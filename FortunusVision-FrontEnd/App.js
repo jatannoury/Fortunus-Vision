@@ -13,6 +13,7 @@ import ChatsScreen from "./screens/ChatsScreen";
 import { FontAwesome } from "@expo/vector-icons";
 import BookingScreen from "./screens/BookingScreen";
 import RechargeCoinsScreen from "./screens/RechargeCoinsScreen";
+import ChatScreen from "./screens/ChatScreen";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
@@ -155,6 +156,13 @@ export default function App() {
         <Stack.Screen
           name="Recharge"
           component={RechargeCoinsScreen}
+          options={{
+            title: "",
+          }}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={ChatScreen}
           options={{
             title: "",
           }}

@@ -6,10 +6,15 @@ import {
   ImageBackground,
   Pressable,
   FlatList,
+  TouchableOpacity,
 } from "react-native";
 import ChatsCard from "../components/ChatsCard";
 
 const ChatsScreen = ({ navigation }) => {
+  function switchScreen() {
+    navigation.navigate("Chat");
+  }
+
   let item = [
     {
       name: "Jamil",
@@ -76,12 +81,12 @@ const ChatsScreen = ({ navigation }) => {
     console.log(CardItemProps);
     return (
       <View style={styles.buttonOuter}>
-        <Pressable
+        <TouchableOpacity
           style={styles.buttonInner}
-          // onPress={navigate.bind(this, CardItemProps)}
+          onPress={switchScreen.bind(this, CardItemProps)}
         >
           <ChatsCard navigation={navigation} {...CardItemProps} />
-        </Pressable>
+        </TouchableOpacity>
       </View>
     );
   }
