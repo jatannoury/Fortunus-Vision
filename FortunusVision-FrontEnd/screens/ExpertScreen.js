@@ -4,6 +4,7 @@ import Colors from "../constants/colors";
 import Title from "../components/Title";
 import ActionButton from "../components/ActionButton";
 import { Ionicons } from "@expo/vector-icons";
+import ProfilePicture from "./ProfilePicture";
 const ExpertScreen = ({ navigation, route }) => {
   const params = route.params.props;
   const name = params.name;
@@ -24,12 +25,7 @@ const ExpertScreen = ({ navigation, route }) => {
       style={styles.image}
     >
       <View style={styles.container}>
-        <View style={styles.imgContainer}>
-          <Image
-            style={styles.profileImage}
-            source={require("../assets/PERSONAL_PROFILE_PIC.jpg")}
-          />
-        </View>
+        <ProfilePicture path={"../assets/PERSONAL_PROFILE_PIC.jpg"} />
         <Title label={name} style={styles.title} />
         <Title
           label={`${years} ${
