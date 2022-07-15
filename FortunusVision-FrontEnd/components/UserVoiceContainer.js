@@ -33,4 +33,12 @@ const styles = StyleSheet.create({
   name: {
     color: Colors.primary700,
   },
+  voiceContainer: {
+    height: 69,
+    width: 323,
+    borderRadius: 10,
+    justifyContent: "center",
+    backgroundColor: Colors.primary700,
+    marginTop: 8,
+  },
 });
