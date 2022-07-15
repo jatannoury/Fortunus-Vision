@@ -11,6 +11,10 @@ const DrawerHeader = ({ name, coins }) => {
         <ProfilePicture head={true} imgStyle={styles.profilePicture} />
         <View>
           <Text style={styles.name}>{name}</Text>
+          <Text style={styles.coins}>
+            {`${coins} `}
+            <FontAwesome5 name="coins" size={12} color={Colors.primary800} />
+          </Text>
         </View>
       </View>
     </View>
