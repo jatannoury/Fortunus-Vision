@@ -28,7 +28,6 @@ const ExpertScreen = ({ navigation, route }) => {
         <ProfilePicture
           path={require("../assets/PERSONAL_PROFILE_PIC.jpg")}
           containerStyle={styles.imgContainer}
-          imgStyle={styles.profileImage}
         />
         <Title label={name} style={styles.title} />
         <Title

@@ -28,7 +28,7 @@ export default function App() {
   const CustomDrawer = (props) => {
     return (
       <DrawerContentScrollView {...props}>
-        <DrawerHeader />
+        <DrawerHeader name={"Joseph Tannoury"} coins={30} />
 
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
@@ -43,7 +43,7 @@ export default function App() {
           headerTintColor: Colors.primary600,
           sceneContainerStyle: { backgroundColor: Colors.primary500 },
           drawerContentStyle: { backgroundColor: Colors.primary500 },
-          drawerInactiveTintColor: "#e4baa1",
+          drawerInactiveTintColor: Colors.primary800,
           drawerActiveTintColor: Colors.primary600,
           drawerStyle: { backgroundColor: Colors.primary500 },
         }}
