@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 import ProfilePicture from "./ProfilePicture";
+import { FontAwesome } from "@expo/vector-icons";
+
 const ChatScreen = ({ navigation, route }) => {
   const props = route.params.props;
   let expertName = useEffect(() => {
@@ -21,7 +23,9 @@ const ChatScreen = ({ navigation, route }) => {
         <Text style={styles.name}>
           {`${props.name} `} <Text style={styles.date}>10:22 am, Today</Text>
         </Text>
-        <View style={styles.voiceContainer}></View>
+        <View style={styles.voiceContainer}>
+          <FontAwesome name="play" size={24} color="black" />
+        </View>
       </View>
     </ImageBackground>
   );
