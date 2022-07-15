@@ -5,7 +5,7 @@ import Colors from "../constants/colors";
 const UserVoiceContainer = ({ props }) => {
   return (
     <View style={styles.userContainer}>
-      <View style={styles.textContainer}>
+      <View>
         <Text style={styles.date}>
           Today, 10:22 am <Text style={styles.name}> {`${props.name} `} </Text>
         </Text>
@@ -24,14 +24,18 @@ const UserVoiceContainer = ({ props }) => {
 
 export default UserVoiceContainer;
 const styles = StyleSheet.create({
-  textContainer: {
+  userContainer: {
     alignItems: "flex-end",
+    marginHorizontal: 15,
   },
+
   date: {
     color: Colors.secondary500,
+    fontSize: 10,
   },
   name: {
-    color: Colors.primary700,
+    color: Colors.primary600,
+    fontSize: 15,
   },
   voiceContainer: {
     height: 69,
