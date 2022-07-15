@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   rootContainer: {
-    backgroundColor: Colors.secondary600,
     width: 260,
     marginLeft: 10,
     borderRadius: 5,
+    height: 100,
   },
   profilePicture: {
     width: 55,
@@ -43,14 +43,14 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   name: {
-    fontSize: 23,
+    fontSize: 20,
     fontWeight: "bold",
     color: Colors.primary800,
     paddingTop: 10,
-    paddingLeft: 5,
+    paddingLeft: 15,
   },
   coins: {
     color: Colors.primary800,
-    paddingLeft: 5,
+    paddingLeft: 15,
   },
 });
