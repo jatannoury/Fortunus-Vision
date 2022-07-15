@@ -41,4 +41,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary700,
     marginTop: 8,
   },
+  playButton: {
+    marginHorizontal: 10,
+  },
 });
