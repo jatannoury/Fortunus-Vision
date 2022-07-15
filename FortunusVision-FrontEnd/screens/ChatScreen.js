@@ -54,6 +54,18 @@ const ChatScreen = ({ navigation, route }) => {
       Date: "April 22",
       Time: "1:00 pm",
     },
+    {
+      name: "Joseph Tannoury",
+      usertype: "0",
+      Date: "April 22",
+      Time: "1:32 pm",
+    },
+    {
+      name: "Joseph Tannoury",
+      usertype: "0",
+      Date: "April 22",
+      Time: "1:33 pm",
+    },
   ];
 
   function renderCardItem(itemData) {
@@ -61,22 +73,18 @@ const ChatScreen = ({ navigation, route }) => {
     const CardItemProps = {
       name: itemData.name,
       date: itemData.Date,
-      time: itemData.time,
+      time: itemData.Time,
     };
     if (itemData.usertype === "0") {
       return (
         <View style={styles.buttonOuter}>
-          <TouchableOpacity>
-            <UserVoiceContainer props={CardItemProps} />
-          </TouchableOpacity>
+          <UserVoiceContainer {...CardItemProps} props={props} />
         </View>
       );
     }
     return (
       <View style={styles.buttonOuter}>
-        <TouchableOpacity>
-          <ExpertVoiceContainer props={CardItemProps} />
-        </TouchableOpacity>
+        <ExpertVoiceContainer props={props} {...CardItemProps} />
       </View>
     );
   }

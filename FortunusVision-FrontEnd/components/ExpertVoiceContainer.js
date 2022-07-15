@@ -7,7 +7,10 @@ const ExpertVoiceContainer = ({ props, date, time }) => {
   return (
     <View style={styles.expertContainer}>
       <Text style={styles.name}>
-        {`${props.name} `} <Text style={styles.date}>10:22 am, Today</Text>
+        {`${props.name} `}{" "}
+        <Text style={styles.date}>
+          {time}, {date}
+        </Text>
       </Text>
       <View style={styles.voiceContainer}>
         <FontAwesome

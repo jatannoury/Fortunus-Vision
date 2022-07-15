@@ -2,12 +2,12 @@ import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
-const UserVoiceContainer = ({ props }) => {
+const UserVoiceContainer = ({ props, date, time, name }) => {
   return (
     <View style={styles.userContainer}>
       <View>
         <Text style={styles.date}>
-          Today, 10:22 am <Text style={styles.name}> {`${props.name} `} </Text>
+          {date}, {time} <Text style={styles.name}> {`${name} `} </Text>
         </Text>
       </View>
       <View style={styles.voiceContainer}>
