@@ -28,6 +28,7 @@ export default function App() {
     return (
       <DrawerContentScrollView {...props}>
         <Text>YOOOO</Text>
+
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
     );
@@ -43,6 +44,7 @@ export default function App() {
           drawerContentStyle: { backgroundColor: Colors.primary500 },
           drawerInactiveTintColor: "#e4baa1",
           drawerActiveTintColor: Colors.primary600,
+          drawerStyle: { backgroundColor: Colors.primary500 },
         }}
       >
         <Drawer.Screen
