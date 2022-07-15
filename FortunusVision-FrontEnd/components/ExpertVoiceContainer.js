@@ -3,7 +3,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 
-const ExpertVoiceContainer = ({ props }) => {
+const ExpertVoiceContainer = ({ props, date, time }) => {
   return (
     <View style={styles.expertContainer}>
       <Text style={styles.name}>
