@@ -17,8 +17,9 @@ const ChatScreen = ({ navigation, route }) => {
       resizeMode="cover"
       style={styles.image}
     >
-      <Text style={styles.name}>{props.name}</Text>
-      <Text style={styles.date}>10:22 am, Today</Text>
+      <Text style={styles.name}>
+        {`${props.name} `} <Text style={styles.date}>10:22 am, Today</Text>
+      </Text>
     </ImageBackground>
   );
 };
@@ -35,5 +36,9 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 10,
     color: "white",
+  },
+  flex: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
