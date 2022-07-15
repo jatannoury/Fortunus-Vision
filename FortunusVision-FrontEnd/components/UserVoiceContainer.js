@@ -4,10 +4,12 @@ import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 const UserVoiceContainer = ({ props }) => {
   return (
-    <View style={styles.expertContainer}>
-      <Text style={styles.name}>
-        {`${props.name} `} <Text style={styles.date}>10:22 am, Today</Text>
-      </Text>
+    <View style={styles.userContainer}>
+      <View style={styles.textContainer}>
+        <Text style={styles.date}>
+          Today, 10:22 am <Text style={styles.name}> {`${props.name} `} </Text>
+        </Text>
+      </View>
       <View style={styles.voiceContainer}>
         <FontAwesome
           name="play"
@@ -22,31 +24,13 @@ const UserVoiceContainer = ({ props }) => {
 
 export default UserVoiceContainer;
 const styles = StyleSheet.create({
-  name: {
-    fontSize: 15,
-    color: Colors.accent600,
+  textContainer: {
+    alignItems: "flex-end",
   },
   date: {
-    fontSize: 10,
-    color: "white",
+    color: Colors.secondary500,
   },
-  flex: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  voiceContainer: {
-    backgroundColor: Colors.primary700,
-    height: 69,
-    width: 323,
-    borderRadius: 10,
-    marginTop: 8,
-    justifyContent: "center",
-  },
-  expertContainer: {
-    marginVertical: 20,
-    marginHorizontal: 10,
-  },
-  playButton: {
-    marginHorizontal: 10,
+  name: {
+    color: Colors.primary700,
   },
 });

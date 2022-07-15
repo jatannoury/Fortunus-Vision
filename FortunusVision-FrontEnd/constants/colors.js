@@ -4,5 +4,6 @@ const Colors = {
   primary700: "rgba(186, 127, 86, 0.5)",
   accent500: "#C16126",
   accent600: "#dc930d",
+  secondary500: "#FFFFFF",
 };
 export default Colors;
