@@ -4,6 +4,7 @@ import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 import ProfilePicture from "./ProfilePicture";
 import { FontAwesome } from "@expo/vector-icons";
+import ExpertVoiceContainer from "../components/ExpertVoiceContainer";
 
 const ChatScreen = ({ navigation, route }) => {
   const props = route.params.props;
@@ -19,19 +20,7 @@ const ChatScreen = ({ navigation, route }) => {
       resizeMode="cover"
       style={styles.image}
     >
-      <View style={styles.expertContainer}>
-        <Text style={styles.name}>
-          {`${props.name} `} <Text style={styles.date}>10:22 am, Today</Text>
-        </Text>
-        <View style={styles.voiceContainer}>
-          <FontAwesome
-            name="play"
-            size={30}
-            color="#D9D9D9"
-            style={styles.playButton}
-          />
-        </View>
-      </View>
+      <ExpertVoiceContainer props={props} />
     </ImageBackground>
   );
 };
