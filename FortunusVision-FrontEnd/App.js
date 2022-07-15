@@ -19,15 +19,16 @@ import BookingScreen from "./screens/BookingScreen";
 import RechargeCoinsScreen from "./screens/RechargeCoinsScreen";
 import ChatScreen from "./screens/ChatScreen";
 import ProfilePicture from "./screens/ProfilePicture";
-import { Text } from "react-native";
+
 import ChatPhoto from "./components/ChatPhoto";
+import DrawerHeader from "./components/DrawerHeader";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
   const CustomDrawer = (props) => {
     return (
       <DrawerContentScrollView {...props}>
-        <Text>YOOOO</Text>
+        <DrawerHeader />
 
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
