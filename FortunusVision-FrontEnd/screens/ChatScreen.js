@@ -24,7 +24,12 @@ const ChatScreen = ({ navigation, route }) => {
           {`${props.name} `} <Text style={styles.date}>10:22 am, Today</Text>
         </Text>
         <View style={styles.voiceContainer}>
-          <FontAwesome name="play" size={24} color="black" />
+          <FontAwesome
+            name="play"
+            size={30}
+            color="#D9D9D9"
+            style={styles.playButton}
+          />
         </View>
       </View>
     </ImageBackground>
@@ -54,9 +59,13 @@ const styles = StyleSheet.create({
     width: 323,
     borderRadius: 10,
     marginTop: 8,
+    justifyContent: "center",
   },
   expertContainer: {
     marginVertical: 20,
+    marginHorizontal: 10,
+  },
+  playButton: {
     marginHorizontal: 10,
   },
 });
