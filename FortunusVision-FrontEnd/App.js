@@ -2,7 +2,11 @@ import SignUpScreen from "./screens/SignUpScreen";
 import SignInScreen from "./screens/SignInScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "@react-navigation/drawer";
 import LandingScreen from "./screens/LandingScreen";
 import Colors from "./constants/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -15,14 +19,23 @@ import BookingScreen from "./screens/BookingScreen";
 import RechargeCoinsScreen from "./screens/RechargeCoinsScreen";
 import ChatScreen from "./screens/ChatScreen";
 import ProfilePicture from "./screens/ProfilePicture";
-import { Button } from "react-native";
+import { Text } from "react-native";
 import ChatPhoto from "./components/ChatPhoto";
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
+  const CustomDrawer = (props) => {
+    return (
+      <DrawerContentScrollView {...props}>
+        <Text>YOOOO</Text>
+        <DrawerItemList {...props} />
+      </DrawerContentScrollView>
+    );
+  };
   function DrawerNavigator() {
     return (
       <Drawer.Navigator
+        drawerContent={(props) => <CustomDrawer {...props} />}
         screenOptions={{
           headerStyle: { backgroundColor: Colors.primary500 },
           headerTintColor: Colors.primary600,
