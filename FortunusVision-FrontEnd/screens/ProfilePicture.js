@@ -16,6 +16,7 @@ const ProfilePicture = ({ path, containerStyle, imgStyle, head }) => {
           justifyContent: "center",
           alignItems: "center",
         },
+        imgStyle && imgStyle,
       ]}
     >
       <Image
