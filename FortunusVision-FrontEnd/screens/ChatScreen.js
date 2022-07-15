@@ -17,9 +17,12 @@ const ChatScreen = ({ navigation, route }) => {
       resizeMode="cover"
       style={styles.image}
     >
-      <Text style={styles.name}>
-        {`${props.name} `} <Text style={styles.date}>10:22 am, Today</Text>
-      </Text>
+      <View style={styles.expertContainer}>
+        <Text style={styles.name}>
+          {`${props.name} `} <Text style={styles.date}>10:22 am, Today</Text>
+        </Text>
+        <View style={styles.voiceContainer}></View>
+      </View>
     </ImageBackground>
   );
 };
@@ -31,7 +34,7 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 15,
-    color: Colors.primary500,
+    color: Colors.accent600,
   },
   date: {
     fontSize: 10,
@@ -40,5 +43,16 @@ const styles = StyleSheet.create({
   flex: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  voiceContainer: {
+    backgroundColor: Colors.accent600,
+    height: 69,
+    width: 323,
+    borderRadius: 10,
+    marginTop: 8,
+  },
+  expertContainer: {
+    marginVertical: 20,
+    marginHorizontal: 10,
   },
 });
