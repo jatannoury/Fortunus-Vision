@@ -5,6 +5,7 @@ import Colors from "../constants/colors";
 import ProfilePicture from "./ProfilePicture";
 import { FontAwesome } from "@expo/vector-icons";
 import ExpertVoiceContainer from "../components/ExpertVoiceContainer";
+import UserVoiceContainer from "../components/UserVoiceContainer";
 
 const ChatScreen = ({ navigation, route }) => {
   const props = route.params.props;
@@ -21,6 +22,7 @@ const ChatScreen = ({ navigation, route }) => {
       style={styles.image}
     >
       <ExpertVoiceContainer props={props} />
+      <UserVoiceContainer props={props} />
     </ImageBackground>
   );
 };
