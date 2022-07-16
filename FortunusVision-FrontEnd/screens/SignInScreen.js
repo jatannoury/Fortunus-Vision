@@ -7,7 +7,7 @@ import {
   StatusBar,
   Alert,
 } from "react-native";
-import { signUserIn } from "../utils/http";
+import { getExperts, signUserIn } from "../utils/http";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
 import SignInForm from "../components/SignInForm";
@@ -57,11 +57,18 @@ const SignInScreen = ({ navigation }) => {
     saveInputHandler();
     async function signIn() {
       const response = await signUserIn(inputVals.email, inputVals.password);
-      if (response.err) {
+      if (response.err || response.user_type === 1) {
         Alert.alert("Wrong credentials", "Please check your inputs");
       } else {
         dispatch(addCoins(response.coins));
         dispatch(addName(response.userName));
+
+        async function fetchExperts() {
+          const response = await getExperts(1);
+          console.log("EXPERTS:", response);
+        }
+        fetchExperts();
+
         setSwitch(true);
         setTimeout(() => {
           setSwitch(false);
