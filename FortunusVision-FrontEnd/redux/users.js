@@ -12,8 +12,12 @@ const usersSlice = createSlice({
     addCoins: (state, action) => {
       state.coins = action.payload;
     },
+    addName: (state, action) => {
+      state.name = action.payload;
+    },
   },
 });
 
 export const addCoins = usersSlice.actions.addCoins;
+export const addName = usersSlice.actions.addName;
 export default usersSlice.reducer;
