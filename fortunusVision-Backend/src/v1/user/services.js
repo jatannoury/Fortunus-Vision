@@ -15,4 +15,10 @@ async function addUser(body, hashedPassword) {
   return await user.save();
 }
 
-module.exports = { addUser };
+async function getByEmail(email) {
+  //return first user having matching synonym
+  return await User.findOne({
+    email,
+  });
+}
+module.exports = { addUser, getByEmail };
