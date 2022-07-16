@@ -2,9 +2,10 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 import ProfilePicture from "../screens/ProfilePicture";
-import ChatPhoto from "./ChatPhoto";
 import { FontAwesome5 } from "@expo/vector-icons";
-const DrawerHeader = ({ name, coins }) => {
+import { useSelector } from "react-redux";
+const DrawerHeader = ({ name }) => {
+  const coins = useSelector((state) => state.user.coins);
   return (
     <View style={styles.rootContainer}>
       <View style={styles.flex}>
