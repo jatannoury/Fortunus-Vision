@@ -23,12 +23,12 @@ const ExpertCard = ({ name, years, age, rating, price, phonePrice }) => {
         ></Image>
         <Text
           style={[
-            styles.price,
-            price.length == 2 && { left: 665 },
-            price.length == 1 && { left: 670 },
+            styles.phonePrice,
+            phonePrice.length === 2 && { left: 665 },
+            phonePrice.length === 1 && { left: 670 },
           ]}
         >
-          {price}$
+          {phonePrice}$
         </Text>
         <Image
           source={require("../assets/Container.jpg")}
@@ -36,12 +36,12 @@ const ExpertCard = ({ name, years, age, rating, price, phonePrice }) => {
         ></Image>
         <Text
           style={[
-            styles.phonePrice,
-            phonePrice.length == 2 && { left: 660 },
-            phonePrice.length == 1 && { left: 670 },
+            styles.price,
+            price.length === 2 && { left: 660 },
+            price.length === 1 && { left: 670 },
           ]}
         >
-          {phonePrice}$
+          {price}$
         </Text>
       </View>
     </EmptyCard>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     left: 640,
     flex: 1,
   },
-  price: {
+  phonePrice: {
     position: "absolute",
     top: 72,
     left: 652,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     left: 640,
     flex: 1,
   },
-  phonePrice: {
+  price: {
     position: "absolute",
     top: 135,
     left: 652,
