@@ -1,6 +1,8 @@
 const User = require("../../../models/User");
 const { addUser, getByEmail } = require("./services");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
 
 async function register(req, res) {
   try {
@@ -18,7 +20,7 @@ async function signIn(req, res) {
   try {
     //check validity of email
     const user = await getByEmail(req.body.email);
-    if (!user) return res.status(400).send("invalid credentials");
+    if (user == null) return res.status(400).send("invalid email");
 
     //check validity of password
     const validPassword = await bcrypt.compare(
@@ -30,9 +32,15 @@ async function signIn(req, res) {
     //create jwt token
     const token = jwt.sign({ _id: user._id, email: user.email }, TOKEN_SECRET);
 
-    return res.header("auth-token", token).send({ token });
+    return res.header("auth-token", token).send({
+      token: token,
+      userName: user.userName,
+      coins: user.coins,
+      chats: user.chat,
+      appointment: user.appointment,
+      call_history: user.call_history,
+    });
   } catch (error) {
-    console.log(error);
     res.status(500).send(error);
   }
 }
