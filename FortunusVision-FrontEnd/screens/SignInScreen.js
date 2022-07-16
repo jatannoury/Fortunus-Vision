@@ -7,6 +7,7 @@ import {
   StatusBar,
   Pressable,
 } from "react-native";
+import { signUserIn } from "../utils/http";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
 import SignInForm from "../components/SignInForm";
@@ -15,18 +16,33 @@ import { Feather } from "@expo/vector-icons";
 import { Zocial } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import SignUpLink from "../components/SignUpLink";
+
+function switchCurrent() {
+  navigation.navigate("SignUP");
+}
 const SignInScreen = ({ navigation }) => {
-  function switchCurrent() {
-    navigation.navigate("SignUP");
-  }
+  const [inputVals, setInputVals] = useState({
+    email: "",
+    password: "",
+  });
   const [switchScreen, setSwitch] = useState(false);
-  function switchScreenHandler(screen) {
-    setSwitch(true);
-    setTimeout(() => {
-      setSwitch(false);
-      navigation.navigate(screen);
-    }, 200);
-  }
+
+  function switchScreenHandler(screen) {}
+  //   async function signIn() {
+  //     const response = await signUserIn(
+  //       inputVals.email.val,
+  //       inputVals.password.val
+  //     );
+  //     console.log("RESPONSE", response);
+  //   }
+  //   signIn();
+  // setSwitch(true);
+  // setTimeout(() => {
+  //   setSwitch(false);
+  //   navigation.navigate(screen);
+  // }, 200);
+  // }
+
   return (
     <View style={styles.container}>
       <ImageBackground
