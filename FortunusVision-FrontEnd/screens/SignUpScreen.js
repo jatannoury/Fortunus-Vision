@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { registerUser } from "../utils/http";
 import {
   StyleSheet,
   Text,
@@ -15,7 +16,7 @@ import { Feather } from "@expo/vector-icons";
 
 const SignUpScreen = ({ navigation }) => {
   const [switchScreen, setSwitch] = useState(false);
-
+  const [data, setData] = useState("");
   const [inputVals, setInputVals] = useState({
     email: { val: "", isValid: true },
     username: { val: "", isValid: true },
@@ -45,7 +46,6 @@ const SignUpScreen = ({ navigation }) => {
       password: inputVals.password.val,
       password_confirmation: inputVals.password_confirmation.val,
     };
-    console.log(submitted);
     const emailIsValid =
       submitted.email.toString().indexOf("@outlook.com") > -1 ||
       submitted.email.toString().indexOf("@hotmail.com") > -1 ||
@@ -70,11 +70,20 @@ const SignUpScreen = ({ navigation }) => {
       Alert.alert("Invalid Input", "Please check your inputs");
       return;
     } else {
-      Alert.alert(
-        `email:${inputVals.email.val}`,
-        `password:${inputVals.password.val}`
-      );
-      pressHandler();
+      async function register() {
+        const response = await registerUser(
+          inputVals.email.val,
+          inputVals.password.val,
+          inputVals.username.val
+        );
+        console.log("RESPONSE", response);
+        if (response.keyValue) {
+          Alert.alert(`${response.keyValue.email} is already in use`);
+        } else {
+          switchScreenHandler();
+        }
+      }
+      register();
     }
   }
 

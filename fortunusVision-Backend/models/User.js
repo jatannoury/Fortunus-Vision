@@ -3,6 +3,7 @@ const userSchema = new mongoose.Schema({
   user_type: {
     type: Number,
     require: true,
+    default: 0,
     max: 1,
   },
   userName: {
