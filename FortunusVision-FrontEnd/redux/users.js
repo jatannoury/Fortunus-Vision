@@ -8,6 +8,12 @@ const usersSlice = createSlice({
     callsHistory: [],
     appointments: [],
   },
+  reducers: {
+    addCoins: (state, action) => {
+      state.coins = action.payload;
+    },
+  },
 });
 
+export const addCoins = usersSlice.actions.addCoins;
 export default usersSlice.reducer;
