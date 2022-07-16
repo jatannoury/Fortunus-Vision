@@ -5,5 +5,5 @@ const router = Router();
 
 router.post("/register", register);
 router.post("/signIn", signIn);
-router.get("/getExperts", getExperts);
+router.post("/getExperts", getExperts);
 module.exports = router;
