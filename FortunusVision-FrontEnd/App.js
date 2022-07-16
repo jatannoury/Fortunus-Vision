@@ -22,13 +22,18 @@ import ProfilePicture from "./screens/ProfilePicture";
 
 import ChatPhoto from "./components/ChatPhoto";
 import DrawerHeader from "./components/DrawerHeader";
+
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import { useSelector } from "react-redux";
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 export default function App() {
   const CustomDrawer = (props) => {
     return (
       <DrawerContentScrollView {...props}>
-        <DrawerHeader name={"Joseph Tannoury"} coins={30} />
+        <DrawerHeader name={"Joseph Tannoury"} />
 
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
@@ -105,92 +110,94 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: { backgroundColor: Colors.primary500 },
-          headerTintColor: Colors.primary600,
-        }}
-      >
-        <Stack.Screen
-          name="SignIn"
-          component={SignInScreen}
-          options={{
-            title: "Sign In",
-            headerShown: false,
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: Colors.primary500 },
+            headerTintColor: Colors.primary600,
           }}
-        />
-        <Stack.Screen
-          name="SignUP"
-          component={SignUpScreen}
-          options={{
-            title: "Sign Up",
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="LandingPage"
-          component={DrawerNavigator}
-          options={{
-            title: "Landing Page",
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="Appointments"
-          component={DrawerNavigator}
-          options={{
-            title: "Appointments",
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="ExpertPage"
-          component={ExpertScreen}
-          options={{
-            title: "Expert Page",
-          }}
-        />
-        <Stack.Screen
-          name="HistoryScreen"
-          component={DrawerNavigator}
-          options={{
-            title: "History",
-          }}
-        />
-        <Stack.Screen
-          name="Chats"
-          component={DrawerNavigator}
-          options={{
-            title: "Chats",
-          }}
-        />
-        <Stack.Screen
-          name="Booking"
-          component={BookingScreen}
-          options={{
-            title: "Book Your Appointment",
-          }}
-        />
-        <Stack.Screen
-          name="Recharge"
-          component={RechargeCoinsScreen}
-          options={{
-            title: "",
-          }}
-        />
-        <Stack.Screen
-          name="Chat"
-          component={ChatScreen}
-          options={{
-            title: "",
-            headerBackTitleVisible: true,
-            headerLeft: ({ navigation }) => (
-              <ChatPhoto navigation={navigation} />
-            ),
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+        >
+          <Stack.Screen
+            name="SignIn"
+            component={SignInScreen}
+            options={{
+              title: "Sign In",
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="SignUP"
+            component={SignUpScreen}
+            options={{
+              title: "Sign Up",
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="LandingPage"
+            component={DrawerNavigator}
+            options={{
+              title: "Landing Page",
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Appointments"
+            component={DrawerNavigator}
+            options={{
+              title: "Appointments",
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="ExpertPage"
+            component={ExpertScreen}
+            options={{
+              title: "Expert Page",
+            }}
+          />
+          <Stack.Screen
+            name="HistoryScreen"
+            component={DrawerNavigator}
+            options={{
+              title: "History",
+            }}
+          />
+          <Stack.Screen
+            name="Chats"
+            component={DrawerNavigator}
+            options={{
+              title: "Chats",
+            }}
+          />
+          <Stack.Screen
+            name="Booking"
+            component={BookingScreen}
+            options={{
+              title: "Book Your Appointment",
+            }}
+          />
+          <Stack.Screen
+            name="Recharge"
+            component={RechargeCoinsScreen}
+            options={{
+              title: "",
+            }}
+          />
+          <Stack.Screen
+            name="Chat"
+            component={ChatScreen}
+            options={{
+              title: "",
+              headerBackTitleVisible: true,
+              headerLeft: ({ navigation }) => (
+                <ChatPhoto navigation={navigation} />
+              ),
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
