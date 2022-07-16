@@ -29,10 +29,10 @@ const userSchema = new mongoose.Schema({
     default: 0,
   },
   info: {
-    years_of_experience: { type: Number, default: 0 },
+    years_of_experience: { type: Number, require: true },
     phone_price: { type: Number, require: true },
     voice_price: { type: Number, require: true },
-    rating: { type: Number, default: 0, max: 5 },
+    rating: { type: Number, max: 5, require: true },
     age: { type: Number, min: 18, require: true },
   },
   chat: [
