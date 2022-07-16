@@ -16,7 +16,7 @@ import { Feather } from "@expo/vector-icons";
 
 const SignUpScreen = ({ navigation }) => {
   const [switchScreen, setSwitch] = useState(false);
-  const [data, setData] = useState("");
+
   const [inputVals, setInputVals] = useState({
     email: { val: "", isValid: true },
     username: { val: "", isValid: true },
@@ -78,7 +78,10 @@ const SignUpScreen = ({ navigation }) => {
         );
         console.log("RESPONSE", response);
         if (response.keyValue) {
-          Alert.alert(`${response.keyValue.email} is already in use`);
+          Alert.alert(
+            "Wrong data input",
+            `${response.keyValue.email} is already in use`
+          );
         } else {
           switchScreenHandler();
         }
