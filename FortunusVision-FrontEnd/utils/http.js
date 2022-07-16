@@ -6,7 +6,6 @@ axios.defaults.baseURL = BACKEND_URL;
 import { useState } from "react";
 let data;
 export async function registerUser(email, password, username) {
-  console.log("In http", email, password, username);
   const response = await axios({
     method: "post",
     url: "/user/register",
@@ -37,6 +36,25 @@ export async function signUserIn(email, password) {
     data: {
       email: email,
       password: password,
+    },
+  })
+    .then((response) => {
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
+
+export async function getExperts(type) {
+  const response = await axios({
+    method: "post",
+    url: "/user/getExperts",
+    data: {
+      userType: type,
     },
   })
     .then((response) => {
