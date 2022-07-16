@@ -25,6 +25,16 @@ const SignInScreen = ({ navigation }) => {
     email: "",
     password: "",
   });
+
+  function InputChangedHandlers(inputIdentifier, enteredValue) {
+    setInputVals((currInput) => {
+      return {
+        ...currInput,
+        [inputIdentifier]: { val: enteredValue, isValid: true },
+      };
+    });
+  }
+
   const [switchScreen, setSwitch] = useState(false);
 
   function switchScreenHandler(screen) {}
