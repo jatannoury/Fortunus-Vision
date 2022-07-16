@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema({
       date: { type: Date, default: Date.now },
     },
   ],
-  appointments: [
+  appointment: [
     {
       id: { type: String, require: true, min: 6 },
       user_id: { type: String, require: true, min: 6 },

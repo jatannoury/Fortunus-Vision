@@ -1,4 +1,4 @@
 const { use } = require(".");
-const User = require("../../model/User");
-const {} = require("../../model/User");
+const User = require("../../../models/User");
+const {} = require("../../../models/User");
 module.exports = {};
