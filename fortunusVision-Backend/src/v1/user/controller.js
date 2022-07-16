@@ -17,20 +17,18 @@ async function register(req, res) {
   }
 }
 async function signIn(req, res) {
-  console.log(req.body.email);
   try {
     //check validity of email
     const user = await getByEmail(req.body.email);
-    console.log(user);
+    if (user == null) return res.send({ err: "Invalid credentials" });
 
-    if (user == null) return res.send({ err: "invalid email" });
     //check validity of password
     const validPassword = await bcrypt.compare(
       req.body.password,
       user.password
     );
-    console.log(user);
-    if (!validPassword) return res.status(400).send("invalid credentials");
+    if (!validPassword) return res.send({ err: "Invalid credentials" });
+
     //create jwt token
     const token = jwt.sign({ _id: user._id, email: user.email }, TOKEN_SECRET);
 

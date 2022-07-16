@@ -5,7 +5,7 @@ import {
   ImageBackground,
   StyleSheet,
   StatusBar,
-  Pressable,
+  Alert,
 } from "react-native";
 import { signUserIn } from "../utils/http";
 import Colors from "../constants/colors";
@@ -34,7 +34,7 @@ const SignInScreen = ({ navigation }) => {
       };
     });
   }
-  function submitHandler() {
+  function saveInputHandler() {
     const submitted = {
       email: inputVals.email,
       password: inputVals.password,
@@ -45,25 +45,26 @@ const SignInScreen = ({ navigation }) => {
         email: currInput.email,
       };
     });
-    console.log(inputVals);
   }
   const [switchScreen, setSwitch] = useState(false);
 
-  function switchScreenHandler(screen) {}
-  //   async function signIn() {
-  //     const response = await signUserIn(
-  //       inputVals.email.val,
-  //       inputVals.password.val
-  //     );
-  //     console.log("RESPONSE", response);
-  //   }
-  //   signIn();
-  // setSwitch(true);
-  // setTimeout(() => {
-  //   setSwitch(false);
-  //   navigation.navigate(screen);
-  // }, 200);
-  // }
+  function switchScreenHandler(screen) {
+    saveInputHandler();
+    async function signIn() {
+      const response = await signUserIn(inputVals.email, inputVals.password);
+      if (response.err) {
+        Alert.alert("Wrong credentials", "Please check your inputs");
+      } else {
+        console.log(response);
+        setSwitch(true);
+        setTimeout(() => {
+          setSwitch(false);
+          navigation.navigate(screen);
+        }, 200);
+      }
+    }
+    signIn();
+  }
 
   return (
     <View style={styles.container}>
@@ -81,7 +82,7 @@ const SignInScreen = ({ navigation }) => {
             <Feather name="arrow-right-circle" size={20} style={styles.icon} />
           }
           style={{ marginHorizontal: 20, marginTop: 150 }}
-          onPress={submitHandler}
+          onPress={switchScreenHandler.bind(this, "LandingPage")}
         />
         <View style={styles.socialMedia}>
           <Button
