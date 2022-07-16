@@ -30,11 +30,23 @@ const SignInScreen = ({ navigation }) => {
     setInputVals((currInput) => {
       return {
         ...currInput,
-        [inputIdentifier]: { val: enteredValue, isValid: true },
+        [inputIdentifier]: enteredValue,
       };
     });
   }
-
+  function submitHandler() {
+    const submitted = {
+      email: inputVals.email,
+      password: inputVals.password,
+    };
+    setInputVals((currInput) => {
+      return {
+        password: currInput.password,
+        email: currInput.email,
+      };
+    });
+    console.log(inputVals);
+  }
   const [switchScreen, setSwitch] = useState(false);
 
   function switchScreenHandler(screen) {}
@@ -62,14 +74,14 @@ const SignInScreen = ({ navigation }) => {
       >
         <StatusBar style="light" backgroundColor={Colors.primary500} />
         <Title label="Fortunus Vision" style={{ fontSize: 50 }} />
-        <SignInForm />
+        <SignInForm InputChangedHandlers={InputChangedHandlers} />
         <Button
           label={"Login Now"}
           icon={
             <Feather name="arrow-right-circle" size={20} style={styles.icon} />
           }
           style={{ marginHorizontal: 20, marginTop: 150 }}
-          onPress={switchScreenHandler.bind(this, "LandingPage")}
+          onPress={submitHandler}
         />
         <View style={styles.socialMedia}>
           <Button

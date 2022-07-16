@@ -1,16 +1,16 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import Input from "../components/Input";
-const SignInForm = () => {
+const SignInForm = ({ InputChangedHandlers }) => {
   return (
     <View style={styles.form}>
       <Input
         label={"E-mail"}
-        // onChangeText={InputChangedHandlers.bind(this, "email")}
+        onChangeText={InputChangedHandlers.bind(this, "email")}
       />
       <Input
         label={"Password"}
-        // onChangeText={InputChangedHandlers.bind(this, "email")}
+        onChangeText={InputChangedHandlers.bind(this, "password")}
       />
     </View>
   );
