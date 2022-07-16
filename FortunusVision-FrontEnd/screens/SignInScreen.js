@@ -17,14 +17,12 @@ import { Zocial } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import SignUpLink from "../components/SignUpLink";
 import { useSelector, useDispatch } from "react-redux";
-import { addCoins, addName } from "../redux/users";
+import { addCoins, addName, addExperts } from "../redux/users";
 
 function switchCurrent() {
   navigation.navigate("SignUP");
 }
 const SignInScreen = ({ navigation }) => {
-  const name = useSelector((state) => state.user.name);
-
   const dispatch = useDispatch();
   const [inputVals, setInputVals] = useState({
     email: "",
@@ -64,8 +62,14 @@ const SignInScreen = ({ navigation }) => {
         dispatch(addName(response.userName));
 
         async function fetchExperts() {
+          let manipulatedData = [];
           const response = await getExperts(1);
-          console.log("EXPERTS:", response);
+          response.map((item) => {
+            let obj = item.info;
+            obj.userName = item.userName;
+            manipulatedData.push(obj);
+          });
+          dispatch(addExperts(manipulatedData));
         }
         fetchExperts();
 
