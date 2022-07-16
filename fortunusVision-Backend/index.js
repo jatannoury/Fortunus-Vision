@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const userRouter = require("./src/user");
+const userRouter = require("./src/v1/user");
 //
 
 // mongodDB online -> use Atlas
@@ -12,7 +12,7 @@ mongoose.connect(DB_CONNECT, () => console.log("connected to db"));
 //
 
 //using dependencies
-const hostname = "192.168.43.222";
+const hostname = "192.168.100.192";
 const app = express();
 app.use(cors());
 app.use(express.json());
