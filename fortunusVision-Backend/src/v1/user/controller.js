@@ -11,7 +11,7 @@ async function register(req, res) {
     const addUserResult = await addUser(req.body, hashedPassword);
     return res.send({ user: addUserResult._id });
   } catch (error) {
-    console.log(error);
+    return res.send(error);
   }
 }
 module.exports = { register };
