@@ -16,11 +16,16 @@ import { Feather } from "@expo/vector-icons";
 import { Zocial } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import SignUpLink from "../components/SignUpLink";
+import { useSelector, useDispatch } from "react-redux";
+import { addCoins } from "../redux/users";
 
 function switchCurrent() {
   navigation.navigate("SignUP");
 }
 const SignInScreen = ({ navigation }) => {
+  const name = useSelector((state) => state.user.name);
+
+  const dispatch = useDispatch();
   const [inputVals, setInputVals] = useState({
     email: "",
     password: "",
@@ -55,7 +60,8 @@ const SignInScreen = ({ navigation }) => {
       if (response.err) {
         Alert.alert("Wrong credentials", "Please check your inputs");
       } else {
-        console.log(response);
+        dispatch(addCoins(response.coins));
+
         setSwitch(true);
         setTimeout(() => {
           setSwitch(false);

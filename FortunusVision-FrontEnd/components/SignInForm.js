@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import Input from "../components/Input";
+
 const SignInForm = ({ InputChangedHandlers }) => {
   return (
     <View style={styles.form}>
