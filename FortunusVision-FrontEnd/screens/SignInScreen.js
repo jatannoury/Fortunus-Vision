@@ -17,7 +17,7 @@ import { Zocial } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import SignUpLink from "../components/SignUpLink";
 import { useSelector, useDispatch } from "react-redux";
-import { addCoins } from "../redux/users";
+import { addCoins, addName } from "../redux/users";
 
 function switchCurrent() {
   navigation.navigate("SignUP");
@@ -61,7 +61,7 @@ const SignInScreen = ({ navigation }) => {
         Alert.alert("Wrong credentials", "Please check your inputs");
       } else {
         dispatch(addCoins(response.coins));
-
+        dispatch(addName(response.userName));
         setSwitch(true);
         setTimeout(() => {
           setSwitch(false);
