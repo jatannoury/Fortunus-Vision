@@ -4,8 +4,9 @@ import Colors from "../constants/colors";
 import ProfilePicture from "../screens/ProfilePicture";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
-const DrawerHeader = ({ name }) => {
+const DrawerHeader = () => {
   const coins = useSelector((state) => state.user.coins);
+  const name = useSelector((state) => state.user.name);
   return (
     <View style={styles.rootContainer}>
       <View style={styles.flex}>
