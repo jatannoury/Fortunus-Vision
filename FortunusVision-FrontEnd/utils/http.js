@@ -29,3 +29,23 @@ export async function registerUser(email, password, username) {
 
   return data;
 }
+
+export async function signUserIn(email, password) {
+  const response = await axios({
+    method: "post",
+    url: "/user/signIn",
+    data: {
+      email: email,
+      password: password,
+    },
+  })
+    .then((response) => {
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
