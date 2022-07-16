@@ -7,6 +7,7 @@ const usersSlice = createSlice({
     chats: [],
     callsHistory: [],
     appointments: [],
+    experts: [],
   },
   reducers: {
     addCoins: (state, action) => {
@@ -15,9 +16,13 @@ const usersSlice = createSlice({
     addName: (state, action) => {
       state.name = action.payload;
     },
+    addExperts: (state, action) => {
+      state.experts = action.payload;
+    },
   },
 });
 
 export const addCoins = usersSlice.actions.addCoins;
 export const addName = usersSlice.actions.addName;
+export const addExperts = usersSlice.actions.addExperts;
 export default usersSlice.reducer;
