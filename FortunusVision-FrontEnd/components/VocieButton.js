@@ -4,8 +4,7 @@ import { Audio } from "expo-av";
 import ActionButton from "./ActionButton";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
-
+import { Ionicons } from "@expo/vector-icons";
 const VoiceButton = () => {
   const [recording, setRecording] = useState();
   const [recordings, setRecordings] = useState([]);
@@ -70,6 +69,12 @@ const VoiceButton = () => {
             Recording {index + 1}-{recordingLine.duration}
           </Text>
           <View style={styles.row}>
+            <Ionicons
+              name="send"
+              size={35}
+              color="black"
+              style={{ marginHorizontal: 10 }}
+            />
             <AntDesign
               name="delete"
               size={35}
