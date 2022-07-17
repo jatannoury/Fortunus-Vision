@@ -7,7 +7,7 @@ import {
   StatusBar,
   Alert,
 } from "react-native";
-import { getExperts, signUserIn } from "../utils/http";
+import { getExperts, getExpertsById, signUserIn } from "../utils/http";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
 import SignInForm from "../components/SignInForm";
@@ -17,7 +17,7 @@ import { Zocial } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import SignUpLink from "../components/SignUpLink";
 import { useSelector, useDispatch } from "react-redux";
-import { addCoins, addName, addExperts } from "../redux/users";
+import { addCoins, addName, addExperts, addChats } from "../redux/users";
 
 function switchCurrent() {
   navigation.navigate("SignUP");
@@ -72,6 +72,23 @@ const SignInScreen = ({ navigation }) => {
           dispatch(addExperts(manipulatedData));
         }
         fetchExperts();
+
+        async function fetchChats() {
+          let allExperts = [];
+          response.chats.map((item) => {
+            async function getEachExpert() {
+              let sub_response = await getExpertsById(item.expert_id);
+              let manipulatedData = {
+                ...item,
+                voicePrice: sub_response.info.voice_price,
+                name: sub_response.userName,
+              };
+              dispatch(addChats(manipulatedData));
+            }
+            getEachExpert();
+          });
+        }
+        fetchChats();
 
         setSwitch(true);
         setTimeout(() => {
