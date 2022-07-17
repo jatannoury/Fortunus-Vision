@@ -1,5 +1,10 @@
 const User = require("../../../models/User");
-const { addUser, getByEmail, getByUserType } = require("./services");
+const {
+  addUser,
+  getByEmail,
+  getByUserType,
+  getExpertsById,
+} = require("./services");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
@@ -45,8 +50,12 @@ async function signIn(req, res) {
   }
 }
 async function getExperts(req, res) {
+  if (req.body.expertId) {
+    const result = await getExpertsById(req.body.expertId);
+    console.log(result);
+    return res.send(result);
+  }
   const result = await getByUserType(req.body.userType);
-  console.log(req.params);
   return res.send(result);
 }
 module.exports = { register, signIn, getExperts };
