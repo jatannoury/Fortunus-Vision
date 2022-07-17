@@ -67,3 +67,22 @@ export async function getExperts(type) {
     });
   return data;
 }
+
+export async function getExpertsById(Id) {
+  const response = await axios({
+    method: "post",
+    url: "/user/getExperts",
+    data: {
+      expertId: Id,
+    },
+  })
+    .then((response) => {
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
