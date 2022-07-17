@@ -5,27 +5,37 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
   Pressable,
   TouchableNativeFeedback,
 } from "react-native";
 import Colors from "../constants/colors";
-const ActionButton = ({ icon, style, coins, name, screenName, navigation }) => {
-  function switchScreen(name) {
-    if (screenName !== "Booking") {
-      return;
-    }
-    navigation.navigate("Recharge");
-  }
+const ActionButton = ({
+  icon,
+  icon1,
+  icon2,
+  style,
+  coins,
+  name,
+  stopRecording,
+  fct,
+  startRecording,
+  recording,
+}) => {
   return (
     <View>
       <View style={[styles.imgContainer]}>
         <Pressable
           android_ripple={{ color: Colors.primary600 }}
           style={[styles.img, style]}
-          onPress={switchScreen}
+          onPress={
+            name === "recording"
+              ? recording
+                ? stopRecording
+                : startRecording
+              : fct
+          }
         >
-          {icon}
+          {icon ? icon : recording ? icon1 : icon2}
         </Pressable>
       </View>
       <Text
@@ -34,7 +44,9 @@ const ActionButton = ({ icon, style, coins, name, screenName, navigation }) => {
           name === "phone-outline" && { paddingRight: 55 },
           name === "chatbox-outline" && { paddingLeft: 15 },
         ]}
-      >{`${coins} ${!isNaN(coins) ? ` coins` : ``}`}</Text>
+      >
+        {coins && `${coins} ${!isNaN(coins) ? ` coins` : ``}`}
+      </Text>
     </View>
   );
 };
