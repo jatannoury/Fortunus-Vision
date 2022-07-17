@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Button, Text } from "react-native";
 import { Audio } from "expo-av";
 import ActionButton from "./ActionButton";
@@ -9,9 +9,14 @@ const VoiceButton = () => {
   const [recording, setRecording] = useState();
   const [recordings, setRecordings] = useState([]);
   const [played, setIsPlayed] = useState(false);
-  const [soundStatus, setSoundStatus] = useState(false);
-  let displayedDurr = formatedToMillis(recordings[0].duration);
-
+  const [displayedDurr, setDisplayedDurr] = useState(null);
+  const [duration, setDuration] = useState(0);
+  useEffect(() => {
+    if (typeof recordings[0] === "object") {
+      setDisplayedDurr(recordings[0].duration);
+      setDuration(formatedToMillis(recordings[0].duration));
+    }
+  }, [recordings]);
   async function startRecording() {
     try {
       const permission = await Audio.requestPermissionsAsync();
@@ -56,13 +61,18 @@ const VoiceButton = () => {
   }
   function formatedToMillis(format) {
     const splitted = format.split(":");
-    console.log(splitted[0] * 60000 + splitted[1] * 1000);
+    return splitted[0] * 60000 + splitted[1] * 1000;
   }
 
   const onPlaybackStatusUpdate = (playbackStatus) => {
     if (playbackStatus.didJustFinish) {
       setIsPlayed(false);
       recordings[0].sound.stopAsync();
+      setDisplayedDurr(0);
+    } else {
+      setDisplayedDurr(
+        getDurationFormatted(duration - playbackStatus.positionMillis)
+      );
     }
   };
 
@@ -86,7 +96,11 @@ const VoiceButton = () => {
               size={35}
               color="black"
               style={{ marginHorizontal: 10 }}
-              onPress={() => setRecordings([])}
+              onPress={() => {
+                setRecordings([]);
+                recordingLine.sound.pauseAsync();
+                setIsPlayed(false);
+              }}
             />
             {!played && (
               <AntDesign
@@ -96,7 +110,6 @@ const VoiceButton = () => {
                 style={{ marginHorizontal: 10 }}
                 onPress={async () => {
                   const status = await recordingLine.sound.playAsync();
-                  setSoundStatus(status);
                   setIsPlayed(true);
                 }}
               />
@@ -109,7 +122,6 @@ const VoiceButton = () => {
                 color="black"
                 onPress={async () => {
                   const status = await recordingLine.sound.pauseAsync();
-                  setSoundStatus(status);
                   setIsPlayed(false);
                 }}
               />
