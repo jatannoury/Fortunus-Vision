@@ -9,6 +9,7 @@ import {
 import Colors from "../constants/colors";
 import ExpertVoiceContainer from "../components/ExpertVoiceContainer";
 import UserVoiceContainer from "../components/UserVoiceContainer";
+import VoiceButton from "../components/VocieButton";
 const ChatScreen = ({ navigation, route }) => {
   const props = route.params.props;
   useEffect(() => {
@@ -93,8 +94,15 @@ const ChatScreen = ({ navigation, route }) => {
       resizeMode="cover"
       style={styles.image}
     >
-      <View>
-        <FlatList renderItem={renderCardItem} data={item} />
+      <FlatList renderItem={renderCardItem} data={item} />
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: Colors.primary700,
+        }}
+      >
+        <VoiceButton />
       </View>
     </ImageBackground>
   );

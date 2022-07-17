@@ -26,7 +26,8 @@
     "react-native-reanimated": "~2.8.0",
     "react-native-web": "0.17.7",
     "react-redux": "^8.0.2",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "expo-av": "~11.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

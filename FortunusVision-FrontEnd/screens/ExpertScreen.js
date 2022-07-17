@@ -18,6 +18,13 @@ const ExpertScreen = ({ navigation, route }) => {
       title: name,
     });
   }, []);
+  function switchScreen(name) {
+    console.log(name);
+    if (name !== "Booking") {
+      return;
+    }
+    navigation.navigate("Recharge");
+  }
   return (
     <ImageBackground
       source={require("../assets/backgroundImage.jpg")}
@@ -49,7 +56,6 @@ const ExpertScreen = ({ navigation, route }) => {
             }
             style={styles.leftContainer}
             coins={phonePrice}
-            name={"phone-outline"}
           />
           <ActionButton
             icon={
@@ -61,7 +67,6 @@ const ExpertScreen = ({ navigation, route }) => {
             }
             style={styles.rightContainer}
             coins={price}
-            name={"chatbox-outline"}
           />
         </View>
         <ActionButton
@@ -70,8 +75,7 @@ const ExpertScreen = ({ navigation, route }) => {
           }
           style={styles.box}
           coins={"Book An Appointment"}
-          navigation={navigation}
-          screenName={"Booking"}
+          fct={switchScreen.bind(this, "Booking")}
         />
       </View>
     </ImageBackground>
