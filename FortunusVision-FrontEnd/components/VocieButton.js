@@ -9,6 +9,27 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const VoiceButton = () => {
   const [recording, setRecording] = useState();
 
+  async function startRecording() {
+    try {
+      const permission = await Audio.requestPermissionsAsync();
+      if (permission.status === "granted") {
+        await Audio.setAudioModeAsync({
+          allowsRecordingIOS: true,
+          playsInSilentModeIOS: true,
+        });
+
+        const { recording } = await Audio.Recording.createAsync(
+          Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
+        );
+        setRecording(recording);
+      } else {
+        setMessage("Please grant permission to app to access microphone");
+      }
+    } catch (err) {
+      console.error("Failed to start recording");
+    }
+  }
+
   return (
     <>
       <View styel={styles.container}>
