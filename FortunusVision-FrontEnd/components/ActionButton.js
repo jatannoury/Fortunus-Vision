@@ -11,12 +11,10 @@ import {
 } from "react-native";
 import Colors from "../constants/colors";
 const ActionButton = ({ icon, style, coins, name, screenName, navigation }) => {
-  console.log(name);
   function switchScreen(name) {
     if (screenName !== "Booking") {
       return;
     }
-    console.log(screenName, "INNNNNN");
     navigation.navigate("Recharge");
   }
   return (

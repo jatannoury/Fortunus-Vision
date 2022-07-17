@@ -24,4 +24,8 @@ async function getByEmail(email) {
 async function getByUserType(userType) {
   return await User.find({ user_type: userType });
 }
-module.exports = { addUser, getByEmail, getByUserType };
+
+async function getExpertsById(Id) {
+  return await User.findById(Id);
+}
+module.exports = { addUser, getByEmail, getByUserType, getExpertsById };

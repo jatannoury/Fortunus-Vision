@@ -76,7 +76,6 @@ const SignUpScreen = ({ navigation }) => {
           inputVals.password.val,
           inputVals.username.val
         );
-        console.log("RESPONSE", response);
         if (response.keyValue) {
           Alert.alert(
             "Wrong data input",

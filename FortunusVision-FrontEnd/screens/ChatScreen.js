@@ -12,7 +12,6 @@ import UserVoiceContainer from "../components/UserVoiceContainer";
 const ChatScreen = ({ navigation, route }) => {
   const props = route.params.props;
   useEffect(() => {
-    console.log(route.params.props.name);
     navigation.setOptions({
       title: props.name,
     });

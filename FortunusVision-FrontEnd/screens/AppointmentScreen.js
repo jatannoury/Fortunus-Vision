@@ -81,7 +81,6 @@ const AppointmentScreen = ({ navigation }) => {
       quote:
         "I have always believed, and I still believe, that whatever good or bad fortune may come our way we can always give it meaning and transform it into something of value.",
     };
-    console.log(CardItemProps);
     return (
       <View style={styles.buttonOuter}>
         <Pressable

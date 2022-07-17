@@ -67,7 +67,6 @@ const HistoryScreen = ({ navigation }) => {
       price: itemData.price,
       icon: "check",
     };
-    console.log(CardItemProps);
     return (
       <View style={styles.buttonOuter}>
         <Pressable
