@@ -69,31 +69,41 @@ const VoiceButton = () => {
           <Text style={styles.fill}>
             Recording {index + 1}-{recordingLine.duration}
           </Text>
-          {!played && (
+          <View style={styles.row}>
             <AntDesign
-              name="playcircleo"
+              name="delete"
               size={35}
               color="black"
-              onPress={async () => {
-                const status = await recordingLine.sound.playAsync();
-                setSoundStatus(status);
-                setIsPlayed(true);
-              }}
+              style={{ marginHorizontal: 10 }}
+              onPress={() => setRecordings([])}
             />
-          )}
+            {!played && (
+              <AntDesign
+                name="playcircleo"
+                size={35}
+                color="black"
+                style={{ marginHorizontal: 10 }}
+                onPress={async () => {
+                  const status = await recordingLine.sound.playAsync();
+                  setSoundStatus(status);
+                  setIsPlayed(true);
+                }}
+              />
+            )}
 
-          {played && (
-            <AntDesign
-              name="pause"
-              size={35}
-              color="black"
-              onPress={async () => {
-                const status = await recordingLine.sound.pauseAsync();
-                setSoundStatus(status);
-                setIsPlayed(false);
-              }}
-            />
-          )}
+            {played && (
+              <AntDesign
+                name="pause"
+                size={35}
+                color="black"
+                onPress={async () => {
+                  const status = await recordingLine.sound.pauseAsync();
+                  setSoundStatus(status);
+                  setIsPlayed(false);
+                }}
+              />
+            )}
+          </View>
         </View>
       );
     });
@@ -124,6 +134,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+
   fill: {
     flex: 1,
     margin: 16,
