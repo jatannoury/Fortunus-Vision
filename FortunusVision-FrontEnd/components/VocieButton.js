@@ -10,6 +10,8 @@ const VoiceButton = () => {
   const [recordings, setRecordings] = useState([]);
   const [played, setIsPlayed] = useState(false);
   const [soundStatus, setSoundStatus] = useState(false);
+  let displayedDurr = formatedToMillis(recordings[0].duration);
+
   async function startRecording() {
     try {
       const permission = await Audio.requestPermissionsAsync();
@@ -52,6 +54,10 @@ const VoiceButton = () => {
     const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds;
     return `${minutesDisplay}:${secondsDisplay}`;
   }
+  function formatedToMillis(format) {
+    const splitted = format.split(":");
+    console.log(splitted[0] * 60000 + splitted[1] * 1000);
+  }
 
   const onPlaybackStatusUpdate = (playbackStatus) => {
     if (playbackStatus.didJustFinish) {
@@ -66,7 +72,7 @@ const VoiceButton = () => {
       return (
         <View key={index} style={styles.row}>
           <Text style={styles.fill}>
-            Recording {index + 1}-{recordingLine.duration}
+            Recording {index + 1}-{displayedDurr}
           </Text>
           <View style={styles.row}>
             <Ionicons
