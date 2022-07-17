@@ -54,6 +54,51 @@ const VoiceButton = () => {
     return `${minutesDisplay}:${secondsDisplay}`;
   }
 
+  const onPlaybackStatusUpdate = (playbackStatus) => {
+    if (playbackStatus.didJustFinish) {
+      setIsPlayed(false);
+      recordings[0].sound.stopAsync();
+    }
+  };
+
+  function getRecordingLines() {
+    return recordings.map((recordingLine, index) => {
+      recordingLine.sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate);
+      return (
+        <View key={index} style={styles.row}>
+          <Text style={styles.fill}>
+            Recording {index + 1}-{recordingLine.duration}
+          </Text>
+          {!played && (
+            <AntDesign
+              name="playcircleo"
+              size={35}
+              color="black"
+              onPress={async () => {
+                const status = await recordingLine.sound.playAsync();
+                setSoundStatus(status);
+                setIsPlayed(true);
+              }}
+            />
+          )}
+
+          {played && (
+            <AntDesign
+              name="pause"
+              size={35}
+              color="black"
+              onPress={async () => {
+                const status = await recordingLine.sound.pauseAsync();
+                setSoundStatus(status);
+                setIsPlayed(false);
+              }}
+            />
+          )}
+        </View>
+      );
+    });
+  }
+
   return (
     <>
       <View styel={styles.container}>
@@ -67,6 +112,7 @@ const VoiceButton = () => {
           style={{ alignItems: "center", justifyContent: "center" }}
         />
       </View>
+      {getRecordingLines()}
     </>
   );
 };
