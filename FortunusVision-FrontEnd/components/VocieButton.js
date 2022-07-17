@@ -9,7 +9,8 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const VoiceButton = () => {
   const [recording, setRecording] = useState();
   const [recordings, setRecordings] = useState([]);
-
+  const [played, setIsPlayed] = useState(false);
+  const [soundStatus, setSoundStatus] = useState(false);
   async function startRecording() {
     try {
       const permission = await Audio.requestPermissionsAsync();
@@ -45,6 +46,14 @@ const VoiceButton = () => {
     setRecordings(updatedRecordings);
   }
 
+  function getDurationFormatted(millis) {
+    const minutes = millis / 1000 / 60;
+    const minutesDisplay = Math.floor(minutes);
+    const seconds = Math.round((minutes - minutesDisplay) * 60);
+    const secondsDisplay = seconds < 10 ? `0${seconds}` : seconds;
+    return `${minutesDisplay}:${secondsDisplay}`;
+  }
+
   return (
     <>
       <View styel={styles.container}>
@@ -58,7 +67,6 @@ const VoiceButton = () => {
           style={{ alignItems: "center", justifyContent: "center" }}
         />
       </View>
-      {getRecordingLines()}
     </>
   );
 };
