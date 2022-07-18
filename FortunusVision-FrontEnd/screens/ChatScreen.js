@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ImageBackground,
   StyleSheet,
@@ -11,6 +11,7 @@ import Colors from "../constants/colors";
 import ExpertVoiceContainer from "../components/ExpertVoiceContainer";
 import UserVoiceContainer from "../components/UserVoiceContainer";
 import VoiceButton from "../components/VocieButton";
+import { fetchInfo } from "../utils/firebase";
 const ChatScreen = ({ navigation, route }) => {
   const props = route.params.props;
   useEffect(() => {
@@ -18,10 +19,19 @@ const ChatScreen = ({ navigation, route }) => {
       title: props.name,
     });
   }, []);
-
+  const [data, setData] = useState([]);
   const chats = useSelector((state) => state.user.chats);
   let currChat = chats.filter((chat) => chat.name === props.name);
   const expert_id = currChat[0].expert_id;
+  useEffect(() => {
+    async function fetchdata() {
+      const res = await fetchInfo(expert_id);
+      res && setData(res);
+      console.log(data);
+    }
+    fetchdata();
+  }, []);
+
   let item = [
     {
       name: "Joseph Tannoury",

@@ -82,11 +82,6 @@ const VoiceButton = ({ expert_id }) => {
     }
   };
 
-  async function getUriToBase64(uri) {
-    const base64String = await readFile(uri, "base64");
-    console.log(base64String);
-    return base64String;
-  }
   function getRecordingLines() {
     return recordings.map((recordingLine, index) => {
       recordingLine.sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate);
