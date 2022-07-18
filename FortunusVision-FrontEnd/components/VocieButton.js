@@ -104,7 +104,17 @@ const VoiceButton = ({ expert_id }) => {
               onPress={async () => {
                 FileSystem.readAsStringAsync(recordingLine.file, {
                   encoding: FileSystem.EncodingType.Base64,
-                });
+                }).then((data) =>
+                  storeVoice(
+                    {
+                      sound: data,
+                      usertype: 0,
+                      date: new Date(Date.now()),
+                      duration: recordingLine.duration,
+                    },
+                    expert_id
+                  )
+                );
               }}
             />
             <AntDesign
