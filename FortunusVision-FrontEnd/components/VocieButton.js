@@ -5,12 +5,18 @@ import ActionButton from "./ActionButton";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-const VoiceButton = () => {
+import { storeVoice } from "../utils/firebase";
+import * as Sharing from "expo-sharing";
+import * as FileSystem from "expo-file-system";
+const { StorageAccessFramework } = FileSystem;
+
+const VoiceButton = ({ expert_id }) => {
   const [recording, setRecording] = useState();
   const [recordings, setRecordings] = useState([]);
   const [played, setIsPlayed] = useState(false);
   const [displayedDurr, setDisplayedDurr] = useState(null);
   const [duration, setDuration] = useState(0);
+
   useEffect(() => {
     if (typeof recordings[0] === "object") {
       setDisplayedDurr(recordings[0].duration);
@@ -76,6 +82,11 @@ const VoiceButton = () => {
     }
   };
 
+  async function getUriToBase64(uri) {
+    const base64String = await readFile(uri, "base64");
+    console.log(base64String);
+    return base64String;
+  }
   function getRecordingLines() {
     return recordings.map((recordingLine, index) => {
       recordingLine.sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate);
@@ -90,6 +101,11 @@ const VoiceButton = () => {
               size={35}
               color="black"
               style={{ marginHorizontal: 10 }}
+              onPress={async () => {
+                FileSystem.readAsStringAsync(recordingLine.file, {
+                  encoding: FileSystem.EncodingType.Base64,
+                });
+              }}
             />
             <AntDesign
               name="delete"
