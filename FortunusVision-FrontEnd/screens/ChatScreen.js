@@ -6,6 +6,7 @@ import {
   View,
   FlatList,
 } from "react-native";
+import { useSelector } from "react-redux";
 import Colors from "../constants/colors";
 import ExpertVoiceContainer from "../components/ExpertVoiceContainer";
 import UserVoiceContainer from "../components/UserVoiceContainer";
@@ -17,6 +18,10 @@ const ChatScreen = ({ navigation, route }) => {
       title: props.name,
     });
   }, []);
+
+  const chats = useSelector((state) => state.user.chats);
+  let currChat = chats.filter((chat) => chat.name === props.name);
+  const expert_id = currChat[0].expert_id;
   let item = [
     {
       name: "Joseph Tannoury",
@@ -102,7 +107,7 @@ const ChatScreen = ({ navigation, route }) => {
           backgroundColor: Colors.primary700,
         }}
       >
-        <VoiceButton />
+        <VoiceButton expert_id={expert_id} />
       </View>
     </ImageBackground>
   );
