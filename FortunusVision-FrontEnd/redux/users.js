@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 const usersSlice = createSlice({
   name: "users",
   initialState: {
@@ -24,6 +25,9 @@ const usersSlice = createSlice({
       state.chats.push(action.payload);
     },
     addCurrChats: (state, action) => {
+      state.curr_chats = action.payload;
+    },
+    storeVoice: (state, action) => {
       state.curr_chats.push(action.payload);
     },
   },
@@ -34,4 +38,5 @@ export const addName = usersSlice.actions.addName;
 export const addExperts = usersSlice.actions.addExperts;
 export const addChats = usersSlice.actions.addChats;
 export const addCurrChats = usersSlice.actions.addCurrChats;
+export const storeVoice = usersSlice.actions.storeVoice;
 export default usersSlice.reducer;
