@@ -1,8 +1,9 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, FlatList } from "react-native";
 import Colors from "../constants/colors";
+import DayContainer from "./DayContainer";
 import EmptyCard from "./EmptyCard";
-const DatesAndTimes = () => {
+const DatesAndTimes = ({ day }) => {
   function getAllDaysInMonth(year, month) {
     const date = new Date(year, month, 1);
 
@@ -13,19 +14,59 @@ const DatesAndTimes = () => {
       date.setDate(date.getDate() + 1);
     }
     for (let i = 0; i < dates.length; i++) {
-      dates[i] = dates[i].toString().split(" ")[2];
+      dates[i] = {
+        date: parseInt(dates[i].toString().split(" ")[2]),
+      };
     }
+
     return dates;
   }
 
-  // 👇️ all days of the current month
+  let date = new Date();
+  let currMonthDates = getAllDaysInMonth(date.getFullYear(), date.getMonth());
 
-  let date = new Date("2022-02-01");
-  console.log(getAllDaysInMonth(date.getFullYear(), date.getMonth()));
+  console.log(currMonthDates);
+
   return (
     <View style={styles.flex}>
       <EmptyCard style={styles.container} card={styles.card}>
         <Text style={styles.text}> Choose from the below</Text>
+        <View style={styles.flex}>
+          {currMonthDates.map((e, index) => {
+            if (index > 4) return;
+            return <DayContainer day={e.date} key={e.date} />;
+          })}
+        </View>
+        <View style={styles.flex}>
+          {currMonthDates.map((e, index) => {
+            if (index < 5 || index > 9) return;
+            return <DayContainer day={e.date} key={e.date} />;
+          })}
+        </View>
+        <View style={styles.flex}>
+          {currMonthDates.map((e, index) => {
+            if (index < 10 || index > 14) return;
+            return <DayContainer day={e.date} key={e.date} />;
+          })}
+        </View>
+        <View style={styles.flex}>
+          {currMonthDates.map((e, index) => {
+            if (index < 15 || index > 19) return;
+            return <DayContainer day={e.date} key={e.date} />;
+          })}
+        </View>
+        <View style={styles.flex}>
+          {currMonthDates.map((e, index) => {
+            if (index < 20 || index > 24) return;
+            return <DayContainer day={e.date} key={e.date} />;
+          })}
+        </View>
+        <View style={styles.flex}>
+          {currMonthDates.map((e, index) => {
+            if (index < 25 || index > 30) return;
+            return <DayContainer day={e.date} key={e.date} />;
+          })}
+        </View>
       </EmptyCard>
     </View>
   );
@@ -49,5 +90,10 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     fontWeight: "bold",
     color: Colors.primary600,
+  },
+
+  flex: {
+    flexDirection: "row",
+    marginVertical: 15,
   },
 });

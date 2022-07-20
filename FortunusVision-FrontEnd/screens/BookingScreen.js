@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import { View, FlatList, ImageBackground, StyleSheet } from "react-native";
 import DatesAndTimes from "../components/DatesAndTimes";
 const BookingScreen = () => {
   return (
@@ -8,7 +8,9 @@ const BookingScreen = () => {
       resizeMode="cover"
       style={styles.image}
     >
-      <DatesAndTimes />
+      <View>
+        <DatesAndTimes />
+      </View>
     </ImageBackground>
   );
 };
