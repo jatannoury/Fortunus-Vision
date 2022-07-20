@@ -1,16 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Button, Text } from "react-native";
+import { View, StyleSheet, Alert, Text } from "react-native";
 import { Audio } from "expo-av";
 import ActionButton from "./ActionButton";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, createIconSetFromFontello } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { storeVoice } from "../utils/firebase";
-import * as Sharing from "expo-sharing";
-import * as FileSystem from "expo-file-system";
-const { StorageAccessFramework } = FileSystem;
-
+import { useSelector, useDispatch } from "react-redux";
+import { addCurrChats, storeVoice as store } from "../redux/users";
+import { utils } from "@react-native-firebase/app";
+import storage from "@react-native-firebase/storage";
+import { firebase } from "../config";
+import axios from "axios";
 const VoiceButton = ({ expert_id }) => {
+  const upload = async (uri, sound) => {
+    const filename = uri.substring(uri.lastIndexOf("/") + 1);
+    const response = await fetch(uri);
+    const blob = await response.blob();
+    firebase
+      .storage()
+      .ref(filename)
+      .put(blob)
+      .then(async (snapshot) => {
+        const res = await snapshot.ref.getDownloadURL();
+        setUrl(res);
+      });
+  };
+
+  const dispatch = useDispatch();
+  const [url, setUrl] = useState();
   const [recording, setRecording] = useState();
   const [recordings, setRecordings] = useState([]);
   const [played, setIsPlayed] = useState(false);
@@ -43,7 +61,6 @@ const VoiceButton = ({ expert_id }) => {
       console.error("Failed to start recording");
     }
   }
-
   async function stopRecording() {
     setRecording(undefined);
     await recording.stopAndUnloadAsync();
@@ -97,19 +114,33 @@ const VoiceButton = ({ expert_id }) => {
               color="black"
               style={{ marginHorizontal: 10 }}
               onPress={async () => {
-                FileSystem.readAsStringAsync(recordingLine.file, {
-                  encoding: FileSystem.EncodingType.Base64,
-                }).then((data) =>
-                  storeVoice(
-                    {
-                      sound: data,
-                      usertype: 0,
-                      date: new Date(Date.now()),
-                      duration: recordingLine.duration,
-                    },
-                    expert_id
-                  )
-                );
+                await upload(recordingLine.file, recordingLine.sound);
+
+                const currentDate = new Date();
+                const currentDayOfMonth = currentDate.getDate();
+                const currentMonth = currentDate.getMonth(); // Be careful! January is 0, not 1
+                const currentYear = currentDate.getFullYear();
+
+                const dateString =
+                  currentDayOfMonth +
+                  "-" +
+                  (currentMonth + 1) +
+                  "-" +
+                  currentYear;
+                // "27-11-2020"
+                const currTime = currentDate.toLocaleTimeString();
+                if (url) {
+                  const sentVoice = {
+                    sound: url,
+                    usertype: 0,
+                    time: currTime,
+                    date: dateString,
+                    duration: recordingLine.duration,
+                  };
+                  dispatch(store(sentVoice));
+                  storeVoice(sentVoice, expert_id);
+                  setRecordings([]);
+                }
               }}
             />
             <AntDesign
