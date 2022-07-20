@@ -19,16 +19,14 @@ import BookingScreen from "./screens/BookingScreen";
 import RechargeCoinsScreen from "./screens/RechargeCoinsScreen";
 import ChatScreen from "./screens/ChatScreen";
 import ProfilePicture from "./screens/ProfilePicture";
-
 import ChatPhoto from "./components/ChatPhoto";
 import DrawerHeader from "./components/DrawerHeader";
-
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import { useSelector } from "react-redux";
-
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+
 export default function App() {
   const CustomDrawer = (props) => {
     return (

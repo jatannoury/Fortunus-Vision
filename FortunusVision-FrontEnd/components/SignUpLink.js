@@ -1,13 +1,10 @@
 import React from "react";
 import { Text, StyleSheet, Pressable } from "react-native";
 import Colors from "../constants/colors";
-const SignUpLink = ({ onPress, switchScreen }) => {
+const SignUpLink = ({ onPress, switchScreen, navigation }) => {
   return (
-    <Pressable>
-      <Text
-        style={[styles.link, switchScreen && styles.pressedText]}
-        onPress={onPress}
-      >
+    <Pressable onPress={onPress}>
+      <Text style={[styles.link, switchScreen && styles.pressedText]}>
         Don't have an account?
       </Text>
     </Pressable>
