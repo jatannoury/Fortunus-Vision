@@ -1,5 +1,6 @@
 {
   "expo": {
+    "plugins": ["@config-plugins/react-native-webrtc"],
     "name": "FortunusVision-FrontEnd",
     "slug": "FortunusVision-FrontEnd",
     "version": "1.0.0",
@@ -14,9 +15,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

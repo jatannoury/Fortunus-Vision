@@ -4,15 +4,13 @@ import { AntDesign } from "@expo/vector-icons";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 import { Audio } from "expo-av";
-import { firebase } from "../config";
 const UserVoiceContainer = ({ sound, date, time, name }) => {
   const soundObject = new Audio.Sound();
-  useEffect(() => {
-    async function load() {
-      await soundObject.loadAsync({ uri: sound });
-    }
-    load();
-  });
+  async function load() {
+    await soundObject.loadAsync({ uri: sound });
+  }
+  load();
+
   const [pressed, isPressed] = useState(false);
   return (
     <View style={styles.userContainer}>

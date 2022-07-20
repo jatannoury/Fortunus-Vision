@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  ImageBackground,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  FlatList,
-} from "react-native";
+import { ImageBackground, StyleSheet, View, FlatList } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import Colors from "../constants/colors";
 import ExpertVoiceContainer from "../components/ExpertVoiceContainer";
