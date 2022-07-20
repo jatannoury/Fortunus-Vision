@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
+import Colors from "../constants/colors";
 import EmptyCard from "./EmptyCard";
 const DatesAndTimes = () => {
   function getAllDaysInMonth(year, month) {
@@ -19,23 +20,11 @@ const DatesAndTimes = () => {
 
   // 👇️ all days of the current month
 
-  let date = new Date();
+  let date = new Date("2022-02-01");
   console.log(getAllDaysInMonth(date.getFullYear(), date.getMonth()));
   return (
     <View style={styles.flex}>
-      <EmptyCard
-        style={{
-          height: 500,
-          borderRadius: 25,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        card={{
-          height: "100%",
-          width: "130%",
-          alignItems: "center",
-        }}
-      >
+      <EmptyCard style={styles.container} card={styles.card}>
         <Text style={styles.text}> Choose from the below</Text>
       </EmptyCard>
     </View>
@@ -43,4 +32,22 @@ const DatesAndTimes = () => {
 };
 
 export default DatesAndTimes;
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  card: {
+    height: "100%",
+    width: "130%",
+    alignItems: "center",
+    position: "relative",
+  },
+  container: {
+    height: 600,
+    borderRadius: 25,
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 30,
+    marginVertical: 20,
+    fontWeight: "bold",
+    color: Colors.primary600,
+  },
+});
