@@ -1,5 +1,5 @@
 import axios from "axios";
-const BACKEND_URL = "https://fortunusvision-default-rtdb.firebaseio.com/";
+const BACKEND_URL = "https://fortunusvision-a560b-default-rtdb.firebaseio.com/";
 export function storeVoice(infos, expert_id) {
   axios.post(BACKEND_URL + `${expert_id}.json`, infos);
 }
@@ -12,6 +12,7 @@ export async function fetchInfo(expertId) {
       date: res.data[key].date,
       sound: res.data[key].sound,
       usertype: res.data[key].usertype,
+      time: res.data[key].time,
     };
     info.push(singleInfo);
   }

@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { Text, View, ImageBackground, StyleSheet, Image } from "react-native";
+import {
+  Text,
+  View,
+  ImageBackground,
+  StyleSheet,
+  Linking,
+  Alert,
+} from "react-native";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
 import ActionButton from "../components/ActionButton";
@@ -25,6 +32,16 @@ const ExpertScreen = ({ navigation, route }) => {
     }
     navigation.navigate("Recharge");
   }
+
+  const openUrl = async (url) => {
+    console.log("HEYYYYY");
+    const isSupported = await Linking.canOpenURL(url);
+    if (isSupported) {
+      await Linking.openURL(url);
+    } else {
+      Alert.alert("Don't Know how to open this url", `${url}`);
+    }
+  };
   return (
     <ImageBackground
       source={require("../assets/backgroundImage.jpg")}
@@ -56,6 +73,7 @@ const ExpertScreen = ({ navigation, route }) => {
             }
             style={styles.leftContainer}
             coins={phonePrice}
+            fct={openUrl.bind(this, "http://192.168.100.1:5000")}
           />
           <ActionButton
             icon={
@@ -67,6 +85,7 @@ const ExpertScreen = ({ navigation, route }) => {
             }
             style={styles.rightContainer}
             coins={price}
+            fct={switchScreen}
           />
         </View>
         <ActionButton

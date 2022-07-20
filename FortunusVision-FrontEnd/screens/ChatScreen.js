@@ -6,13 +6,16 @@ import {
   View,
   FlatList,
 } from "react-native";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Colors from "../constants/colors";
 import ExpertVoiceContainer from "../components/ExpertVoiceContainer";
 import UserVoiceContainer from "../components/UserVoiceContainer";
 import VoiceButton from "../components/VocieButton";
 import { fetchInfo } from "../utils/firebase";
+import { addCurrChats } from "../redux/users";
 const ChatScreen = ({ navigation, route }) => {
+  const dispatch = useDispatch();
+
   const props = route.params.props;
   useEffect(() => {
     navigation.setOptions({
@@ -21,78 +24,36 @@ const ChatScreen = ({ navigation, route }) => {
   }, []);
   const [data, setData] = useState([]);
   const chats = useSelector((state) => state.user.chats);
+  const name = useSelector((state) => state.user.name);
+  const thischat = useSelector((state) => state.user.curr_chats);
   let currChat = chats.filter((chat) => chat.name === props.name);
   const expert_id = currChat[0].expert_id;
+
   useEffect(() => {
     async function fetchdata() {
       const res = await fetchInfo(expert_id);
+      dispatch(addCurrChats(res));
       res && setData(res);
-      console.log(data);
+      // console.log(res[0].time);
     }
     fetchdata();
   }, []);
 
-  let item = [
-    {
-      name: "Joseph Tannoury",
-      usertype: "0",
-      Date: "April 22",
-      Time: "10:00 am",
-    },
-    {
-      name: props.name,
-      usertype: "1",
-      Date: "April 22",
-      Time: "10:20 am",
-    },
-    {
-      name: "Joseph Tannoury",
-      usertype: "0",
-      Date: "April 22",
-      Time: "10:25 am",
-    },
-    {
-      name: "Joseph Tannoury",
-      usertype: "0",
-      Date: "April 22",
-      Time: "10:26 am",
-    },
-    {
-      name: "Joseph Tannoury",
-      usertype: "0",
-      Date: "April 22",
-      Time: "10:27 am",
-    },
-    {
-      name: props.name,
-      usertype: "1",
-      Date: "April 22",
-      Time: "1:00 pm",
-    },
-    {
-      name: "Joseph Tannoury",
-      usertype: "0",
-      Date: "April 22",
-      Time: "1:32 pm",
-    },
-    {
-      name: "Joseph Tannoury",
-      usertype: "0",
-      Date: "April 22",
-      Time: "1:33 pm",
-    },
-  ];
-
+  let item = thischat;
+  console.log(item);
   function renderCardItem(itemData) {
     itemData = itemData.item;
     const CardItemProps = {
-      name: itemData.name,
-      date: itemData.Date,
-      time: itemData.Time,
+      name: name,
+      date: itemData.date,
+      time: itemData.time,
+      sound: itemData.sound,
+      duration: itemData.duration,
     };
-    if (itemData.usertype === "0") {
+    if (itemData.usertype === 0) {
       return (
         <View style={styles.buttonOuter}>
+          {/* {console.log(CardItemProps.time)} */}
           <UserVoiceContainer {...CardItemProps} props={props} />
         </View>
       );

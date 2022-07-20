@@ -19,10 +19,10 @@ import SignUpLink from "../components/SignUpLink";
 import { useSelector, useDispatch } from "react-redux";
 import { addCoins, addName, addExperts, addChats } from "../redux/users";
 
-function switchCurrent() {
-  navigation.navigate("SignUP");
-}
 const SignInScreen = ({ navigation }) => {
+  function switchCurrent() {
+    navigation.navigate("SignUP");
+  }
   const dispatch = useDispatch();
   const [inputVals, setInputVals] = useState({
     email: "",
@@ -133,10 +133,7 @@ const SignInScreen = ({ navigation }) => {
             style={{ borderTopRightRadius: 30, borderBottomRightRadius: 30 }}
           />
         </View>
-        <SignUpLink
-          onPress={switchScreenHandler.bind(this, "SignUP")}
-          switchScreen={switchScreen}
-        />
+        <SignUpLink onPress={switchCurrent} navigation={navigation} />
       </ImageBackground>
     </View>
   );
