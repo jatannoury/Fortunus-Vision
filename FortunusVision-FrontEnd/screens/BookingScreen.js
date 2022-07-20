@@ -1,12 +1,15 @@
 import React from "react";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import DatesAndTimes from "../components/DatesAndTimes";
 const BookingScreen = () => {
   return (
     <ImageBackground
       source={require("../assets/backgroundImage.jpg")}
       resizeMode="cover"
       style={styles.image}
-    ></ImageBackground>
+    >
+      <DatesAndTimes />
+    </ImageBackground>
   );
 };
 

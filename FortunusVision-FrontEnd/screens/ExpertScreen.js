@@ -30,7 +30,7 @@ const ExpertScreen = ({ navigation, route }) => {
     if (name !== "Booking") {
       return;
     }
-    navigation.navigate("Recharge");
+    navigation.navigate("Booking");
   }
 
   const openUrl = async (url) => {

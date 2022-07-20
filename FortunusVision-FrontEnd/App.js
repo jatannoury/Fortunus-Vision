@@ -183,6 +183,7 @@ export default function App() {
               title: "",
             }}
           />
+
           <Stack.Screen
             name="Chat"
             component={ChatScreen}
