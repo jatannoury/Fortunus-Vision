@@ -12,22 +12,55 @@ import Title from "../components/Title";
 import ActionButton from "../components/ActionButton";
 import { Ionicons } from "@expo/vector-icons";
 import ProfilePicture from "./ProfilePicture";
+import { useDispatch, useSelector } from "react-redux";
+import { addChat } from "../utils/http";
+import { addChats } from "../redux/users";
 const ExpertScreen = ({ navigation, route }) => {
+  const dispatch = useDispatch();
   const params = route.params.props;
-  const name = params.name;
+  const expertName = params.name;
   const years = params.years;
   const rating = params.rating;
   const phonePrice = params.phonePrice;
   const price = params.price;
   const quote = params.quote;
   const expert_id = params.id;
-  console.log(expert_id);
+  const userName = useSelector((state) => state.user.name);
+  const userId = useSelector((state) => state.user.userId);
+  const chats = useSelector((state) => state.user.chats);
   useEffect(() => {
     navigation.setOptions({
-      title: name,
+      title: expertName,
     });
   }, []);
   function switchScreen(name, props) {
+    if (name === "Chat") {
+      for (let i = 0; i < chats.length; i++) {
+        if (chats[i].expert_id === expert_id) {
+          navigation.navigate(name, { props });
+          return;
+        }
+      }
+      dispatch(
+        addChats({
+          _id: userId,
+          expert_id: expert_id,
+          id: `${userId}/${expert_id}`,
+          name: expertName,
+          voicePrice: price,
+          price: price,
+          user_id: userId,
+        })
+      );
+      addChat(
+        userId,
+        expert_id,
+        price,
+        expertName,
+        `${userId}/${expert_id}`,
+        userName
+      );
+    }
     navigation.navigate(name, { props });
   }
 
@@ -50,7 +83,7 @@ const ExpertScreen = ({ navigation, route }) => {
           path={require("../assets/PERSONAL_PROFILE_PIC.jpg")}
           containerStyle={styles.imgContainer}
         />
-        <Title label={name} style={styles.title} />
+        <Title label={expertName} style={styles.title} />
         <Title
           label={`${years} ${
             years < 2 ? `Year Of Experience` : `Years Of Experience`
@@ -82,7 +115,7 @@ const ExpertScreen = ({ navigation, route }) => {
             }
             style={styles.rightContainer}
             coins={price}
-            fct={switchScreen.bind(this, "Chat", [name, expert_id])}
+            fct={switchScreen.bind(this, "Chat", [expertName, expert_id])}
           />
         </View>
         <ActionButton
