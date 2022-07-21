@@ -4,6 +4,7 @@ const usersSlice = createSlice({
   name: "users",
   initialState: {
     name: "",
+    userId: "",
     coins: 0,
     chats: [],
     callsHistory: [],
@@ -30,6 +31,9 @@ const usersSlice = createSlice({
     storeVoice: (state, action) => {
       state.curr_chats.push(action.payload);
     },
+    addUserId: (state, action) => {
+      state.userId = action.payload;
+    },
   },
 });
 
@@ -39,4 +43,5 @@ export const addExperts = usersSlice.actions.addExperts;
 export const addChats = usersSlice.actions.addChats;
 export const addCurrChats = usersSlice.actions.addCurrChats;
 export const storeVoice = usersSlice.actions.storeVoice;
+export const addUserId = usersSlice.actions.addUserId;
 export default usersSlice.reducer;
