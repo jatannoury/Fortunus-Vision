@@ -20,21 +20,18 @@ const ExpertScreen = ({ navigation, route }) => {
   const phonePrice = params.phonePrice;
   const price = params.price;
   const quote = params.quote;
+  const expert_id = params.id;
+  console.log(expert_id);
   useEffect(() => {
     navigation.setOptions({
       title: name,
     });
   }, []);
-  function switchScreen(name) {
-    console.log(name);
-    if (name !== "Booking") {
-      return;
-    }
-    navigation.navigate("Booking");
+  function switchScreen(name, props) {
+    navigation.navigate(name, { props });
   }
 
   const openUrl = async (url) => {
-    console.log("HEYYYYY");
     const isSupported = await Linking.canOpenURL(url);
     if (isSupported) {
       await Linking.openURL(url);
@@ -85,7 +82,7 @@ const ExpertScreen = ({ navigation, route }) => {
             }
             style={styles.rightContainer}
             coins={price}
-            fct={switchScreen}
+            fct={switchScreen.bind(this, "Chat", [name, expert_id])}
           />
         </View>
         <ActionButton
