@@ -15,6 +15,8 @@ const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 import ChatsScreen from "./ChatsScreen";
 import Logout from "./Logout";
+import ChatScreen from "./ChatScreen";
+import ChatPhoto from "../components/ChatPhoto";
 export function ExpertsScreen() {
   return (
     <Stack.Navigator
@@ -29,6 +31,15 @@ export function ExpertsScreen() {
         options={{
           title: "Chats",
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{
+          title: "",
+          headerBackTitleVisible: true,
+          headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
         }}
       />
       <Stack.Screen
