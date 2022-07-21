@@ -65,7 +65,7 @@ const SignInScreen = ({ navigation }) => {
       if (response.err) {
         Alert.alert("Wrong credentials", "Please check your inputs");
       } else {
-        console.log(response);
+        // console.log(response);
         dispatch(addCoins(response.coins));
         dispatch(addName(response.userName));
         dispatch(addUserId(response.user_id));
@@ -100,7 +100,12 @@ const SignInScreen = ({ navigation }) => {
             });
           } else {
             response.chats.map((item) => {
-              let manipulatedData = { name: item.name, voicePrice: item.price };
+              let manipulatedData = {
+                name: item.name,
+                voicePrice: item.price,
+                user_id: item.user_id,
+                expert_id: item.expert_id,
+              };
               dispatch(addChats(manipulatedData));
             });
           }
