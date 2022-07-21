@@ -1,7 +1,12 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { SimpleLineIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "@react-navigation/drawer";
 
 import ExpertScreen from "./ExpertScreen";
 import AppointmentScreen from "./AppointmentScreen";
@@ -11,12 +16,16 @@ import BookingScreen from "./BookingScreen";
 import RechargeCoinsScreen from "./RechargeCoinsScreen";
 import ChatScreen from "./ChatScreen";
 import LandingScreen from "./LandingScreen";
+import DrawerHeader from "../components/DrawerHeader";
 
 import Colors from "../constants/colors";
 import ChatPhoto from "../components/ChatPhoto";
 
+import Logout from "./Logout";
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+
 export function UserScreen() {
   return (
     <Stack.Navigator
@@ -60,6 +69,13 @@ export function UserScreen() {
         component={DrawerNavigator}
         options={{
           title: "Chats",
+        }}
+      />
+      <Stack.Screen
+        name="Logout"
+        component={DrawerNavigator}
+        options={{
+          title: "Logout",
         }}
       />
       <Stack.Screen
@@ -149,6 +165,16 @@ function DrawerNavigator() {
           title: "Chats",
           drawerIcon: ({ color, size }) => (
             <FontAwesome name="wechat" color={color} size={30} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Logout"
+        component={Logout}
+        options={{
+          title: "Logout",
+          drawerIcon: ({ color, size }) => (
+            <SimpleLineIcons name="logout" size={30} color={color} />
           ),
         }}
       />
