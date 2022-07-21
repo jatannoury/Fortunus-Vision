@@ -1,10 +1,10 @@
 import axios from "axios";
 const BACKEND_URL = "https://fortunusvision-a560b-default-rtdb.firebaseio.com/";
-export function storeVoice(infos, expert_id) {
-  axios.post(BACKEND_URL + `${expert_id}.json`, infos);
+export function storeVoice(infos, user_id, expert_id) {
+  axios.post(BACKEND_URL + `${user_id}/${expert_id}.json`, infos);
 }
-export async function fetchInfo(expertId) {
-  const res = await axios.get(BACKEND_URL + `${expertId}.json`);
+export async function fetchInfo(user_id, expertId) {
+  const res = await axios.get(BACKEND_URL + `${user_id}/${expertId}.json`);
   const info = [];
   for (const key in res.data) {
     const singleInfo = {
