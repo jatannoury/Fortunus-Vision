@@ -18,18 +18,26 @@ const ChatScreen = ({ navigation, route }) => {
   }, []);
   const [data, setData] = useState([]);
   const chats = useSelector((state) => state.user.chats);
-  const user_id = useSelector((state) => state.user.userId);
+  let user_id = useSelector((state) => state.user.userId);
   const name = useSelector((state) => state.user.name);
   const thischat = useSelector((state) => state.user.curr_chats);
   let currChat = chats.filter((chat) => chat.name === props.name);
   const expert_id = route.params.props[1]
     ? route.params.props[1]
     : currChat[0].expert_id;
-
+  const state = useSelector((state) => state.user);
+  if (state.userType === 1) {
+    for (let i = 0; i < state.chats.length; i++) {
+      console.log("NAME", props);
+      if (state.chats[i].name === props) {
+        user_id = state.chats[i].user_id;
+        console.log("USERID", user_id);
+      }
+    }
+  }
   useEffect(() => {
     async function fetchdata() {
       const res = await fetchInfo(user_id, expert_id);
-      console.log(res);
       dispatch(addCurrChats(res));
       res && setData(res);
     }
@@ -73,7 +81,7 @@ const ChatScreen = ({ navigation, route }) => {
           backgroundColor: Colors.primary700,
         }}
       >
-        <VoiceButton expert_id={expert_id} />
+        <VoiceButton expert_id={expert_id} props={props} />
       </View>
     </ImageBackground>
   );

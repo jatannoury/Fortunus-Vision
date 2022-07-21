@@ -20,7 +20,6 @@ const ChatsScreen = ({ navigation }) => {
   let item = chats;
   function renderCardItem(itemData) {
     itemData = itemData.item;
-    console.log(itemData);
     const CardItemProps = {
       name: itemData.name,
       price: itemData.voicePrice,
