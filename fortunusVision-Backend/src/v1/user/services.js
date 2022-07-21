@@ -30,7 +30,10 @@ async function getUserById(Id) {
 }
 async function addChatExpert(body, user) {
   const { expert_id, user_id, price, expert_name, id } = body;
-  (user.chat = {
+  for (let i = 0; i < user.chat.length; i++) {
+    if (user.chat[i].expert_id === expert_id) return;
+  }
+  user.chat.push({
     expert_id: expert_id,
     user_id: user_id,
     price: price,
@@ -41,7 +44,10 @@ async function addChatExpert(body, user) {
 }
 async function addChatUser(body, user) {
   const { expert_id, user_id, price, user_name, id } = body;
-  (user.chat = {
+  for (let i = 0; i < user.chat.length; i++) {
+    if (user.chat[i].user_id === user_id) return;
+  }
+  user.chat.push({
     expert_id: expert_id,
     user_id: user_id,
     price: 0,

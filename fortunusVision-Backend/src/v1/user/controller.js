@@ -47,6 +47,7 @@ async function signIn(req, res) {
       chats: user.chat,
       appointment: user.appointment,
       call_history: user.call_history,
+      user_type: user.user_type,
     });
   } catch (error) {
     res.status(500).send(error);
