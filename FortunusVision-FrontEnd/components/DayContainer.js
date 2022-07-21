@@ -4,7 +4,11 @@ import Colors from "../constants/colors";
 const DayContainer = ({ day }) => {
   return (
     <View style={styles.dayContainer}>
-      <Pressable android_ripple={{ color: "white" }} style={styles.press}>
+      <Pressable
+        android_ripple={{ color: "white" }}
+        style={styles.press}
+        onPress={() => console.log(day)}
+      >
         <Text>{day}</Text>
       </Pressable>
     </View>

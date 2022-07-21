@@ -13,6 +13,7 @@ import storage from "@react-native-firebase/storage";
 import { firebase } from "../config";
 import axios from "axios";
 const VoiceButton = ({ expert_id }) => {
+  const user_id = useSelector((state) => state.user.userId);
   const upload = async (uri, sound) => {
     const filename = uri.substring(uri.lastIndexOf("/") + 1);
     const response = await fetch(uri);
@@ -138,7 +139,7 @@ const VoiceButton = ({ expert_id }) => {
                     duration: recordingLine.duration,
                   };
                   dispatch(store(sentVoice));
-                  storeVoice(sentVoice, expert_id);
+                  storeVoice(sentVoice, user_id, expert_id);
                   setRecordings([]);
                 }
               }}
