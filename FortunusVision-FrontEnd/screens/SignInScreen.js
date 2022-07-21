@@ -65,12 +65,10 @@ const SignInScreen = ({ navigation }) => {
       if (response.err) {
         Alert.alert("Wrong credentials", "Please check your inputs");
       } else {
-        // console.log(response);
         dispatch(addCoins(response.coins));
         dispatch(addName(response.userName));
         dispatch(addUserId(response.user_id));
         dispatch(addUserType(response.user_type));
-        // setUserType(response.user_type);
         async function fetchExperts() {
           let manipulatedData = [];
           const response = await getExperts(1);
