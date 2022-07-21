@@ -48,6 +48,37 @@ export async function signUserIn(email, password) {
     });
   return data;
 }
+export async function addChat(
+  user_id,
+  expert_id,
+  price,
+  expert_name,
+  id,
+  user_name
+) {
+  const response = await axios({
+    method: "post",
+    url: "/user/addChat",
+    data: {
+      user_id,
+      expert_id,
+      price,
+      expert_name,
+      id,
+      user_name,
+    },
+  })
+    .then((response) => {
+      console.log("sucess");
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
 
 export async function getExperts(type) {
   const response = await axios({
