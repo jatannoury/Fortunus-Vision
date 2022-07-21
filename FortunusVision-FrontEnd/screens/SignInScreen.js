@@ -17,7 +17,13 @@ import { Zocial } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import SignUpLink from "../components/SignUpLink";
 import { useSelector, useDispatch } from "react-redux";
-import { addCoins, addName, addExperts, addChats } from "../redux/users";
+import {
+  addCoins,
+  addName,
+  addExperts,
+  addChats,
+  addUserId,
+} from "../redux/users";
 
 const SignInScreen = ({ navigation }) => {
   function switchCurrent() {
@@ -60,13 +66,14 @@ const SignInScreen = ({ navigation }) => {
       } else {
         dispatch(addCoins(response.coins));
         dispatch(addName(response.userName));
-
+        dispatch(addUserId(response.user_id));
         async function fetchExperts() {
           let manipulatedData = [];
           const response = await getExperts(1);
           response.map((item) => {
             let obj = item.info;
             obj.userName = item.userName;
+            obj.expert_id = item._id;
             manipulatedData.push(obj);
           });
           dispatch(addExperts(manipulatedData));
