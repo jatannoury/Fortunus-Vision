@@ -11,6 +11,7 @@ const usersSlice = createSlice({
     appointments: [],
     experts: [],
     curr_chats: [],
+    userType: "",
   },
   reducers: {
     addCoins: (state, action) => {
@@ -34,6 +35,9 @@ const usersSlice = createSlice({
     addUserId: (state, action) => {
       state.userId = action.payload;
     },
+    addUserType: (state, action) => {
+      state.userType = action.payload;
+    },
   },
 });
 
@@ -44,4 +48,5 @@ export const addChats = usersSlice.actions.addChats;
 export const addCurrChats = usersSlice.actions.addCurrChats;
 export const storeVoice = usersSlice.actions.storeVoice;
 export const addUserId = usersSlice.actions.addUserId;
+export const addUserType = usersSlice.actions.addUserType;
 export default usersSlice.reducer;
