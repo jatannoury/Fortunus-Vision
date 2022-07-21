@@ -25,7 +25,36 @@ async function getByUserType(userType) {
   return await User.find({ user_type: userType });
 }
 
-async function getExpertsById(Id) {
+async function getUserById(Id) {
   return await User.findById(Id);
 }
-module.exports = { addUser, getByEmail, getByUserType, getExpertsById };
+async function addChatExpert(body, user) {
+  const { expert_id, user_id, price, expert_name, id } = body;
+  (user.chat = {
+    expert_id: expert_id,
+    user_id: user_id,
+    price: price,
+    name: expert_name,
+    id: id,
+  }),
+    await user.save();
+}
+async function addChatUser(body, user) {
+  const { expert_id, user_id, price, user_name, id } = body;
+  (user.chat = {
+    expert_id: expert_id,
+    user_id: user_id,
+    price: 0,
+    name: user_name,
+    id: id,
+  }),
+    await user.save();
+}
+module.exports = {
+  addUser,
+  getByEmail,
+  getByUserType,
+  getUserById,
+  addChatExpert,
+  addChatUser,
+};
