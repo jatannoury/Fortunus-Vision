@@ -100,21 +100,12 @@ const SignInScreen = ({ navigation }) => {
             });
           } else {
             response.chats.map((item) => {
-              console.log("ITEMMMM", item);
               let manipulatedData = { name: item.name, voicePrice: item.price };
               dispatch(addChats(manipulatedData));
             });
           }
         }
         await fetchChats();
-
-        // setTimeout(() => {
-        //   if (userType === 0) {
-        //     navigation.navigate("LandingScreen");
-        //   } else {
-        //     navigation.navigate("Chats");
-        //   }
-        // }, 200);
       }
     }
     signIn();
