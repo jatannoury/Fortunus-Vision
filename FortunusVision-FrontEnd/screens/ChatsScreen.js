@@ -17,10 +17,10 @@ const ChatsScreen = ({ navigation }) => {
   }
 
   const chats = useSelector((state) => state.user.chats);
-  console.log(chats);
   let item = chats;
   function renderCardItem(itemData) {
     itemData = itemData.item;
+    console.log(itemData);
     const CardItemProps = {
       name: itemData.name,
       price: itemData.voicePrice,
