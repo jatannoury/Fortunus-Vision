@@ -6,18 +6,15 @@ import { ExpertsScreen } from "../screens/ExpertsScreen";
 
 const Root = () => {
   const userType = useSelector((state) => state.user.userType);
-  const [redirect, isRedirected] = useState(null);
-  useEffect(() => {
-    isRedirected(userType);
-  }, [userType]);
+
   return (
     <>
-      {!redirect & (redirect !== 0) ? (
+      {!userType & (userType !== 0) ? (
         <Authentication />
-      ) : redirect === 0 ? (
-        <UserScreen />
-      ) : (
+      ) : userType === 1 ? (
         <ExpertsScreen />
+      ) : (
+        <UserScreen />
       )}
     </>
   );

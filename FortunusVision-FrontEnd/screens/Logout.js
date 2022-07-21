@@ -6,7 +6,7 @@ import { View } from "react-native";
 const Logout = ({ navigation }) => {
   const dispatch = useDispatch();
   dispatch(logout());
-  return <View></View>;
+  return <></>;
 };
 
 export default Logout;
