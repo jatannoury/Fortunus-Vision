@@ -27,6 +27,7 @@ import {
 } from "../redux/users";
 
 const SignInScreen = ({ navigation }) => {
+  const [userType, setUserType] = useState(null);
   function switchCurrent() {
     navigation.navigate("SignUP");
   }
@@ -56,7 +57,6 @@ const SignInScreen = ({ navigation }) => {
       };
     });
   }
-  const [switchScreen, setSwitch] = useState(false);
 
   function switchScreenHandler(screen) {
     saveInputHandler();
@@ -65,10 +65,12 @@ const SignInScreen = ({ navigation }) => {
       if (response.err) {
         Alert.alert("Wrong credentials", "Please check your inputs");
       } else {
+        console.log(response);
         dispatch(addCoins(response.coins));
         dispatch(addName(response.userName));
         dispatch(addUserId(response.user_id));
         dispatch(addUserType(response.user_type));
+        // setUserType(response.user_type);
         async function fetchExperts() {
           let manipulatedData = [];
           const response = await getExperts(1);
@@ -83,27 +85,36 @@ const SignInScreen = ({ navigation }) => {
         fetchExperts();
 
         async function fetchChats() {
-          let allExperts = [];
-          response.chats.map((item) => {
-            async function getEachExpert() {
-              let sub_response = await getExpertsById(item.expert_id);
-              let manipulatedData = {
-                ...item,
-                voicePrice: sub_response.info.voice_price,
-                name: sub_response.userName,
-              };
+          if (response.user_type === 0) {
+            response.chats.map((item) => {
+              async function getEachExpert() {
+                let sub_response = await getExpertsById(item.expert_id);
+                let manipulatedData = {
+                  ...item,
+                  voicePrice: sub_response.info.voice_price,
+                  name: sub_response.userName,
+                };
+                dispatch(addChats(manipulatedData));
+              }
+              getEachExpert();
+            });
+          } else {
+            response.chats.map((item) => {
+              console.log("ITEMMMM", item);
+              let manipulatedData = { name: item.name, voicePrice: item.price };
               dispatch(addChats(manipulatedData));
-            }
-            getEachExpert();
-          });
+            });
+          }
         }
-        fetchChats();
+        await fetchChats();
 
-        setSwitch(true);
-        setTimeout(() => {
-          setSwitch(false);
-          navigation.navigate(screen);
-        }, 200);
+        // setTimeout(() => {
+        //   if (userType === 0) {
+        //     navigation.navigate("LandingScreen");
+        //   } else {
+        //     navigation.navigate("Chats");
+        //   }
+        // }, 200);
       }
     }
     signIn();
@@ -125,7 +136,7 @@ const SignInScreen = ({ navigation }) => {
             <Feather name="arrow-right-circle" size={20} style={styles.icon} />
           }
           style={{ marginHorizontal: 20, marginTop: 150 }}
-          onPress={switchScreenHandler.bind(this, "LandingPage")}
+          onPress={switchScreenHandler}
         />
         <View style={styles.socialMedia}>
           <Button
