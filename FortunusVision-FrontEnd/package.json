@@ -22,6 +22,7 @@
     "axios": "^0.27.2",
     "expo": "~45.0.0",
     "expo-av": "~11.2.3",
+    "expo-calendar": "~10.2.0",
     "firebase": "^9.6.11",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -35,7 +36,7 @@
     "react-native-webrtc": "^1.100.1",
     "react-redux": "^8.0.2",
     "redux": "^4.2.0",
-    "expo-calendar": "~10.2.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

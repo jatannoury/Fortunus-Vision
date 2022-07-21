@@ -10,31 +10,33 @@ import { addCurrChats } from "../redux/users";
 const ChatScreen = ({ navigation, route }) => {
   const dispatch = useDispatch();
 
-  const props = route.params.props;
+  const props = route.params.props[0];
   useEffect(() => {
     navigation.setOptions({
-      title: props.name,
+      title: props,
     });
   }, []);
   const [data, setData] = useState([]);
   const chats = useSelector((state) => state.user.chats);
+  const user_id = useSelector((state) => state.user.userId);
   const name = useSelector((state) => state.user.name);
   const thischat = useSelector((state) => state.user.curr_chats);
   let currChat = chats.filter((chat) => chat.name === props.name);
-  const expert_id = currChat[0].expert_id;
+  const expert_id = route.params.props[1]
+    ? route.params.props[1]
+    : currChat[0].expert_id;
 
   useEffect(() => {
     async function fetchdata() {
-      const res = await fetchInfo(expert_id);
+      const res = await fetchInfo(user_id, expert_id);
+      console.log(res);
       dispatch(addCurrChats(res));
       res && setData(res);
-      // console.log(res[0].time);
     }
     fetchdata();
   }, []);
 
   let item = thischat;
-  console.log(item);
   function renderCardItem(itemData) {
     itemData = itemData.item;
     const CardItemProps = {
@@ -47,7 +49,6 @@ const ChatScreen = ({ navigation, route }) => {
     if (itemData.usertype === 0) {
       return (
         <View style={styles.buttonOuter}>
-          {/* {console.log(CardItemProps.time)} */}
           <UserVoiceContainer {...CardItemProps} props={props} />
         </View>
       );

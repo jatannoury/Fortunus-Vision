@@ -24,13 +24,18 @@ const ChatsScreen = ({ navigation }) => {
     const CardItemProps = {
       name: itemData.name,
       price: itemData.voicePrice,
+      expert_id: itemData.expert_id,
       icon: "check",
     };
     return (
       <View style={styles.buttonOuter}>
         <TouchableOpacity
           style={styles.buttonInner}
-          onPress={switchScreen.bind(this, CardItemProps)}
+          onPress={switchScreen.bind(this, [
+            CardItemProps.name,
+            CardItemProps.expert_id,
+            CardItemProps.price,
+          ])}
         >
           <ChatsCard navigation={navigation} {...CardItemProps} />
         </TouchableOpacity>
