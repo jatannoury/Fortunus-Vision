@@ -3,7 +3,9 @@ const {
   addUser,
   getByEmail,
   getByUserType,
-  getExpertsById,
+  getUserById,
+  addChatExpert,
+  addChatUser,
 } = require("./services");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -38,6 +40,7 @@ async function signIn(req, res) {
     const token = jwt.sign({ _id: user._id, email: user.email }, TOKEN_SECRET);
 
     return res.header("auth-token", token).send({
+      user_id: user._id,
       token: token,
       userName: user.userName,
       coins: user.coins,
@@ -51,11 +54,22 @@ async function signIn(req, res) {
 }
 async function getExperts(req, res) {
   if (req.body.expertId) {
-    const result = await getExpertsById(req.body.expertId);
+    const result = await getUserById(req.body.expertId);
     console.log(result);
     return res.send(result);
   }
   const result = await getByUserType(req.body.userType);
   return res.send(result);
 }
-module.exports = { register, signIn, getExperts };
+async function addChat(req, res) {
+  try {
+    const user = await getUserById(req.body.user_id);
+    const expert = await getUserById(req.body.expert_id);
+    await addChatExpert(req.body, user);
+    await addChatUser(req.body, expert);
+  } catch (error) {
+    console.log(error);
+  }
+  return res.send({ message: "Success" });
+}
+module.exports = { register, signIn, getExperts, addChat };
