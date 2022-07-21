@@ -42,6 +42,8 @@ const userSchema = new mongoose.Schema({
       user_id: { type: String, require: true, min: 6 },
       expert_id: { type: String, require: true, min: 6 },
       last_message_date: { type: Date, default: Date.now },
+      price: { type: Number, require: true },
+      name: { type: String, require: true },
     },
   ],
   call_history: [
