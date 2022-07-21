@@ -17,7 +17,6 @@ const LandingScreen = ({ navigation }) => {
     navigation.navigate("ExpertPage", { props });
   }
   const experts = useSelector((state) => state.user.experts);
-
   let item = experts;
 
   function renderCardItem(itemData) {
@@ -31,7 +30,9 @@ const LandingScreen = ({ navigation }) => {
       price: itemData.voice_price,
       quote:
         "I have always believed, and I still believe, that whatever good or bad fortune may come our way we can always give it meaning and transform it into something of value.",
+      id: itemData.expert_id,
     };
+
     return (
       <View style={styles.buttonOuter}>
         <TouchableOpacity onPress={navigate.bind(this, CardItemProps)}>
