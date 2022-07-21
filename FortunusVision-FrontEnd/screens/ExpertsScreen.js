@@ -1,7 +1,15 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "@react-navigation/drawer";
+
 import { FontAwesome } from "@expo/vector-icons";
+
 import Colors from "../constants/colors";
+import DrawerHeader from "../components/DrawerHeader";
+
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 import ChatsScreen from "./ChatsScreen";

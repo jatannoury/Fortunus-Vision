@@ -38,6 +38,17 @@ const usersSlice = createSlice({
     addUserType: (state, action) => {
       state.userType = action.payload;
     },
+    logout: (state, action) => {
+      (state.userType = ""),
+        (state.name = ""),
+        (state.userId = ""),
+        (state.coins = 0),
+        (state.chats = []),
+        (state.callsHistory = []),
+        (state.appointments = []),
+        (state.experts = []),
+        (state.curr_chats = []);
+    },
   },
 });
 
@@ -49,4 +60,5 @@ export const addCurrChats = usersSlice.actions.addCurrChats;
 export const storeVoice = usersSlice.actions.storeVoice;
 export const addUserId = usersSlice.actions.addUserId;
 export const addUserType = usersSlice.actions.addUserType;
+export const logout = usersSlice.actions.logout;
 export default usersSlice.reducer;
