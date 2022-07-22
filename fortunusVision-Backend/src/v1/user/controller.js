@@ -7,6 +7,7 @@ const {
   addChatExpert,
   addChatUser,
   ServiceaddAppointment,
+  getAppointments,
 } = require("./services");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -84,4 +85,22 @@ async function addAppointment(req, res) {
   }
   return res.send({ message: "Success" });
 }
-module.exports = { register, signIn, getExperts, addChat, addAppointment };
+
+async function getAvailability(req, res) {
+  try {
+    console.log(req.body.Id);
+    const appointments = await getAppointments(req.body.Id);
+    return res.send(appointments);
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+module.exports = {
+  register,
+  signIn,
+  getExperts,
+  addChat,
+  addAppointment,
+  getAvailability,
+};
