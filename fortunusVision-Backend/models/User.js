@@ -68,6 +68,12 @@ const userSchema = new mongoose.Schema({
       date: { type: Date, default: Date.now },
     },
   ],
+  availableAppointments: [
+    {
+      day: { type: String, require: true },
+      time: { type: Array, require: true },
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", userSchema);
