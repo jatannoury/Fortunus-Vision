@@ -4,11 +4,14 @@ import Colors from "../constants/colors";
 
 const SubmitButt = () => {
   return (
-    <Pressable style={styles.rootContainer}>
-      <View style={styles.Container}>
+    <View style={styles.Container}>
+      <Pressable
+        style={styles.rootContainer}
+        android_ripple={{ color: Colors.primary600 }}
+      >
         <Text style={styles.text}>Submit</Text>
-      </View>
-    </Pressable>
+      </Pressable>
+    </View>
   );
 };
 
@@ -16,16 +19,18 @@ export default SubmitButt;
 const styles = StyleSheet.create({
   rootContainer: {
     justifyContent: "center",
-    alignItems: "flex-end",
-    marginRight: 25,
+    alignItems: "center",
+    marginRight: 0,
+    backgroundColor: Colors.primary500,
+    height: 50,
+    width: "50%",
+    borderRadius: 10,
+    textAlign: "center",
   },
   Container: {
-    backgroundColor: Colors.primary500,
-    width: "50%",
-    alignItems: "center",
+    alignItems: "flex-end",
     justifyContent: "center",
-    height: 50,
-    borderRadius: 10,
+    marginRight: 25,
   },
   text: {
     color: "white",
