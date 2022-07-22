@@ -1,7 +1,17 @@
-import React from "react";
-import { View, ScrollView, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, ScrollView, Text, StyleSheet, Pressable } from "react-native";
 import Colors from "../constants/colors";
-const HoursDisplay = () => {
+import TimeDisplay from "./TimeDisplay";
+const HoursDisplay = ({
+  setHours,
+  selectedDay,
+  isSubhours,
+  selectedHour,
+  setIsHours,
+  isHours,
+  selectedSubHours,
+  setSubHours,
+}) => {
   let hours = [
     "8:00 AM",
     "9:00 AM",
@@ -17,18 +27,39 @@ const HoursDisplay = () => {
     "7:00 PM",
     "8:00 PM",
   ];
+  let subHours = [":10", ":20", ":30", ":40", ":50"];
   return (
-    <View style={{ width: "75%", marginTop: 10 }}>
+    <View style={[styles.container]}>
       <ScrollView horizontal={true}>
-        {hours.map((hour) => {
-          return (
-            <View style={styles.timeContainer}>
-              <Text key={hour} style={styles.time}>
-                {hour}
-              </Text>
-            </View>
-          );
-        })}
+        {!isSubhours
+          ? hours.map((hour, index) => {
+              return (
+                <TimeDisplay
+                  hour={hour}
+                  key={hour}
+                  setHours={setHours}
+                  setIsHours={setIsHours}
+                  isHours={isHours}
+                />
+              );
+            })
+          : subHours.map((item) => {
+              return (
+                <TimeDisplay
+                  hour={
+                    selectedHour.split(":")[0] +
+                    item +
+                    ` ${selectedHour.split(" ")[1]}`
+                  }
+                  key={item}
+                  setHours={setHours}
+                  selectedSubHours={selectedSubHours}
+                  isHours={isHours}
+                  setSubHours={setSubHours}
+                  isSubhours={true}
+                />
+              );
+            })}
       </ScrollView>
     </View>
   );
@@ -36,16 +67,5 @@ const HoursDisplay = () => {
 
 export default HoursDisplay;
 const styles = StyleSheet.create({
-  timeContainer: {
-    backgroundColor: "#fcf2d8",
-    height: 30,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 5,
-    marginHorizontal: 10,
-  },
-  time: {
-    color: Colors.primary500,
-    marginHorizontal: 5,
-  },
+  container: { width: "75%", marginVertical: 10 },
 });
