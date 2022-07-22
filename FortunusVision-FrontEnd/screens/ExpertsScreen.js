@@ -4,7 +4,7 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
-import { SimpleLineIcons } from "@expo/vector-icons";
+import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
 
 import { FontAwesome } from "@expo/vector-icons";
 
@@ -17,6 +17,7 @@ import ChatsScreen from "./ChatsScreen";
 import Logout from "./Logout";
 import ChatScreen from "./ChatScreen";
 import ChatPhoto from "../components/ChatPhoto";
+import BookingScreen from "./BookingScreen";
 export function ExpertsScreen() {
   return (
     <Stack.Navigator
@@ -30,6 +31,14 @@ export function ExpertsScreen() {
         component={ExpertDrawerNavigator}
         options={{
           title: "Chats",
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Booking"
+        component={ExpertDrawerNavigator}
+        options={{
+          title: "Set your available dates",
           headerShown: false,
         }}
       />
@@ -74,6 +83,16 @@ export function ExpertDrawerNavigator() {
           title: "Chats",
           drawerIcon: ({ color, size }) => (
             <FontAwesome name="wechat" color={color} size={30} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Bookings"
+        component={BookingScreen}
+        options={{
+          title: "Select Available Spots",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="calendar-outline" size={30} color={color} />
           ),
         }}
       />
