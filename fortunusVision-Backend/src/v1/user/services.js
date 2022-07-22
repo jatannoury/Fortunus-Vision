@@ -1,6 +1,6 @@
 const { use } = require(".");
 const User = require("../../../models/User");
-const {} = require("../../../models/User");
+const { findById } = require("../../../models/User");
 
 async function addUser(body, hashedPassword) {
   //get from body name and email variables
@@ -67,6 +67,11 @@ async function ServiceaddAppointment(body, user) {
   await user.save();
 }
 
+async function getAppointments(Id) {
+  const expert = await User.findById(Id);
+  return expert.availableAppointments;
+}
+
 module.exports = {
   addUser,
   getByEmail,
@@ -75,4 +80,5 @@ module.exports = {
   addChatExpert,
   addChatUser,
   ServiceaddAppointment,
+  getAppointments,
 };
