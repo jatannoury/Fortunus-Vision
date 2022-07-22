@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import EmptyCard from "../components/EmptyCard";
 import Colors from "../constants/colors";
-const UsersDatesAndTimes = () => {
+import { getAppointment } from "../utils/http";
+const UsersDatesAndTimes = ({ expert_id }) => {
+  const [availabality, setAvailabiliy] = useState([]);
+  console.log(expert_id);
+
+  async function fetchAppointments() {
+    console.log(expert_id);
+    let res = await getAppointment(expert_id);
+    console.log(res);
+  }
+  fetchAppointments();
+
   return (
     <View>
       <View style={styles.flex}>
