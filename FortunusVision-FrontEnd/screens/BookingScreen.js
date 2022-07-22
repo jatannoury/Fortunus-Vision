@@ -4,8 +4,8 @@ import ExpertsDatesAndTimes from "../components/ExpertsDatesAndTimes";
 import { useSelector } from "react-redux";
 import UsersDatesAndTimes from "./UsersDatesAndTimes";
 const BookingScreen = ({ route }) => {
-  let expert_id = route.params.expert_id;
   const userType = useSelector((state) => state.user.userType);
+  let expert_id = userType === 0 && route.params.expert_id;
 
   return (
     <ImageBackground

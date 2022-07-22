@@ -5,6 +5,7 @@ import EmptyCard from "../components/EmptyCard";
 import DayDisplay from "../components/DayDisplay";
 import Colors from "../constants/colors";
 import { getAppointment } from "../utils/http";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 const UsersDatesAndTimes = ({ expert_id }) => {
   const [availabality, setAvailabiliy] = useState([]);
 
@@ -16,13 +17,27 @@ const UsersDatesAndTimes = ({ expert_id }) => {
     }
     fetchAppointments();
   }, []);
-
+  console.log(availabality);
   return (
     <View>
       <View style={styles.flex}>
         <EmptyCard style={styles.container} card={styles.card}>
-          <Text style={styles.text}> Choose from the below</Text>
-          <DayDisplay availabality={availabality} />
+          {availabality.length !== 0 ? (
+            <>
+              <Text style={styles.text}> Choose from the below</Text>
+              <DayDisplay availabality={availabality} />
+            </>
+          ) : (
+            <>
+              <Text style={styles.Alert}>No Time Slots Available !</Text>
+              <MaterialCommunityIcons
+                name="emoticon-sad-outline"
+                size={260}
+                color={Colors.accent600}
+                style={{ marginTop: 30, marginLeft: 10 }}
+              />
+            </>
+          )}
         </EmptyCard>
       </View>
     </View>
@@ -52,5 +67,11 @@ const styles = StyleSheet.create({
   flex: {
     flexDirection: "row",
     marginVertical: 15,
+  },
+  Alert: {
+    marginTop: 140,
+    fontSize: 30,
+    fontWeight: "bold",
+    color: Colors.accent600,
   },
 });
