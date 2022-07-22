@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList, ImageBackground, StyleSheet } from "react-native";
+import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import DatesAndTimes from "../components/DatesAndTimes";
 const BookingScreen = () => {
   return (
