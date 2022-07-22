@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Text, FlatList, ScrollView } from "react-native";
 import Colors from "../constants/colors";
 import DayContainer from "./DayContainer";
 import EmptyCard from "./EmptyCard";
 import HoursDisplay from "./HoursDisplay";
 const DatesAndTimes = () => {
-  const [displayed, setIsDisplayed] = useState(false);
-  function getAllDaysInMonth(year, month) {
+  const [selectedDay, setSelectedDay] = useState("");
+  const [hours, setHours] = useState("");
+  const [isHours, setIsHours] = useState(false);
+  const [subHours, setSubHours] = useState([]);
+  const [dayIsClicked, setDayIsClicked] = useState(false);
+  console.log(selectedDay, hours, subHours);
+  function getAllDaysInMonth(year, month, subhours) {
     const date = new Date(year, month, 1);
-
     const dates = [];
-
     while (date.getMonth() === month) {
       dates.push(new Date(date));
       date.setDate(date.getDate() + 1);
@@ -20,13 +23,19 @@ const DatesAndTimes = () => {
         date: parseInt(dates[i].toString().split(" ")[2]),
       };
     }
-
     return dates;
   }
 
   let date = new Date();
   let currMonthDates = getAllDaysInMonth(date.getFullYear(), date.getMonth());
-
+  useEffect(() => {
+    if (dayIsClicked === false) {
+      setSelectedDay("");
+      setHours("");
+      setSubHours([]);
+      setIsHours(false);
+    }
+  }, [dayIsClicked]);
   return (
     <View style={styles.flex}>
       <EmptyCard style={styles.container} card={styles.card}>
@@ -36,10 +45,11 @@ const DatesAndTimes = () => {
             if (index > 4) return;
             return (
               <DayContainer
+                dayIsClicked={dayIsClicked}
+                setDayIsClicked={setDayIsClicked}
+                setSelectedDay={setSelectedDay}
                 day={e.date}
                 key={e.date}
-                setIsDisplayed={setIsDisplayed}
-                displayed={displayed}
               />
             );
           })}
@@ -49,10 +59,11 @@ const DatesAndTimes = () => {
             if (index < 5 || index > 9) return;
             return (
               <DayContainer
+                dayIsClicked={dayIsClicked}
+                setDayIsClicked={setDayIsClicked}
+                setSelectedDay={setSelectedDay}
                 day={e.date}
                 key={e.date}
-                setIsDisplayed={setIsDisplayed}
-                displayed={displayed}
               />
             );
           })}
@@ -62,10 +73,11 @@ const DatesAndTimes = () => {
             if (index < 10 || index > 14) return;
             return (
               <DayContainer
+                dayIsClicked={dayIsClicked}
+                setDayIsClicked={setDayIsClicked}
+                setSelectedDay={setSelectedDay}
                 day={e.date}
                 key={e.date}
-                setIsDisplayed={setIsDisplayed}
-                displayed={displayed}
               />
             );
           })}
@@ -75,10 +87,11 @@ const DatesAndTimes = () => {
             if (index < 15 || index > 19) return;
             return (
               <DayContainer
+                dayIsClicked={dayIsClicked}
+                setDayIsClicked={setDayIsClicked}
+                setSelectedDay={setSelectedDay}
                 day={e.date}
                 key={e.date}
-                setIsDisplayed={setIsDisplayed}
-                displayed={displayed}
               />
             );
           })}
@@ -88,10 +101,11 @@ const DatesAndTimes = () => {
             if (index < 20 || index > 24) return;
             return (
               <DayContainer
+                dayIsClicked={dayIsClicked}
+                setDayIsClicked={setDayIsClicked}
+                setSelectedDay={setSelectedDay}
                 day={e.date}
                 key={e.date}
-                setIsDisplayed={setIsDisplayed}
-                displayed={displayed}
               />
             );
           })}
@@ -101,15 +115,31 @@ const DatesAndTimes = () => {
             if (index < 25 || index > 29) return;
             return (
               <DayContainer
+                dayIsClicked={dayIsClicked}
+                setDayIsClicked={setDayIsClicked}
+                setSelectedDay={setSelectedDay}
                 day={e.date}
-                key={e.date}
-                setIsDisplayed={setIsDisplayed}
-                displayed={displayed}
+                key={index}
               />
             );
           })}
         </View>
-        {displayed && <HoursDisplay />}
+        {dayIsClicked && (
+          <HoursDisplay
+            isSubhours={false}
+            setHours={setHours}
+            setIsHours={setIsHours}
+            isHours={isHours}
+          />
+        )}
+        {(isHours && dayIsClicked) === true && (
+          <HoursDisplay
+            isSubhours={true}
+            selectedHour={hours}
+            setSubHours={setSubHours}
+            selectedSubHours={subHours}
+          />
+        )}
       </EmptyCard>
     </View>
   );
