@@ -27,7 +27,7 @@ const HoursDisplay = ({
     "7:00 PM",
     "8:00 PM",
   ];
-  let subHours = [":10", ":20", ":30", ":40", ":50"];
+  let subHours = [":00", ":10", ":20", ":30", ":40", ":50"];
   return (
     <View style={[styles.container]}>
       <ScrollView horizontal={true}>

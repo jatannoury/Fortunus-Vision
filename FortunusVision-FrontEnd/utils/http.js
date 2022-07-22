@@ -117,3 +117,25 @@ export async function getExpertsById(Id) {
     });
   return data;
 }
+
+export async function addAppointment(id, day, time) {
+  const response = await axios({
+    method: "post",
+    url: "/user/addAppointment",
+    data: {
+      user_id: id,
+      day: day,
+      time: time,
+    },
+  })
+    .then((response) => {
+      console.log("AKAL");
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
