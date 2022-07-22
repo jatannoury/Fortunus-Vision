@@ -2,12 +2,13 @@ import React from "react";
 import { Pressable, View, Text, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 
-const SubmitButt = () => {
+const SubmitButt = ({ fct }) => {
   return (
     <View style={styles.Container}>
       <Pressable
         style={styles.rootContainer}
         android_ripple={{ color: Colors.primary600 }}
+        onPress={fct}
       >
         <Text style={styles.text}>Submit</Text>
       </Pressable>

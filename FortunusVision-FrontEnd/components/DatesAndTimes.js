@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Text, Button, ScrollView } from "react-native";
+import { useSelector } from "react-redux";
 import Colors from "../constants/colors";
 import DayContainer from "./DayContainer";
 import EmptyCard from "./EmptyCard";
 import HoursDisplay from "./HoursDisplay";
-import SubmitButton from "./SubmitButton";
+import SubmitButt from "./SubmitButt";
 const DatesAndTimes = () => {
   const [selectedDay, setSelectedDay] = useState("");
   const [hours, setHours] = useState("");
   const [isHours, setIsHours] = useState(false);
   const [subHours, setSubHours] = useState([]);
   const [dayIsClicked, setDayIsClicked] = useState(false);
-  console.log(selectedDay, hours, subHours);
+
+  function submitHandler() {
+    console.log(selectedDay, hours, subHours);
+    console.log(useSelector((state) => state.user.userId));
+  }
+
   function getAllDaysInMonth(year, month, subhours) {
     const date = new Date(year, month, 1);
     const dates = [];
@@ -144,7 +150,7 @@ const DatesAndTimes = () => {
           )}
         </EmptyCard>
       </View>
-      <SubmitButton />
+      {subHours.length !== 0 && <SubmitButt fct={submitHandler} />}
     </View>
   );
 };
