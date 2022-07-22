@@ -1,12 +1,4 @@
 import React, { useEffect } from "react";
-import {
-  Text,
-  View,
-  ImageBackground,
-  StyleSheet,
-  Linking,
-  Alert,
-} from "react-native";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
 import ActionButton from "../components/ActionButton";
@@ -15,6 +7,14 @@ import ProfilePicture from "./ProfilePicture";
 import { useDispatch, useSelector } from "react-redux";
 import { addChat } from "../utils/http";
 import { addChats } from "../redux/users";
+import {
+  Text,
+  View,
+  ImageBackground,
+  StyleSheet,
+  Linking,
+  Alert,
+} from "react-native";
 const ExpertScreen = ({ navigation, route }) => {
   const dispatch = useDispatch();
   const params = route.params.props;
@@ -61,7 +61,7 @@ const ExpertScreen = ({ navigation, route }) => {
         userName
       );
     }
-    navigation.navigate(name, { props });
+    navigation.navigate(name, { props, expert_id });
   }
 
   const openUrl = async (url) => {

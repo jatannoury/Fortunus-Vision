@@ -88,8 +88,7 @@ async function addAppointment(req, res) {
 
 async function getAvailability(req, res) {
   try {
-    console.log(req.body.Id);
-    const appointments = await getAppointments(req.body.Id);
+    const appointments = await getAppointments(req.query.Id);
     return res.send(appointments);
   } catch (err) {
     console.log(err);

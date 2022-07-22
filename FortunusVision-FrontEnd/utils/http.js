@@ -139,3 +139,24 @@ export async function addAppointment(id, day, time) {
     });
   return data;
 }
+
+export async function getAppointment(id) {
+  console.log("ID", id);
+  const response = await axios({
+    method: "get",
+    url: "/user/getAvailability",
+    params: {
+      Id: id,
+    },
+  })
+    .then((response) => {
+      console.log("AKAL");
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
