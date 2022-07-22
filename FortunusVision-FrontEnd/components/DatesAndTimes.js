@@ -4,6 +4,7 @@ import Colors from "../constants/colors";
 import DayContainer from "./DayContainer";
 import EmptyCard from "./EmptyCard";
 import HoursDisplay from "./HoursDisplay";
+import SubmitButton from "./SubmitButton";
 const DatesAndTimes = () => {
   const [selectedDay, setSelectedDay] = useState("");
   const [hours, setHours] = useState("");
@@ -143,7 +144,7 @@ const DatesAndTimes = () => {
           )}
         </EmptyCard>
       </View>
-      <Button title="Submit" />
+      <SubmitButton />
     </View>
   );
 };
