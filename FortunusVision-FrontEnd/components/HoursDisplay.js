@@ -23,7 +23,9 @@ const HoursDisplay = () => {
         {hours.map((hour) => {
           return (
             <View style={styles.timeContainer}>
-              <Text style={styles.time}>{hour}</Text>
+              <Text key={hour} style={styles.time}>
+                {hour}
+              </Text>
             </View>
           );
         })}

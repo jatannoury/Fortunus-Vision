@@ -1,9 +1,11 @@
-import React from "react";
-import { View, StyleSheet, Text, FlatList } from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet, Text, FlatList, ScrollView } from "react-native";
 import Colors from "../constants/colors";
 import DayContainer from "./DayContainer";
 import EmptyCard from "./EmptyCard";
-const DatesAndTimes = ({ day }) => {
+import HoursDisplay from "./HoursDisplay";
+const DatesAndTimes = () => {
+  const [displayed, setIsDisplayed] = useState(false);
   function getAllDaysInMonth(year, month) {
     const date = new Date(year, month, 1);
 
@@ -25,8 +27,6 @@ const DatesAndTimes = ({ day }) => {
   let date = new Date();
   let currMonthDates = getAllDaysInMonth(date.getFullYear(), date.getMonth());
 
-  console.log(currMonthDates);
-
   return (
     <View style={styles.flex}>
       <EmptyCard style={styles.container} card={styles.card}>
@@ -34,39 +34,82 @@ const DatesAndTimes = ({ day }) => {
         <View style={styles.flex}>
           {currMonthDates.map((e, index) => {
             if (index > 4) return;
-            return <DayContainer day={e.date} key={e.date} />;
+            return (
+              <DayContainer
+                day={e.date}
+                key={e.date}
+                setIsDisplayed={setIsDisplayed}
+                displayed={displayed}
+              />
+            );
           })}
         </View>
         <View style={styles.flex}>
           {currMonthDates.map((e, index) => {
             if (index < 5 || index > 9) return;
-            return <DayContainer day={e.date} key={e.date} />;
+            return (
+              <DayContainer
+                day={e.date}
+                key={e.date}
+                setIsDisplayed={setIsDisplayed}
+                displayed={displayed}
+              />
+            );
           })}
         </View>
         <View style={styles.flex}>
           {currMonthDates.map((e, index) => {
             if (index < 10 || index > 14) return;
-            return <DayContainer day={e.date} key={e.date} />;
+            return (
+              <DayContainer
+                day={e.date}
+                key={e.date}
+                setIsDisplayed={setIsDisplayed}
+                displayed={displayed}
+              />
+            );
           })}
         </View>
         <View style={styles.flex}>
           {currMonthDates.map((e, index) => {
             if (index < 15 || index > 19) return;
-            return <DayContainer day={e.date} key={e.date} />;
+            return (
+              <DayContainer
+                day={e.date}
+                key={e.date}
+                setIsDisplayed={setIsDisplayed}
+                displayed={displayed}
+              />
+            );
           })}
         </View>
         <View style={styles.flex}>
           {currMonthDates.map((e, index) => {
             if (index < 20 || index > 24) return;
-            return <DayContainer day={e.date} key={e.date} />;
+            return (
+              <DayContainer
+                day={e.date}
+                key={e.date}
+                setIsDisplayed={setIsDisplayed}
+                displayed={displayed}
+              />
+            );
           })}
         </View>
         <View style={styles.flex}>
           {currMonthDates.map((e, index) => {
-            if (index < 25 || index > 30) return;
-            return <DayContainer day={e.date} key={e.date} />;
+            if (index < 25 || index > 29) return;
+            return (
+              <DayContainer
+                day={e.date}
+                key={e.date}
+                setIsDisplayed={setIsDisplayed}
+                displayed={displayed}
+              />
+            );
           })}
         </View>
+        {displayed && <HoursDisplay />}
       </EmptyCard>
     </View>
   );

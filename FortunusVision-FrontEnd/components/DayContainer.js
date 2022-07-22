@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import Colors from "../constants/colors";
-const DayContainer = ({ day }) => {
+const DayContainer = ({ day, setIsDisplayed, displayed }) => {
+  const [clicked, setIsClicked] = useState(false);
   return (
     <View style={styles.dayContainer}>
       <Pressable
         android_ripple={{ color: "white" }}
-        style={styles.press}
-        onPress={() => console.log(day)}
+        style={[styles.press, clicked && { backgroundColor: "#fcf2d8" }]}
+        onPress={() => {
+          setIsDisplayed(!displayed);
+          setIsClicked(!clicked);
+        }}
       >
         <Text>{day}</Text>
       </Pressable>
