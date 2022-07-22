@@ -50,12 +50,23 @@ async function addChatUser(body, user) {
   user.chat.push({
     expert_id: expert_id,
     user_id: user_id,
-    price: 0,
+    price: price,
     name: user_name,
     id: id,
   }),
     await user.save();
 }
+
+async function ServiceaddAppointment(body, user) {
+  const { day, time } = body;
+  user.availableAppointments.push({
+    day: day,
+    time: time,
+  });
+  user.availableAppointments.time = time;
+  await user.save();
+}
+
 module.exports = {
   addUser,
   getByEmail,
@@ -63,4 +74,5 @@ module.exports = {
   getUserById,
   addChatExpert,
   addChatUser,
+  ServiceaddAppointment,
 };
