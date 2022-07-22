@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Text, FlatList, ScrollView } from "react-native";
+import { View, StyleSheet, Text, Button, ScrollView } from "react-native";
 import Colors from "../constants/colors";
 import DayContainer from "./DayContainer";
 import EmptyCard from "./EmptyCard";
@@ -37,110 +37,113 @@ const DatesAndTimes = () => {
     }
   }, [dayIsClicked]);
   return (
-    <View style={styles.flex}>
-      <EmptyCard style={styles.container} card={styles.card}>
-        <Text style={styles.text}> Choose from the below</Text>
-        <View style={styles.flex}>
-          {currMonthDates.map((e, index) => {
-            if (index > 4) return;
-            return (
-              <DayContainer
-                dayIsClicked={dayIsClicked}
-                setDayIsClicked={setDayIsClicked}
-                setSelectedDay={setSelectedDay}
-                day={e.date}
-                key={e.date}
-              />
-            );
-          })}
-        </View>
-        <View style={styles.flex}>
-          {currMonthDates.map((e, index) => {
-            if (index < 5 || index > 9) return;
-            return (
-              <DayContainer
-                dayIsClicked={dayIsClicked}
-                setDayIsClicked={setDayIsClicked}
-                setSelectedDay={setSelectedDay}
-                day={e.date}
-                key={e.date}
-              />
-            );
-          })}
-        </View>
-        <View style={styles.flex}>
-          {currMonthDates.map((e, index) => {
-            if (index < 10 || index > 14) return;
-            return (
-              <DayContainer
-                dayIsClicked={dayIsClicked}
-                setDayIsClicked={setDayIsClicked}
-                setSelectedDay={setSelectedDay}
-                day={e.date}
-                key={e.date}
-              />
-            );
-          })}
-        </View>
-        <View style={styles.flex}>
-          {currMonthDates.map((e, index) => {
-            if (index < 15 || index > 19) return;
-            return (
-              <DayContainer
-                dayIsClicked={dayIsClicked}
-                setDayIsClicked={setDayIsClicked}
-                setSelectedDay={setSelectedDay}
-                day={e.date}
-                key={e.date}
-              />
-            );
-          })}
-        </View>
-        <View style={styles.flex}>
-          {currMonthDates.map((e, index) => {
-            if (index < 20 || index > 24) return;
-            return (
-              <DayContainer
-                dayIsClicked={dayIsClicked}
-                setDayIsClicked={setDayIsClicked}
-                setSelectedDay={setSelectedDay}
-                day={e.date}
-                key={e.date}
-              />
-            );
-          })}
-        </View>
-        <View style={styles.flex}>
-          {currMonthDates.map((e, index) => {
-            if (index < 25 || index > 29) return;
-            return (
-              <DayContainer
-                dayIsClicked={dayIsClicked}
-                setDayIsClicked={setDayIsClicked}
-                setSelectedDay={setSelectedDay}
-                day={e.date}
-                key={index}
-              />
-            );
-          })}
-        </View>
-        {dayIsClicked && (
-          <HoursDisplay
-            isSubhours={false}
-            setHours={setHours}
-            setIsHours={setIsHours}
-            isHours={isHours}
-          />
-        )}
-        {(isHours && dayIsClicked) === true && (
-          <HoursDisplay
-            isSubhours={true}
-            selectedHour={hours}
-            setSubHours={setSubHours}
-            selectedSubHours={subHours}
-          />
-        )}
-      </EmptyCard>
+    <View>
+      <View style={styles.flex}>
+        <EmptyCard style={styles.container} card={styles.card}>
+          <Text style={styles.text}> Choose from the below</Text>
+          <View style={styles.flex}>
+            {currMonthDates.map((e, index) => {
+              if (index > 4) return;
+              return (
+                <DayContainer
+                  dayIsClicked={dayIsClicked}
+                  setDayIsClicked={setDayIsClicked}
+                  setSelectedDay={setSelectedDay}
+                  day={e.date}
+                  key={e.date}
+                />
+              );
+            })}
+          </View>
+          <View style={styles.flex}>
+            {currMonthDates.map((e, index) => {
+              if (index < 5 || index > 9) return;
+              return (
+                <DayContainer
+                  dayIsClicked={dayIsClicked}
+                  setDayIsClicked={setDayIsClicked}
+                  setSelectedDay={setSelectedDay}
+                  day={e.date}
+                  key={e.date}
+                />
+              );
+            })}
+          </View>
+          <View style={styles.flex}>
+            {currMonthDates.map((e, index) => {
+              if (index < 10 || index > 14) return;
+              return (
+                <DayContainer
+                  dayIsClicked={dayIsClicked}
+                  setDayIsClicked={setDayIsClicked}
+                  setSelectedDay={setSelectedDay}
+                  day={e.date}
+                  key={e.date}
+                />
+              );
+            })}
+          </View>
+          <View style={styles.flex}>
+            {currMonthDates.map((e, index) => {
+              if (index < 15 || index > 19) return;
+              return (
+                <DayContainer
+                  dayIsClicked={dayIsClicked}
+                  setDayIsClicked={setDayIsClicked}
+                  setSelectedDay={setSelectedDay}
+                  day={e.date}
+                  key={e.date}
+                />
+              );
+            })}
+          </View>
+          <View style={styles.flex}>
+            {currMonthDates.map((e, index) => {
+              if (index < 20 || index > 24) return;
+              return (
+                <DayContainer
+                  dayIsClicked={dayIsClicked}
+                  setDayIsClicked={setDayIsClicked}
+                  setSelectedDay={setSelectedDay}
+                  day={e.date}
+                  key={e.date}
+                />
+              );
+            })}
+          </View>
+          <View style={styles.flex}>
+            {currMonthDates.map((e, index) => {
+              if (index < 25 || index > 29) return;
+              return (
+                <DayContainer
+                  dayIsClicked={dayIsClicked}
+                  setDayIsClicked={setDayIsClicked}
+                  setSelectedDay={setSelectedDay}
+                  day={e.date}
+                  key={index}
+                />
+              );
+            })}
+          </View>
+          {dayIsClicked && (
+            <HoursDisplay
+              isSubhours={false}
+              setHours={setHours}
+              setIsHours={setIsHours}
+              isHours={isHours}
+            />
+          )}
+          {(isHours && dayIsClicked) === true && (
+            <HoursDisplay
+              isSubhours={true}
+              selectedHour={hours}
+              setSubHours={setSubHours}
+              selectedSubHours={subHours}
+            />
+          )}
+        </EmptyCard>
+      </View>
+      <Button title="Submit" />
     </View>
   );
 };
