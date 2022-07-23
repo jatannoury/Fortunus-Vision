@@ -165,11 +165,37 @@ export async function setAppointment(expert_id, user_id, date, time) {
   const response = await axios({
     method: "post",
     url: "/user/setAppointment",
-    params: {
+    data: {
       expert_id: expert_id,
       user_id: user_id,
       day: date,
       time: time,
+    },
+  })
+    .then((response) => {
+      console.log("AKAL");
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
+
+export async function updateAppointment(
+  expert_id,
+  selectedTime,
+  oldAvailability
+) {
+  const response = await axios({
+    method: "post",
+    url: "/user/updateAppointment",
+    data: {
+      expert_id: expert_id,
+      oldAvailabilty: oldAvailability,
+      selectedTime: selectedTime,
     },
   })
     .then((response) => {
