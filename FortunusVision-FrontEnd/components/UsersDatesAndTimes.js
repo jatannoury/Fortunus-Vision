@@ -9,10 +9,12 @@ import {
   updateAppointment,
 } from "../utils/http";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useSelector } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux";
 import HoursContainer from "./HoursContainer";
 import EmptyCard from "./EmptyCard";
+import { addToAppointment } from "../redux/users";
 const UsersDatesAndTimes = ({ expert_id, user_id, navigation }) => {
+  let dispatch = useDispatch();
   const [availabality, setAvailabiliy] = useState([]);
   const [dayIsClicked, setDayIsClicked] = useState(false);
   const [selectedDay, setSelectedDay] = useState("");
@@ -29,6 +31,13 @@ const UsersDatesAndTimes = ({ expert_id, user_id, navigation }) => {
 
   async function submitHandler() {
     await setAppointment(expert_id, user_id, selectedDay, selectedHour);
+    dispatch(
+      addToAppointment({
+        expert_id: expert_id,
+        user_id: user_id,
+        date: { day: selectedDay, time: selectedHour },
+      })
+    );
     Alert.alert("Submitted", "Your calendar has been updated");
     //get the selected day object
     let filteredAppointment = availabality.filter(
