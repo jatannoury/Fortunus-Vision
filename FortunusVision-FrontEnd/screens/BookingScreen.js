@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import ExpertsDatesAndTimes from "../components/ExpertsDatesAndTimes";
 import { useSelector } from "react-redux";
-import UsersDatesAndTimes from "./UsersDatesAndTimes";
+import UsersDatesAndTimes from "../components/UsersDatesAndTimes";
 const BookingScreen = ({ route }) => {
   const userType = useSelector((state) => state.user.userType);
   let expert_id = userType === 0 && route.params.expert_id;

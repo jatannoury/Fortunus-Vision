@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { View, Pressable, Text, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
-const HoursContainer = ({
-  setSelectedHour,
-  item,
-  setIsSelected,
-  isSelected,
-}) => {
+const HoursContainer = ({ setSelectedHour, item }) => {
   const [hourIsSelected, setHourIsSelected] = useState(false);
 
   return (
@@ -14,7 +9,6 @@ const HoursContainer = ({
       <Pressable
         android_ripple={{ color: Colors.primary700 }}
         onPress={() => {
-          setIsSelected(!isSelected);
           setHourIsSelected(!hourIsSelected);
           setSelectedHour(item);
         }}
