@@ -6,78 +6,63 @@ import {
   View,
   Pressable,
   FlatList,
+  Text,
 } from "react-native";
 import AppointmentCard from "../components/AppointmentCard";
 import { getExpertsById } from "../utils/http";
 const AppointmentScreen = ({ navigation }) => {
   const [expertsInfo, setExpertsInfo] = useState([]);
+  const [renderInfo, setRenderInfo] = useState([]);
   const appointments = useSelector((state) => state.user.appointments);
-
+  console.log(appointments);
+  const [item, setItem] = useState();
+  function convertMsToHM(milliseconds) {
+    let seconds = Math.floor(milliseconds / 1000);
+    let minutes = Math.floor(seconds / 60);
+    let hours = Math.floor(minutes / 60);
+    seconds = seconds % 60;
+    minutes = seconds >= 30 ? minutes + 1 : minutes;
+    minutes = minutes % 60;
+    hours = hours % 24;
+    return `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}`;
+  }
   useEffect(() => {
-    console.log(appointments.length);
-    appointments.map(async (appointment) => {
-      let res = await getExpertsById(appointment.expert_id);
-      setExpertsInfo([...expertsInfo, res]);
-    });
-    console.log(expertsInfo);
-  }, []);
-  console.log();
-  let item = [
-    // {
-    //   name: "Jamil",
-    //   waiting: "10",
-    //   price: "100",
-    //   age: "35",
-    //   rating: "4.5",
-    //   phonePrice: "50",
-    //   waiting: "6",
-    // },
-    // {
-    //   name: "Toni",
-    //   waiting: "5",
-    //   price: "50",
-    //   age: "22",
-    //   rating: "3.5",
-    //   phonePrice: "8",
-    //   waiting: "14",
-    // },
-    // {
-    //   name: "Joseph",
-    //   waiting: "7",
-    //   price: "70",
-    //   age: "22",
-    //   rating: "5.0",
-    //   phonePrice: "7",
-    //   waiting: "24",
-    // },
-    // {
-    //   name: "Stephanelle",
-    //   waiting: "4",
-    //   price: "55",
-    //   age: "25",
-    //   rating: "2.5",
-    //   phonePrice: "23",
-    //   waiting: "55",
-    // },
-    // {
-    //   name: "Hamz",
-    //   waiting: "6",
-    //   price: "520",
-    //   age: "32",
-    //   rating: "4.5",
-    //   phonePrice: "120",
-    //   waiting: "10",
-    // },
-    // {
-    //   name: "Mo Tahan",
-    //   waiting: "10",
-    //   price: "100",
-    //   age: "35",
-    //   rating: "4.5",
-    //   phonePrice: "50",
-    //   waiting: "100",
-    // },
-  ];
+    async function fetchInfo() {
+      let fetchedData = [];
+      for (let i = 0; i < appointments.length; i++) {
+        let res = await getExpertsById(appointments[i].expert_id);
+        let hour =
+          appointments[i].date.time.slice(-2) === "PM"
+            ? parseInt(appointments[i].date.time) + 12
+            : parseInt(appointments[i].date.time);
+        let minutes = parseInt(
+          appointments[i].date.time.split(":")[1].substring(0, 2)
+        );
+        let time =
+          new Date().getTime() -
+          new Date(
+            new Date().getFullYear(),
+            new Date().getMonth(),
+            parseInt(appointments[i].date.day),
+            hour,
+            minutes
+          ).getTime();
+        let manipulatedData = {
+          name: res.userName,
+          price: res.info.phone_price,
+          age: res.info.age,
+          rating: res.info.rating,
+          waiting: convertMsToHM(time),
+        };
+        fetchedData.push(manipulatedData);
+      }
+      setItem(fetchedData);
+    }
+    fetchInfo();
+  }, [appointments]);
+
   function renderCardItem(itemData) {
     itemData = itemData.item;
     const CardItemProps = {
@@ -108,9 +93,7 @@ const AppointmentScreen = ({ navigation }) => {
       resizeMode="cover"
       style={styles.image}
     >
-      <View>
-        <FlatList renderItem={renderCardItem} data={item} />
-      </View>
+      {item && <FlatList renderItem={renderCardItem} data={item} />}
     </ImageBackground>
   );
 };
@@ -122,5 +105,8 @@ const styles = StyleSheet.create({
   },
   buttonOuter: {
     overflow: "hidden",
+  },
+  image: {
+    flex: 1,
   },
 });
