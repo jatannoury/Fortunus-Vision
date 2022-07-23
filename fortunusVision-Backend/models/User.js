@@ -62,10 +62,12 @@ const userSchema = new mongoose.Schema({
   ],
   appointment: [
     {
-      id: { type: String, require: true, min: 6 },
       user_id: { type: String, require: true, min: 6 },
       expert_id: { type: String, require: true, min: 6 },
-      date: { type: Date, default: Date.now },
+      date: {
+        day: { type: String, require: true },
+        time: { type: Array, require: true },
+      },
     },
   ],
   availableAppointments: [
