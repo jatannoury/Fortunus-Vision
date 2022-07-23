@@ -3,7 +3,11 @@ import { View, StyleSheet, Text, ScrollView, Alert } from "react-native";
 import SubmitButt from "./SubmitButt";
 import DayDisplay from "./DayDisplay";
 import Colors from "../constants/colors";
-import { getAppointment, setAppointment } from "../utils/http";
+import {
+  getAppointment,
+  setAppointment,
+  updateAppointment,
+} from "../utils/http";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useSelector } from "react-redux/es/exports";
 import HoursContainer from "./HoursContainer";
@@ -24,31 +28,14 @@ const UsersDatesAndTimes = ({ expert_id, user_id, navigation }) => {
   }, []);
 
   async function submitHandler() {
-    // let res = await setAppointment(
-    //   expert_id,
-    //   user_id,
-    //   selectedDay,
-    //   selectedHour
-    // );
-    // setSelectedDay("");
-    // setSelectedHour("");
+    await setAppointment(expert_id, user_id, selectedDay, selectedHour);
     console.log(expert_id, user_id, selectedDay, selectedHour);
     Alert.alert("Submitted", "Your calendar has been updated");
     //get the selected day object
     let filteredAppointment = availabality.filter(
       (item) => item === getTime(selectedDay)
     );
-    //get index of selected hour
-    let index =
-      availabality[availabality.indexOf(filteredAppointment[0])].time.indexOf(
-        selectedHour
-      );
-    //remove selected hour from array of available hours
-    availabality[availabality.indexOf(filteredAppointment[0])].time.splice(
-      index,
-      1
-    );
-
+    updateAppointment(expert_id, selectedHour, filteredAppointment[0]);
     navigation.goBack();
   }
 
