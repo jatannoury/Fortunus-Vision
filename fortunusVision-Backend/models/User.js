@@ -66,7 +66,7 @@ const userSchema = new mongoose.Schema({
       expert_id: { type: String, require: true, min: 6 },
       date: {
         day: { type: String, require: true },
-        time: { type: Array, require: true },
+        time: { type: String, require: true },
       },
     },
   ],

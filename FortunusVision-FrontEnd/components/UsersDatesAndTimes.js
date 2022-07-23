@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Text, ScrollView, Pressable } from "react-native";
+import { View, StyleSheet, Text, ScrollView, Alert } from "react-native";
 import SubmitButt from "./SubmitButt";
 import DayDisplay from "./DayDisplay";
 import Colors from "../constants/colors";
-import { getAppointment } from "../utils/http";
+import { getAppointment, setAppointment } from "../utils/http";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { quickSort } from "../helperFunctions/quickSort";
+import { useSelector } from "react-redux/es/exports";
 import HoursContainer from "./HoursContainer";
 import EmptyCard from "./EmptyCard";
-const UsersDatesAndTimes = ({ expert_id }) => {
+const UsersDatesAndTimes = ({ expert_id, user_id, navigation }) => {
   const [availabality, setAvailabiliy] = useState([]);
   const [dayIsClicked, setDayIsClicked] = useState(false);
   const [selectedDay, setSelectedDay] = useState("");
   const [selectedHour, setSelectedHour] = useState("");
-  const [isSelected,setIsSelected]=useState("");
+  const [isSelected, setIsSelected] = useState("");
 
-  if (selectedHour) {
-    console.log("selectedHOUR", selectedHour);
-  }
   useEffect(() => {
     async function fetchAppointments() {
       let res = await getAppointment(expert_id);
@@ -26,12 +23,35 @@ const UsersDatesAndTimes = ({ expert_id }) => {
     fetchAppointments();
   }, []);
 
-  // function sort(times) {
-  //   times = times.time;
-  //   let am = times.filter((item) => item.split(" ")[1] === "AM");
-  //   let pm = times.filter((item) => item.split(" ")[1] === "PM");
-  //   times = [];
-  // }
+  async function submitHandler() {
+    // let res = await setAppointment(
+    //   expert_id,
+    //   user_id,
+    //   selectedDay,
+    //   selectedHour
+    // );
+    // setSelectedDay("");
+    // setSelectedHour("");
+    console.log(expert_id, user_id, selectedDay, selectedHour);
+    Alert.alert("Submitted", "Your calendar has been updated");
+    //get the selected day object
+    let filteredAppointment = availabality.filter(
+      (item) => item === getTime(selectedDay)
+    );
+    //get index of selected hour
+    let index =
+      availabality[availabality.indexOf(filteredAppointment[0])].time.indexOf(
+        selectedHour
+      );
+    //remove selected hour from array of available hours
+    availabality[availabality.indexOf(filteredAppointment[0])].time.splice(
+      index,
+      1
+    );
+
+    navigation.goBack();
+  }
+
   function getTime(day) {
     for (let i = 0; i < availabality.length; i++) {
       if (availabality[i].day === day) {
@@ -82,7 +102,7 @@ const UsersDatesAndTimes = ({ expert_id }) => {
           </ScrollView>
         </EmptyCard>
       </View>
-      {isSelected !== "" && <SubmitButt />}
+      {isSelected !== "" && <SubmitButt fct={submitHandler} />}
     </View>
   );
 };
