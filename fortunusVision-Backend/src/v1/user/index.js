@@ -1,10 +1,11 @@
 const { Router } = require("express");
 const {
-  register,
   signIn,
-  getExperts,
   addChat,
+  register,
+  getExperts,
   addAppointment,
+  setAppointment,
   getAvailability,
 } = require("./controller");
 const router = Router();
@@ -15,5 +16,7 @@ router.post("/signIn", signIn);
 router.post("/getExperts", getExperts);
 router.post("/addChat", addChat);
 router.post("/addAppointment", addAppointment);
+router.post("/setAppointment", setAppointment);
 router.get("/getAvailability", getAvailability);
+
 module.exports = router;
