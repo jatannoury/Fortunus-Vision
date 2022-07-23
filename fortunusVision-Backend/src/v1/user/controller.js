@@ -58,7 +58,6 @@ async function signIn(req, res) {
 async function getExperts(req, res) {
   if (req.body.expertId) {
     const result = await getUserById(req.body.expertId);
-    console.log(result);
     return res.send(result);
   }
   const result = await getByUserType(req.body.userType);
@@ -100,6 +99,7 @@ async function setAppointment(req, res) {
   try {
     const user = await getUserById(req.body.user_id);
     const expert = await getUserById(req.body.expert_id);
+    console.log("USER", req.body.expert_id);
     user.appointment.push({
       user_id: req.body.user_id,
       expert_id: req.body.expert_id,
@@ -118,6 +118,27 @@ async function setAppointment(req, res) {
   }
   return res.send({ message: "Success" });
 }
+async function updateAppointment(req, res) {
+  try {
+    const expert = await getUserById(req.body.expert_id);
+    let availableAppointments = expert.availableAppointments;
+    let newTime = req.body.selectedTime;
+    for (var i = 0; i < availableAppointments.length; i++) {
+      if (availableAppointments[i].day == req.body.oldAvailabilty.day) {
+        // expert.availableAppointments[i].time = req.body.newAvailability.time;
+        let index = availableAppointments[i].time.indexOf(newTime);
+        availableAppointments[i].time.splice(index, 1);
+      }
+    }
+
+    console.log(expert.availableAppointments);
+    await expert.save();
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+  return res.send({ message: "Success" });
+}
 
 module.exports = {
   register,
@@ -127,4 +148,5 @@ module.exports = {
   addAppointment,
   getAvailability,
   setAppointment,
+  updateAppointment,
 };
