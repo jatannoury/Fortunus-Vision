@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Text, ScrollView } from "react-native";
+import { View, StyleSheet, Text, ScrollView, Pressable } from "react-native";
 import DayContainer from "../components/DayContainer";
 import EmptyCard from "../components/EmptyCard";
 import DayDisplay from "../components/DayDisplay";
@@ -7,11 +7,17 @@ import Colors from "../constants/colors";
 import { getAppointment } from "../utils/http";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import HoursDisplay from "../components/HoursDisplay";
+import { quickSort } from "../helperFunctions/quickSort";
+import HoursContainer from "../components/HoursContainer";
 const UsersDatesAndTimes = ({ expert_id }) => {
   const [availabality, setAvailabiliy] = useState([]);
   const [dayIsClicked, setDayIsClicked] = useState(false);
   const [selectedDay, setSelectedDay] = useState("");
-  if (selectedDay != "") console.log(selectedDay);
+  const [selectedHour, setSelectedHour] = useState("");
+
+  if (selectedHour) {
+    console.log("selectedHOUR", selectedHour);
+  }
   useEffect(() => {
     async function fetchAppointments() {
       let res = await getAppointment(expert_id);
@@ -20,8 +26,12 @@ const UsersDatesAndTimes = ({ expert_id }) => {
     fetchAppointments();
   }, []);
 
-  // function sort(arr) {}
-
+  // function sort(times) {
+  //   times = times.time;
+  //   let am = times.filter((item) => item.split(" ")[1] === "AM");
+  //   let pm = times.filter((item) => item.split(" ")[1] === "PM");
+  //   times = [];
+  // }
   function getTime(day) {
     for (let i = 0; i < availabality.length; i++) {
       if (availabality[i].day === day) {
@@ -57,11 +67,14 @@ const UsersDatesAndTimes = ({ expert_id }) => {
           )}
           <ScrollView>
             {selectedDay !== "" &&
-              getTime(selectedDay).time.map((item) => {
+              getTime(selectedDay).time.map((item, index) => {
                 return (
-                  <View style={styles.timeContainer}>
-                    <Text style={styles.time}>{item}</Text>
-                  </View>
+                  <HoursContainer
+                    item={item}
+                    selectedDay={selectedDay}
+                    availabality={availabality}
+                    setSelectedHour={setSelectedHour}
+                  />
                 );
               })}
           </ScrollView>
@@ -100,19 +113,5 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: Colors.accent600,
-  },
-  timeContainer: {
-    backgroundColor: Colors.primary700,
-    height: 50,
-    width: 150,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 20,
-    marginVertical: 20,
-  },
-  time: {
-    color: Colors.accent600,
-    fontWeight: "bold",
-    fontSize: 20,
   },
 });
