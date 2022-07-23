@@ -119,6 +119,7 @@ async function setAppointment(req, res) {
   return res.send({ message: "Success" });
 }
 async function updateAppointment(req, res) {
+  console.log(req.body);
   try {
     const expert = await getUserById(req.body.expert_id);
     let availableAppointments = expert.availableAppointments;
