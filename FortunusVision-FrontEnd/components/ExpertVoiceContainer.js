@@ -8,7 +8,6 @@ import { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 const ExpertVoiceContainer = ({ sound, date, time, props }) => {
   const name = useSelector((state) => state.user);
-  console.log(name);
   const soundObject = new Audio.Sound();
   async function load() {
     await soundObject.loadAsync({ uri: sound });

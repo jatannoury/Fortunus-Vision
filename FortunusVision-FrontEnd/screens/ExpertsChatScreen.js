@@ -17,8 +17,6 @@ const ExpertsChatScreen = () => {
   }
 
   const state = useSelector((state) => state.user);
-
-  console.log("STATE", state.chats);
   return (
     <ImageBackground
       source={require("../assets/backgroundImage.jpg")}

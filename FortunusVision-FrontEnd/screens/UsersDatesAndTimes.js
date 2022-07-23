@@ -15,9 +15,6 @@ const UsersDatesAndTimes = ({ expert_id }) => {
   const [selectedDay, setSelectedDay] = useState("");
   const [selectedHour, setSelectedHour] = useState("");
 
-  if (selectedHour) {
-    console.log("selectedHOUR", selectedHour);
-  }
   useEffect(() => {
     async function fetchAppointments() {
       let res = await getAppointment(expert_id);

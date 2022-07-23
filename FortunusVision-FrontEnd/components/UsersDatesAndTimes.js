@@ -29,7 +29,6 @@ const UsersDatesAndTimes = ({ expert_id, user_id, navigation }) => {
 
   async function submitHandler() {
     await setAppointment(expert_id, user_id, selectedDay, selectedHour);
-    console.log(expert_id, user_id, selectedDay, selectedHour);
     Alert.alert("Submitted", "Your calendar has been updated");
     //get the selected day object
     let filteredAppointment = availabality.filter(

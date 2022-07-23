@@ -28,10 +28,8 @@ const ChatScreen = ({ navigation, route }) => {
   const state = useSelector((state) => state.user);
   if (state.userType === 1) {
     for (let i = 0; i < state.chats.length; i++) {
-      console.log("NAME", props);
       if (state.chats[i].name === props) {
         user_id = state.chats[i].user_id;
-        console.log("USERID", user_id);
       }
     }
   }

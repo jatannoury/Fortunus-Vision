@@ -38,6 +38,9 @@ const usersSlice = createSlice({
     addUserType: (state, action) => {
       state.userType = action.payload;
     },
+    addAppointment: (state, action) => {
+      state.appointments = action.payload;
+    },
     logout: (state, action) => {
       (state.userType = ""),
         (state.name = ""),
@@ -61,4 +64,5 @@ export const storeVoice = usersSlice.actions.storeVoice;
 export const addUserId = usersSlice.actions.addUserId;
 export const addUserType = usersSlice.actions.addUserType;
 export const logout = usersSlice.actions.logout;
+export const addAppointment = usersSlice.actions.addAppointment;
 export default usersSlice.reducer;
