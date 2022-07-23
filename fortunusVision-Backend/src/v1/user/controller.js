@@ -2,12 +2,12 @@ const User = require("../../../models/User");
 const {
   addUser,
   getByEmail,
-  getByUserType,
-  getUserById,
-  addChatExpert,
   addChatUser,
-  ServiceaddAppointment,
+  getUserById,
+  getByUserType,
+  addChatExpert,
   getAppointments,
+  ServiceaddAppointment,
 } = require("./services");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -95,6 +95,30 @@ async function getAvailability(req, res) {
     return err;
   }
 }
+
+async function setAppointment(req, res) {
+  try {
+    const user = await getUserById(req.body.user_id);
+    const expert = await getUserById(req.body.expert_id);
+    user.appointment.push({
+      user_id: req.body.user_id,
+      expert_id: req.body.expert_id,
+      date: { day: req.body.day, time: req.body.time },
+    });
+    expert.appointment.push({
+      user_id: req.body.user_id,
+      expert_id: req.body.expert_id,
+      date: { day: req.body.day, time: req.body.time },
+    });
+    user.save();
+    expert.save();
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+  return res.send({ message: "Success" });
+}
+
 module.exports = {
   register,
   signIn,
@@ -102,4 +126,5 @@ module.exports = {
   addChat,
   addAppointment,
   getAvailability,
+  setAppointment,
 };
