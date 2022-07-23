@@ -6,18 +6,30 @@ import DayDisplay from "../components/DayDisplay";
 import Colors from "../constants/colors";
 import { getAppointment } from "../utils/http";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import HoursDisplay from "../components/HoursDisplay";
 const UsersDatesAndTimes = ({ expert_id }) => {
   const [availabality, setAvailabiliy] = useState([]);
-
+  const [dayIsClicked, setDayIsClicked] = useState(false);
+  const [selectedDay, setSelectedDay] = useState("");
+  if (selectedDay != "") console.log(selectedDay);
   useEffect(() => {
     async function fetchAppointments() {
-      console.log(expert_id);
       let res = await getAppointment(expert_id);
       setAvailabiliy(res);
     }
     fetchAppointments();
   }, []);
-  console.log(availabality);
+
+  // function sort(arr) {}
+
+  function getTime(day) {
+    for (let i = 0; i < availabality.length; i++) {
+      if (availabality[i].day === day) {
+        return availabality[i];
+      }
+    }
+  }
+
   return (
     <View>
       <View style={styles.flex}>
@@ -25,7 +37,12 @@ const UsersDatesAndTimes = ({ expert_id }) => {
           {availabality.length !== 0 ? (
             <>
               <Text style={styles.text}> Choose from the below</Text>
-              <DayDisplay availabality={availabality} />
+              <DayDisplay
+                availabality={availabality}
+                setDayIsClicked={setDayIsClicked}
+                dayIsClicked={dayIsClicked}
+                setSelectedDay={setSelectedDay}
+              />
             </>
           ) : (
             <>
@@ -38,6 +55,16 @@ const UsersDatesAndTimes = ({ expert_id }) => {
               />
             </>
           )}
+          <ScrollView>
+            {selectedDay !== "" &&
+              getTime(selectedDay).time.map((item) => {
+                return (
+                  <View style={styles.timeContainer}>
+                    <Text style={styles.time}>{item}</Text>
+                  </View>
+                );
+              })}
+          </ScrollView>
         </EmptyCard>
       </View>
     </View>
@@ -73,5 +100,19 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: Colors.accent600,
+  },
+  timeContainer: {
+    backgroundColor: Colors.primary700,
+    height: 50,
+    width: 150,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 20,
+    marginVertical: 20,
+  },
+  time: {
+    color: Colors.accent600,
+    fontWeight: "bold",
+    fontSize: 20,
   },
 });

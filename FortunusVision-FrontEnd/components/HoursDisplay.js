@@ -43,7 +43,8 @@ const HoursDisplay = ({
                 />
               );
             })
-          : subHours.map((item) => {
+          : selectedHour
+          ? subHours.map((item) => {
               return (
                 <TimeDisplay
                   hour={
@@ -59,6 +60,9 @@ const HoursDisplay = ({
                   isSubhours={true}
                 />
               );
+            })
+          : selectedSubHours.map((item) => {
+              return <TimeDisplay />;
             })}
       </ScrollView>
     </View>
