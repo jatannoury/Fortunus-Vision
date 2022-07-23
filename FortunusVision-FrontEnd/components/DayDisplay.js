@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { ScrollView } from "react-native";
 import DayContainer from "./DayContainer";
-const DayDisplay = ({ availabality }) => {
+const DayDisplay = ({
+  availabality,
+  setDayIsClicked,
+  dayIsClicked,
+  setSelectedDay,
+}) => {
+  // const [selectedDay, setSelectedDay] = useState("");
   return (
-    <ScrollView horizontal={true}>
+    <ScrollView horizontal={true} style={{ width: "70%" }}>
       {availabality.map((hour, index) => {
-        console.log(hour.day);
         return (
           <DayContainer
+            setSelectedDay={setSelectedDay}
+            setDayIsClicked={setDayIsClicked}
+            dayIsClicked={dayIsClicked}
             day={hour.day}
-            style={{ height: 50, width: 70, marginVertical: 30 }}
+            style={{
+              height: 50,
+              width: 70,
+              borderRadius: 10,
+              marginBottom: 20,
+            }}
             key={index}
           />
         );

@@ -21,10 +21,7 @@ const ExpertsDatesAndTimes = () => {
   const [subHours, setSubHours] = useState([]);
   const [dayIsClicked, setDayIsClicked] = useState(false);
   const userId = useSelector((state) => state.user.userId);
-
   function submitHandler() {
-    console.log(selectedDay, hours, subHours);
-    console.log(userId);
     addAppointment(userId, selectedDay, subHours);
     setSelectedDay("");
     setHours("");

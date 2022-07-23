@@ -3,10 +3,10 @@ import { StyleSheet, View, Text, Pressable } from "react-native";
 import Colors from "../constants/colors";
 const DayContainer = ({
   day,
-  setSelectedDay,
-  dayIsClicked,
-  setDayIsClicked,
   style,
+  setSelectedDay,
+  setDayIsClicked,
+  dayIsClicked,
 }) => {
   const [displayed, setIsDisplayed] = useState(false);
 
@@ -21,12 +21,11 @@ const DayContainer = ({
         ]}
         onPress={() => {
           setSelectedDay(day);
-
           setIsDisplayed(!displayed);
           setDayIsClicked(!dayIsClicked);
         }}
       >
-        <Text>{day}</Text>
+        <Text style={style && { fontSize: 30, fontWeight: "bold" }}>{day}</Text>
       </Pressable>
     </View>
   );
