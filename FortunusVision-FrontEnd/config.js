@@ -3,13 +3,13 @@ import "firebase/compat/firestore";
 import "firebase/compat/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDfV9KL2_0KA91GEAzwnMc3-QOWKhEmh8g",
-  authDomain: "fortunusvision-a560b.firebaseapp.com",
-  projectId: "fortunusvision-a560b",
-  storageBucket: "fortunusvision-a560b.appspot.com",
-  messagingSenderId: "1054263352598",
-  appId: "1:1054263352598:web:9c343822d33502bbd1c437",
-  measurementId: "G-993K3XG8HR",
+  apiKey: "AIzaSyBpwm98ujT2cqi4JrFtYc4hCD_bsacOkKw",
+  authDomain: "fortunusvision-d4997.firebaseapp.com",
+  projectId: "fortunusvision-d4997",
+  storageBucket: "fortunusvision-d4997.appspot.com",
+  messagingSenderId: "31060265630",
+  appId: "1:31060265630:web:3b7110b81f7353cf6b898f",
+  measurementId: "G-KGL8MG18H5",
 };
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
