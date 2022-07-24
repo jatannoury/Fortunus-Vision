@@ -15,6 +15,8 @@ export default function GettingCall(props) {
           path={require("../assets/PERSONAL_PROFILE_PIC.jpg")}
           containerStyle={styles.imgContainer}
         />
+        <Text style={styles.callerName}>Joseph Tannoury</Text>
+        <Text style={styles.callStatus}>Calling...</Text>
       </View>
     </ImageBackground>
   );
@@ -25,13 +27,25 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   imgContainer: {
-    width: 105,
-    height: 105,
-    borderRadius: 50,
+    width: 120,
+    height: 120,
+    borderRadius: 60,
     borderWidth: 6,
     borderColor: Colors.primary500,
     overflow: "hidden",
     marginRight: 20,
-    marginTop: 20,
+    marginTop: 30,
+  },
+  rootImgContainer: {
+    alignItems: "center",
+  },
+  callerName: {
+    fontSize: 25,
+    fontWeight: "bold",
+    marginVertical: 10,
+  },
+  callStatus: {
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });
