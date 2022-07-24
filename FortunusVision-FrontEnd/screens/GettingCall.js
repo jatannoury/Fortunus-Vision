@@ -27,6 +27,12 @@ export default function GettingCall(props) {
           // onPress={hangup}
           style={{ marginRight: 30 }}
         />
+        <PhoneActions
+          icon="call-end"
+          color={"red"}
+          // onPress={hangup}
+          style={{ marginLeft: 30 }}
+        />
       </View>
     </ImageBackground>
   );
