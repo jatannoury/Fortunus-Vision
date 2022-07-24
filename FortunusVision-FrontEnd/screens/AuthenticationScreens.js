@@ -1,10 +1,10 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { enableScreens } from "react-native-screens";
 import SignUpScreen from "./SignUpScreen";
 import SignInScreen from "./SignInScreen";
 
 import Colors from "../constants/colors";
-
+enableScreens();
 export const Authentication = () => {
   const Stack = createNativeStackNavigator();
   return (
