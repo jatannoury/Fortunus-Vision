@@ -7,7 +7,7 @@ export default function PhoneActions({ color, style, icon }) {
       <TouchableOpacity
         style={[{ backgroundColor: color }, styles.button, style]}
       >
-        <MaterialIcons name={icon} color="white" size={20} />
+        <MaterialIcons name={icon} color="white" size={30} />
       </TouchableOpacity>
     </View>
   );
@@ -15,8 +15,8 @@ export default function PhoneActions({ color, style, icon }) {
 
 const styles = StyleSheet.create({
   button: {
-    width: 60,
-    height: 60,
+    width: 80,
+    height: 80,
     padding: 10,
     elevation: 10,
     justifyContent: "center",

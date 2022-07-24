@@ -20,18 +20,18 @@ export default function GettingCall(props) {
         <Text style={styles.callerName}>Joseph Tannoury</Text>
         <Text style={styles.callStatus}>Calling...</Text>
       </View>
-      <View>
+      <View style={styles.buttonContainer}>
         <PhoneActions
           icon="call"
           color={"green"}
           // onPress={hangup}
-          style={{ marginRight: 30 }}
+          style={{ marginRight: 45 }}
         />
         <PhoneActions
           icon="call-end"
           color={"red"}
           // onPress={hangup}
-          style={{ marginLeft: 30 }}
+          style={{ marginLeft: 45 }}
         />
       </View>
     </ImageBackground>
@@ -63,5 +63,10 @@ const styles = StyleSheet.create({
   callStatus: {
     fontWeight: "bold",
     fontSize: 18,
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 350,
   },
 });
