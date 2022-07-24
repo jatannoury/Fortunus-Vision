@@ -3,6 +3,8 @@ import React from "react";
 
 import Colors from "../constants/colors";
 import ProfilePicture from "./ProfilePicture";
+import { Button } from "react-native-web";
+import PhoneActions from "../components/PhoneActions";
 export default function GettingCall(props) {
   return (
     <ImageBackground
@@ -17,6 +19,14 @@ export default function GettingCall(props) {
         />
         <Text style={styles.callerName}>Joseph Tannoury</Text>
         <Text style={styles.callStatus}>Calling...</Text>
+      </View>
+      <View>
+        <PhoneActions
+          icon="call"
+          color={"green"}
+          // onPress={hangup}
+          style={{ marginRight: 30 }}
+        />
       </View>
     </ImageBackground>
   );
