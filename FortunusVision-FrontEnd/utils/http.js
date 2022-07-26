@@ -1,5 +1,5 @@
 import axios from "axios";
-const hostname = "192.168.100.192";
+const hostname = "192.168.1.117";
 const portname = 3001;
 const BACKEND_URL = `http://${hostname}:${portname}/api/v1`;
 axios.defaults.baseURL = BACKEND_URL;

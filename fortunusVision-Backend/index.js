@@ -12,7 +12,7 @@ mongoose.connect(DB_CONNECT, () => console.log("connected to db"));
 //
 
 //using dependencies
-const hostname = "192.168.100.192";
+const hostname = "192.168.1.117";
 const portname = 3001;
 const app = express();
 app.use(cors());
