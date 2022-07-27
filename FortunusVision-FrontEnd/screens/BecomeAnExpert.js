@@ -31,6 +31,11 @@ const BecomeAnExpert = () => {
           onChangeText={InputChangedHandlers.bind(this, "phonePrice")}
           becomeAnExpert={{ keyboardType: "decimal-pad", maxLength: 2 }}
         />
+        <Input
+          label={"Voice Message Price"}
+          onChangeText={InputChangedHandlers.bind(this, "yearsOfExperience")}
+          becomeAnExpert={{ keyboardType: "decimal-pad", maxLength: 10 }}
+        />
       </View>
     </ImageBackground>
   );
