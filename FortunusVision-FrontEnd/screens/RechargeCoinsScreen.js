@@ -18,9 +18,7 @@ const RechargeCoinsScreen = ({ navigation }) => {
   let userId = useSelector((state) => state.user.userId);
   let dispatch = useDispatch();
   async function update(addedCoins, userId) {
-    console.log(addedCoins, userId);
     let res = await updateCoins(userId, addedCoins);
-    console.log(res);
 
     if (res.message === "Success") {
       dispatch(addCoins(userCoins + addedCoins));

@@ -5,7 +5,11 @@ import Colors from "../constants/colors";
 import ProfilePicture from "./ProfilePicture";
 import { Button } from "react-native-web";
 import PhoneActions from "../components/PhoneActions";
-export default function GettingCall(props) {
+import { useSelector } from "react-redux";
+import { useState } from "react";
+export default function GettingCall({ startCall, endCall }) {
+  const userType = useSelector((state) => state.user.userType);
+  const [started, setStarted] = useState(false);
   return (
     <ImageBackground
       source={require("../assets/backgroundImage.jpg")}
@@ -21,18 +25,22 @@ export default function GettingCall(props) {
         <Text style={styles.callStatus}>Calling...</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <PhoneActions
-          icon="call"
-          color={"green"}
-          // onPress={hangup}
-          style={{ marginRight: 45 }}
-        />
-        <PhoneActions
-          icon="call-end"
-          color={"red"}
-          // onPress={hangup}
-          style={{ marginLeft: 45 }}
-        />
+        {
+          <PhoneActions
+            icon="call"
+            color={"green"}
+            onPress={startCall}
+            style={{ marginRight: 45 }}
+          />
+        }
+        {
+          <PhoneActions
+            icon="call-end"
+            color={"red"}
+            onPress={endCall}
+            style={{ marginLeft: 45 }}
+          />
+        }
       </View>
     </ImageBackground>
   );

@@ -19,6 +19,7 @@ import ChatScreen from "./ChatScreen";
 import ChatPhoto from "../components/ChatPhoto";
 import BookingScreen from "./BookingScreen";
 import BecomeAnExpert from "./BecomeAnExpertScreen";
+import AppAgora from "../Agora/components/AppAgora";
 export function ExpertsScreen() {
   return (
     <Stack.Navigator
@@ -65,6 +66,14 @@ export function ExpertsScreen() {
         component={ExpertDrawerNavigator}
         options={{
           title: "Logout",
+        }}
+      />
+      <Stack.Screen
+        name="Agora"
+        component={AppAgora}
+        options={{
+          title: "Phone Call",
+          headerBackTitleVisible: true,
         }}
       />
     </Stack.Navigator>
