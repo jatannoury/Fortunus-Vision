@@ -187,6 +187,18 @@ async function triggerCall(req, res) {
     return res.send(err);
   }
 }
+async function addHistory(req, res) {
+  try {
+    let user = await getUserById(req.body.Id);
+    user.call_history.push({ name: req.body.name, price: req.body.name });
+    user.save();
+    console.log(user.call_history);
+    return res.send({ message: "Success" });
+  } catch (err) {
+    console.log(err);
+    return res.send(err);
+  }
+}
 module.exports = {
   register,
   signIn,
@@ -199,4 +211,5 @@ module.exports = {
   setAppointment,
   updateAppointment,
   triggerCall,
+  addHistory,
 };
