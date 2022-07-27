@@ -17,7 +17,7 @@ import RechargeCoinsScreen from "./RechargeCoinsScreen";
 import ChatScreen from "./ChatScreen";
 import LandingScreen from "./LandingScreen";
 import DrawerHeader from "../components/DrawerHeader";
-
+import AppAgora from "../Agora/components/AppAgora";
 import Colors from "../constants/colors";
 import ChatPhoto from "../components/ChatPhoto";
 
@@ -119,6 +119,14 @@ export function UserScreen() {
           title: "",
           headerBackTitleVisible: true,
           headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
+        }}
+      />
+      <Stack.Screen
+        name="Agora"
+        component={AppAgora}
+        options={{
+          title: "Phone Call",
+          headerBackTitleVisible: true,
         }}
       />
     </Stack.Navigator>
