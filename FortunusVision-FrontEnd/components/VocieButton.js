@@ -12,8 +12,13 @@ import { utils } from "@react-native-firebase/app";
 import storage from "@react-native-firebase/storage";
 import { firebase } from "../config";
 import axios from "axios";
-const VoiceButton = ({ expert_id }) => {
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
+const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
   const user_id = useSelector((state) => state.user.userId);
+  const coins = useSelector((state) => state.user.coins);
+  const userType = useSelector((state) => state.user.userType);
+  // console.log(userType);
+
   const upload = async (uri, sound) => {
     const filename = uri.substring(uri.lastIndexOf("/") + 1);
     const response = await fetch(uri);
@@ -43,6 +48,11 @@ const VoiceButton = ({ expert_id }) => {
     }
   }, [recordings]);
   async function startRecording() {
+    if (coins < voicePrice && userType === 0) {
+      navigation.navigate("Recharge");
+      return;
+      // console.log("????????????????????/1");
+    }
     try {
       const permission = await Audio.requestPermissionsAsync();
       if (permission.status === "granted") {
@@ -115,7 +125,22 @@ const VoiceButton = ({ expert_id }) => {
               color="black"
               style={{ marginHorizontal: 10 }}
               onPress={async () => {
-                await upload(recordingLine.file, recordingLine.sound);
+                Alert.alert(
+                  `This Action Will Cost You ${voicePrice} coins`,
+                  "Do you Want To Succeed?",
+                  [
+                    {
+                      text: "No",
+                      onPress: () => "Cancel Pressed",
+                      style: "cancel",
+                    },
+                    {
+                      text: "Yes",
+                      onPress: async () =>
+                        await upload(recordingLine.file, recordingLine.sound),
+                    },
+                  ]
+                );
 
                 const currentDate = new Date();
                 const currentDayOfMonth = currentDate.getDate();
@@ -133,13 +158,14 @@ const VoiceButton = ({ expert_id }) => {
                 if (url) {
                   const sentVoice = {
                     sound: url,
-                    usertype: 0,
+                    usertype: userType,
                     time: currTime,
                     date: dateString,
                     duration: recordingLine.duration,
                   };
                   dispatch(store(sentVoice));
-                  storeVoice(sentVoice, user_id, expert_id);
+                  storeVoice(sentVoice, user_id, expert_id, userType);
+                  storeVoice(sentVoice, expert_id, user_id, userType);
                   setRecordings([]);
                 }
               }}
