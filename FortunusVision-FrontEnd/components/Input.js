@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderBottomColor: Colors.primary500,
     borderRadius: 5,
+    paddingLeft: 10,
   },
   becomeAnExpertTitle: {
     fontSize: 15,
