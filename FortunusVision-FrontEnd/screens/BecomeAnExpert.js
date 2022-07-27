@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, ImageBackground, StyleSheet } from "react-native";
 import Input from "../components/Input";
+import SubmitButt from "../components/SubmitButt";
 import Title from "../components/Title";
 
 const BecomeAnExpert = () => {
@@ -9,6 +10,7 @@ const BecomeAnExpert = () => {
     phonePrice: "",
     Age: "",
     voicePrice: "",
+    Quote: "",
   });
 
   function InputChangedHandlers(inputIdentifier, enteredValue) {
@@ -57,10 +59,11 @@ const BecomeAnExpert = () => {
         <Input
           style={styles.margin}
           label={"Quote "}
-          onChangeText={InputChangedHandlers.bind(this, "Age")}
+          onChangeText={InputChangedHandlers.bind(this, "Quote")}
           becomeAnExpert={{ multiline: true }}
         />
       </View>
+      <SubmitButt submit={true} fct={() => console.log(inputVals)} />
     </ImageBackground>
   );
 };
