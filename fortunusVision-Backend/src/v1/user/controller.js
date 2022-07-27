@@ -50,6 +50,7 @@ async function signIn(req, res) {
       appointment: user.appointment,
       call_history: user.call_history,
       user_type: user.user_type,
+      incomingCall: user.incomingCall,
     });
   } catch (error) {
     res.status(500).send(error);
@@ -170,6 +171,22 @@ async function switchUserType(req, res) {
   user.save();
   return res.send({ message: "Success" });
 }
+
+async function triggerCall(req, res) {
+  try {
+    let user = await getUserById(req.body.Id);
+    user.incomingCall = { state: req.body.state, userName: req.body.name };
+    console.log("Call", user);
+    if (req.body.state === 0) {
+      user.incomingCall = {};
+    }
+    console.log(user.incomingCall);
+    user.save();
+    return res.send({ message: "Success" });
+  } catch (err) {
+    return res.send(err);
+  }
+}
 module.exports = {
   register,
   signIn,
@@ -181,4 +198,5 @@ module.exports = {
   getAvailability,
   setAppointment,
   updateAppointment,
+  triggerCall,
 };
