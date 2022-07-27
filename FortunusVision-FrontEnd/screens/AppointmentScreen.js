@@ -14,7 +14,6 @@ const AppointmentScreen = ({ navigation }) => {
   const [expertsInfo, setExpertsInfo] = useState([]);
   const [renderInfo, setRenderInfo] = useState([]);
   const appointments = useSelector((state) => state.user.appointments);
-  console.log(appointments);
   const [item, setItem] = useState();
   function convertMsToHM(milliseconds) {
     let seconds = Math.floor(milliseconds / 1000);

@@ -7,8 +7,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        {/* <Root /> */}
-        <GettingCall />
+        <Root />
       </NavigationContainer>
     </Provider>
   );
