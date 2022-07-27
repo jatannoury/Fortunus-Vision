@@ -1,13 +1,11 @@
-export function checkCoins(method, coins, phonePrice, voicePrice = 0) {
-  console.log(method, coins, phonePrice, voicePrice);
-  if ((method === "call") & (coins >= phonePrice)) {
-    return true;
-  } else if ((method === "call") & (coins < phonePrice)) {
-    return false;
+function checkCoins(method, coins, price) {
+  console.log(method, coins, price);
+  if (method === "Call" && coins < price) {
+    navigation.navigate("Recharge");
+  } else if (method === "Call" && coins >= price) {
+    alert("Allowed");
   }
-  if ((method === "voice") & (coins >= voicePrice)) {
-    return true;
-  } else if ((method === "voice") & (coins < voicePrice)) {
-    return false;
+  if (method === "Voice") {
+    switchScreen("Chat", [expertName, expert_id, price]);
   }
 }

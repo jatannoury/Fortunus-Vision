@@ -6,7 +6,7 @@ const BecomeAnExpert = () => {
   const [inputVals, setInputVals] = useState({
     yearsOfExperience: { val: "", isValid: true },
     phonePrice: { val: "", isValid: true },
-    password: { val: "", isValid: true },
+    Age: { val: "", isValid: true },
     password_confirmation: { val: "", isValid: true },
   });
 
@@ -37,6 +37,13 @@ const BecomeAnExpert = () => {
           becomeAnExpert={{ keyboardType: "decimal-pad", maxLength: 10 }}
         />
       </View>
+      <View style={styles.flex}>
+        <Input
+          label={"Age "}
+          onChangeText={InputChangedHandlers.bind(this, "Age")}
+          becomeAnExpert={{ keyboardType: "decimal-pad", maxLength: 2 }}
+        />
+      </View>
     </ImageBackground>
   );
 };
@@ -50,6 +57,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: 20,
+    paddingHorizontal: 20,
+    marginTop: 20,
   },
 });
