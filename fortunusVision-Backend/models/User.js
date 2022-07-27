@@ -53,9 +53,8 @@ const userSchema = new mongoose.Schema({
   ],
   call_history: [
     {
-      id: { type: String, require: true, min: 6 },
-      user_id: { type: String, require: true, min: 6 },
-      expert_id: { type: String, require: true, min: 6 },
+      name: { type: String, require: true },
+      price: { type: Number, require: true },
     },
   ],
   voice: [
