@@ -309,3 +309,25 @@ export async function getHistory(Id) {
     });
   return data;
 }
+
+export async function addHistory(Id, name, price) {
+  const response = await axios({
+    method: "post",
+    url: "/user/addHistory",
+    data: {
+      Id: Id,
+      name: name,
+      price: price,
+    },
+  })
+    .then((response) => {
+      console.log(response);
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
