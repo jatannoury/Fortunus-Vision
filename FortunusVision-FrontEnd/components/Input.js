@@ -7,7 +7,7 @@ import {
   becomeAnExpert,
 } from "react-native";
 import Colors from "../constants/colors";
-const Input = ({ label, onChangeText, invalid, becomeAnExpert }) => {
+const Input = ({ label, onChangeText, invalid, becomeAnExpert, style }) => {
   return (
     <View style={[becomeAnExpert && styles.container]}>
       <Text
@@ -27,6 +27,7 @@ const Input = ({ label, onChangeText, invalid, becomeAnExpert }) => {
           styles.input,
           invalid && styles.invalidInput,
           becomeAnExpert && styles.becomeAnExpert,
+          style && styles.padding,
         ]}
         onChangeText={onChangeText}
       />
@@ -65,9 +66,14 @@ const styles = StyleSheet.create({
   },
   becomeAnExpertTitle: {
     fontSize: 15,
+    marginTop: 0,
   },
   container: {
     flex: 1,
     padding: 5,
+  },
+  padding: {
+    paddingVertical: 10,
+    paddingBottom: 50,
   },
 });
