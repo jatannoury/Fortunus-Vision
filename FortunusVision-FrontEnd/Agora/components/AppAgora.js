@@ -5,8 +5,8 @@ import { triggerPhoneCall } from "../../redux/users";
 import GettingCall from "../../screens/GettingCall";
 import { triggerCall } from "../../utils/http";
 import { requestAudioPermission } from "../Permission";
-
 const AppAgora = ({ navigation, route, Name }) => {
+  const price = route.params.phonePrice;
   useEffect(() => {
     async () => {
       await initAgora();
@@ -20,10 +20,8 @@ const AppAgora = ({ navigation, route, Name }) => {
   }
   console.log("ROOOOOUUUUTEEEE", route);
   let userId = useSelector((state) => state.user.userId);
-  let userType = useSelector((state) => {
-    state.user.userType;
-  });
-
+  let userType = useSelector((state) => state.user.userType);
+  console.log("userType", userType);
   let dispatch = useDispatch();
   requestAudioPermission();
   const appId = "455c2d5179604814ae6fc8fbbd65a29b";
@@ -81,6 +79,7 @@ const AppAgora = ({ navigation, route, Name }) => {
     setPeerIds([]);
     setJoinSucceed(false);
     await destroyAgoraEngine();
+    userType == 0 && console.log("YOOOOOOOOOOOOOOOOOOO", userId, name, price);
     console.log("BYEEEEE");
     dispatch(triggerPhoneCall(0));
     await triggerCall(userId, "", 0);
