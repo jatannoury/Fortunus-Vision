@@ -7,7 +7,12 @@ import {
   StatusBar,
   Alert,
 } from "react-native";
-import { getExperts, getExpertsById, signUserIn } from "../utils/http";
+import {
+  getExperts,
+  getExpertsById,
+  signUserIn,
+  triggerCall,
+} from "../utils/http";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
 import SignInForm from "../components/SignInForm";
@@ -25,6 +30,7 @@ import {
   addUserId,
   addUserType,
   addAppointment,
+  triggerPhoneCall,
 } from "../redux/users";
 
 const SignInScreen = ({ navigation }) => {
@@ -66,12 +72,12 @@ const SignInScreen = ({ navigation }) => {
       if (response.err) {
         Alert.alert("Wrong credentials", "Please check your inputs");
       } else {
-        // console.log(response);
         dispatch(addCoins(response.coins));
         dispatch(addName(response.userName));
         dispatch(addUserId(response.user_id));
         dispatch(addUserType(response.user_type));
         dispatch(addAppointment(response.appointment));
+        dispatch(triggerPhoneCall(response.incomingCall));
         async function fetchExperts() {
           let manipulatedData = [];
           const response = await getExperts(1);
