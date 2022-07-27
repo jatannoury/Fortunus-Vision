@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, ImageBackground, StyleSheet } from "react-native";
 import Input from "../components/Input";
+import Title from "../components/Title";
 
 const BecomeAnExpert = () => {
   const [inputVals, setInputVals] = useState({
@@ -27,6 +28,7 @@ const BecomeAnExpert = () => {
       resizeMode="cover"
       style={styles.image}
     >
+      <Title label={"Add Your Information Below"} style={styles.title} />
       <View style={styles.flex}>
         <Input
           label={"Phone Call Price "}
@@ -76,4 +78,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   margin: { marginHorizontal: 15 },
+  title: {
+    marginBottom: 50,
+  },
 });
