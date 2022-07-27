@@ -190,10 +190,20 @@ async function triggerCall(req, res) {
 async function addHistory(req, res) {
   try {
     let user = await getUserById(req.body.Id);
-    user.call_history.push({ name: req.body.name, price: req.body.name });
+    user.call_history.push({ name: req.body.name, price: req.body.price });
     user.save();
     console.log(user.call_history);
     return res.send({ message: "Success" });
+  } catch (err) {
+    console.log(err);
+    return res.send(err);
+  }
+}
+
+async function getHistory(req, res) {
+  try {
+    let user = await getUserById(req.body.Id);
+    return res.send(user.call_history);
   } catch (err) {
     console.log(err);
     return res.send(err);
@@ -211,5 +221,6 @@ module.exports = {
   setAppointment,
   updateAppointment,
   triggerCall,
+  getHistory,
   addHistory,
 };
