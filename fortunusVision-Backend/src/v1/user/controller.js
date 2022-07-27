@@ -202,10 +202,11 @@ async function addHistory(req, res) {
 
 async function getHistory(req, res) {
   try {
-    let user = await getUserById(req.body.Id);
+    let user = await getUserById(req.query.Id);
+    console.log(user);
     return res.send(user.call_history);
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     return res.send(err);
   }
 }
