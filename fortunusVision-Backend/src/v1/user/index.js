@@ -5,6 +5,7 @@ const {
   register,
   getExperts,
   updateCoins,
+  triggerCall,
   switchUserType,
   addAppointment,
   setAppointment,
@@ -23,6 +24,7 @@ router.post("/setAppointment", setAppointment);
 router.post("/updateAppointment", updateAppointment);
 router.post("/updateCoins", updateCoins);
 router.post("/switchUserType", switchUserType);
+router.post("/triggerCall", triggerCall);
 router.get("/getAvailability", getAvailability);
 
 module.exports = router;
