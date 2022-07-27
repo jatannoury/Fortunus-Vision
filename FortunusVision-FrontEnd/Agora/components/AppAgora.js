@@ -3,7 +3,7 @@ import RtcEngine from "react-native-agora";
 import { useDispatch, useSelector } from "react-redux";
 import { triggerPhoneCall } from "../../redux/users";
 import GettingCall from "../../screens/GettingCall";
-import { triggerCall } from "../../utils/http";
+import { addHistory, triggerCall } from "../../utils/http";
 import { requestAudioPermission } from "../Permission";
 const AppAgora = ({ navigation, route, Name }) => {
   const price = route.params.phonePrice;
@@ -79,7 +79,7 @@ const AppAgora = ({ navigation, route, Name }) => {
     setPeerIds([]);
     setJoinSucceed(false);
     await destroyAgoraEngine();
-    userType == 0 && console.log("YOOOOOOOOOOOOOOOOOOO", userId, name, price);
+    userType == 0 && addHistory(userId, name, price);
     console.log("BYEEEEE");
     dispatch(triggerPhoneCall(0));
     await triggerCall(userId, "", 0);
