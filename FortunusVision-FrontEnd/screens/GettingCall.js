@@ -7,7 +7,7 @@ import { Button } from "react-native-web";
 import PhoneActions from "../components/PhoneActions";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-export default function GettingCall({ startCall, endCall }) {
+export default function GettingCall({ startCall, endCall, name }) {
   const userType = useSelector((state) => state.user.userType);
   const [started, setStarted] = useState(false);
   return (
@@ -21,7 +21,7 @@ export default function GettingCall({ startCall, endCall }) {
           path={require("../assets/PERSONAL_PROFILE_PIC.jpg")}
           containerStyle={styles.imgContainer}
         />
-        <Text style={styles.callerName}>Joseph Tannoury</Text>
+        <Text style={styles.callerName}>{name}</Text>
         <Text style={styles.callStatus}>Calling...</Text>
       </View>
       <View style={styles.buttonContainer}>
