@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ImageBackground, StyleSheet } from "react-native";
+import { View, ImageBackground, StyleSheet, Text } from "react-native";
 import Colors from "../constants/colors";
 const RatingScreen = () => {
   return (
@@ -8,22 +8,34 @@ const RatingScreen = () => {
       resizeMode="cover"
       style={styles.image}
     >
-      <View style={styles.rootContainer}></View>
+      <View style={styles.rootContainer}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Rate Your Experience</Text>
+        </View>
+      </View>
     </ImageBackground>
   );
 };
 
 export default RatingScreen;
-const styles = {
+const styles = StyleSheet.create({
   image: {
     flex: 1,
+    justifyContent: "center",
   },
   rootContainer: {
-    justifyContent: "center",
     backgroundColor: "white",
     height: 500,
     marginHorizontal: 50,
-    marginVertical: 100,
     borderRadius: 10,
   },
-};
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: Colors.primary500,
+  },
+  titleContainer: {
+    marginTop: 10,
+    marginLeft: 10,
+  },
+});
