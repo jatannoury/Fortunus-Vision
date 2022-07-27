@@ -4,6 +4,7 @@ const {
   addChat,
   register,
   getExperts,
+  addHistory,
   updateCoins,
   triggerCall,
   switchUserType,
@@ -26,5 +27,6 @@ router.post("/updateCoins", updateCoins);
 router.post("/switchUserType", switchUserType);
 router.post("/triggerCall", triggerCall);
 router.get("/getAvailability", getAvailability);
+router.post("/addHistory", addHistory);
 
 module.exports = router;
