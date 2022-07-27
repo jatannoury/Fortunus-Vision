@@ -4,6 +4,7 @@ const {
   addChat,
   register,
   getExperts,
+  updateCoins,
   addAppointment,
   setAppointment,
   getAvailability,
@@ -19,6 +20,7 @@ router.post("/addChat", addChat);
 router.post("/addAppointment", addAppointment);
 router.post("/setAppointment", setAppointment);
 router.post("/updateAppointment", updateAppointment);
+router.post("/updateCoins", updateCoins);
 router.get("/getAvailability", getAvailability);
 
 module.exports = router;
