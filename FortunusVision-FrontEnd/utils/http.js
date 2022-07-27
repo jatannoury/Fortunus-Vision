@@ -289,3 +289,23 @@ export async function triggerCall(Id, name, state) {
     });
   return data;
 }
+
+export async function getHistory(Id) {
+  const response = await axios({
+    method: "get",
+    url: "/user/getHistory",
+    params: {
+      Id: Id,
+    },
+  })
+    .then((response) => {
+      console.log(response);
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
