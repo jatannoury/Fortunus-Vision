@@ -7,7 +7,9 @@ const RatingScreen = () => {
       source={require("../assets/backgroundImage.jpg")}
       resizeMode="cover"
       style={styles.image}
-    ></ImageBackground>
+    >
+      <View style={styles.rootContainer}></View>
+    </ImageBackground>
   );
 };
 
@@ -15,5 +17,13 @@ export default RatingScreen;
 const styles = {
   image: {
     flex: 1,
+  },
+  rootContainer: {
+    justifyContent: "center",
+    backgroundColor: "white",
+    height: 500,
+    marginHorizontal: 50,
+    marginVertical: 100,
+    borderRadius: 10,
   },
 };
