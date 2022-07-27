@@ -51,6 +51,14 @@ const BecomeAnExpert = () => {
           becomeAnExpert={{ keyboardType: "decimal-pad", maxLength: 2 }}
         />
       </View>
+      <View style={styles.flex}>
+        <Input
+          style={styles.margin}
+          label={"Quote "}
+          onChangeText={InputChangedHandlers.bind(this, "Age")}
+          becomeAnExpert={{ multiline: true }}
+        />
+      </View>
     </ImageBackground>
   );
 };
@@ -67,4 +75,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginTop: 20,
   },
+  margin: { marginHorizontal: 15 },
 });
