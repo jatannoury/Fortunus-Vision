@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useEffect, useState } from "react";
 import RtcEngine from "react-native-agora";
 import { useDispatch, useSelector } from "react-redux";
-import { triggerPhoneCall } from "../../redux/users";
+import { addCallHistory, triggerPhoneCall } from "../../redux/users";
 import GettingCall from "../../screens/GettingCall";
 import { addHistory, triggerCall } from "../../utils/http";
 import { requestAudioPermission } from "../Permission";
@@ -79,7 +79,8 @@ const AppAgora = ({ navigation, route, Name }) => {
     setPeerIds([]);
     setJoinSucceed(false);
     await destroyAgoraEngine();
-    userType == 0 && addHistory(userId, name, price);
+    userType == 0 && submit();
+
     console.log("BYEEEEE");
     dispatch(triggerPhoneCall(0));
     await triggerCall(userId, "", 0);
@@ -107,6 +108,10 @@ const AppAgora = ({ navigation, route, Name }) => {
     rtcEngine.current?.StopEchoTest();
   }, [destroyAgoraEngine, initAgora]);
   joinChannel();
+  async function submit() {
+    await addHistory(userId, name, price);
+    dispatch(addCallHistory([{ name: name, price: price }]));
+  }
   return (
     <GettingCall
       startCall={joinChannel}
