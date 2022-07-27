@@ -35,6 +35,7 @@ const userSchema = new mongoose.Schema({
     voice_price: { type: Number, require: true },
     rating: { type: Number, max: 5, require: true },
     age: { type: Number, min: 18, require: true },
+    Quote: { type: String, require: true },
   },
   chat: [
     {
