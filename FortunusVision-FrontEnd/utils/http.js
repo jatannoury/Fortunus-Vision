@@ -230,3 +230,46 @@ export async function updateCoins(userId, coins) {
     });
   return data;
 }
+
+export async function switchUserType(
+  Id,
+  years_of_experience,
+  phone_price,
+  voice_price,
+  rating,
+  age,
+  Quote
+) {
+  console.log(
+    "REQUEST",
+    Id,
+    years_of_experience,
+    phone_price,
+    voice_price,
+    rating,
+    age
+  );
+  const response = await axios({
+    method: "post",
+    url: "/user/switchUserType",
+    data: {
+      Id: Id,
+      years_of_experience: years_of_experience,
+      phone_price: phone_price,
+      voice_price: voice_price,
+      rating: rating,
+      age: age,
+      Quote: Quote,
+    },
+  })
+    .then((response) => {
+      console.log("AKAL");
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
