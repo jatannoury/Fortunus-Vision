@@ -46,8 +46,10 @@ const usersSlice = createSlice({
       state.appointments.push(action.payload);
     },
     triggerPhoneCall: (state, action) => {
-      console.log("IN REDUXXXX,", action.payload);
       state.incomingCall = action.payload;
+    },
+    addCallHistory: (state, action) => {
+      state.callsHistory.push(action.payload);
     },
     logout: (state, action) => {
       (state.userType = ""),
@@ -75,4 +77,5 @@ export const logout = usersSlice.actions.logout;
 export const addAppointment = usersSlice.actions.addAppointment;
 export const addToAppointment = usersSlice.actions.addToAppointment;
 export const triggerPhoneCall = usersSlice.actions.triggerPhoneCall;
+export const addCallHistory = usersSlice.actions.addCallHistory;
 export default usersSlice.reducer;
