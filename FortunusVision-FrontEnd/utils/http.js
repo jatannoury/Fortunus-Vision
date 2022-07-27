@@ -241,15 +241,6 @@ export async function switchUserType(
   Quote,
   userType
 ) {
-  console.log(
-    "REQUEST",
-    Id,
-    years_of_experience,
-    phone_price,
-    voice_price,
-    rating,
-    age
-  );
   const response = await axios({
     method: "post",
     url: "/user/switchUserType",
@@ -262,6 +253,29 @@ export async function switchUserType(
       age: age,
       Quote: Quote,
       userType: userType,
+    },
+  })
+    .then((response) => {
+      console.log("AKAL");
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
+
+export async function triggerCall(Id, name, state) {
+  console.log("TRIGGEREDDDDDDD", Id, name, state);
+  const response = await axios({
+    method: "post",
+    url: "/user/triggerCall",
+    data: {
+      Id: Id,
+      name: name,
+      state: state,
     },
   })
     .then((response) => {
