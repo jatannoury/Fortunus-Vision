@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { ImageBackground, StyleSheet, View, FlatList } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  FlatList,
+  Alert,
+} from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import Colors from "../constants/colors";
 import ExpertVoiceContainer from "../components/ExpertVoiceContainer";
@@ -11,6 +17,7 @@ const ChatScreen = ({ navigation, route }) => {
   const dispatch = useDispatch();
 
   const props = route.params.props[0];
+  // console.log(route.params);
   useEffect(() => {
     navigation.setOptions({
       title: props,
@@ -19,23 +26,24 @@ const ChatScreen = ({ navigation, route }) => {
   const [data, setData] = useState([]);
   const chats = useSelector((state) => state.user.chats);
   let user_id = useSelector((state) => state.user.userId);
+  let userType = useSelector((state) => state.user.userType);
   const name = useSelector((state) => state.user.name);
   const thischat = useSelector((state) => state.user.curr_chats);
   let currChat = chats.filter((chat) => chat.name === props.name);
-  const expert_id = route.params.props[1]
+  const voicePrice = route.params.props[2];
+
+  let expert_id = route.params.props[1]
     ? route.params.props[1]
     : currChat[0].expert_id;
   const state = useSelector((state) => state.user);
-  if (state.userType === 1) {
-    for (let i = 0; i < state.chats.length; i++) {
-      if (state.chats[i].name === props) {
-        user_id = state.chats[i].user_id;
-      }
-    }
+  if (expert_id === user_id) {
+    expert_id = route.params.props[3];
   }
   useEffect(() => {
     async function fetchdata() {
-      const res = await fetchInfo(user_id, expert_id);
+      const res = await fetchInfo(user_id, expert_id, userType);
+      console.log("RES", user_id, expert_id, userType);
+      console.log(res);
       dispatch(addCurrChats(res));
       res && setData(res);
     }
@@ -45,25 +53,40 @@ const ChatScreen = ({ navigation, route }) => {
   let item = thischat;
   function renderCardItem(itemData) {
     itemData = itemData.item;
+    console.log("YOOO", itemData);
     const CardItemProps = {
       name: name,
       date: itemData.date,
       time: itemData.time,
       sound: itemData.sound,
       duration: itemData.duration,
+      userType: userType,
     };
-    if (itemData.usertype === 0) {
+    if ((itemData.usertype === 0) & (userType === 0)) {
       return (
         <View style={styles.buttonOuter}>
           <UserVoiceContainer {...CardItemProps} props={props} />
         </View>
       );
+    } else if ((itemData.usertype === 0) & (userType === 1)) {
+      return (
+        <View style={styles.buttonOuter}>
+          <ExpertVoiceContainer {...CardItemProps} props={props} />
+        </View>
+      );
+    } else if ((itemData.usertype === 1) & (userType === 0)) {
+      return (
+        <View style={styles.buttonOuter}>
+          <ExpertVoiceContainer props={props} {...CardItemProps} />
+        </View>
+      );
+    } else if ((itemData.usertype === 1) & (userType === 1)) {
+      return (
+        <View style={styles.buttonOuter}>
+          <UserVoiceContainer props={props} {...CardItemProps} />
+        </View>
+      );
     }
-    return (
-      <View style={styles.buttonOuter}>
-        <ExpertVoiceContainer props={props} {...CardItemProps} />
-      </View>
-    );
   }
   return (
     <ImageBackground
@@ -79,7 +102,12 @@ const ChatScreen = ({ navigation, route }) => {
           backgroundColor: Colors.primary700,
         }}
       >
-        <VoiceButton expert_id={expert_id} props={props} />
+        <VoiceButton
+          expert_id={expert_id}
+          props={props}
+          voicePrice={voicePrice}
+          navigation={navigation}
+        />
       </View>
     </ImageBackground>
   );

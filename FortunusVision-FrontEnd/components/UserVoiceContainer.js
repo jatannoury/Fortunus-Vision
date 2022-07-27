@@ -4,8 +4,9 @@ import { AntDesign } from "@expo/vector-icons";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import Colors from "../constants/colors";
 import { Audio } from "expo-av";
-const UserVoiceContainer = ({ sound, date, time, name }) => {
+const UserVoiceContainer = ({ sound, date, time, name, userType }) => {
   const soundObject = new Audio.Sound();
+  console.log(userType);
   async function load() {
     await soundObject.loadAsync({ uri: sound });
   }
