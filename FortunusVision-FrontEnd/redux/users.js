@@ -49,7 +49,7 @@ const usersSlice = createSlice({
       state.incomingCall = action.payload;
     },
     addCallHistory: (state, action) => {
-      state.callsHistory.push(action.payload);
+      state.callsHistory = [...state.callsHistory, ...action.payload];
     },
     logout: (state, action) => {
       (state.userType = ""),
