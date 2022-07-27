@@ -7,6 +7,7 @@ import { switchUserType } from "../utils/http";
 import { useSelector } from "react-redux";
 const BecomeAnExpert = ({ navigation }) => {
   const userId = useSelector((state) => state.user.userId);
+  const userType = useSelector((state) => state.user.userType);
 
   const [inputVals, setInputVals] = useState({
     Id: userId,
@@ -35,9 +36,14 @@ const BecomeAnExpert = ({ navigation }) => {
       inputVals.voicePrice,
       0,
       inputVals.Age,
-      inputVals.Quote
+      inputVals.Quote,
+      userType
     );
-    navigation.navigate("Logout");
+    if (userType == 0) {
+      navigation.navigate("Logout");
+    } else {
+      navigation.goBack();
+    }
   }
 
   return (

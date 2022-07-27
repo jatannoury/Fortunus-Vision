@@ -238,7 +238,8 @@ export async function switchUserType(
   voice_price,
   rating,
   age,
-  Quote
+  Quote,
+  userType
 ) {
   console.log(
     "REQUEST",
@@ -260,6 +261,7 @@ export async function switchUserType(
       rating: rating,
       age: age,
       Quote: Quote,
+      userType: userType,
     },
   })
     .then((response) => {
