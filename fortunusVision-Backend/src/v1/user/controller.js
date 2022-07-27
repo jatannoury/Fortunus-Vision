@@ -164,7 +164,9 @@ async function switchUserType(req, res) {
   const { Id, ...newInfo } = info;
   user.info = { ...newInfo };
   user.user_type = 1;
-  user.chat = [];
+  if (req.body.userType == 0) {
+    user.chat = [];
+  }
   user.save();
   return res.send({ message: "Success" });
 }
