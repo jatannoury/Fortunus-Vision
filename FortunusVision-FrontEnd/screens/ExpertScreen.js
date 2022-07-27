@@ -28,6 +28,7 @@ const ExpertScreen = ({ navigation, route }) => {
   const userName = useSelector((state) => state.user.name);
   const userId = useSelector((state) => state.user.userId);
   const chats = useSelector((state) => state.user.chats);
+  const coins = useSelector((state) => state.user.coins);
   useEffect(() => {
     navigation.setOptions({
       title: expertName,
@@ -64,14 +65,17 @@ const ExpertScreen = ({ navigation, route }) => {
     navigation.navigate(name, { props, expert_id });
   }
 
-  const openUrl = async (url) => {
-    const isSupported = await Linking.canOpenURL(url);
-    if (isSupported) {
-      await Linking.openURL(url);
-    } else {
-      Alert.alert("Don't Know how to open this url", `${url}`);
+  function checkCoins(method, coins, price) {
+    console.log(method, coins, price);
+    if (method === "Call" && coins < price) {
+      navigation.navigate("Recharge");
+    } else if (method === "Call" && coins >= price) {
+      alert("Allowed");
     }
-  };
+    if (method === "Voice") {
+      switchScreen("Chat", [expertName, expert_id, price]);
+    }
+  }
   return (
     <ImageBackground
       source={require("../assets/backgroundImage.jpg")}
@@ -103,7 +107,9 @@ const ExpertScreen = ({ navigation, route }) => {
             }
             style={styles.leftContainer}
             coins={phonePrice}
-            fct={openUrl.bind(this, "http://192.168.100.1:5000")}
+            fct={() => {
+              checkCoins("Call", coins, phonePrice);
+            }}
           />
           <ActionButton
             icon={
@@ -115,7 +121,9 @@ const ExpertScreen = ({ navigation, route }) => {
             }
             style={styles.rightContainer}
             coins={price}
-            fct={switchScreen.bind(this, "Chat", [expertName, expert_id])}
+            fct={() => {
+              checkCoins("Voice", coins, price);
+            }}
           />
         </View>
         <ActionButton
