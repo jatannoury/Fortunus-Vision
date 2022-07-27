@@ -3,7 +3,7 @@ const hostname = "192.168.1.117";
 const portname = 3001;
 const BACKEND_URL = `http://${hostname}:${portname}/api/v1`;
 axios.defaults.baseURL = BACKEND_URL;
-import { useState } from "react";
+import { useId, useState } from "react";
 let data;
 export async function registerUser(email, password, username) {
   const response = await axios({
@@ -196,6 +196,27 @@ export async function updateAppointment(
       expert_id: expert_id,
       oldAvailabilty: oldAvailability,
       selectedTime: selectedTime,
+    },
+  })
+    .then((response) => {
+      console.log("AKAL");
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
+
+export async function updateCoins(userId, coins) {
+  const response = await axios({
+    method: "post",
+    url: "/user/updateCoins",
+    data: {
+      user_id: userId,
+      coins: coins,
     },
   })
     .then((response) => {
