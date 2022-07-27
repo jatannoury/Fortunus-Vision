@@ -31,6 +31,7 @@ import {
   addUserType,
   addAppointment,
   triggerPhoneCall,
+  addCallHistory,
 } from "../redux/users";
 
 const SignInScreen = ({ navigation }) => {
@@ -78,6 +79,8 @@ const SignInScreen = ({ navigation }) => {
         dispatch(addUserType(response.user_type));
         dispatch(addAppointment(response.appointment));
         dispatch(triggerPhoneCall(response.incomingCall));
+        dispatch(addCallHistory(response.call_history));
+        console.log(response.call_history);
         async function fetchExperts() {
           let manipulatedData = [];
           const response = await getExperts(1);
