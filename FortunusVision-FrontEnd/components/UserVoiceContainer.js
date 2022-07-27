@@ -6,7 +6,6 @@ import Colors from "../constants/colors";
 import { Audio } from "expo-av";
 const UserVoiceContainer = ({ sound, date, time, name, userType }) => {
   const soundObject = new Audio.Sound();
-  console.log(userType);
   async function load() {
     await soundObject.loadAsync({ uri: sound });
   }

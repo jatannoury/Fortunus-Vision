@@ -17,7 +17,6 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
   const user_id = useSelector((state) => state.user.userId);
   const coins = useSelector((state) => state.user.coins);
   const userType = useSelector((state) => state.user.userType);
-  // console.log(userType);
 
   const upload = async (uri, sound) => {
     const filename = uri.substring(uri.lastIndexOf("/") + 1);
@@ -51,7 +50,6 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
     if (coins < voicePrice && userType === 0) {
       navigation.navigate("Recharge");
       return;
-      // console.log("????????????????????/1");
     }
     try {
       const permission = await Audio.requestPermissionsAsync();
