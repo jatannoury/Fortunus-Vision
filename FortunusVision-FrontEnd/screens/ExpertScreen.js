@@ -5,7 +5,8 @@ import ActionButton from "../components/ActionButton";
 import { Ionicons } from "@expo/vector-icons";
 import ProfilePicture from "./ProfilePicture";
 import { useDispatch, useSelector } from "react-redux";
-import { addChat } from "../utils/http";
+import { addChat, triggerCall, updateCoins } from "../utils/http";
+import { addCoins } from "../redux/users";
 import { addChats } from "../redux/users";
 import {
   Text,
@@ -29,6 +30,30 @@ const ExpertScreen = ({ navigation, route }) => {
   const userId = useSelector((state) => state.user.userId);
   const chats = useSelector((state) => state.user.chats);
   const coins = useSelector((state) => state.user.coins);
+  const name = useSelector((state) => state.user.name);
+  function gotoCallingScreen() {
+    Alert.alert(
+      `This Action Will Cost You ${phonePrice} coins`,
+      "Do you Want To Succeed?",
+      [
+        {
+          text: "No",
+          onPress: () => "Cancel Pressed",
+          style: "cancel",
+        },
+        {
+          text: "Yes",
+          onPress: async () => {
+            await updateCoins(userId, -phonePrice);
+            await triggerCall(expert_id, name, 1);
+            dispatch(addCoins(coins - phonePrice));
+            navigation.navigate("Agora", { expertName });
+          },
+        },
+      ]
+    );
+  }
+
   useEffect(() => {
     navigation.setOptions({
       title: expertName,
@@ -66,11 +91,10 @@ const ExpertScreen = ({ navigation, route }) => {
   }
 
   function checkCoins(method, coins, price) {
-    console.log(method, coins, price);
     if (method === "Call" && coins < price) {
       navigation.navigate("Recharge");
     } else if (method === "Call" && coins >= price) {
-      alert("Allowed");
+      gotoCallingScreen();
     }
     if (method === "Voice") {
       switchScreen("Chat", [expertName, expert_id, price]);

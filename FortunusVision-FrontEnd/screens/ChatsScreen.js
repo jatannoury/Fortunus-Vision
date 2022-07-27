@@ -31,9 +31,7 @@ const ChatsScreen = ({ navigation }) => {
     };
     if (userType == 1) {
       CardItemProps.user_id = itemData.user_id;
-      // console.log(CardItemProps);
     }
-    // console.log(userType);
     return (
       <View style={styles.buttonOuter}>
         <TouchableOpacity

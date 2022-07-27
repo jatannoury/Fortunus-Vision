@@ -17,7 +17,6 @@ const ChatScreen = ({ navigation, route }) => {
   const dispatch = useDispatch();
 
   const props = route.params.props[0];
-  // console.log(route.params);
   useEffect(() => {
     navigation.setOptions({
       title: props,
@@ -42,8 +41,6 @@ const ChatScreen = ({ navigation, route }) => {
   useEffect(() => {
     async function fetchdata() {
       const res = await fetchInfo(user_id, expert_id, userType);
-      console.log("RES", user_id, expert_id, userType);
-      console.log(res);
       dispatch(addCurrChats(res));
       res && setData(res);
     }
@@ -53,7 +50,6 @@ const ChatScreen = ({ navigation, route }) => {
   let item = thischat;
   function renderCardItem(itemData) {
     itemData = itemData.item;
-    console.log("YOOO", itemData);
     const CardItemProps = {
       name: name,
       date: itemData.date,
