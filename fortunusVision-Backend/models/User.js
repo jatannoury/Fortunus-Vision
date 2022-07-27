@@ -29,6 +29,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  incomingCall: {
+    state: { type: Number, require: true },
+    userName: { type: String, require: true },
+  },
   info: {
     years_of_experience: { type: Number, require: true },
     phone_price: { type: Number, require: true },
