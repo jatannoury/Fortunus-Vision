@@ -5,6 +5,7 @@ const {
   register,
   getExperts,
   addHistory,
+  getHistory,
   updateCoins,
   triggerCall,
   switchUserType,
@@ -28,5 +29,6 @@ router.post("/switchUserType", switchUserType);
 router.post("/triggerCall", triggerCall);
 router.get("/getAvailability", getAvailability);
 router.post("/addHistory", addHistory);
+router.get("/getHistory", getHistory);
 
 module.exports = router;
