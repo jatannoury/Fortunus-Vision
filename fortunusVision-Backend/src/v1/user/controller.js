@@ -118,6 +118,23 @@ async function setAppointment(req, res) {
   }
   return res.send({ message: "Success" });
 }
+async function updateCoins(req, res) {
+  let coins = 0;
+  console.log("YOOOOO");
+  try {
+    console.log(req.body.user_id);
+    const user = await getUserById(req.body.user_id);
+
+    user.coins += req.body.coins;
+    coins += user.coins;
+    user.save();
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+  return res.send({ message: "Success", coins: coins });
+}
+
 async function updateAppointment(req, res) {
   console.log(req.body);
   try {
@@ -146,6 +163,7 @@ module.exports = {
   signIn,
   getExperts,
   addChat,
+  updateCoins,
   addAppointment,
   getAvailability,
   setAppointment,
