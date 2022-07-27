@@ -22,6 +22,7 @@ import Colors from "../constants/colors";
 import ChatPhoto from "../components/ChatPhoto";
 
 import Logout from "./Logout";
+import BecomeAnExpert from "./BecomeAnExpert";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -111,6 +112,15 @@ export function UserScreen() {
           headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
         }}
       />
+      <Stack.Screen
+        name="Become an Expert"
+        component={DrawerNavigator}
+        options={{
+          title: "",
+          headerBackTitleVisible: true,
+          headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -180,6 +190,16 @@ function DrawerNavigator() {
           title: "Recharge Your Coins",
           drawerIcon: ({ color, size }) => (
             <FontAwesome5 name="coins" size={30} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Become An Expert"
+        component={BecomeAnExpert}
+        options={{
+          title: "Become An Expert",
+          drawerIcon: ({ color, size }) => (
+            <FontAwesome5 name="user-plus" size={30} color={color} />
           ),
         }}
       />
