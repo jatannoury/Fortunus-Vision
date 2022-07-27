@@ -158,12 +158,23 @@ async function updateAppointment(req, res) {
   return res.send({ message: "Success" });
 }
 
+async function switchUserType(req, res) {
+  let user = await getUserById(req.body.Id);
+  let info = req.body;
+  const { Id, ...newInfo } = info;
+  user.info = { ...newInfo };
+  user.user_type = 1;
+  user.chat = [];
+  user.save();
+  return res.send({ message: "Success" });
+}
 module.exports = {
   register,
   signIn,
   getExperts,
   addChat,
   updateCoins,
+  switchUserType,
   addAppointment,
   getAvailability,
   setAppointment,

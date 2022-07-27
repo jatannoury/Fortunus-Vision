@@ -22,7 +22,7 @@ import Colors from "../constants/colors";
 import ChatPhoto from "../components/ChatPhoto";
 
 import Logout from "./Logout";
-import BecomeAnExpert from "./BecomeAnExpert";
+import BecomeAnExpert from "./BecomeAnExpertScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
