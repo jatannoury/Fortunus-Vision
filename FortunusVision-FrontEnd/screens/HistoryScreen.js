@@ -7,16 +7,9 @@ import { getHistory } from "../utils/http";
 import { useState } from "react";
 const HistoryScreen = ({ navigation }) => {
   const userId = useSelector((state) => state.user.userId);
-  const [response, setResponse] = useState();
-  useEffect(() => {
-    async function fetchData() {
-      const res = await getHistory(userId);
-      setResponse(res);
-    }
-    fetchData();
-  }, []);
-  console.log(response);
-  let item = response;
+  const callsHistory = useSelector((state) => state.user.callsHistory);
+
+  let item = callsHistory;
   function renderCardItem(itemData) {
     itemData = itemData.item;
     const CardItemProps = {
