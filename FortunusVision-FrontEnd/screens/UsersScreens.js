@@ -1,4 +1,4 @@
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -102,6 +102,15 @@ export function UserScreen() {
           headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
         }}
       />
+      <Stack.Screen
+        name="RechargeCoins"
+        component={DrawerNavigator}
+        options={{
+          title: "",
+          headerBackTitleVisible: true,
+          headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
+        }}
+      />
     </Stack.Navigator>
   );
 }
@@ -150,11 +159,7 @@ function DrawerNavigator() {
         options={{
           title: "History",
           drawerIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name="book-check-outline"
-              color={color}
-              size={30}
-            />
+            <MaterialCommunityIcons name="book-check" size={30} color={color} />
           ),
         }}
       />
@@ -165,6 +170,16 @@ function DrawerNavigator() {
           title: "Chats",
           drawerIcon: ({ color, size }) => (
             <FontAwesome name="wechat" color={color} size={30} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Recharge Your Coins"
+        component={RechargeCoinsScreen}
+        options={{
+          title: "Recharge Your Coins",
+          drawerIcon: ({ color, size }) => (
+            <FontAwesome5 name="coins" size={30} color={color} />
           ),
         }}
       />
