@@ -4,10 +4,10 @@ import Input from "../components/Input";
 
 const BecomeAnExpert = () => {
   const [inputVals, setInputVals] = useState({
-    yearsOfExperience: { val: "", isValid: true },
-    phonePrice: { val: "", isValid: true },
-    Age: { val: "", isValid: true },
-    password_confirmation: { val: "", isValid: true },
+    yearsOfExperience: "",
+    phonePrice: "",
+    Age: "",
+    voicePrice: "",
   });
 
   function InputChangedHandlers(inputIdentifier, enteredValue) {
@@ -17,6 +17,8 @@ const BecomeAnExpert = () => {
         [inputIdentifier]: enteredValue,
       };
     });
+    console.log("inputVals");
+    console.log(inputVals);
   }
 
   return (
@@ -33,14 +35,19 @@ const BecomeAnExpert = () => {
         />
         <Input
           label={"Voice Message Price"}
-          onChangeText={InputChangedHandlers.bind(this, "yearsOfExperience")}
-          becomeAnExpert={{ keyboardType: "decimal-pad", maxLength: 10 }}
+          onChangeText={InputChangedHandlers.bind(this, "voicePrice")}
+          becomeAnExpert={{ keyboardType: "decimal-pad", maxLength: 2 }}
         />
       </View>
       <View style={styles.flex}>
         <Input
           label={"Age "}
           onChangeText={InputChangedHandlers.bind(this, "Age")}
+          becomeAnExpert={{ keyboardType: "decimal-pad", maxLength: 2 }}
+        />
+        <Input
+          label={"Years Of Experience"}
+          onChangeText={InputChangedHandlers.bind(this, "yearsOfExperience")}
           becomeAnExpert={{ keyboardType: "decimal-pad", maxLength: 2 }}
         />
       </View>
