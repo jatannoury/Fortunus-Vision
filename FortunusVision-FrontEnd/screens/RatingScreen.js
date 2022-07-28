@@ -5,14 +5,15 @@ import ProfilePicture from "./ProfilePicture";
 import { AntDesign } from "@expo/vector-icons";
 import SubmitButt from "../components/SubmitButt";
 import { addRating } from "../utils/http";
-const RatingScreen = ({ navigation }) => {
+const RatingScreen = ({ navigation, route }) => {
   const [selected, setSelected] = useState(0);
+  let expert_id = route.params.expert_id;
   function setNumber(number) {
     setSelected(number);
   }
   function submitHandler() {
-    addRating("62d2ea7ea4d94756466d978e", selected);
-    // navigation.navigate("Landing");
+    addRating(expert_id, selected);
+    navigation.navigate("Landing Page");
   }
   return (
     <ImageBackground
