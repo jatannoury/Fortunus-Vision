@@ -47,7 +47,7 @@ const ExpertScreen = ({ navigation, route }) => {
             await updateCoins(userId, -phonePrice);
             await triggerCall(expert_id, name, 1);
             dispatch(addCoins(coins - phonePrice));
-            navigation.navigate("Agora", { expertName, phonePrice });
+            navigation.navigate("Agora", { expertName, phonePrice, expert_id });
           },
         },
       ]

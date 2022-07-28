@@ -33,6 +33,7 @@ const AppAgora = ({ navigation, route, Name }) => {
   const [peerIds, setPeerIds] = useState([]);
   const [isMute, setIsMute] = useState(false);
   const [isSpeakerEnable, setIsSpeakerEnable] = useState(false);
+  const expert_id = route.params.expert_id;
   const initAgora = useCallback(async () => {
     rtcEngine.current = await RtcEngine.create(appId);
     await rtcEngine.current?.enableAudio();
@@ -84,7 +85,7 @@ const AppAgora = ({ navigation, route, Name }) => {
     console.log("BYEEEEE");
     dispatch(triggerPhoneCall(0));
     await triggerCall(userId, "", 0);
-    navigation.goBack();
+    navigation.navigate("RatingScreen", { expert_id });
   }, []);
   const toggleIsMute = useCallback(async () => {
     await rtcEngine.current?.muteLocalAudioStream(!isMute);
