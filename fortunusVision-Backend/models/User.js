@@ -37,7 +37,10 @@ const userSchema = new mongoose.Schema({
     years_of_experience: { type: Number, require: true },
     phone_price: { type: Number, require: true },
     voice_price: { type: Number, require: true },
-    rating: { type: Number, max: 5, require: true },
+    rating: {
+      rating: { type: Number, require: true },
+      NbofVotes: { type: Number, require: true },
+    },
     age: { type: Number, min: 18, require: true },
     Quote: { type: String, require: true },
   },
