@@ -23,6 +23,7 @@ import ChatPhoto from "../components/ChatPhoto";
 
 import Logout from "./Logout";
 import BecomeAnExpert from "./BecomeAnExpertScreen";
+import RatingScreen from "./RatingScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -127,6 +128,14 @@ export function UserScreen() {
         options={{
           title: "Phone Call",
           headerBackTitleVisible: true,
+        }}
+      />
+      <Stack.Screen
+        name="RatingScreen"
+        component={RatingScreen}
+        options={{
+          title: "RatingScreen",
+          headerBackTitleVisible: false,
         }}
       />
     </Stack.Navigator>

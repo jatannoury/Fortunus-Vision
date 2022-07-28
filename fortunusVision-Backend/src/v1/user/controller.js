@@ -214,7 +214,6 @@ async function getHistory(req, res) {
 async function addRating(req, res) {
   try {
     let user = await getUserById(req.body.Id);
-    console.log(user.info.rating);
     user.info.rating = {
       NbofVotes: user.info.rating.NbofVotes + 1,
       rating: user.info.rating.rating + req.body.rating,
