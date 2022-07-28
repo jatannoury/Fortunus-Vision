@@ -3,6 +3,7 @@ import { View, ImageBackground, StyleSheet, Text } from "react-native";
 import Colors from "../constants/colors";
 import ProfilePicture from "./ProfilePicture";
 import { AntDesign } from "@expo/vector-icons";
+import SubmitButt from "../components/SubmitButt";
 const RatingScreen = () => {
   return (
     <ImageBackground
@@ -27,6 +28,7 @@ const RatingScreen = () => {
           <AntDesign name="staro" size={50} color="black" />
           <AntDesign name="staro" size={50} color="black" />
         </View>
+        <SubmitButt submit={true} />
       </View>
     </ImageBackground>
   );
@@ -45,18 +47,19 @@ const styles = StyleSheet.create({
   },
   rootContainer: {
     backgroundColor: Colors.primary700,
-    height: 500,
+    height: 400,
     marginHorizontal: 50,
     borderRadius: 10,
   },
   title: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: "bold",
     color: Colors.primary500,
   },
   titleContainer: {
-    marginTop: 10,
-    marginLeft: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 10,
   },
   imgContainer: {
     width: 105,
