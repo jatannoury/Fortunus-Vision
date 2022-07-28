@@ -25,7 +25,10 @@ const LandingScreen = ({ navigation }) => {
       name: itemData.userName,
       age: itemData.age,
       years: itemData.years_of_experience,
-      rating: itemData.rating,
+      rating:
+        itemData.rating.NbOfVotes == 0
+          ? "0"
+          : (itemData.rating.rating / itemData.rating.NbofVotes).toFixed(2),
       phonePrice: itemData.phone_price,
       price: itemData.voice_price,
       quote:
