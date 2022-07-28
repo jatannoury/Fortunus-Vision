@@ -2,6 +2,7 @@ import React from "react";
 import { View, ImageBackground, StyleSheet, Text } from "react-native";
 import Colors from "../constants/colors";
 import ProfilePicture from "./ProfilePicture";
+import { AntDesign } from "@expo/vector-icons";
 const RatingScreen = () => {
   return (
     <ImageBackground
@@ -19,6 +20,13 @@ const RatingScreen = () => {
             containerStyle={styles.imgContainer}
           />
         </View>
+        <View style={styles.flex}>
+          <AntDesign name="staro" size={50} color="black" />
+          <AntDesign name="staro" size={50} color="black" />
+          <AntDesign name="staro" size={50} color="black" />
+          <AntDesign name="staro" size={50} color="black" />
+          <AntDesign name="staro" size={50} color="black" />
+        </View>
       </View>
     </ImageBackground>
   );
@@ -26,6 +34,11 @@ const RatingScreen = () => {
 
 export default RatingScreen;
 const styles = StyleSheet.create({
+  flex: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 50,
+  },
   image: {
     flex: 1,
     justifyContent: "center",
