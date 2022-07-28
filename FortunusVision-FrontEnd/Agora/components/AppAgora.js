@@ -1,12 +1,15 @@
 import React, { useRef, useCallback, useEffect, useState } from "react";
 import RtcEngine from "react-native-agora";
 import { useDispatch, useSelector } from "react-redux";
-import { addCallHistory, triggerPhoneCall } from "../../redux/users";
+import {
+  addCallHistory,
+  addExperts,
+  triggerPhoneCall,
+} from "../../redux/users";
 import GettingCall from "../../screens/GettingCall";
 import { addHistory, triggerCall } from "../../utils/http";
 import { requestAudioPermission } from "../Permission";
 const AppAgora = ({ navigation, route, Name }) => {
-  const price = route.params.phonePrice;
   useEffect(() => {
     async () => {
       await initAgora();
@@ -18,10 +21,16 @@ const AppAgora = ({ navigation, route, Name }) => {
   if (name === undefined) {
     name = route.params.expertName;
   }
-  console.log("ROOOOOUUUUTEEEE", route);
   let userId = useSelector((state) => state.user.userId);
   let userType = useSelector((state) => state.user.userType);
-  console.log("userType", userType);
+  let experts = useSelector((state) => state.user.experts);
+
+  let expert_details = experts?.filter(
+    (expert) => expert.expert_id === route.params.expert_id
+  )[0];
+
+  let index = experts?.indexOf(expert_details);
+  console.log("EXPEEEERTS", index);
   let dispatch = useDispatch();
   requestAudioPermission();
   const appId = "455c2d5179604814ae6fc8fbbd65a29b";
@@ -33,7 +42,7 @@ const AppAgora = ({ navigation, route, Name }) => {
   const [peerIds, setPeerIds] = useState([]);
   const [isMute, setIsMute] = useState(false);
   const [isSpeakerEnable, setIsSpeakerEnable] = useState(false);
-  const expert_id = route.params.expert_id;
+  const expert_id = userType === 0 ? route.params.expert_id : 0;
   const initAgora = useCallback(async () => {
     rtcEngine.current = await RtcEngine.create(appId);
     await rtcEngine.current?.enableAudio();
@@ -81,11 +90,11 @@ const AppAgora = ({ navigation, route, Name }) => {
     setJoinSucceed(false);
     await destroyAgoraEngine();
     userType == 0 && submit();
-
-    console.log("BYEEEEE");
+    dispatch(addExperts());
     dispatch(triggerPhoneCall(0));
     await triggerCall(userId, "", 0);
-    navigation.navigate("RatingScreen", { expert_id });
+
+    navigation.navigate("RatingScreen", { expert_id, index, experts });
   }, []);
   const toggleIsMute = useCallback(async () => {
     await rtcEngine.current?.muteLocalAudioStream(!isMute);

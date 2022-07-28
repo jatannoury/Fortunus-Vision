@@ -5,7 +5,12 @@ import ProfilePicture from "./ProfilePicture";
 import { AntDesign } from "@expo/vector-icons";
 import SubmitButt from "../components/SubmitButt";
 import { addRating } from "../utils/http";
+import { useDispatch, useSelector } from "react-redux";
+import { addExperts } from "../redux/users";
 const RatingScreen = ({ navigation, route }) => {
+  let index = route.params.index;
+  let experts = route.params.experts;
+  dispatch = useDispatch();
   const [selected, setSelected] = useState(0);
   let expert_id = route.params.expert_id;
   function setNumber(number) {
@@ -13,6 +18,22 @@ const RatingScreen = ({ navigation, route }) => {
   }
   function submitHandler() {
     addRating(expert_id, selected);
+    let newRating = experts[index];
+    newRating = { ...newRating };
+    newRating.rating = {
+      rating: experts[index].rating.rating + selected,
+      NbofVotes: experts[index].rating.NbofVotes + 1,
+    };
+    let newExperts = [];
+    experts.forEach((element) => {
+      if (element.expert_id === expert_id) {
+        newExperts.push(newRating);
+        return;
+      }
+
+      newExperts.push(element);
+    });
+    dispatch(addExperts(newExperts));
     navigation.navigate("Landing Page");
   }
   return (
