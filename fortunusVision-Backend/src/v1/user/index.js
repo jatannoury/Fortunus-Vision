@@ -8,6 +8,7 @@ const {
   getHistory,
   updateCoins,
   triggerCall,
+  addRating,
   switchUserType,
   addAppointment,
   setAppointment,
@@ -29,6 +30,7 @@ router.post("/switchUserType", switchUserType);
 router.post("/triggerCall", triggerCall);
 router.get("/getAvailability", getAvailability);
 router.post("/addHistory", addHistory);
+router.post("/addRating", addRating);
 router.get("/getHistory", getHistory);
 
 module.exports = router;
