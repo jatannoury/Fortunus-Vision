@@ -69,7 +69,6 @@ export async function addChat(
     },
   })
     .then((response) => {
-      console.log("sucess");
       data = response.data;
       response.data;
     })
@@ -129,7 +128,6 @@ export async function addAppointment(id, day, time) {
     },
   })
     .then((response) => {
-      console.log("AKAL");
       data = response.data;
       response.data;
     })
@@ -141,7 +139,6 @@ export async function addAppointment(id, day, time) {
 }
 
 export async function getAppointment(id) {
-  console.log("ID", id);
   const response = await axios({
     method: "get",
     url: "/user/getAvailability",
@@ -150,7 +147,6 @@ export async function getAppointment(id) {
     },
   })
     .then((response) => {
-      console.log("AKAL");
       data = response.data;
       response.data;
     })
@@ -173,7 +169,6 @@ export async function setAppointment(expert_id, user_id, date, time) {
     },
   })
     .then((response) => {
-      console.log("AKAL");
       data = response.data;
       response.data;
     })
@@ -199,7 +194,6 @@ export async function updateAppointment(
     },
   })
     .then((response) => {
-      console.log("AKAL");
       data = response.data;
       response.data;
     })
@@ -220,7 +214,6 @@ export async function updateCoins(userId, coins) {
     },
   })
     .then((response) => {
-      console.log("AKAL");
       data = response.data;
       response.data;
     })
@@ -256,7 +249,6 @@ export async function switchUserType(
     },
   })
     .then((response) => {
-      console.log("AKAL");
       data = response.data;
       response.data;
     })
@@ -268,7 +260,6 @@ export async function switchUserType(
 }
 
 export async function triggerCall(Id, name, state) {
-  console.log("TRIGGEREDDDDDDD", Id, name, state);
   const response = await axios({
     method: "post",
     url: "/user/triggerCall",
@@ -279,7 +270,6 @@ export async function triggerCall(Id, name, state) {
     },
   })
     .then((response) => {
-      console.log("AKAL");
       data = response.data;
       response.data;
     })
@@ -299,7 +289,6 @@ export async function getHistory(Id) {
     },
   })
     .then((response) => {
-      console.log(response);
       data = response.data;
       response.data;
     })
@@ -321,7 +310,6 @@ export async function addHistory(Id, name, price) {
     },
   })
     .then((response) => {
-      console.log(response);
       data = response.data;
       response.data;
     })
@@ -342,7 +330,6 @@ export async function addRating(Id, rating) {
     },
   })
     .then((response) => {
-      console.log(response);
       data = response.data;
       response.data;
     })

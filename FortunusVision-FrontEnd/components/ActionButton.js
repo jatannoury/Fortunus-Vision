@@ -38,14 +38,8 @@ const ActionButton = ({
           {icon ? icon : recording ? icon1 : icon2}
         </Pressable>
       </View>
-      <Text
-        style={[
-          styles.text,
-          name === "phone-outline" && { paddingRight: 55 },
-          name === "chatbox-outline" && { paddingLeft: 15 },
-        ]}
-      >
-        {coins && `${coins} ${!isNaN(coins) ? ` coins` : ``}`}
+      <Text style={[styles.text]}>
+        {coins && `${coins} ${!isNaN(coins) ? `coins` : ``}`}
       </Text>
     </View>
   );
@@ -54,20 +48,20 @@ const ActionButton = ({
 export default ActionButton;
 const styles = StyleSheet.create({
   text: {
-    textAlign: "center",
     marginTop: 10,
     color: Colors.primary600,
     fontWeight: "bold",
     fontSize: 20,
+    textAlign: "center",
   },
   imgContainer: {
-    marginRight: 20,
     marginTop: 30,
-    overflow: "hidden",
-    // borderRadius: 300,
+    marginHorizontal: 30,
   },
+
   img: {
     width: 105,
+    marginRight: 0,
     height: 105,
     borderRadius: 50,
     borderWidth: 3,

@@ -100,7 +100,6 @@ async function setAppointment(req, res) {
   try {
     const user = await getUserById(req.body.user_id);
     const expert = await getUserById(req.body.expert_id);
-    console.log("USER", req.body.expert_id);
     user.appointment.push({
       user_id: req.body.user_id,
       expert_id: req.body.expert_id,
@@ -121,9 +120,7 @@ async function setAppointment(req, res) {
 }
 async function updateCoins(req, res) {
   let coins = 0;
-  console.log("YOOOOO");
   try {
-    console.log(req.body.user_id);
     const user = await getUserById(req.body.user_id);
 
     user.coins += req.body.coins;
@@ -137,7 +134,6 @@ async function updateCoins(req, res) {
 }
 
 async function updateAppointment(req, res) {
-  console.log(req.body);
   try {
     const expert = await getUserById(req.body.expert_id);
     let availableAppointments = expert.availableAppointments;
@@ -150,7 +146,6 @@ async function updateAppointment(req, res) {
       }
     }
 
-    console.log(expert.availableAppointments);
     await expert.save();
   } catch (err) {
     console.log(err);
@@ -176,11 +171,9 @@ async function triggerCall(req, res) {
   try {
     let user = await getUserById(req.body.Id);
     user.incomingCall = { state: req.body.state, userName: req.body.name };
-    console.log("Call", user);
     if (req.body.state === 0) {
       user.incomingCall = {};
     }
-    console.log(user.incomingCall);
     user.save();
     return res.send({ message: "Success" });
   } catch (err) {
@@ -192,7 +185,6 @@ async function addHistory(req, res) {
     let user = await getUserById(req.body.Id);
     user.call_history.push({ name: req.body.name, price: req.body.price });
     user.save();
-    console.log(user.call_history);
     return res.send({ message: "Success" });
   } catch (err) {
     console.log(err);
@@ -203,10 +195,8 @@ async function addHistory(req, res) {
 async function getHistory(req, res) {
   try {
     let user = await getUserById(req.query.Id);
-    console.log(user);
     return res.send(user.call_history);
   } catch (err) {
-    // console.log(err);
     return res.send(err);
   }
 }
@@ -218,7 +208,6 @@ async function addRating(req, res) {
       NbofVotes: user.info.rating.NbofVotes + 1,
       rating: user.info.rating.rating + req.body.rating,
     };
-    console.log(user.info.rating);
     user.save();
     return res.send(user.info.rating);
   } catch (err) {

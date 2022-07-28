@@ -16,6 +16,7 @@ import {
   Linking,
   Alert,
 } from "react-native";
+import { Color } from "react-native-agora";
 const ExpertScreen = ({ navigation, route }) => {
   const dispatch = useDispatch();
   const params = route.params.props;
@@ -116,18 +117,22 @@ const ExpertScreen = ({ navigation, route }) => {
           label={`${years} ${
             years < 2 ? `Year Of Experience` : `Years Of Experience`
           }`}
-          style={{ fontSize: 30, paddingTop: 10, paddingRight: 20 }}
+          style={styles.Experience}
         />
         <Title
           label={rating}
-          style={{ fontSize: 25, paddingTop: 10, paddingRight: 20 }}
+          style={styles.rating}
           icon={<Ionicons name="star" size={22} />}
         />
         <Title label={quote} style={styles.quote} />
         <View style={styles.contain}>
           <ActionButton
             icon={
-              <Ionicons name="call-outline" size={80} style={styles.phone} />
+              <Ionicons
+                name="call-outline"
+                size={60}
+                color={Colors.primary600}
+              />
             }
             style={styles.leftContainer}
             coins={phonePrice}
@@ -135,12 +140,13 @@ const ExpertScreen = ({ navigation, route }) => {
               checkCoins("Call", coins, phonePrice);
             }}
           />
+
           <ActionButton
             icon={
               <Ionicons
                 name="chatbox-outline"
-                size={80}
-                style={styles.message}
+                size={60}
+                color={Colors.primary600}
               />
             }
             style={styles.rightContainer}
@@ -152,7 +158,11 @@ const ExpertScreen = ({ navigation, route }) => {
         </View>
         <ActionButton
           icon={
-            <Ionicons name="calendar-outline" size={80} style={styles.book} />
+            <Ionicons
+              name="calendar-outline"
+              size={80}
+              color={Colors.primary600}
+            />
           }
           style={styles.box}
           coins={"Book An Appointment"}
@@ -208,19 +218,26 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   leftContainer: {
-    marginRight: 20,
-    paddingLeft: 10,
-    paddingTop: 5,
+    justifyContent: "center",
+    alignItems: "center",
   },
   rightContainer: {
-    marginLeft: 20,
-    paddingLeft: 10,
-    paddingTop: 5,
+    justifyContent: "center",
+    alignItems: "center",
   },
   contain: {
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: 10,
+  },
+  Experience: {
+    fontSize: 25,
+    paddingTop: 10,
+    paddingRight: 20,
+    fontWeight: "500",
+  },
+  rating: {
+    fontSize: 20,
+    paddingTop: 10,
+    paddingRight: 20,
+    fontWeight: "500",
   },
 });
