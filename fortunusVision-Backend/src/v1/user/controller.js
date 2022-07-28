@@ -210,6 +210,22 @@ async function getHistory(req, res) {
     return res.send(err);
   }
 }
+
+async function addRating(req, res) {
+  try {
+    let user = await getUserById(req.body.Id);
+    console.log(user.info.rating);
+    user.info.rating = {
+      NbofVotes: user.info.rating.NbofVotes + 1,
+      rating: user.info.rating.rating + req.body.rating,
+    };
+    console.log(user.info.rating);
+    user.save();
+    return res.send(user.info.rating);
+  } catch (err) {
+    return res.send(err);
+  }
+}
 module.exports = {
   register,
   signIn,
@@ -224,4 +240,5 @@ module.exports = {
   triggerCall,
   getHistory,
   addHistory,
+  addRating,
 };
