@@ -13,6 +13,7 @@ import storage from "@react-native-firebase/storage";
 import { firebase } from "../config";
 import axios from "axios";
 import { unstable_renderSubtreeIntoContainer } from "react-dom";
+import Colors from "../constants/colors";
 const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
   const user_id = useSelector((state) => state.user.userId);
   const coins = useSelector((state) => state.user.coins);
@@ -113,9 +114,7 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
       recordingLine.sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate);
       return (
         <View key={index} style={styles.row}>
-          <Text style={styles.fill}>
-            Recording {index + 1}-{displayedDurr}
-          </Text>
+          <Text style={styles.fill}>Recording -{displayedDurr}</Text>
           <View style={styles.row}>
             <Ionicons
               name="send"
@@ -213,8 +212,14 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
     <>
       <View styel={styles.container}>
         <ActionButton
-          icon1={<AntDesign name="pause" size={70} color="black" />}
-          icon2={<FontAwesome name="microphone" size={70} color="black" />}
+          icon1={<AntDesign name="pause" size={50} color={Colors.primary600} />}
+          icon2={
+            <FontAwesome
+              name="microphone"
+              size={50}
+              color={Colors.primary600}
+            />
+          }
           stopRecording={stopRecording}
           startRecording={startRecording}
           recording={recording}
