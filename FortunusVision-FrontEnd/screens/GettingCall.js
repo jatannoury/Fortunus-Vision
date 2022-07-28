@@ -22,25 +22,25 @@ export default function GettingCall({ startCall, endCall, name }) {
           containerStyle={styles.imgContainer}
         />
         <Text style={styles.callerName}>{name}</Text>
+
         <Text style={styles.callStatus}>Calling...</Text>
       </View>
       <View style={styles.buttonContainer}>
-        {
-          <PhoneActions
-            icon="call"
-            color={"green"}
-            onPress={startCall}
-            style={{ marginRight: 45 }}
-          />
-        }
-        {
-          <PhoneActions
-            icon="call-end"
-            color={"red"}
-            onPress={endCall}
-            style={{ marginLeft: 45 }}
-          />
-        }
+        {!started ? (
+          <>
+            <PhoneActions
+              icon="call"
+              color={"green"}
+              onPress={() => {
+                startCall;
+                setStarted(!started);
+              }}
+            />
+            <PhoneActions icon="call-end" color={"red"} onPress={endCall} />
+          </>
+        ) : (
+          <PhoneActions icon="call-end" color={"red"} onPress={endCall} />
+        )}
       </View>
     </ImageBackground>
   );
@@ -49,6 +49,7 @@ export default function GettingCall({ startCall, endCall, name }) {
 const styles = StyleSheet.create({
   image: {
     flex: 1,
+    justifyContent: "space-between",
   },
   imgContainer: {
     width: 120,
@@ -57,7 +58,6 @@ const styles = StyleSheet.create({
     borderWidth: 6,
     borderColor: Colors.primary500,
     overflow: "hidden",
-    marginRight: 20,
     marginTop: 30,
   },
   rootImgContainer: {
@@ -69,12 +69,12 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   callStatus: {
-    fontWeight: "bold",
-    fontSize: 18,
+    fontWeight: "500",
+    fontSize: 15,
   },
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "center",
-    marginTop: 350,
+    justifyContent: "space-evenly",
+    marginBottom: "20%",
   },
 });
