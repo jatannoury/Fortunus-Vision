@@ -331,3 +331,24 @@ export async function addHistory(Id, name, price) {
     });
   return data;
 }
+
+export async function addRating(Id, rating) {
+  const response = await axios({
+    method: "post",
+    url: "/user/addRating",
+    data: {
+      Id: Id,
+      rating: rating,
+    },
+  })
+    .then((response) => {
+      console.log(response);
+      data = response.data;
+      response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
