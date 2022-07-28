@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, ImageBackground, StyleSheet, Text } from "react-native";
 import Colors from "../constants/colors";
 import ProfilePicture from "./ProfilePicture";
 import { AntDesign } from "@expo/vector-icons";
 import SubmitButt from "../components/SubmitButt";
 const RatingScreen = () => {
+  const [selected, setSelected] = useState(0);
+  function setNumber(number) {
+    setSelected(number);
+  }
   return (
     <ImageBackground
       source={require("../assets/backgroundImage.jpg")}
@@ -22,11 +26,81 @@ const RatingScreen = () => {
           />
         </View>
         <View style={styles.flex}>
-          <AntDesign name="staro" size={50} color="black" />
-          <AntDesign name="staro" size={50} color="black" />
-          <AntDesign name="staro" size={50} color="black" />
-          <AntDesign name="staro" size={50} color="black" />
-          <AntDesign name="staro" size={50} color="black" />
+          {selected < 1 ? (
+            <AntDesign
+              name="staro"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 1)}
+            />
+          ) : (
+            <AntDesign
+              name="star"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 1)}
+            />
+          )}
+          {selected < 2 ? (
+            <AntDesign
+              name="staro"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 2)}
+            />
+          ) : (
+            <AntDesign
+              name="star"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 2)}
+            />
+          )}
+          {selected < 3 ? (
+            <AntDesign
+              name="staro"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 3)}
+            />
+          ) : (
+            <AntDesign
+              name="star"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 3)}
+            />
+          )}
+          {selected < 4 ? (
+            <AntDesign
+              name="staro"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 4)}
+            />
+          ) : (
+            <AntDesign
+              name="star"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 4)}
+            />
+          )}
+          {selected < 5 ? (
+            <AntDesign
+              name="staro"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 5)}
+            />
+          ) : (
+            <AntDesign
+              name="star"
+              size={50}
+              color={Colors.primary500}
+              onPress={setNumber.bind(this, 5)}
+            />
+          )}
         </View>
         <SubmitButt submit={true} />
       </View>
