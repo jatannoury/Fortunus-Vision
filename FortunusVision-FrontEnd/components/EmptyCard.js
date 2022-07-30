@@ -11,7 +11,7 @@ const EmptyCard = ({ children, chats, style, card }) => {
       >
         <ImageBackground
           source={require("../assets/testing3.png")}
-          style={card ? card : styles.card}
+          style={card ? card : chats ? styles.chatCard : styles.card}
         >
           {children}
         </ImageBackground>
@@ -30,20 +30,19 @@ const styles = StyleSheet.create({
     zIndex: 0,
   },
   card: {
-    minHeight: 200,
-    width: "140%",
-    marginRight: 100,
-    color: "white",
+    height: "120%",
+    right: 80,
     position: "relative",
-    bottom: 60,
-    right: 350,
+    bottom: 45,
+    resizeMode: "contain",
   },
   contain: {
     backgroundColor: Colors.primary500,
-    height: 150,
-    marginTop: 50,
+    height: 120,
+    marginTop: 15,
     marginHorizontal: 20,
     overflow: "hidden",
+    borderRadius: 15,
   },
   text: {
     fontSize: 30,
@@ -93,5 +92,14 @@ const styles = StyleSheet.create({
     fontSize: 23,
     fontWeight: "bold",
     color: "white",
+  },
+  chatCard: {
+    minHeight: 200,
+    width: "140%",
+    marginRight: 100,
+    color: "white",
+    position: "relative",
+    bottom: 60,
+    right: 350,
   },
 });
