@@ -1,0 +1,15 @@
+.backgroundImage {
+  background-image: url("../assets/backgroundImage.jpg");
+  min-height: 1000px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+.Apptitle {
+  font-size: 100px;
+  font-weight: bold;
+  color: var(--primary-500);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-top: 2%;
+}
