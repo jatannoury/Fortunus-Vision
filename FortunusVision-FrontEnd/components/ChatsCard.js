@@ -2,8 +2,9 @@ import React from "react";
 import EmptyCard from "../components/EmptyCard";
 import { FontAwesome } from "@expo/vector-icons";
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
+import Colors from "../constants/colors";
 
-const ChatsCard = ({ name, price }) => {
+const ChatsCard = ({ name, price, img }) => {
   return (
     <EmptyCard chats={true}>
       <View style={styles.textContainer}>
@@ -12,25 +13,13 @@ const ChatsCard = ({ name, price }) => {
       <FontAwesome
         name="microphone"
         size={20}
-        color="white"
+        color={Colors.primary600}
         style={styles.icon}
       />
       <Text style={styles.info}>Voice Message</Text>
       <View style={styles.box}>
-        <Image
-          source={require("../assets/Container.jpg")}
-          style={styles.priceContainer}
-        ></Image>
+        <Text style={[styles.prices]}>{price} coins</Text>
       </View>
-      <Text
-        style={[
-          styles.prices,
-          price.length == 2 && { left: 675 },
-          price.length == 1 && { left: 670 },
-        ]}
-      >
-        {price}$
-      </Text>
     </EmptyCard>
   );
 };
@@ -40,14 +29,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 17,
     fontWeight: "bold",
-    color: "white",
+    color: Colors.primary600,
     paddingBottom: 5,
   },
   textContainer: {
     position: "absolute",
     top: 70,
     left: 435,
-    borderBottomColor: "white",
+    borderBottomColor: Colors.primary600,
     borderBottomWidth: 1,
     width: 200,
   },
@@ -62,7 +51,7 @@ const styles = StyleSheet.create({
     left: 455,
     fontSize: 13,
     fontWeight: "500",
-    color: "white",
+    color: Colors.primary600,
   },
   priceContainer: {
     width: "100%",
@@ -71,17 +60,17 @@ const styles = StyleSheet.create({
   },
   box: {
     position: "absolute",
-    top: 65,
-    left: 660,
-    height: 40,
-    width: 60,
+    top: 70,
+    left: 640,
+    height: 30,
+    width: 70,
+    borderWidth: 2,
+    borderColor: Colors.primary600,
+    borderRadius: 5,
   },
   prices: {
-    position: "absolute",
-    top: 70,
-    left: 670,
-    fontSize: 18,
     fontWeight: "bold",
-    color: "white",
+    color: Colors.primary600,
+    textAlign: "center",
   },
 });
