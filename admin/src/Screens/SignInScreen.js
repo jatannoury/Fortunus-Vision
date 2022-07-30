@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../styling/SignIn.css";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { signUserIn } from "../helper/http";
 const SignInScreen = () => {
   const [inputs, setInputs] = useState({ email: "", password: "" });
 
-  function handleSubmit() {
-    console.log(inputs);
+  async function handleSubmit() {
+    console.log(await signUserIn(inputs.email, inputs.password));
   }
   function InputChangedHandlers(inputIdentifier, enteredValue) {
     setInputs((currInput) => {
@@ -19,7 +20,7 @@ const SignInScreen = () => {
     <div className="backgroundImage">
       <span className="Apptitle">Fortunus Vision</span>
       <span className="description">Welcome to the admin panel ! </span>
-      <div class="formRootContainer">
+      <div className="formRootContainer">
         <form onSubmit={handleSubmit} className="formContainer">
           <label className="label">Email </label>
           <input
