@@ -10,6 +10,10 @@ import { useState } from "react";
 export default function GettingCall({ startCall, endCall, name }) {
   const userType = useSelector((state) => state.user.userType);
   const [started, setStarted] = useState(false);
+  function action(fct) {
+    setStarted(!started);
+    fct();
+  }
   return (
     <ImageBackground
       source={require("../assets/backgroundImage.jpg")}
@@ -31,10 +35,7 @@ export default function GettingCall({ startCall, endCall, name }) {
             <PhoneActions
               icon="call"
               color={"green"}
-              onPress={() => {
-                startCall;
-                setStarted(!started);
-              }}
+              onPress={action.bind(this, startCall)}
             />
             <PhoneActions icon="call-end" color={"red"} onPress={endCall} />
           </>

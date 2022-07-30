@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
 import ActionButton from "../components/ActionButton";
@@ -27,11 +27,21 @@ const ExpertScreen = ({ navigation, route }) => {
   const price = params.price;
   const quote = params.quote;
   const expert_id = params.id;
+  const [index, setIndex] = useState();
   const userName = useSelector((state) => state.user.name);
+  const experts = useSelector((state) => state.user.experts);
   const userId = useSelector((state) => state.user.userId);
   const chats = useSelector((state) => state.user.chats);
   const coins = useSelector((state) => state.user.coins);
   const name = useSelector((state) => state.user.name);
+  useEffect(() => {
+    experts.map((item, index) => {
+      if (item.expert_id === expert_id) {
+        setIndex(index);
+        console.log(index);
+      }
+    });
+  }, []);
   function gotoCallingScreen() {
     Alert.alert(
       `This Action Will Cost You ${phonePrice} coins`,
@@ -48,7 +58,13 @@ const ExpertScreen = ({ navigation, route }) => {
             await updateCoins(userId, -phonePrice);
             await triggerCall(expert_id, name, 1);
             dispatch(addCoins(coins - phonePrice));
-            navigation.navigate("Agora", { expertName, phonePrice, expert_id });
+
+            navigation.navigate("Agora", {
+              expertName,
+              phonePrice,
+              expert_id,
+              index,
+            });
           },
         },
       ]

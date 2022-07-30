@@ -7,19 +7,21 @@ import { FontAwesome } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { storeVoice } from "../utils/firebase";
 import { useSelector, useDispatch } from "react-redux";
-import { addCurrChats, storeVoice as store } from "../redux/users";
-import { utils } from "@react-native-firebase/app";
-import storage from "@react-native-firebase/storage";
+import { addCurrChats, storeVoice as store, addCoins } from "../redux/users";
 import { firebase } from "../config";
-import axios from "axios";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
 import Colors from "../constants/colors";
+import { updateCoins } from "../utils/http";
 const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
   const user_id = useSelector((state) => state.user.userId);
   const coins = useSelector((state) => state.user.coins);
   const userType = useSelector((state) => state.user.userType);
+  const curr_chats = useSelector((state) => state.user.curr_chats);
+  const userId = useSelector((state) => state.user.userId);
 
-  const upload = async (uri, sound) => {
+  const upload = async (uri, sound, duration) => {
+    console.log("PRICEEEEE", voicePrice);
+    dispatch(addCoins(coins - voicePrice));
+    await updateCoins(userId, -voicePrice);
     const filename = uri.substring(uri.lastIndexOf("/") + 1);
     const response = await fetch(uri);
     const blob = await response.blob();
@@ -30,6 +32,29 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
       .then(async (snapshot) => {
         const res = await snapshot.ref.getDownloadURL();
         setUrl(res);
+        const currentDate = new Date();
+        const currentDayOfMonth = currentDate.getDate();
+        const currentMonth = currentDate.getMonth(); // Be careful! January is 0, not 1
+        const currentYear = currentDate.getFullYear();
+
+        const dateString =
+          currentDayOfMonth + "-" + (currentMonth + 1) + "-" + currentYear;
+        // "27-11-2020"
+        const currTime = currentDate.toLocaleTimeString();
+        if (res) {
+          const sentVoice = {
+            sound: res,
+            usertype: userType,
+            time: currTime,
+            date: dateString,
+            duration: duration,
+          };
+          // dispatch(store(sentVoice));
+          dispatch(addCurrChats([...curr_chats, sentVoice]));
+          storeVoice(sentVoice, user_id, expert_id, userType);
+          storeVoice(sentVoice, expert_id, user_id, userType);
+          setRecordings([]);
+        }
       });
   };
 
@@ -134,37 +159,14 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
                     {
                       text: "Yes",
                       onPress: async () =>
-                        await upload(recordingLine.file, recordingLine.sound),
+                        await upload(
+                          recordingLine.file,
+                          recordingLine.sound,
+                          recordingLine.duration
+                        ),
                     },
                   ]
                 );
-
-                const currentDate = new Date();
-                const currentDayOfMonth = currentDate.getDate();
-                const currentMonth = currentDate.getMonth(); // Be careful! January is 0, not 1
-                const currentYear = currentDate.getFullYear();
-
-                const dateString =
-                  currentDayOfMonth +
-                  "-" +
-                  (currentMonth + 1) +
-                  "-" +
-                  currentYear;
-                // "27-11-2020"
-                const currTime = currentDate.toLocaleTimeString();
-                if (url) {
-                  const sentVoice = {
-                    sound: url,
-                    usertype: userType,
-                    time: currTime,
-                    date: dateString,
-                    duration: recordingLine.duration,
-                  };
-                  dispatch(store(sentVoice));
-                  storeVoice(sentVoice, user_id, expert_id, userType);
-                  storeVoice(sentVoice, expert_id, user_id, userType);
-                  setRecordings([]);
-                }
               }}
             />
             <AntDesign

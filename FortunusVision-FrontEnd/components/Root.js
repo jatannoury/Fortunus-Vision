@@ -15,7 +15,7 @@ const Root = () => {
         <Authentication />
       ) : userType === 1 ? (
         incomingCall.state === 1 ? (
-          <AppAgora Name={incomingCall.userName} />
+          <AppAgora Name={incomingCall.userName} navigation={navigation} />
         ) : (
           <ExpertsScreen />
         )
