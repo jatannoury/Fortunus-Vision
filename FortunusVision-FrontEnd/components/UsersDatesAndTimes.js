@@ -75,8 +75,8 @@ const UsersDatesAndTimes = ({ expert_id, user_id, navigation }) => {
               <MaterialCommunityIcons
                 name="emoticon-sad-outline"
                 size={260}
-                color={Colors.accent600}
-                style={{ marginTop: 30, marginLeft: 10 }}
+                color={Colors.primary600}
+                style={{ marginTop: 0, marginLeft: 10 }}
               />
             </>
           )}
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 30,
-    marginVertical: 20,
+    marginVertical: 0,
     fontWeight: "bold",
     color: Colors.primary600,
   },
@@ -127,9 +127,10 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   Alert: {
-    marginTop: 140,
+    marginTop: 70,
     fontSize: 30,
+    marginBottom: 100,
     fontWeight: "bold",
-    color: Colors.accent600,
+    color: Colors.primary600,
   },
 });

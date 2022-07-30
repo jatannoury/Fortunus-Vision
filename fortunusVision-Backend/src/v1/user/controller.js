@@ -160,9 +160,8 @@ async function switchUserType(req, res) {
   const { Id, ...newInfo } = info;
   user.info = { ...newInfo };
   user.user_type = 1;
-  if (req.body.userType == 0) {
-    user.chat = [];
-  }
+  user.chat = [];
+  user.info.rating = { rating: 5, NbofVotes: 1 };
   user.save();
   return res.send({ message: "Success" });
 }
@@ -182,6 +181,7 @@ async function triggerCall(req, res) {
 }
 async function addHistory(req, res) {
   try {
+    console.log("Added History");
     let user = await getUserById(req.body.Id);
     user.call_history.push({ name: req.body.name, price: req.body.price });
     user.save();
