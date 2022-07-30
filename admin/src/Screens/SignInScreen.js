@@ -1,5 +1,6 @@
 import React from "react";
 import "../styling/SignIn.css";
+import { AiOutlineArrowRight } from "react-icons/ai";
 const SignInScreen = () => {
   function handleSubmit() {}
   return (
@@ -24,7 +25,10 @@ const SignInScreen = () => {
             // onChange={this.handleChange}
           />
 
-          {/* <input type="submit" value="Submit" /> */}
+          <div className="submitContainer">
+            <input type="submit" value={`LOGIN NOW `} className="submit" />
+            <AiOutlineArrowRight />
+          </div>
         </form>
       </div>
     </div>
