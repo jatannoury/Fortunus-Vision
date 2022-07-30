@@ -1,7 +1,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
-
+import messaging from "@react-native-firebase/messaging";
 const firebaseConfig = {
   apiKey: "AIzaSyBpwm98ujT2cqi4JrFtYc4hCD_bsacOkKw",
   authDomain: "fortunusvision-d4997.firebaseapp.com",
@@ -11,7 +11,5 @@ const firebaseConfig = {
   appId: "1:31060265630:web:3b7110b81f7353cf6b898f",
   measurementId: "G-KGL8MG18H5",
 };
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-export { firebase };
+
+firebase.initializeApp(firebaseConfig);

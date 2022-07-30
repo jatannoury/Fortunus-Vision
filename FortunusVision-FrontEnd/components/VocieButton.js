@@ -11,6 +11,7 @@ import { addCurrChats, storeVoice as store, addCoins } from "../redux/users";
 import { firebase } from "../config";
 import Colors from "../constants/colors";
 import { updateCoins } from "../utils/http";
+
 const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
   const user_id = useSelector((state) => state.user.userId);
   const coins = useSelector((state) => state.user.coins);
@@ -19,7 +20,7 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
   const userId = useSelector((state) => state.user.userId);
 
   const upload = async (uri, sound, duration) => {
-    console.log("PRICEEEEE", voicePrice);
+    console.log("PRICE IS FOUND HERE ->", voicePrice);
     dispatch(addCoins(coins - voicePrice));
     await updateCoins(userId, -voicePrice);
     const filename = uri.substring(uri.lastIndexOf("/") + 1);

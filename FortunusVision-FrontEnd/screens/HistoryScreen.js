@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import AppointmentCard from "../components/AppointmentCard";
 import { getHistory } from "../utils/http";
 import { useState } from "react";
+
 const HistoryScreen = ({ navigation }) => {
   const userId = useSelector((state) => state.user.userId);
   const callsHistory = useSelector((state) => state.user.callsHistory);
@@ -19,10 +20,7 @@ const HistoryScreen = ({ navigation }) => {
     };
     return (
       <View style={styles.buttonOuter}>
-        <Pressable
-          style={styles.buttonInner}
-          // onPress={navigate.bind(this, CardItemProps)}
-        >
+        <Pressable style={styles.buttonInner}>
           <AppointmentCard navigation={navigation} {...CardItemProps} />
         </Pressable>
       </View>
