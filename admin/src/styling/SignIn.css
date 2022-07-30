@@ -10,10 +10,17 @@
 }
 .Apptitle {
   font-size: 100px;
-  font-weight: bold;
+  font-weight: bolder;
   color: var(--primary-500);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.description {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-500);
+  margin: 2%;
 }
 
 .formContainer {

@@ -3,8 +3,10 @@ import "../styling/SignIn.css";
 import { AiOutlineArrowRight } from "react-icons/ai";
 const SignInScreen = () => {
   const [inputs, setInputs] = useState({ email: "", password: "" });
-  console.log(inputs);
-  function handleSubmit() {}
+
+  function handleSubmit() {
+    console.log(inputs);
+  }
   function InputChangedHandlers(inputIdentifier, enteredValue) {
     setInputs((currInput) => {
       return {
@@ -16,6 +18,7 @@ const SignInScreen = () => {
   return (
     <div className="backgroundImage">
       <span className="Apptitle">Fortunus Vision</span>
+      <span className="description">Welcome to the admin panel ! </span>
       <div class="formRootContainer">
         <form onSubmit={handleSubmit} className="formContainer">
           <label className="label">Email </label>
@@ -38,7 +41,15 @@ const SignInScreen = () => {
           />
 
           <div className="submitContainer">
-            <input type="submit" value={`LOGIN NOW `} className="submit" />
+            <input
+              type="submit"
+              value={`LOGIN NOW `}
+              className="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }}
+            />
             <AiOutlineArrowRight />
           </div>
         </form>
