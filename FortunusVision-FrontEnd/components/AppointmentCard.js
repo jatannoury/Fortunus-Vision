@@ -1,119 +1,162 @@
+import { Feather, MaterialIcons } from "@expo/vector-icons";
 import React from "react";
-import { ImageBackground, StyleSheet, View, Text, Image } from "react-native";
+import { View, Text, ImageBackground, StyleSheet, Image } from "react-native";
 import EmptyCard from "../components/EmptyCard";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
-
-const AppointmentCard = ({ name, price, waiting, icon }) => {
+import Colors from "../constants/colors";
+import ProfilePicture from "../screens/ProfilePicture";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
+const AppointmentCard = ({
+  name,
+  years,
+  age,
+  rating,
+  price,
+  waiting,
+  icon,
+}) => {
   return (
-    <View style={styles.container}>
-      <EmptyCard>
+    <EmptyCard>
+      <View>
+        <ProfilePicture
+          path={require("../assets/PERSONAL_PROFILE_PIC.jpg")}
+          containerStyle={styles.imgContainer}
+        />
         <View style={styles.textContainer}>
+          {icon ? (
+            <Feather
+              name="check-circle"
+              size={15}
+              color="green"
+              style={styles.done}
+            />
+          ) : (
+            <MaterialIcons
+              name="pending-actions"
+              size={18}
+              color="orange"
+              style={styles.done}
+            />
+          )}
           <Text style={styles.text}>{name}</Text>
         </View>
-        <MaterialIcons
-          name="phone-in-talk"
-          size={35}
-          color="white"
-          style={styles.icon}
-        />
-        <Text style={styles.phoneInfo}>10min Call</Text>
-        <Text style={styles.time}>
-          {waiting && `Approx Waiting Time:${waiting} Minutes`}
-        </Text>
+
+        <View style={styles.box}>
+          <Text style={styles.textPrice}>{`${price} coins`}</Text>
+          {icon ? (
+            <FontAwesome5
+              name="microphone"
+              size={24}
+              color={Colors.primary600}
+              style={styles.microphone}
+            />
+          ) : (
+            <FontAwesome
+              name="phone"
+              size={24}
+              color={Colors.primary600}
+              style={[styles.microphone, { bottom: 23 }]}
+            />
+          )}
+        </View>
+
+        <Text style={styles.description}>{`${
+          icon ? "Voice Message" : `${waiting} hours left`
+        }`}</Text>
+      </View>
+
+      <View>
         <Image
           source={require("../assets/Container.jpg")}
           style={styles.priceContainer}
         ></Image>
-        <Text
-          style={[
-            styles.prices,
-            price.length == 2 && { left: 665 },
-            price.length == 1 && { left: 670 },
-          ]}
-        >
-          {price}$
-        </Text>
-        {icon ? (
-          <Feather
-            name="check-circle"
-            size={24}
-            color="green"
-            style={styles.done}
-          />
-        ) : (
-          <MaterialIcons
-            name="pending-actions"
-            size={24}
-            color="orange"
-            style={styles.done}
-          />
-        )}
-      </EmptyCard>
-    </View>
+      </View>
+    </EmptyCard>
   );
 };
 
 export default AppointmentCard;
 const styles = StyleSheet.create({
-  image: {
-    flex: 1,
-  },
   text: {
     fontSize: 30,
     fontWeight: "bold",
-    color: "white",
-    paddingBottom: 10,
+    color: Colors.primary600,
+    paddingBottom: 2,
   },
   textContainer: {
     position: "absolute",
-    top: 80,
-    left: 435,
-    borderBottomColor: "white",
+    top: 50,
+    left: 200,
+    borderBottomColor: Colors.primary600,
     borderBottomWidth: 1,
-    width: 200,
+    width: 110,
   },
-  icon: {
-    position: "absolute",
-    top: 140,
-    left: 435,
-  },
-  phoneInfo: {
-    position: "absolute",
-    top: 152,
-    left: 480,
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "white",
-  },
-  time: {
-    position: "absolute",
-    top: 190,
-    left: 560,
-    color: "white",
-    fontSize: 10,
-  },
+
   priceContainer: {
     position: "absolute",
     top: 60,
     left: 640,
     flex: 1,
   },
-  prices: {
+  price: {
     position: "absolute",
-    top: 72,
+    top: 135,
     left: 652,
     fontSize: 23,
     fontWeight: "bold",
-    color: "white",
+    color: Colors.primary600,
+  },
+  imgContainer: {
+    width: 90,
+    height: 90,
+    borderRadius: 50,
+    borderWidth: 4,
+    borderColor: Colors.primary600,
+    overflow: "hidden",
+    position: "relative",
+    top: 70,
+    left: 100,
+  },
+  box: {
+    borderWidth: 3,
+    borderColor: Colors.primary600,
+    width: 100,
+    position: "relative",
+    left: 340,
+    bottom: 15,
+    borderRadius: 5,
+    height: 50,
+  },
+  textPrice: {
+    textAlign: "center",
+    textAlignVertical: "center",
+    fontSize: 20,
+    paddingTop: 10,
+    fontWeight: "800",
+    color: Colors.primary600,
+  },
+  microphone: {
+    position: "relative",
+    bottom: 25,
+    right: 25,
+  },
+  description: {
+    color: Colors.primary600,
+    position: "relative",
+    left: 200,
+    bottom: 30,
+    fontSize: 16,
   },
   done: {
-    position: "absolute",
-    top: 182,
-    left: 350,
-  },
-
-  container: {
     position: "relative",
+    top: 90,
+    left: 230,
+  },
+  time: {
+    position: "absolute",
+    top: 50,
+    left: 150,
+    color: "white",
+    fontSize: 10000,
   },
 });
