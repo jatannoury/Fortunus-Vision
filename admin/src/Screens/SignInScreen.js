@@ -15,6 +15,14 @@ const SignInScreen = () => {
             // value={this.state.value}
             // onChange={this.handleChange}
           />
+          <label className="label">Password </label>
+          <input
+            placeholder="Password must contain 6 characters and at least one upper case letter"
+            className="input"
+            type="password"
+            // value={this.state.value}
+            // onChange={this.handleChange}
+          />
 
           {/* <input type="submit" value="Submit" /> */}
         </form>
