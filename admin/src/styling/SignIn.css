@@ -4,12 +4,35 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  flex-direction: column;
 }
 .Apptitle {
   font-size: 100px;
   font-weight: bold;
   color: var(--primary-500);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  margin-top: 2%;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.input {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--primary-500);
+  background-color: transparent;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.formRootContainer {
+  width: 37%;
+}
+
+.label {
+  font-weight: 500;
 }
