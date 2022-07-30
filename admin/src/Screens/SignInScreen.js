@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styling/SignIn.css";
 import { AiOutlineArrowRight } from "react-icons/ai";
 const SignInScreen = () => {
+  const [inputs, setInputs] = useState({ email: "", password: "" });
+  console.log(inputs);
   function handleSubmit() {}
+  function InputChangedHandlers(inputIdentifier, enteredValue) {
+    setInputs((currInput) => {
+      return {
+        ...currInput,
+        [inputIdentifier]: enteredValue,
+      };
+    });
+  }
   return (
     <div className="backgroundImage">
       <span className="Apptitle">Fortunus Vision</span>
@@ -13,16 +23,18 @@ const SignInScreen = () => {
             placeholder="admin@outlook.com"
             className="input"
             type="text"
-            // value={this.state.value}
-            // onChange={this.handleChange}
+            onChange={(e) =>
+              InputChangedHandlers("email", e.currentTarget.value)
+            }
           />
           <label className="label">Password </label>
           <input
             placeholder="Password must contain 6 characters and at least one upper case letter"
             className="input"
             type="password"
-            // value={this.state.value}
-            // onChange={this.handleChange}
+            onChange={(e) =>
+              InputChangedHandlers("password", e.currentTarget.value)
+            }
           />
 
           <div className="submitContainer">
