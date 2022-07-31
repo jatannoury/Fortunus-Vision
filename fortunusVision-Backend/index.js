@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const userRouter = require("./src/v1/user");
+const Adminrouter = require("./src/v1/admin");
 //
 
 // mongodDB online -> use Atlas
@@ -18,6 +19,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/admin", Adminrouter);
 app.listen(portname, hostname, () => console.log("Server running"));
 
 //
