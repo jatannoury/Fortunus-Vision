@@ -25,8 +25,8 @@ th {
   border-radius: 10px 10px 0px 0px;
   background-color: var(--primary-500);
   color: var(--primary-600);
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   text-align: center;
   width: 10%;
 }
@@ -48,7 +48,7 @@ th:first-child {
 }
 .del {
   border-radius: 10px;
-  background-color: rgb(235, 64, 64);
+  background-color: rgb(255, 0, 0);
   cursor: pointer;
 }
 .underline {
@@ -68,4 +68,8 @@ th:first-child {
 }
 th:first-child {
   background-color: transparent;
+}
+.edit,
+.del {
+  color: white;
 }
