@@ -1,9 +1,13 @@
 import React from "react";
-
+import { GiPointyHat } from "react-icons/gi";
 const NavBar = () => {
   return (
     <div className="NavBarContainer">
-      <span className="title">Fortunus Vision</span>
+      <div className="title">
+        Fortunus Vision <GiPointyHat className="icon1" />
+      </div>
+
+      <div className="sections"></div>
     </div>
   );
 };
