@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 import "../styling/SignIn.css";
 import { useNavigate } from "react-router-dom";
-import handleSubmit from "../helper/SignIn.js";
+import handleSubmit, { InputChangedHandlers } from "../helper/SignIn.js";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { signUserIn } from "../helper/http";
+
 const SignInScreen = () => {
   const [inputs, setInputs] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const [message, setMessage] = useState(null);
-
-  function InputChangedHandlers(inputIdentifier, enteredValue) {
-    setInputs((currInput) => {
-      return {
-        ...currInput,
-        [inputIdentifier]: enteredValue,
-      };
-    });
-  }
   return (
     <div className="backgroundImage">
       <span className="Apptitle">Fortunus Vision</span>
@@ -29,7 +20,7 @@ const SignInScreen = () => {
             className="input"
             type="text"
             onChange={(e) =>
-              InputChangedHandlers("email", e.currentTarget.value)
+              InputChangedHandlers(setInputs, "email", e.currentTarget.value)
             }
           />
           <label className="label">Password </label>
@@ -38,7 +29,7 @@ const SignInScreen = () => {
             className="input"
             type="password"
             onChange={(e) =>
-              InputChangedHandlers("password", e.currentTarget.value)
+              InputChangedHandlers(setInputs, "password", e.currentTarget.value)
             }
           />
 

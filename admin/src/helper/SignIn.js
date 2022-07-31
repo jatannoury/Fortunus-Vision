@@ -2,7 +2,7 @@ import { signUserIn } from "./http";
 
 export default async function handleSubmit(inputs, setMessage, navigate) {
   const res = await signUserIn(inputs.email, inputs.password);
-  console.log(res.user_type);
+  console.log(inputs);
   if (res.user_type === 0) {
     setMessage("Dear user please log in from the mobile application");
   } else if (res.user_type === 1)
@@ -12,4 +12,13 @@ export default async function handleSubmit(inputs, setMessage, navigate) {
   } else {
     navigate("/LandingScreen");
   }
+}
+
+export function InputChangedHandlers(setInputs, inputIdentifier, enteredValue) {
+  setInputs((currInput) => {
+    return {
+      ...currInput,
+      [inputIdentifier]: enteredValue,
+    };
+  });
 }
