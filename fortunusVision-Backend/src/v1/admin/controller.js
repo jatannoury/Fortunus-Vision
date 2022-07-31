@@ -1,5 +1,5 @@
 const User = require("../../../models/User");
-const { fetchUsers, deleteUsers } = require("./services");
+const { fetchUsers, deleteUsers, searchUsers } = require("./services");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
@@ -22,4 +22,9 @@ async function deleteUser(req, res) {
   }
 }
 
-module.exports = { getAllUsers, deleteUser };
+async function searchUser(req, res) {
+  let user = await searchUsers(req.body.data);
+  return res.send(user);
+}
+
+module.exports = { getAllUsers, deleteUser, searchUser };
