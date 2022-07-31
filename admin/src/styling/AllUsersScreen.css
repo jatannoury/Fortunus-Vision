@@ -1,0 +1,9 @@
+.backgroundImage2 {
+  background-image: url("../assets/backgroundImage.jpg");
+  min-height: 1000px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+}
