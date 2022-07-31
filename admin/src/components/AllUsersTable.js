@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineUser, AiFillDelete } from "react-icons/ai";
 import { ImUserTie } from "react-icons/im";
 import { RiAdminFill } from "react-icons/ri";
+import { deleteUser, getAllUsers } from "../helper/http";
 
-const AllUsersTable = ({ info }) => {
+const AllUsersTable = () => {
+  const [info, setInfo] = useState([]);
+  useEffect(() => {
+    async function fetchUsers() {
+      let res = await getAllUsers();
+      res && setInfo([res]);
+    }
+    fetchUsers();
+  }, [info]);
+  async function deleteSelectedUser(Id) {
+    setInfo([info[0].filter((e) => e._id !== Id)]);
+    console.log(info[0].length);
+    deleteUser(Id);
+  }
   return (
     <table className="table">
       <thead>
@@ -38,25 +52,8 @@ const AllUsersTable = ({ info }) => {
                   : "Admin"}
               </td>
               <td>{e.call_history.length}</td>
-              <th
-                className="del"
-                //   onClick={(e) => {
-                //       delContact(e.target.parentElement.children[2].innerText);
-                //   }}
-              >
+              <th className="del" onClick={() => deleteSelectedUser(e._id)}>
                 Delete
-              </th>
-              <th
-                className="add edit"
-                //   onClick={(e) => {
-                //     localStorage.setItem(
-                //       "contact_nb",
-                //       e.target.parentElement.children[2].innerText
-                //     );
-                //     window.location.href = "/edit";
-                //   }}
-              >
-                Edit
               </th>
             </tr>
           ))}
