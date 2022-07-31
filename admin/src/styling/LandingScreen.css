@@ -115,4 +115,26 @@
 }
 .imageContainer {
   text-align: center;
+  margin-right: 150px;
+}
+.coins {
+  position: relative;
+  bottom: 150px;
+  left: 230px;
+  animation: coins 5s;
+  animation-direction: alternate;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--primary-500);
+}
+@keyframes coins {
+  0% {
+    left: -900px;
+    top: -900px;
+  }
+
+  100% {
+    left: 230px;
+    top: -150px;
+  }
 }
