@@ -32,7 +32,10 @@ const NavbarSection = () => {
       </SectionContainer>
 
       <SectionContainer label="Accept An Expert">
-        <AiOutlineUserAdd className=" icon2 dropdown" />
+        <AiOutlineUserAdd
+          className=" icon2 dropdown"
+          onClick={() => navigate("/AcceptExperts")}
+        />
       </SectionContainer>
     </div>
   );

@@ -5,7 +5,7 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  gap: 150px;
+  gap: 80px;
 }
 .mainContainer {
   display: flex;
