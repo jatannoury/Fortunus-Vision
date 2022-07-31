@@ -53,3 +53,21 @@ export async function deleteUser(Id) {
     });
   return data;
 }
+
+export async function searchUser(data) {
+  await axios({
+    method: "post",
+    url: "/admin/searchUser",
+    data: {
+      data: data,
+    },
+  })
+    .then((response) => {
+      data = response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
