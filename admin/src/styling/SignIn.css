@@ -76,5 +76,8 @@ input::placeholder {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.arrow {
+.message {
+  text-align: center;
+  margin-top: 1%;
+  color: red;
 }
