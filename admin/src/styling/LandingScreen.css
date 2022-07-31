@@ -1,11 +1,11 @@
-.backgroundImage {
+.backgroundImage1 {
   background-image: url("../assets/backgroundImage.jpg");
   min-height: 1000px;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  gap: 300px;
+  gap: 150px;
 }
 .mainContainer {
   display: flex;
@@ -108,4 +108,11 @@
 }
 .center {
   align-self: center;
+}
+.image {
+  height: 300px;
+  width: 350px;
+}
+.imageContainer {
+  text-align: center;
 }
