@@ -21,3 +21,18 @@ export async function signUserIn(email, password) {
     });
   return data;
 }
+export async function getAllUsers() {
+  await axios({
+    method: "post",
+    url: "/admin/getAllUsers",
+    data: {},
+  })
+    .then((response) => {
+      data = response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
