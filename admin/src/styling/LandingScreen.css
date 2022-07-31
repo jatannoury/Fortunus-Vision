@@ -50,7 +50,7 @@
   background-color: var(--primary-500);
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -59,8 +59,53 @@
   font-size: 30px;
   font-weight: bold;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 33%;
+  text-align: center;
 }
 
 .icon1 {
   vertical-align: middle;
+}
+
+.sections {
+  display: flex;
+  flex-direction: row;
+  width: 33%;
+  justify-content: center;
+  gap: 50px;
+}
+
+.dummy {
+  width: 33%;
+}
+
+.icon2 {
+  font-size: 30px;
+  color: var(--primary-600);
+}
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 37px;
+  background-color: var(--primary-600);
+  color: var(--secondary-500);
+  z-index: 1;
+  padding-inline: 10px;
+  min-width: 130px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.center {
+  align-self: center;
 }
