@@ -1,8 +1,9 @@
 const { Router } = require("express");
-const { getAllUsers } = require("./controller");
-const Adminrouter = Router();
+const { getAllUsers, deleteUser } = require("./controller");
+const AdminRouter = Router();
 // const testMiddleware = require("../../middleware/test");
 
-Adminrouter.post("/getAllUsers", getAllUsers);
+AdminRouter.post("/getAllUsers", getAllUsers);
+AdminRouter.post("/deleteUser", deleteUser);
 
-module.exports = Adminrouter;
+module.exports = AdminRouter;
