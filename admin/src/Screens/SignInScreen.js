@@ -1,26 +1,13 @@
 import React, { useState } from "react";
 import "../styling/SignIn.css";
 import { useNavigate } from "react-router-dom";
-
+import handleSubmit from "../helper/SignIn.js";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { signUserIn } from "../helper/http";
 const SignInScreen = () => {
   const [inputs, setInputs] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const [message, setMessage] = useState(null);
-  async function handleSubmit() {
-    const res = await signUserIn(inputs.email, inputs.password);
-    console.log(res.user_type);
-    if (res.user_type === 0) {
-      setMessage("Dear user please log in from the mobile application");
-    } else if (res.user_type === 1)
-      setMessage("Dear expert please log in from the mobile application");
-    else if (res.user_type === undefined) {
-      setMessage("Wrong Credentials");
-    } else {
-      navigate("/LandingScreen");
-    }
-  }
 
   function InputChangedHandlers(inputIdentifier, enteredValue) {
     setInputs((currInput) => {
@@ -62,7 +49,7 @@ const SignInScreen = () => {
               className="submit"
               onClick={(e) => {
                 e.preventDefault();
-                handleSubmit();
+                handleSubmit(inputs, setMessage, navigate);
               }}
             />
             <AiOutlineArrowRight />
