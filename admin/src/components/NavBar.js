@@ -2,8 +2,6 @@ import React from "react";
 import { GiPointyHat } from "react-icons/gi";
 import NavbarSection from "./NavbarSection";
 
-import SectionContainer from "./SectionContainer";
-
 const NavBar = () => {
   return (
     <div className="NavBarContainer">

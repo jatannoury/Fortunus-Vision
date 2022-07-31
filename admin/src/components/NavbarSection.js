@@ -4,8 +4,10 @@ import {
   AiOutlineUserAdd,
   AiOutlineSearch,
 } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import SectionContainer from "./SectionContainer";
 const NavbarSection = () => {
+  const navigate = useNavigate();
   return (
     <div className="sections ">
       <SectionContainer label="Search">
@@ -13,7 +15,10 @@ const NavbarSection = () => {
       </SectionContainer>
 
       <SectionContainer label="See All Users">
-        <AiOutlineUser className=" icon2 dropdown" />
+        <AiOutlineUser
+          className=" icon2 dropdown"
+          onClick={() => navigate("AllUsers")}
+        />
       </SectionContainer>
 
       <SectionContainer label="Accept An Expert">
