@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import "../styling/AllUsersScreen.css";
 import { AiOutlineUser } from "react-icons/ai";
 import AllUsersTable from "../components/AllUsersTable";
+import { getAllUsers } from "../helper/http";
 const AllUsersScreen = () => {
-  const [info, setInfo] = useState([
-    {
-      fullName: "JOSEPH",
-      phoneNb: "70471877",
-      email: "Josephtannoury@outlook.com",
-      rlsStatus: "Married",
-      lat: 35.21,
-      long: 52.21,
-    },
-  ]);
+  const [info, setInfo] = useState([]);
+  useEffect(() => {
+    async function fetchUsers() {
+      let res = await getAllUsers();
+      res && setInfo([res]);
+    }
+    fetchUsers();
+  }, []);
   return (
     <div className="backgroundImage2">
       <NavBar />
