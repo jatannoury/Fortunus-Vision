@@ -4,7 +4,25 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  align-items: center;
-  /* justify-content: space-evenly; */
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.box {
+  border: 1px solid var(--primary-500);
+  background-color: var(--primary-500);
+  color: var(--primary-600);
+  padding: 80px;
+  font-size: 50px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+.box:hover {
+  background-color: var(--primary-600);
+  color: var(--primary-500);
 }
