@@ -5,12 +5,14 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .mainContainer {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
 }
 
 .box {
@@ -21,8 +23,23 @@
   font-size: 50px;
   font-weight: bold;
   border-radius: 20px;
+  min-width: 80px;
+  text-align: center;
 }
 .box:hover {
   background-color: var(--primary-600);
   color: var(--primary-500);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  text-align: center;
+  color: var(--primary-500);
+  font-weight: bold;
+  font-size: large;
+  margin: 1%;
 }
