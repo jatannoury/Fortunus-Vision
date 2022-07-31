@@ -5,5 +5,67 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  gap: 150px;
+}
+
+.AllUsers {
+  text-align: center;
+  margin-top: 1%;
+  font-size: 80px;
+}
+
+table {
+  margin-top: 50px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+th {
+  border: 1px solid var(--primary-500);
+  border-radius: 10px 10px 0px 0px;
+  background-color: var(--primary-500);
+  color: var(--primary-600);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  width: 10%;
+}
+
+td {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  padding: 10px 0;
+}
+th:first-child {
+  background-color: white;
+  border: none;
+}
+.iconn {
+  margin-top: 10px;
+  font-size: 200%;
+  color: var(--primary-500);
+}
+.del {
+  border-radius: 10px;
+  background-color: rgb(235, 64, 64);
+  cursor: pointer;
+}
+.underline {
+  text-decoration: underline;
+}
+.input {
+  width: 100%;
+  padding-left: 0px !important;
+  height: 100%;
+}
+.add {
+  border-radius: 10px;
+  background-color: green;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+th:first-child {
+  background-color: transparent;
 }
