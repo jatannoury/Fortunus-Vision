@@ -1,7 +1,7 @@
 import React from "react";
 
 const LandingScreen = () => {
-  return <div>HELLO DEVS</div>;
+  return <div className="backgroundImage"></div>;
 };
 
 export default LandingScreen;

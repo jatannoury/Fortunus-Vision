@@ -1,0 +1,10 @@
+.backgroundImage {
+  background-image: url("../assets/backgroundImage.jpg");
+  min-height: 1000px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  flex-direction: column;
+}
