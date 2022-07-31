@@ -4,9 +4,7 @@ import { AiOutlineUser, AiFillDelete } from "react-icons/ai";
 import { ImUserTie } from "react-icons/im";
 import { RiAdminFill } from "react-icons/ri";
 
-const SearchTable = () => {
-  const [data, setData] = useState([]);
-
+const SearchTable = ({ data }) => {
   return (
     <table className="table">
       <thead>
@@ -21,7 +19,7 @@ const SearchTable = () => {
       </thead>
       <tbody>
         {data.length !== 0 &&
-          data[0].map((e) => (
+          data.map((e) => (
             <tr key={e._id}>
               {e.user_type === 0 ? (
                 <AiOutlineUser className="iconn" />
