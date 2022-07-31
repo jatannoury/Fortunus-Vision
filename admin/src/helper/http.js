@@ -36,3 +36,20 @@ export async function getAllUsers() {
     });
   return data;
 }
+export async function deleteUser(Id) {
+  await axios({
+    method: "post",
+    url: "/admin/deleteUser",
+    data: {
+      Id: Id,
+    },
+  })
+    .then((response) => {
+      data = response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
