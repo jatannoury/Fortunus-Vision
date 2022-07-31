@@ -1,11 +1,16 @@
-import logo from "./logo.svg";
-import "./App.css";
 import SignInScreen from "./Screens/SignInScreen";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingScreen from "./Screens/LandingScreen";
 
 function App() {
   return (
     <div>
-      <SignInScreen />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SignInScreen />}></Route>
+          <Route path="/LandingScreen" element={<LandingScreen />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
