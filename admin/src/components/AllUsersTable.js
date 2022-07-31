@@ -1,5 +1,7 @@
 import React from "react";
-import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineUser, AiFillDelete } from "react-icons/ai";
+import { ImUserTie } from "react-icons/im";
+import { RiAdminFill } from "react-icons/ri";
 
 const AllUsersTable = ({ info }) => {
   return (
@@ -15,15 +17,27 @@ const AllUsersTable = ({ info }) => {
         </tr>
       </thead>
       <tbody>
-        {info &&
-          info.map((e) => (
-            <tr>
-              <AiOutlineUser className="iconn" />
-              <td>{e.fullName}</td>
-              <td>{e.phoneNb}</td>
+        {info.length !== 0 &&
+          info[0].map((e) => (
+            <tr key={e._id}>
+              {e.user_type === 0 ? (
+                <AiOutlineUser className="iconn" />
+              ) : e.user_type === -1 ? (
+                <RiAdminFill className="iconn" />
+              ) : (
+                <ImUserTie className="iconn" />
+              )}
+              <td>{e.userName}</td>
               <td>{e.email}</td>
-              <td>{e.rlsStatus}</td>
-              <td>{[e.lat, "° , ", e.long, "°"]}</td>
+              <td>{e.coins}</td>
+              <td>
+                {e.user_type === 0
+                  ? "User"
+                  : e.user_type === 1
+                  ? "Expert"
+                  : "Admin"}
+              </td>
+              <td>{e.call_history.length}</td>
               <th
                 className="del"
                 //   onClick={(e) => {
