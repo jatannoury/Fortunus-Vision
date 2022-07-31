@@ -2,6 +2,7 @@ import SignInScreen from "./Screens/SignInScreen";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingScreen from "./Screens/LandingScreen";
 import AllUsersScreen from "./Screens/AllUsersScreen";
+import SearchUsers from "./Screens/SearchUsers";
 
 function App() {
   return (
@@ -10,10 +11,8 @@ function App() {
         <Routes>
           <Route path="/" element={<SignInScreen />}></Route>
           <Route path="/LandingScreen" element={<LandingScreen />}></Route>
-          <Route
-            path="/LandingScreen/AllUsers"
-            element={<AllUsersScreen />}
-          ></Route>
+          <Route path="/AllUsers" element={<AllUsersScreen />}></Route>
+          <Route path="/SearchUsers" element={<SearchUsers />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

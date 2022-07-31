@@ -11,13 +11,16 @@ const NavbarSection = () => {
   return (
     <div className="sections ">
       <SectionContainer label="Search">
-        <AiOutlineSearch className="icon2 dropdown" />
+        <AiOutlineSearch
+          className="icon2 dropdown"
+          onClick={() => navigate("/SearchUsers")}
+        />
       </SectionContainer>
 
       <SectionContainer label="See All Users">
         <AiOutlineUser
           className=" icon2 dropdown"
-          onClick={() => navigate("AllUsers")}
+          onClick={() => navigate("/AllUsers")}
         />
       </SectionContainer>
 

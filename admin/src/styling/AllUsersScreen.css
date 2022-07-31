@@ -34,8 +34,10 @@ th {
 td {
   border: 1px solid black;
   border-radius: 5px;
-  background-color: #f8f8f8;
+  background-color: #ddbb95;
   padding: 10px 0;
+  font-weight: bold;
+  color: var(--primary-500);
 }
 th:first-child {
   background-color: white;
