@@ -5,7 +5,18 @@ const LandingScreen = () => {
   return (
     <div className="backgroundImage">
       <div className="mainContainer">
-        <BoxInfo />
+        <div className="flex">
+          <BoxInfo number={100} />
+          <span className="info">Total number of customers</span>
+        </div>
+        <div className="flex">
+          <BoxInfo number={50} />
+          <span className="info">Total number of users</span>
+        </div>
+        <div className="flex">
+          <BoxInfo number={50} />
+          <span className="info">Total number of experts</span>
+        </div>
       </div>
     </div>
   );

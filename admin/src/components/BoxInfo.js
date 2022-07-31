@@ -1,9 +1,9 @@
 import React from "react";
 
-const BoxInfo = () => {
+const BoxInfo = ({ number }) => {
   return (
     <div className="box">
-      <span className="content">100 users</span>
+      <span className="content">{number}</span>
     </div>
   );
 };
