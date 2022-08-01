@@ -71,3 +71,19 @@ export async function searchUser(data) {
     });
   return data;
 }
+
+export async function getRequests() {
+  await axios({
+    method: "post",
+    url: "/admin/getRequests",
+    data: {},
+  })
+    .then((response) => {
+      data = response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
