@@ -83,6 +83,10 @@ const userSchema = new mongoose.Schema({
       time: { type: Array, require: true },
     },
   ],
+  expert_request: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
