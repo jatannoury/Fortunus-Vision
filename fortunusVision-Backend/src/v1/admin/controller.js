@@ -65,10 +65,32 @@ async function manipulateRequest(req, res) {
   }
 }
 
+async function fetchData(req, res) {
+  let users = await User.find();
+  let usersNb = 0;
+  let expertsNb = 0;
+  let totalCoins = 0;
+  users.map((user) => {
+    if (user.user_type === 0) {
+      usersNb += 1;
+      totalCoins += user.coins;
+    } else if (user.user_type === 1) {
+      expertsNb += 1;
+      totalCoins += user.coins;
+    }
+  });
+  return res.send({
+    usersNb: usersNb,
+    expertsNb: expertsNb,
+    totalCoins: totalCoins,
+  });
+}
+
 module.exports = {
   getAllUsers,
   deleteUser,
   searchUser,
   getRequests,
   manipulateRequest,
+  fetchData,
 };
