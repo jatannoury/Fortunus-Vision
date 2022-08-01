@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { fetchData } from "../helper/http";
 import BoxInfo from "./BoxInfo";
 
-const AllBoxes = () => {
+const AllBoxes = ({ users, experts }) => {
   return (
     <div className="mainContainer">
       <div className="flex">
-        <BoxInfo number={100} />
+        <BoxInfo number={users + experts} />
         <span className="info">Total number of customers</span>
       </div>
       <div className="flex">
-        <BoxInfo number={50} />
+        <BoxInfo number={users} />
         <span className="info">Total number of users</span>
       </div>
       <div className="flex">
-        <BoxInfo number={50} />
+        <BoxInfo number={experts} />
         <span className="info">Total number of experts</span>
       </div>
     </div>
