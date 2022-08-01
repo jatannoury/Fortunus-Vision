@@ -6,7 +6,9 @@ const AcceptAnExpertScreen = () => {
   return (
     <div className="backgroundImage3">
       <NavBar />
-      <div className="card"></div>
+      <div className="card">
+        <ProfilePicture />
+      </div>
     </div>
   );
 };
