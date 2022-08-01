@@ -1,5 +1,10 @@
 const User = require("../../../models/User");
-const { fetchUsers, deleteUsers, searchUsers } = require("./services");
+const {
+  fetchUsers,
+  deleteUsers,
+  searchUsers,
+  rejectRequest,
+} = require("./services");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "";
@@ -39,4 +44,31 @@ async function getRequests(req, res) {
     return res.status(500).send(err);
   }
 }
-module.exports = { getAllUsers, deleteUser, searchUser, getRequests };
+
+async function manipulateRequest(req, res) {
+  if (req.body.state === 0) {
+    await User.findByIdAndUpdate(req.body.info._id, {
+      expert_request: 0,
+      info: {},
+    }).then(() => {
+      return res.send({ message: "Request Not Accepted" });
+    });
+  } else {
+    await User.findByIdAndUpdate(req.body.info._id, {
+      expert_request: 0,
+      user_type: 1,
+      chat: [],
+      rating: { rating: 5, NbofVotes: 1 },
+    }).then(() => {
+      return res.send({ message: "Request Accepted" });
+    });
+  }
+}
+
+module.exports = {
+  getAllUsers,
+  deleteUser,
+  searchUser,
+  getRequests,
+  manipulateRequest,
+};

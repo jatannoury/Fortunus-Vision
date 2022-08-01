@@ -159,9 +159,7 @@ async function switchUserType(req, res) {
   let info = req.body;
   const { Id, ...newInfo } = info;
   user.info = { ...newInfo };
-  user.user_type = 1;
-  user.chat = [];
-  user.info.rating = { rating: 5, NbofVotes: 1 };
+  user.expert_request = 1;
   user.save();
   return res.send({ message: "Success" });
 }
