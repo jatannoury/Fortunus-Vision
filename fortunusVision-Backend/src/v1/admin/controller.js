@@ -27,4 +27,16 @@ async function searchUser(req, res) {
   return res.send(user);
 }
 
-module.exports = { getAllUsers, deleteUser, searchUser };
+async function getRequests(req, res) {
+  try {
+    let users = await fetchUsers();
+    let result = [];
+    users.map((item) => {
+      if (item?.expert_request === 1) result.push(item);
+    });
+    return res.status(200).send(result);
+  } catch (err) {
+    return res.status(500).send(err);
+  }
+}
+module.exports = { getAllUsers, deleteUser, searchUser, getRequests };
