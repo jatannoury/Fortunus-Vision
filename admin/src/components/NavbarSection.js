@@ -4,6 +4,7 @@ import {
   AiOutlineUserAdd,
   AiOutlineSearch,
   AiOutlineHome,
+  AiOutlineLogout,
 } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import SectionContainer from "./SectionContainer";
@@ -35,6 +36,12 @@ const NavbarSection = () => {
         <AiOutlineUserAdd
           className=" icon2 dropdown"
           onClick={() => navigate("/AcceptExperts")}
+        />
+      </SectionContainer>
+      <SectionContainer label="Logout">
+        <AiOutlineLogout
+          className=" icon2 dropdown"
+          onClick={() => navigate("/")}
         />
       </SectionContainer>
     </div>
