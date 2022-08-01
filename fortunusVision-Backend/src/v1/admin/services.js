@@ -2,7 +2,10 @@ const { use } = require(".");
 const User = require("../../../models/User");
 const { findById } = require("../../../models/User");
 
-async function fetchUsers(data) {
+async function fetchUsers(Id) {
+  if (Id) {
+    return await User.findById(Id);
+  }
   return await User.find();
 }
 
