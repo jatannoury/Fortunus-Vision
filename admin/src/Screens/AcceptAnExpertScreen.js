@@ -11,13 +11,13 @@ const AcceptAnExpertScreen = () => {
       setRequests(request);
     }
     fetchRequests();
-  }, []);
+  }, [requests]);
   return (
     <div className="backgroundImage3">
       <NavBar />
       {requests.length !== 0 &&
         requests.map((item) => {
-          return <ExpertCard info={item} />;
+          return <ExpertCard info={item} requests={requests} />;
         })}
     </div>
   );
