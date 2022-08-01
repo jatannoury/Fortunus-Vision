@@ -2,6 +2,8 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import ProfilePicture from "../components/ProfilePicture";
 import "../styling/AcceptExpert.css";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { TiDeleteOutline } from "react-icons/ti";
 const AcceptAnExpertScreen = () => {
   return (
     <div className="backgroundImage3">
@@ -16,6 +18,10 @@ const AcceptAnExpertScreen = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat
+        </div>
+        <div className="buttons">
+          <TiDeleteOutline className="reject" />
+          <AiOutlineCheckCircle className="accept" />
         </div>
       </div>
     </div>
