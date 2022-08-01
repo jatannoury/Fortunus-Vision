@@ -2,7 +2,9 @@ import React from "react";
 import ProfilePicture from "./ProfilePicture";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
+import { BsFillTelephoneFill, BsFillMicFill } from "react-icons/bs";
 import BG from "../assets/Capture.PNG";
+import { manipulateRequest } from "../helper/http";
 const ExpertCard = ({ info }) => {
   return (
     <div className="card">
@@ -13,10 +15,23 @@ const ExpertCard = ({ info }) => {
       <span className="infoText">
         {info.info.years_of_experience} years of experience
       </span>
-      <div className="infoText">{info.info.Quote}</div>
+      <div className="infoText">
+        <BsFillTelephoneFill className="icons" /> {info.info.phone_price} coins
+      </div>
+      <div className="infoText">
+        <BsFillMicFill className="icons" />
+        {info.info.voice_price} coins
+      </div>
+      <div className="infoText">{info.info.Quote} </div>
       <div className="buttons">
-        <TiDeleteOutline className="reject" />
-        <AiOutlineCheckCircle className="accept" />
+        <TiDeleteOutline
+          className="reject"
+          onClick={(e) => manipulateRequest(info, 0)}
+        />
+        <AiOutlineCheckCircle
+          className="accept"
+          onClick={(e) => manipulateRequest(info, 1)}
+        />
       </div>
     </div>
   );

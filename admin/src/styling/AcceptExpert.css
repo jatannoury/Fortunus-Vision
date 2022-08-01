@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 15px;
   overflow: hidden;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -20,6 +20,8 @@
   font-weight: bold;
   margin-inline: 30px;
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 .buttons {
   width: 80%;
@@ -43,10 +45,16 @@
   font-size: 22px;
   font-weight: bold;
   color: #221206;
+  padding-top: 3%;
 }
 .BG {
   width: 110%;
   height: 100px;
   position: absolute;
   top: 0;
+}
+
+.icons {
+  padding-top: 3px;
+  padding-right: 3px;
 }
