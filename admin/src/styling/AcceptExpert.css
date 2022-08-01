@@ -2,11 +2,16 @@
   height: 400px;
   width: 350px;
   background-color: var(--primary-600);
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 30px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 3px;
 }
 
 .infoText {
@@ -15,4 +20,33 @@
   font-weight: bold;
   margin-inline: 30px;
   text-align: center;
+}
+.buttons {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.reject {
+  color: #9d4545;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.accept {
+  color: #445644;
+  font-size: 35px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+.Name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #221206;
+}
+.BG {
+  width: 110%;
+  height: 100px;
+  position: absolute;
+  top: 0;
 }
