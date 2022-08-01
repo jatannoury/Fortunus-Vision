@@ -106,3 +106,18 @@ export async function manipulateRequest(info, state) {
     });
   return data;
 }
+export async function fetchData() {
+  await axios({
+    method: "post",
+    url: "/admin/fetchData",
+    data: {},
+  })
+    .then((response) => {
+      data = response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
