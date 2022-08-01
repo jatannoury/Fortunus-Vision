@@ -87,3 +87,22 @@ export async function getRequests() {
     });
   return data;
 }
+
+export async function manipulateRequest(info, state) {
+  await axios({
+    method: "post",
+    url: "/admin/manipulateRequest",
+    data: {
+      info: info,
+      state: state,
+    },
+  })
+    .then((response) => {
+      data = response.data;
+    })
+    .catch((error) => {
+      data = error;
+      console.log(error);
+    });
+  return data;
+}
