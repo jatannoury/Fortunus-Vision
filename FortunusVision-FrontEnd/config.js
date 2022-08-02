@@ -1,7 +1,6 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
-import messaging from "@react-native-firebase/messaging";
 const firebaseConfig = {
   apiKey: "AIzaSyBpwm98ujT2cqi4JrFtYc4hCD_bsacOkKw",
   authDomain: "fortunusvision-d4997.firebaseapp.com",
