@@ -52,9 +52,10 @@
 | ------ | ------ | ------ |
 | ![SignIn](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/SignIn.png) | ![Register](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/Register.png) | ![LandingScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/DisplayExperts.png) |
 
-| Artists results                                                                                | Artist's Albums                                                                               |
-| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| ![Artists results](https://github.com/julescript/spotifyndr/blob/master/demo/Artists_Page.jpg) | ![Artist's Albums](https://github.com/julescript/spotifyndr/blob/master/demo/Albums_Page.jpg) |
+| Drawer Navigator | Bundles | User Profile Navigator |
+| ------ | ------ | ------ |
+| ![Drawer Navigator](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/DrawerNavigator.png) | ![Bundles](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/Bundles.png) | ![LandingScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/UserProfileNavigator.png) |
+
 
 <br><br>
 
