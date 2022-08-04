@@ -95,7 +95,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+In order to run the project correctly, you need to install the following packages
 
 - npm
   ```sh
@@ -113,23 +113,73 @@ This is an example of how to list things you need to use the software and how to
   ```
 
 -NodeJs
-   Install [NodeJs](https://nodejs.org/en/)
+ ```sh
+  Install [NodeJs](https://nodejs.org/en/)
+  ```
+   
 
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+_Below is an example of how you can install the project on your local device
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/jatannoury/FortunusVision.git
    ```
-3. Install NPM packages
+##### To Run The Mobile App
+
+1. Navigate to the Frontend folder then ReactNative folder
+   ```sh
+   cd FortunusVision-FrontEnd
+   ```
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+3. Set up your local hostname
+   - Go to cmd, type ipconfig and scroll down to the IPv4 Address key, then copy its value
+   - Go to utils folder in FortunusVision-FrontEnd "Desktop\FortunusVision\FortunusVision-FrontEnd\utils", enter http.js file and paste the hostname copied from the previous step in hostname constant located at line 2 
+
+4. Run the start up command
+   ```sh
+   npm start
+   ```
+
+##### To Run The Desktop App
+1. Navigate to the admin then ReactNative folder
+   ```sh
+   cd admin
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Set up your local hostname
+   - Go to cmd, type ipconfig and scroll down to the IPv4 Address key, then copy its value
+   - Go to utils folder in admin "Desktop\FortunusVision\admin\src\helper\http.js", enter http.js file and paste the hostname copied from the previous step in hostname constant located at line 2 
+
+4. Run the start up command
+   ```sh
+   npm start
+   ```
+
+##### To Run The Server
+
+1. Go to "C:\Users\toni\Desktop\FortunusVision\fortunusVision-Backend" create a .env file and paste into it "DB_CONNECT=mongodb+srv://YOUR_MONGODB_USENAME:YOUR_MONGODB_PASSWORD@cluster0.fi3bv.mongodb.net/YOUR_MONGODB_COLLECTION?retryWrites=true
+TOKEN_SECRET=femdasl;kfnds;afmnsaf;lk" 
+
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+3. Set up your local hostname
+   - Go to cmd, type ipconfig and scroll down to the IPv4 Address key, then copy its value
+   - Go to index folder in admin "C:\Users\toni\Desktop\FortunusVision\fortunusVision-Backend\index.js", and paste the hostname copied from the previous step in hostname constant located at line 16
+
+4. Run the start up command
+   ```sh
+   npm start
    ```
