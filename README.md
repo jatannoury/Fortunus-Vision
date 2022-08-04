@@ -144,6 +144,12 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 <br><br>
 
+| Switch-User-Type-Request | Accept-User-Request | Show-Switch-User-Type |
+| ------ | ------ | ------ |
+| ![Switch-User-Type-Request](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Switch-User-Type-Request.gif) | ![Accept-User-Request](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Accept-User-Request.gif) | ![Show-Switch-User-Type](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Show-Switch-User-Type.gif) |
+
+<br><br>
+
 <img id="how-to-run" src="./readme/title6.svg"/>
 
 > This is an example of how you may give instructions on setting up your project locally.
