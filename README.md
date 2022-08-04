@@ -38,7 +38,8 @@
 - As an admin, I want to search for a specific user given his name or email
 - As an admin, I want to delete a user account
 - As an admin, I want to view the total number of users and experts
-- As an admin, I'd like to see the total number of coins transferred within the market.
+- As an admin, I want to see the total number of coins transferred within the market.
+- As an admin, I want to accept and reject users transfer to experts requests.
 
 <br><br>
 
@@ -61,11 +62,21 @@
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
-- This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
-- For persistent storage (database), the app uses the [Hive](https://hivedb.dev/) package which allows the app to create a custom storage schema and save it to a local database.
-- To send local push notifications, the app uses the [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) package which supports Android, iOS, and macOS.
-  - 🚨 Currently, notifications aren't working on macOS. This is a known issue that we are working to resolve!
-- The app uses the font ["Work Sans"](https://fonts.google.com/specimen/Work+Sans) as its main font, and the design of the app adheres to the material design guidelines.
+- This project uses the [React Native development framework](https://reactnative.dev/) for the development of the core content of the application (user and expert screens). React Native is a JavaScript framework for writing real, natively rendering mobile applications for iOS and Android. It’s based on React, Facebook’s JavaScript library for building user interfaces, but instead of targeting the browser, it targets mobile platforms
+
+- Moreover this project uses the [ReactJs](https://reactjs.org/) for the development of the admin content of the application. React is a library for building composable user interfaces. It encourages the creation of reusable UI components, which present data that changes over time.
+
+- To serve the data, this project uses [NodeJs development framework](https://nodejs.org/en/) as Backend. NodeJs is an open source development platform for executing JavaScript code server-side. Node is useful for developing applications that require a persistent connection from the browser to the server and is often used for real-time applications such as chat, news feeds and web push notifications.
+
+- For persistent storage (database), the app uses the [MongoDB Atlas](https://www.mongodb.com/) package which allows the app to create a custom storage schema and save it to a cloud database. MongoDB Atlas is a fully-managed cloud database that handles all the complexity of deploying, managing, and healing your deployments on the cloud service provider of your choice (AWS , Azure, and GCP). MongoDB Atlas is the best way to deploy, run, and scale MongoDB in the cloud.
+
+- To send voice messages, the app uses the [Firebase](https://firebase.google.com/) package which supports Android & iOS. Firebase is an app development platform aids in the creation and expansion of games and apps. Trusted by millions of companies worldwide and backed by Google.
+
+- In order to establish voice calls, the app uses [Agora.io](https://www.agora.io/en/) which supports voice and video communication on Android, iOS, and even the web. Agora.io provides building blocks for you to add real-time engagement functions through a powerful SDK. You can integrate the Agora SDK to enable real-time engagement in your own application quickly. 
+
+- For the application state management, [Redux Toolkit](https://redux-toolkit.js.org/) have been integrated.Redux Toolkit is an opinionated toolset for efficient Redux development created by the Redux team. It is the standard and recommended way to write Redux logic and manage state in your JavaScript applications.
+
+- The app uses the font ["Roboto"](https://fonts.google.com/specimen/Roboto) as its main font, and the design of the app adheres to the material design guidelines.
 
 <br><br>
 <img src="./readme/title5.svg"/>
