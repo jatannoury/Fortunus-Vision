@@ -103,6 +103,13 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 | ![coins-validator-onCall](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/coins-validator-onCall.gif) | ![call-accessibility-onValidation](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/call-accessibility-onValidation.gif) | ![coins-validator-onMessage](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/coins-validator-onMessage.gif) |  ![message-accessibility-onValidation](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/message-accessibility-onValidation.gif) |
 
 <br><br>
+
+| Record-And-Replay | Record-And-Replay | Record-And-Send | Play-Recorded |
+| ------ | ------ | ------ | ------ |
+| ![Record-And-Replay](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Record-And-Replay.gif) | ![Record-And-Replay](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Record-And-Replay.gif) | ![Record-And-Send](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Record-And-Send.gif) |  ![Play-Recorded](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Play-Recorded.gif) |
+
+<br><br>
+
 <img id="how-to-run" src="./readme/title6.svg"/>
 
 > This is an example of how you may give instructions on setting up your project locally.
