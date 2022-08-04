@@ -122,6 +122,13 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 <br><br>
 
+#### Experts Screens
+
+| Show-ExpertCalendar-Options | Set-Expert's-Availability | Show-Set-Availability | Show-User-Sent-Message |
+| ------ | ------ | ------ | ------ |
+| ![Show-ExpertCalendar-Options](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Show-ExpertCalendar-Options.gif) | ![Set-Expert's-Availability](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Set-Expert's-Availability.gif) | ![Show-Set-Availability](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Show-Set-Availability.gif) |  ![Show-User-Sent-Message](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Show-User-Sent-Message.gif) |
+
+
 <img id="how-to-run" src="./readme/title6.svg"/>
 
 > This is an example of how you may give instructions on setting up your project locally.
