@@ -102,6 +102,20 @@ This is an example of how to list things you need to use the software and how to
   npm install npm@latest -g
   ```
 
+- expo
+  ```sh
+  npm install -g expo-cli
+  ```
+
+- react-cli
+  ```sh
+  npm install -g react-cli react
+  ```
+
+-NodeJs
+   Install [NodeJs](https://nodejs.org/en/)
+
+
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
