@@ -50,7 +50,7 @@
 
 | SignIn | Register | LandingScreen |
 | ------ | ------ | ------ |
-| ![SignIn](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/SignIn.png.png) | ![Register](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/Register.png) | ![LandingScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/DisplayExperts.png) |
+| ![SignIn](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/SignIn.png) | ![Register](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/Register.png) | ![LandingScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/DisplayExperts.png) |
 
 | Artists results                                                                                | Artist's Albums                                                                               |
 | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
