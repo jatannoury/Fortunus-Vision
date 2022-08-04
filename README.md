@@ -113,9 +113,9 @@ In order to run the project correctly, you need to install the following package
   ```
 
 -NodeJs
- ```sh
+
   Install [NodeJs](https://nodejs.org/en/)
-  ```
+
    
 
 
@@ -130,7 +130,7 @@ _Below is an example of how you can install the project on your local device
    ```
 ##### To Run The Mobile App
 
-1. Navigate to the Frontend folder then ReactNative folder
+1. Navigate to the Frontend folder 
    ```sh
    cd FortunusVision-FrontEnd
    ```
@@ -148,7 +148,7 @@ _Below is an example of how you can install the project on your local device
    ```
 
 ##### To Run The Desktop App
-1. Navigate to the admin then ReactNative folder
+1. Navigate to the admin folder
    ```sh
    cd admin
    ```
@@ -167,19 +167,22 @@ _Below is an example of how you can install the project on your local device
 
 ##### To Run The Server
 
-1. Go to "C:\Users\toni\Desktop\FortunusVision\fortunusVision-Backend" create a .env file and paste into it "DB_CONNECT=mongodb+srv://YOUR_MONGODB_USENAME:YOUR_MONGODB_PASSWORD@cluster0.fi3bv.mongodb.net/YOUR_MONGODB_COLLECTION?retryWrites=true
-TOKEN_SECRET=femdasl;kfnds;afmnsaf;lk" 
-
+1. Navigate to the Backend folder
+   ```sh
+   cd FortunusVision-BackendEnd
+   ```
 2. Install NPM packages
    ```sh
    npm install
    ```
+3. Go to "Desktop\FortunusVision\fortunusVision-Backend" create a .env file and paste into it "DB_CONNECT=mongodb+srv://"YOUR_MONGODB_USENAME":"YOUR_MONGODB_PASSWORD"@cluster0.fi3bv.mongodb.net/"YOUR_MONGODB_COLLECTION"?retryWrites=true
+TOKEN_SECRET=femdasl;kfnds;afmnsaf;lk" 
 
-3. Set up your local hostname
+4. Set up your local hostname
    - Go to cmd, type ipconfig and scroll down to the IPv4 Address key, then copy its value
    - Go to index folder in admin "C:\Users\toni\Desktop\FortunusVision\fortunusVision-Backend\index.js", and paste the hostname copied from the previous step in hostname constant located at line 16
 
-4. Run the start up command
+5. Run the start up command
    ```sh
    npm start
    ```
