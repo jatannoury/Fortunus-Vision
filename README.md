@@ -110,6 +110,12 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 <br><br>
 
+| DisplayChats | ShowAvailableBookings | Set-An-Appointment | RechargeCoins |
+| ------ | ------ | ------ | ------ |
+| ![DisplayChats](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/DisplayChats.gif) | ![ShowAvailableBookings](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/ShowAvailableBookings.gif) | ![Set-An-Appointment](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Set-An-Appointment.gif) |  ![RechargeCoins](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/RechargeCoins.gif) |
+
+<br><br>
+
 <img id="how-to-run" src="./readme/title6.svg"/>
 
 > This is an example of how you may give instructions on setting up your project locally.

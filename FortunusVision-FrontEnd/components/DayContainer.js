@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View, Text, Pressable, Alert } from "react-native";
 import Colors from "../constants/colors";
 const DayContainer = ({
   day,
@@ -9,7 +9,10 @@ const DayContainer = ({
   dayIsClicked,
 }) => {
   const [displayed, setIsDisplayed] = useState(false);
-
+  const [isClickable,setIsClickable]=useState(true)
+  useEffect(()=>{
+    if(day<new Date().getDay())setIsClickable(false)
+  },[])
   return (
     <View style={styles.dayContainer}>
       <Pressable
@@ -18,8 +21,13 @@ const DayContainer = ({
           styles.press,
           displayed && { backgroundColor: "#fcf2d8" },
           style,
+          !isClickable&&{backgroundColor:Colors.primary700}
         ]}
         onPress={() => {
+          if(!isClickable){
+            alert("Please Choose From The Upcoming Days")
+            return
+          }
           setSelectedDay(day);
           setIsDisplayed(!displayed);
           setDayIsClicked(!dayIsClicked);

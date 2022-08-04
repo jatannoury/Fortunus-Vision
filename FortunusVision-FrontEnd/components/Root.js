@@ -5,9 +5,10 @@ import { UserScreen } from "../screens/UsersScreens";
 import { ExpertsScreen } from "../screens/ExpertsScreen";
 import AppAgora from "../Agora/components/AppAgora";
 
-const Root = () => {
+const Root = ({navigation}) => {
   const userType = useSelector((state) => state.user.userType);
   const incomingCall = useSelector((state) => state.user.incomingCall);
+  console.log(incomingCall)
   const name = useSelector((state) => state.user.name);
   return (
     <>

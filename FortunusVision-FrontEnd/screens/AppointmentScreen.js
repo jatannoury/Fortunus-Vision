@@ -22,7 +22,11 @@ const AppointmentScreen = ({ navigation }) => {
     seconds = seconds % 60;
     minutes = seconds >= 30 ? minutes + 1 : minutes;
     minutes = minutes % 60;
-    hours = hours % 24;
+    hours=hours.toString().slice(1)
+    minutes=minutes.toString().slice(1)
+    console.log(hours,minutes)
+    
+    
     return `${hours.toString().padStart(2, "0")}:${minutes
       .toString()
       .padStart(2, "0")}`;
