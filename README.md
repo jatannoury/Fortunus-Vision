@@ -116,6 +116,12 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 <br><br>
 
+| Trigger-Phone-Call | Expert-Receive-Call | Set-rating |
+| ------ | ------ | ------ |
+| ![Trigger-Phone-Call](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Trigger-Phone-Call.gif) | ![Expert-Receive-Call](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Expert-Receive-Call.gif) | ![Set-rating](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Set-rating.gif) |
+
+<br><br>
+
 <img id="how-to-run" src="./readme/title6.svg"/>
 
 > This is an example of how you may give instructions on setting up your project locally.

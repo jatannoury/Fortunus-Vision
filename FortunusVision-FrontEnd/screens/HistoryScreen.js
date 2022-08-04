@@ -11,6 +11,7 @@ const HistoryScreen = ({ navigation }) => {
   const callsHistory = useSelector((state) => state.user.callsHistory);
 
   let item = callsHistory;
+  console.log(item);
   function renderCardItem(itemData) {
     itemData = itemData.item;
     const CardItemProps = {

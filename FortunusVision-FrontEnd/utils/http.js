@@ -300,6 +300,8 @@ export async function getHistory(Id) {
 }
 
 export async function addHistory(Id, name, price) {
+  console.log(Id,name,price)
+  console.log("INNNNNNNNNNNNNNN")
   const response = await axios({
     method: "post",
     url: "/user/addHistory",

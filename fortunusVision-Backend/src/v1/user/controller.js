@@ -178,6 +178,7 @@ async function triggerCall(req, res) {
   }
 }
 async function addHistory(req, res) {
+  console.log(req.body);
   try {
     console.log("Added History");
     let user = await getUserById(req.body.Id);

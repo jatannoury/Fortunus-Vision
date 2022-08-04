@@ -1,9 +1,9 @@
 import React, { useRef, useCallback, useEffect, useState } from "react";
 import RtcEngine from "react-native-agora";
 import { useDispatch, useSelector } from "react-redux";
-import { triggerPhoneCall } from "../../redux/users";
+import { addCallHistory, triggerPhoneCall } from "../../redux/users";
 import GettingCall from "../../screens/GettingCall";
-import { triggerCall } from "../../utils/http";
+import { addHistory, triggerCall } from "../../utils/http";
 import { requestAudioPermission } from "../Permission";
 
 const AppAgora = ({ navigation, route, Name }) => {
@@ -13,17 +13,16 @@ const AppAgora = ({ navigation, route, Name }) => {
       joinChannel();
     };
   }, []);
-  let expert_id = userType === 0 ? route.params.expert_id : 0;
-  let phonePrice = userType === 0 ? route.params.phonePrice : 0;
+  
   let name = Name;
   if (name === undefined) {
     name = route.params.expertName;
   }
   let userId = useSelector((state) => state.user.userId);
-  let userType = useSelector((state) => {
-    state.user.userType;
-  });
-
+  let userType = useSelector((state) =>state.user.userType)
+  let expert_id = userType === 0 ? route.params.expert_id : 0;
+  let phonePrice = userType === 0 ? route.params.phonePrice : 0;
+  console.log("phonePricephonePrice",userType,phonePrice)
   let dispatch = useDispatch();
   requestAudioPermission();
   const appId = "455c2d5179604814ae6fc8fbbd65a29b";
@@ -74,10 +73,13 @@ const AppAgora = ({ navigation, route, Name }) => {
   });
   const joinChannel = useCallback(async () => {
     console.log("JOINED");
-    userType === 0 ? await triggerCall(expert_id, name, phonePrice) : "";
+    await addHistory(userId,name,phonePrice)
+    dispatch(addCallHistory([{name:name,price:phonePrice}]))
+    userType === 0 ? await triggerCall(expert_id, name, 1) : "";
     await rtcEngine.current?.joinChannel(token, channelName, null, 0);
   }, [channelName]);
   const leaveChannel = useCallback(async () => {
+    
     await rtcEngine.current?.leaveChannel();
     setPeerIds([]);
     setJoinSucceed(false);
