@@ -4,13 +4,13 @@
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.
 
-**[PROJECT PHILOSOPHY](https://github.com/julescript/well_app#-project-philosophy) • [WIREFRAMES](https://github.com/julescript/well_app#-wireframes) • [TECH STACK](https://github.com/julescript/well_app#-tech-stack) • [IMPLEMENTATION](https://github.com/julescript/well_app#-impplementation) • [HOW TO RUN?](https://github.com/julescript/well_app#-how-to-run)**
+**[PROJECT PHILOSOPHY](https://github.com/jatannoury/FortunusVision#project-philosophy) • [WIREFRAMES](https://github.com/jatannoury/FortunusVision#wireframes) • [TECH STACK](https://github.com/jatannoury/FortunusVision#tech-stack) • [IMPLEMENTATION](https://github.com/jatannoury/FortunusVision#impplementation) • [HOW TO RUN?](https://github.com/jatannoury/FortunusVision#how-to-run)**
 
 </div>
 
 <br><br>
 
-<img src="./readme/title2.svg"/>
+<img  id="project-philosophy" src="./readme/title2.svg"/>
 
 > Have you ever wanted to communicate with a fortune teller from the comfort of your own home? Fortunus Vision is a mobile application built with react native and the MERN stacks that allows you to communicate with a fortune teller via phone call or voice message integrated in a chatting system.
 >
@@ -43,7 +43,7 @@
 
 <br><br>
 
-<img src="./readme/title3.svg"/>
+<img id="wireframes" src="./readme/title3.svg"/>
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
 > Note that i didn't use any styling library or theme, all from scratch and using pure css modules
@@ -58,7 +58,7 @@
 
 <br><br>
 
-<img src="./readme/title4.svg"/>
+<img id="tech-stack" src="./readme/title4.svg"/>
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
@@ -79,7 +79,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 - The app uses the font ["Roboto"](https://fonts.google.com/specimen/Roboto) as its main font, and the design of the app adheres to the material design guidelines.
 
 <br><br>
-<img src="./readme/title5.svg"/>
+<img id="impplementation" src="./readme/title5.svg"/>
 
 > Uing the above mentioned tecch stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
@@ -88,7 +88,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 | ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
 
 <br><br>
-<img src="./readme/title6.svg"/>
+<img id="how-to-run" src="./readme/title6.svg"/>
 
 > This is an example of how you may give instructions on setting up your project locally.
 > To get a local copy up and running follow these simple example steps.
@@ -180,7 +180,7 @@ TOKEN_SECRET=femdasl;kfnds;afmnsaf;lk"
 
 4. Set up your local hostname
    - Go to cmd, type ipconfig and scroll down to the IPv4 Address key, then copy its value
-   - Go to index folder in admin "C:\Users\toni\Desktop\FortunusVision\fortunusVision-Backend\index.js", and paste the hostname copied from the previous step in hostname constant located at line 16
+   - Go to index folder in admin "\Desktop\FortunusVision\fortunusVision-Backend\index.js", and paste the hostname copied from the previous step in hostname constant located at line 16
 
 5. Run the start up command
    ```sh
