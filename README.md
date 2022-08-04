@@ -94,7 +94,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 | SignInScreen | ExpertScreen | ChatScreen | DrawerContent |
 | ------ | ------ | ------ | ------ |
-| ![SignInScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/SignInScreen.mp4) | ![ExpertScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/ExpertScreen.mp4) | ![ChatScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/ChatScreen.gif) |  ![DrawerContent](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/DrawerContent.gif) |
+| ![SignInScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/SignInScreen.gif) | ![ExpertScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/SignInScreen.gif) | ![ChatScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/SignInScreen.gif) |  ![DrawerContent](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/SignInScreen.gif) |
 
 <br><br>
 <img id="how-to-run" src="./readme/title6.svg"/>
