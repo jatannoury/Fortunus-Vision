@@ -83,15 +83,15 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 <img id="impplementation" src="./readme/title5.svg"/>
 
 > Uing the above mentioned tecch stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
-- User Screens 
 
+#### Users Screens
 
-- SignUp authentication
 | confirm-password-auth | email-auth | one-capital-letter-required-auth | Correct-auth |
 | ------ | ------ | ------ | ------ |
 | ![confirm-password-auth](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/confirm-password-auth.gif) | ![email-auth](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/email-auth.gif) | ![one-capital-letter-required-auth](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/one-capital-letter-required-auth.gif) |  ![Correct-auth](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Correct-auth.gif) |
+
 <br><br>
-- Starting Screens
+
 | SignInScreen | ExpertScreen | ChatScreen | DrawerContent |
 | ------ | ------ | ------ | ------ |
 | ![SignInScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/SignInScreen.mp4) | ![ExpertScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/ExpertScreen.mp4) | ![ChatScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/ChatScreen.gif) |  ![DrawerContent](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/DrawerContent.gif) |
