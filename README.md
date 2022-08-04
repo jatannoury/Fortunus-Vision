@@ -84,9 +84,9 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 > Uing the above mentioned tecch stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
-| Landing                                                                                | Home/Search                                                                               |
-| -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
+| confirm-password-auth | email-auth | one-capital-letter-required-auth | Correct-auth |
+| ------ | ------ | ------ | ------ |
+| ![Drawer Navigator](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/confirm-password-auth.gif) | ![email-auth](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/email-auth.gif) | ![one-capital-letter-required-auth]((https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/one-capital-letter-required-auth.gif) |  ![Correct-auth]((https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Correct-auth.gif) |
 
 <br><br>
 <img id="how-to-run" src="./readme/title6.svg"/>
