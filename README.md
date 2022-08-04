@@ -90,7 +90,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 | confirm-password-auth | email-auth | one-capital-letter-required-auth | Correct-auth |
 | ------ | ------ | ------ | ------ |
 | ![confirm-password-auth](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/confirm-password-auth.gif) | ![email-auth](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/email-auth.gif) | ![one-capital-letter-required-auth](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/one-capital-letter-required-auth.gif) |  ![Correct-auth](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Correct-auth.gif) |
-
+<br><br>
 - Starting Screens
 | SignInScreen | ExpertScreen | ChatScreen | DrawerContent |
 | ------ | ------ | ------ | ------ |
