@@ -128,6 +128,13 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 | ------ | ------ | ------ | ------ |
 | ![Show-ExpertCalendar-Options](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Show-ExpertCalendar-Options.gif) | ![Set-Expert's-Availability](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Set-Expert's-Availability.gif) | ![Show-Set-Availability](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Show-Set-Availability.gif) |  ![Show-User-Sent-Message](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Show-User-Sent-Message.gif) |
 
+<br><br>
+
+| Respond-To-Received-Chat | Play-Sent-VoiceMessage | Change-Expert-Info | Show-Changes |
+| ------ | ------ | ------ | ------ |
+| ![Respond-To-Received-Chat](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Respond-To-Received-Chat.gif) | ![Play-Sent-VoiceMessage](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Play-Sent-VoiceMessage.gif) | ![Change-Expert-Info](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Change-Expert-Info.gif) |  ![Show-Changes](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Show-Changes.gif) |
+
+<br><br>
 
 <img id="how-to-run" src="./readme/title6.svg"/>
 

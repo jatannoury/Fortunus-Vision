@@ -7,7 +7,6 @@ const DayDisplay = ({
   dayIsClicked,
   setSelectedDay,
 }) => {
-  // const [selectedDay, setSelectedDay] = useState("");
   return (
     <ScrollView horizontal={true} style={{ width: "70%" }}>
       {availabality.map((hour, index) => {

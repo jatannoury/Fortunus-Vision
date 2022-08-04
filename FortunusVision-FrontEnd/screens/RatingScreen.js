@@ -13,7 +13,6 @@ const RatingScreen = ({ navigation, route }) => {
   const [selected, setSelected] = useState(0);
   let expert_id = route.params.expert_id;
   let index = route.params.index;
-  console.log(index);
   function setNumber(number) {
     setSelected(number);
   }
@@ -22,7 +21,6 @@ const RatingScreen = ({ navigation, route }) => {
     await addRating(expert_id, selected);
 
     let newRating = experts[index];
-    console.log(newRating);
     newRating = { ...newRating };
     newRating.rating = {
       rating: experts[index].rating.rating + selected,
@@ -37,7 +35,6 @@ const RatingScreen = ({ navigation, route }) => {
 
       newExperts.push(element);
     });
-    // console.log(newExperts);
     dispatch(addExperts(newExperts));
     navigation.navigate("Landing Page");
   }

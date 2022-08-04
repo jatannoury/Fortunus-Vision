@@ -23,12 +23,7 @@ const UsersDatesAndTimes = ({ expert_id }) => {
     fetchAppointments();
   }, []);
 
-  // function sort(times) {
-  //   times = times.time;
-  //   let am = times.filter((item) => item.split(" ")[1] === "AM");
-  //   let pm = times.filter((item) => item.split(" ")[1] === "PM");
-  //   times = [];
-  // }
+
   function getTime(day) {
     for (let i = 0; i < availabality.length; i++) {
       if (availabality[i].day === day) {

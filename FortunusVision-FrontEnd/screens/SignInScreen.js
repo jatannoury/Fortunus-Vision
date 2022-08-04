@@ -80,7 +80,6 @@ const SignInScreen = ({ navigation }) => {
         dispatch(addAppointment(response.appointment));
         dispatch(triggerPhoneCall(response.incomingCall));
         dispatch(addCallHistory(response.call_history));
-        console.log(response.call_history);
         async function fetchExperts() {
           let manipulatedData = [];
           const response = await getExperts(1);

@@ -24,11 +24,7 @@ const SignUpScreen = ({ navigation }) => {
     password_confirmation: { val: "", isValid: true },
   });
 
-  function pressHandler() {
-    navigation.navigate("SignIn", {
-      // categoryId: itemData.item.id,
-    });
-  }
+  
 
   function InputChangedHandlers(inputIdentifier, enteredValue) {
     setInputVals((currInput) => {

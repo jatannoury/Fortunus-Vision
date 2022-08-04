@@ -24,7 +24,6 @@ const AppointmentScreen = ({ navigation }) => {
     minutes = minutes % 60;
     hours=hours.toString().slice(1)
     minutes=minutes.toString().slice(1)
-    console.log(hours,minutes)
     
     
     return `${hours.toString().padStart(2, "0")}:${minutes
@@ -81,7 +80,6 @@ const AppointmentScreen = ({ navigation }) => {
       <View style={styles.buttonOuter}>
         <Pressable
           style={styles.buttonInner}
-          // onPress={navigate.bind(this, CardItemProps)}
         >
           <AppointmentCard navigation={navigation} {...CardItemProps} />
         </Pressable>

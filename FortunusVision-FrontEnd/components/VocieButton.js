@@ -19,10 +19,11 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
   const curr_chats = useSelector((state) => state.user.curr_chats);
   const userId = useSelector((state) => state.user.userId);
 
-  const upload = async (uri, sound, duration) => {
-    console.log("PRICE IS FOUND HERE ->", voicePrice);
-    dispatch(addCoins(coins - voicePrice));
+  const upload = async (uri, sound, duration,type=0) => {
+    if(type===0){
+      dispatch(addCoins(coins - voicePrice));
     await updateCoins(userId, -voicePrice);
+    }
     const filename = uri.substring(uri.lastIndexOf("/") + 1);
     const response = await fetch(uri);
     const blob = await response.blob();
@@ -148,7 +149,7 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
               color="black"
               style={{ marginHorizontal: 10 }}
               onPress={async () => {
-                Alert.alert(
+                userType===0?Alert.alert(
                   `This Action Will Cost You ${voicePrice} coins`,
                   "Do you Want To Succeed?",
                   [
@@ -167,7 +168,9 @@ const VoiceButton = ({ expert_id, navigation, voicePrice }) => {
                         ),
                     },
                   ]
-                );
+                ):upload(recordingLine.file,
+                  recordingLine.sound,
+                  recordingLine.duration,1)
               }}
             />
             <AntDesign
