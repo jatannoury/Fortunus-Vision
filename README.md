@@ -104,9 +104,9 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 <br><br>
 
-| Record-And-Replay | Record-And-Replay | Record-And-Send | Play-Recorded |
+| Record-And-Replay | Record-And-Delete | Record-And-Send | Play-Recorded |
 | ------ | ------ | ------ | ------ |
-| ![Record-And-Replay](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Record-And-Replay.gif) | ![Record-And-Replay](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Record-And-Replay.gif) | ![Record-And-Send](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Record-And-Send.gif) |  ![Play-Recorded](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Play-Recorded.gif) |
+| ![Record-And-Replay](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Record-And-Replay.gif) | ![Record-And-Delete](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Record-And-Delete.gif) | ![Record-And-Send](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Record-And-Send.gif) |  ![Play-Recorded](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Play-Recorded.gif) |
 
 <br><br>
 
