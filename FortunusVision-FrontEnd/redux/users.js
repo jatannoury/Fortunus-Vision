@@ -12,7 +12,6 @@ const usersSlice = createSlice({
     experts: [],
     curr_chats: [],
     userType: "",
-    incomingCall: {},
   },
   reducers: {
     addCoins: (state, action) => {
@@ -45,12 +44,6 @@ const usersSlice = createSlice({
     addToAppointment: (state, action) => {
       state.appointments.push(action.payload);
     },
-    triggerPhoneCall: (state, action) => {
-      state.incomingCall = action.payload;
-    },
-    addCallHistory: (state, action) => {
-      state.callsHistory = [...state.callsHistory, ...action.payload];
-    },
     logout: (state, action) => {
       (state.userType = ""),
         (state.name = ""),
@@ -76,6 +69,4 @@ export const addUserType = usersSlice.actions.addUserType;
 export const logout = usersSlice.actions.logout;
 export const addAppointment = usersSlice.actions.addAppointment;
 export const addToAppointment = usersSlice.actions.addToAppointment;
-export const triggerPhoneCall = usersSlice.actions.triggerPhoneCall;
-export const addCallHistory = usersSlice.actions.addCallHistory;
 export default usersSlice.reducer;

@@ -17,13 +17,11 @@ import RechargeCoinsScreen from "./RechargeCoinsScreen";
 import ChatScreen from "./ChatScreen";
 import LandingScreen from "./LandingScreen";
 import DrawerHeader from "../components/DrawerHeader";
-import AppAgora from "../Agora/components/AppAgora";
+
 import Colors from "../constants/colors";
 import ChatPhoto from "../components/ChatPhoto";
 
 import Logout from "./Logout";
-import BecomeAnExpert from "./BecomeAnExpertScreen";
-import RatingScreen from "./RatingScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -103,41 +101,15 @@ export function UserScreen() {
           headerBackTitleVisible: true,
           headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
         }}
-      />
-      <Stack.Screen
-        name="RechargeCoins"
-        component={DrawerNavigator}
-        options={{
-          title: "",
-          headerBackTitleVisible: true,
-          headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
-        }}
-      />
-      <Stack.Screen
-        name="Become an Expert"
-        component={DrawerNavigator}
-        options={{
-          title: "",
-          headerBackTitleVisible: true,
-          headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
-        }}
-      />
-      <Stack.Screen
-        name="Agora"
-        component={AppAgora}
-        options={{
-          title: "Phone Call",
-          headerBackTitleVisible: true,
-        }}
-      />
-      <Stack.Screen
-        name="RatingScreen"
-        component={RatingScreen}
-        options={{
-          title: "RatingScreen",
-          headerBackTitleVisible: false,
-        }}
-      />
+      /><Stack.Screen
+      name="RechargeCoins"
+      component={DrawerNavigator}
+      options={{
+        title: "",
+        headerBackTitleVisible: true,
+        headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
+      }}
+    />
     </Stack.Navigator>
   );
 }
@@ -211,16 +183,6 @@ function DrawerNavigator() {
         }}
       />
       <Drawer.Screen
-        name="Become An Expert"
-        component={BecomeAnExpert}
-        options={{
-          title: "Become An Expert",
-          drawerIcon: ({ color, size }) => (
-            <FontAwesome5 name="user-plus" size={30} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen
         name="Logout"
         component={Logout}
         options={{
@@ -230,6 +192,7 @@ function DrawerNavigator() {
           ),
         }}
       />
+      
     </Drawer.Navigator>
   );
 }

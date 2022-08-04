@@ -7,11 +7,13 @@ import {
   ImageBackground,
   StatusBar,
   Alert,
+  KeyboardAvoidingView,
 } from "react-native";
 import Title from "../components/Title";
 import SignUpForm from "../components/SignUpForm";
 import Button from "../components/Button";
 import Colors from "../constants/colors";
+import KeyboardAvoidingWrapper from"../components/KeyboardAvoidingWrapper"
 import { Feather } from "@expo/vector-icons";
 
 const SignUpScreen = ({ navigation }) => {
@@ -103,12 +105,15 @@ const SignUpScreen = ({ navigation }) => {
     !inputVals.password_confirmation.isValid;
 
   return (
+    
     <View style={styles.container}>
       <ImageBackground
         source={require("../assets/backgroundImage.jpg")}
         resizeMode="cover"
         style={styles.image}
       >
+        <KeyboardAvoidingWrapper>
+          <View>
         <StatusBar style="light" backgroundColor={Colors.primary500} />
         <Title label="Register" />
         <SignUpForm
@@ -134,8 +139,11 @@ const SignUpScreen = ({ navigation }) => {
             <Text style={styles.word}>Terms</Text>
           </Text>
         </View>
+        </View>
+        </KeyboardAvoidingWrapper>
       </ImageBackground>
     </View>
+    
   );
 };
 

@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Colors from "../constants/colors";
 import Title from "../components/Title";
 import ActionButton from "../components/ActionButton";
 import { Ionicons } from "@expo/vector-icons";
 import ProfilePicture from "./ProfilePicture";
 import { useDispatch, useSelector } from "react-redux";
-import { addChat, triggerCall, updateCoins } from "../utils/http";
-import { addCoins } from "../redux/users";
+import { addChat } from "../utils/http";
 import { addChats } from "../redux/users";
 import {
   Text,
@@ -16,7 +15,6 @@ import {
   Linking,
   Alert,
 } from "react-native";
-import { Color } from "react-native-agora";
 const ExpertScreen = ({ navigation, route }) => {
   const dispatch = useDispatch();
   const params = route.params.props;
@@ -27,50 +25,10 @@ const ExpertScreen = ({ navigation, route }) => {
   const price = params.price;
   const quote = params.quote;
   const expert_id = params.id;
-  const [index, setIndex] = useState();
   const userName = useSelector((state) => state.user.name);
-  const experts = useSelector((state) => state.user.experts);
   const userId = useSelector((state) => state.user.userId);
   const chats = useSelector((state) => state.user.chats);
-  const coins = useSelector((state) => state.user.coins);
-  const name = useSelector((state) => state.user.name);
-  useEffect(() => {
-    experts.map((item, index) => {
-      if (item.expert_id === expert_id) {
-        setIndex(index);
-        console.log(index);
-      }
-    });
-  }, []);
-  function gotoCallingScreen() {
-    Alert.alert(
-      `This Action Will Cost You ${phonePrice} coins`,
-      "Do you Want To Succeed?",
-      [
-        {
-          text: "No",
-          onPress: () => "Cancel Pressed",
-          style: "cancel",
-        },
-        {
-          text: "Yes",
-          onPress: async () => {
-            await updateCoins(userId, -phonePrice);
-            await triggerCall(expert_id, name, 1);
-            dispatch(addCoins(coins - phonePrice));
-
-            navigation.navigate("Agora", {
-              expertName,
-              phonePrice,
-              expert_id,
-              index,
-            });
-          },
-        },
-      ]
-    );
-  }
-
+  const coins= useSelector((state) => state.user.coins);
   useEffect(() => {
     navigation.setOptions({
       title: expertName,
@@ -107,14 +65,16 @@ const ExpertScreen = ({ navigation, route }) => {
     navigation.navigate(name, { props, expert_id });
   }
 
-  function checkCoins(method, coins, price) {
-    if (method === "Call" && coins < price) {
-      navigation.navigate("Recharge");
-    } else if (method === "Call" && coins >= price) {
-      gotoCallingScreen();
+  function checkCoins(method,coins,price){
+    console.log(method,coins,price)
+    if(method==="Call" && coins<price){
+      navigation.navigate("Recharge")
     }
-    if (method === "Voice") {
-      switchScreen("Chat", [expertName, expert_id, price]);
+    else if(method==="Call" && coins>=price){
+      alert("Allowed")
+    }
+    if(method==="Voice" ){
+      switchScreen( "Chat", [expertName, expert_id,price])
     }
   }
   return (
@@ -133,52 +93,41 @@ const ExpertScreen = ({ navigation, route }) => {
           label={`${years} ${
             years < 2 ? `Year Of Experience` : `Years Of Experience`
           }`}
-          style={styles.Experience}
+          style={{ fontSize: 30, paddingTop: 10, paddingRight: 20 }}
         />
         <Title
           label={rating}
-          style={styles.rating}
+          style={{ fontSize: 25, paddingTop: 10, paddingRight: 20 }}
           icon={<Ionicons name="star" size={22} />}
         />
         <Title label={quote} style={styles.quote} />
         <View style={styles.contain}>
           <ActionButton
             icon={
-              <Ionicons
-                name="call-outline"
-                size={60}
-                color={Colors.primary600}
-              />
+              <Ionicons name="call-outline" size={80} style={styles.phone} />
             }
             style={styles.leftContainer}
             coins={phonePrice}
-            fct={() => {
-              checkCoins("Call", coins, phonePrice);
-            }}
+            fct={()=>{checkCoins("Call",coins,phonePrice)}}
           />
-
           <ActionButton
             icon={
               <Ionicons
                 name="chatbox-outline"
-                size={60}
-                color={Colors.primary600}
+                size={80}
+                style={styles.message}
               />
             }
             style={styles.rightContainer}
             coins={price}
-            fct={() => {
-              checkCoins("Voice", coins, price);
-            }}
+            fct={()=>{checkCoins("Voice",coins,price)
+             }
+            }
           />
         </View>
         <ActionButton
           icon={
-            <Ionicons
-              name="calendar-outline"
-              size={80}
-              color={Colors.primary600}
-            />
+            <Ionicons name="calendar-outline" size={80} style={styles.book} />
           }
           style={styles.box}
           coins={"Book An Appointment"}
@@ -234,26 +183,19 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   leftContainer: {
-    justifyContent: "center",
-    alignItems: "center",
+    marginRight: 20,
+    paddingLeft: 10,
+    paddingTop: 5,
   },
   rightContainer: {
-    justifyContent: "center",
-    alignItems: "center",
+    marginLeft: 20,
+    paddingLeft: 10,
+    paddingTop: 5,
   },
   contain: {
     flexDirection: "row",
-  },
-  Experience: {
-    fontSize: 25,
-    paddingTop: 10,
-    paddingRight: 20,
-    fontWeight: "500",
-  },
-  rating: {
-    fontSize: 20,
-    paddingTop: 10,
-    paddingRight: 20,
-    fontWeight: "500",
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 10,
   },
 });

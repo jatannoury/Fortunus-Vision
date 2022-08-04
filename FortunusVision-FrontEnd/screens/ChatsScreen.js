@@ -17,21 +17,15 @@ const ChatsScreen = ({ navigation }) => {
   }
 
   const chats = useSelector((state) => state.user.chats);
-  const userType = useSelector((state) => state.user.userType);
   let item = chats;
-
   function renderCardItem(itemData) {
     itemData = itemData.item;
-
-    let CardItemProps = {
+    const CardItemProps = {
       name: itemData.name,
       price: itemData.voicePrice,
       expert_id: itemData.expert_id,
       icon: "check",
     };
-    if (userType == 1) {
-      CardItemProps.user_id = itemData.user_id;
-    }
     return (
       <View style={styles.buttonOuter}>
         <TouchableOpacity
@@ -40,7 +34,6 @@ const ChatsScreen = ({ navigation }) => {
             CardItemProps.name,
             CardItemProps.expert_id,
             CardItemProps.price,
-            CardItemProps.user_id,
           ])}
         >
           <ChatsCard navigation={navigation} {...CardItemProps} />

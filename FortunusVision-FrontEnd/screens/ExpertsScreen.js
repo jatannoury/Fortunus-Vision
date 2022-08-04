@@ -18,8 +18,6 @@ import Logout from "./Logout";
 import ChatScreen from "./ChatScreen";
 import ChatPhoto from "../components/ChatPhoto";
 import BookingScreen from "./BookingScreen";
-import BecomeAnExpert from "./BecomeAnExpertScreen";
-import AppAgora from "../Agora/components/AppAgora";
 export function ExpertsScreen() {
   return (
     <Stack.Navigator
@@ -53,27 +51,11 @@ export function ExpertsScreen() {
           headerLeft: ({ navigation }) => <ChatPhoto navigation={navigation} />,
         }}
       />
-
-      <Stack.Screen
-        name="Modify Info"
-        component={ExpertDrawerNavigator}
-        options={{
-          title: "Modify Info",
-        }}
-      />
       <Stack.Screen
         name="Logout"
         component={ExpertDrawerNavigator}
         options={{
           title: "Logout",
-        }}
-      />
-      <Stack.Screen
-        name="Agora"
-        component={AppAgora}
-        options={{
-          title: "Phone Call",
-          headerBackTitleVisible: true,
         }}
       />
     </Stack.Navigator>
@@ -101,16 +83,6 @@ export function ExpertDrawerNavigator() {
           title: "Chats",
           drawerIcon: ({ color, size }) => (
             <FontAwesome name="wechat" color={color} size={30} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Modify Your Info"
-        component={BecomeAnExpert}
-        options={{
-          title: "Modify Your Info",
-          drawerIcon: ({ color, size }) => (
-            <FontAwesome name="pencil-square" size={30} color={color} />
           ),
         }}
       />

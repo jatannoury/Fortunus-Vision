@@ -1,5 +1,6 @@
 {
   "expo": {
+    "plugins": ["@config-plugins/react-native-webrtc"],
     "name": "FortunusVision-FrontEnd",
     "slug": "FortunusVision-FrontEnd",
     "version": "1.0.0",
@@ -17,14 +18,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      [
-        "expo-image-picker",
-        {
-          "cameraPermission": "The app needs access to your camera in order to set your profile"
-        }
-      ]
-    ]
+    }
   }
 }
