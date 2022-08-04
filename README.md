@@ -49,8 +49,8 @@
 > Note that i didn't use any styling library or theme, all from scratch and using pure css modules
 
 | SignIn | Register | LandingScreen |
-| ------- | ------- | ------- |
-| ![SignIn](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/SignIn.png) | ![Register](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/Register.png) | ![LandingScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/figma/DisplayExperts.png) |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| ![SignIn](https://github.com/jatannoury/FortunusVision/tree/main/readme/figma/SignIn.png) | ![Register](https://github.com/jatannoury/FortunusVision/tree/main/readme/figma/Register.png) | ![LandingScreen](https://github.com/jatannoury/FortunusVision/tree/main/readme/figma/DisplayExperts.png) |
 
 | Artists results                                                                                | Artist's Albums                                                                               |
 | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
