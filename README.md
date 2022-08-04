@@ -112,7 +112,7 @@ In order to run the project correctly, you need to install the following package
   npm install -g react-cli react
   ```
 
--NodeJs
+- NodeJs
 
   Install [NodeJs](https://nodejs.org/en/)
 
@@ -124,7 +124,7 @@ In order to run the project correctly, you need to install the following package
 _Below is an example of how you can install the project on your local device
 
 
-1. Clone the repo
+- Clone the repo
    ```sh
    git clone https://github.com/jatannoury/FortunusVision.git
    ```
@@ -175,7 +175,7 @@ _Below is an example of how you can install the project on your local device
    ```sh
    npm install
    ```
-3. Go to "Desktop\FortunusVision\fortunusVision-Backend" create a .env file and paste into it "DB_CONNECT=mongodb+srv://"YOUR_MONGODB_USENAME":"YOUR_MONGODB_PASSWORD"@cluster0.fi3bv.mongodb.net/"YOUR_MONGODB_COLLECTION"?retryWrites=true
+3. Go to "Desktop\FortunusVision\fortunusVision-Backend" create a .env file and paste into it "DB_CONNECT=mongodb+srv://"YOUR_MONGODB_USERNAME":"YOUR_MONGODB_PASSWORD"@cluster0.fi3bv.mongodb.net/"YOUR_MONGODB_COLLECTION"?retryWrites=true
 TOKEN_SECRET=femdasl;kfnds;afmnsaf;lk" 
 
 4. Set up your local hostname
