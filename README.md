@@ -97,6 +97,12 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 | ![SignInScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/SignInScreen.gif) | ![ExpertScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/ExpertScreen.gif) | ![ChatScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/ChatScreen.gif) |  ![DrawerContent](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/DrawerContent.gif) |
 
 <br><br>
+
+| coins-validator-onCall | call-accessibility-onValidation | coins-validator-onMessage | message-accessibility-onValidation |
+| ------ | ------ | ------ | ------ |
+| ![coins-validator-onCall](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/coins-validator-onCall.gif) | ![call-accessibility-onValidation](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/call-accessibility-onValidation.gif) | ![coins-validator-onMessage](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/coins-validator-onMessage.gif) |  ![message-accessibility-onValidation](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/message-accessibility-onValidation.gif) |
+
+<br><br>
 <img id="how-to-run" src="./readme/title6.svg"/>
 
 > This is an example of how you may give instructions on setting up your project locally.
