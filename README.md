@@ -136,6 +136,14 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 <br><br>
 
+#### Admin Screens
+
+| LandingScreen | Search-For-Users | Delete-A-User | User-Deleted |
+| ------ | ------ | ------ | ------ |
+| ![LandingScreen](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/LandingScreen.gif) | ![Search-For-Users](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Search-For-Users.gif) | ![Delete-A-User](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/Delete-A-User.gif) |  ![User-Deleted](https://github.com/jatannoury/FortunusVision/blob/main/readme/gifs/User-Deleted.gif) |
+
+<br><br>
+
 <img id="how-to-run" src="./readme/title6.svg"/>
 
 > This is an example of how you may give instructions on setting up your project locally.

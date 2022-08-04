@@ -29,7 +29,7 @@ async function signIn(req, res) {
   try {
     //check validity of email
     const user = await getByEmail(req.body.email);
-    if (user == null) return res.send({ err: "Invalid credentials" });
+    if (user == null) return res.send({ err: "User Not Found" });
 
     //check validity of password
     const validPassword = await bcrypt.compare(

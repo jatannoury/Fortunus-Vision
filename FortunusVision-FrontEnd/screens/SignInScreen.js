@@ -35,7 +35,6 @@ import {
 } from "../redux/users";
 
 const SignInScreen = ({ navigation }) => {
-  const [userType, setUserType] = useState(null);
   function switchCurrent() {
     navigation.navigate("SignUP");
   }
@@ -70,9 +69,13 @@ const SignInScreen = ({ navigation }) => {
     saveInputHandler();
     async function signIn() {
       const response = await signUserIn(inputVals.email, inputVals.password);
-      if (response.err) {
+      console.log(response)
+      if(response.err==="User Not Found"){
+        Alert.alert("User Not Found", "Please check your inputs");
+      }else if (response.err) {
         Alert.alert("Wrong credentials", "Please check your inputs");
-      } else {
+      }  
+      else {
         dispatch(addCoins(response.coins));
         dispatch(addName(response.userName));
         dispatch(addUserId(response.user_id));
