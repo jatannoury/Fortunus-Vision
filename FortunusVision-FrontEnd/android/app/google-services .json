@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "31060265630",
+    "firebase_url": "https://fortunusvision-d4997-default-rtdb.firebaseio.com",
+    "project_id": "fortunusvision-d4997",
+    "storage_bucket": "fortunusvision-d4997.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31060265630:android:a8fd0de4c764e36b6b898f",
+        "android_client_info": {
+          "package_name": "com.FortunusVision"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31060265630-ph7iivu8ne4gh0ouudqlbj6p5hb4p77b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABMweWO5C704agNJrd5QPBgsIAYUh3meg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31060265630-ph7iivu8ne4gh0ouudqlbj6p5hb4p77b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
