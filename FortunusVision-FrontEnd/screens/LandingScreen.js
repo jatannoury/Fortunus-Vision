@@ -21,6 +21,7 @@ const LandingScreen = ({ navigation }) => {
 
   function renderCardItem(itemData) {
     itemData = itemData.item;
+    console.log(itemData)
     const CardItemProps = {
       name: itemData.userName,
       age: itemData.age,
@@ -31,8 +32,7 @@ const LandingScreen = ({ navigation }) => {
           : (itemData.rating.rating / itemData.rating.NbofVotes).toFixed(2),
       phonePrice: itemData.phone_price,
       price: itemData.voice_price,
-      quote:
-        "I have always believed, and I still believe, that whatever good or bad fortune may come our way we can always give it meaning and transform it into something of value.",
+      quote:itemData.Quote,
       id: itemData.expert_id,
     };
 

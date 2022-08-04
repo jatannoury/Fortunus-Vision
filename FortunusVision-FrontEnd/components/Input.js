@@ -7,7 +7,11 @@ import {
   becomeAnExpert,
 } from "react-native";
 import Colors from "../constants/colors";
-const Input = ({ label, onChangeText, invalid, becomeAnExpert, style }) => {
+const Input = ({ label, onChangeText, invalid, becomeAnExpert, style,password }) => {
+  let isPassword;
+  if (password===true){
+    isPassword=true
+  }
   return (
     <View style={[becomeAnExpert && styles.container]}>
       <Text
@@ -20,6 +24,7 @@ const Input = ({ label, onChangeText, invalid, becomeAnExpert, style }) => {
         {label}
       </Text>
       <TextInput
+        secureTextEntry={isPassword}
         placeholderTextColor={Colors.primary600}
         placeholder={`${label}`}
         {...becomeAnExpert}
@@ -30,6 +35,7 @@ const Input = ({ label, onChangeText, invalid, becomeAnExpert, style }) => {
           style && styles.padding,
         ]}
         onChangeText={onChangeText}
+        
       />
     </View>
   );

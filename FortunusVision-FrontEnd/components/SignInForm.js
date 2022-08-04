@@ -12,6 +12,7 @@ const SignInForm = ({ InputChangedHandlers }) => {
       <Input
         label={"Password"}
         onChangeText={InputChangedHandlers.bind(this, "password")}
+        password={true}
       />
     </View>
   );
