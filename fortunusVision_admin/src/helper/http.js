@@ -1,5 +1,5 @@
 import axios from "axios";
-const BACKEND_URL = "http://192.168.1.198:3001/api/v1";
+const BACKEND_URL = "http://192.168.1.198:3001/api/v1";// http://"YOUR_PERSONAL_HOSTNAME":3001/api/v1
 
 axios.defaults.baseURL = BACKEND_URL;
 let data;
