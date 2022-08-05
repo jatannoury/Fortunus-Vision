@@ -69,7 +69,6 @@ const SignInScreen = ({ navigation }) => {
     saveInputHandler();
     async function signIn() {
       const response = await signUserIn(inputVals.email, inputVals.password);
-      console.log(response)
       if(response.err==="User Not Found"){
         Alert.alert("User Not Found", "Please check your inputs");
       }else if (response.err) {

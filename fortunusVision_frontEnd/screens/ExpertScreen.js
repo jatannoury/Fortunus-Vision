@@ -38,7 +38,6 @@ const ExpertScreen = ({ navigation, route }) => {
     experts.map((item, index) => {
       if (item.expert_id === expert_id) {
         setIndex(index);
-        console.log(index);
       }
     });
   }, []);

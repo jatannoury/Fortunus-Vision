@@ -21,7 +21,6 @@ const LandingScreen = ({ navigation }) => {
 
   function renderCardItem(itemData) {
     itemData = itemData.item;
-    console.log(itemData)
     const CardItemProps = {
       name: itemData.userName,
       age: itemData.age,
