@@ -61,13 +61,13 @@
 
 <img id="tech-stack" src="./readme/title4.svg"/>
 
-Here's a brief high-level overview of the tech stack the Well app uses:
+Here's a brief high-level overview of the tech stack the FortunusVision app uses:
 
 - This project uses the [React Native development framework](https://reactnative.dev/) for the development of the core content of the application (user and expert screens). React Native is a JavaScript framework for writing real, natively rendering mobile applications for iOS and Android. It’s based on React, Facebook’s JavaScript library for building user interfaces, but instead of targeting the browser, it targets mobile platforms
 
-- Moreover this project uses the [ReactJs](https://reactjs.org/) for the development of the admin content of the application. React is a library for building composable user interfaces. It encourages the creation of reusable UI components, which present data that changes over time.
+- Moreover this project uses [ReactJs](https://reactjs.org/) for the development of the admin content of the application. React is a library for building composable user interfaces. It encourages the creation of reusable UI components, which present data that changes over time.
 
-- To serve the data, this project uses [NodeJs development framework](https://nodejs.org/en/) as Backend. NodeJs is an open source development platform for executing JavaScript code server-side. Node is useful for developing applications that require a persistent connection from the browser to the server and is often used for real-time applications such as chat, news feeds and web push notifications.
+- To serve the data, this project uses [Node.js development framework](https://nodejs.org/en/) as Backend. Node.js is an open source development platform for executing JavaScript code server-side. Node is useful for developing applications that require a persistent connection from the browser to the server and is often used for real-time applications such as chat, news feeds and web push notifications.
 
 - For persistent storage (database), the app uses the [MongoDB Atlas](https://www.mongodb.com/) package which allows the app to create a custom storage schema and save it to a cloud database. MongoDB Atlas is a fully-managed cloud database that handles all the complexity of deploying, managing, and healing your deployments on the cloud service provider of your choice (AWS , Azure, and GCP). MongoDB Atlas is the best way to deploy, run, and scale MongoDB in the cloud.
 
@@ -77,12 +77,16 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 - For the application state management, [Redux Toolkit](https://redux-toolkit.js.org/) have been integrated.Redux Toolkit is an opinionated toolset for efficient Redux development created by the Redux team. It is the standard and recommended way to write Redux logic and manage state in your JavaScript applications.
 
+- Concerning the chatting system applied, [Expo-av](https://docs.expo.dev/versions/latest/sdk/av/) have been used in order to be able to record the voice data, and everything else has been built from scratch using pure logic, and without the use of libraries
+
+- The project navigation system was built using nested versions of react-navigation, react-navigation/stack and react-navigation/drawer
+
 - The app uses the font ["Roboto"](https://fonts.google.com/specimen/Roboto) as its main font, and the design of the app adheres to the material design guidelines.
 
 <br><br>
 <img id="impplementation" src="./readme/title5.svg"/>
 
-> Uing the above mentioned tecch stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
+> Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
 #### Users Screens
 
@@ -174,9 +178,9 @@ In order to run the project correctly, you need to install the following package
   npm install -g react-cli react
   ```
 
-- NodeJs
+- Node.js
 
-  Install [NodeJs](https://nodejs.org/en/)
+  Install [Node.js](https://nodejs.org/en/)
 
    
 
